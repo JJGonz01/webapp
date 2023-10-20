@@ -1,0 +1,68 @@
+.create-primary-container { 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  width: 90vw;
+  margin-inline: auto;
+  margin-block: 20px;
+  background-color: #FFFF;
+  border: 2px solid var(--container-border-color);
+  border-radius: 20px;
+  padding: 30px;
+}
+
+.terapia-editor-container{
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.terapias-opciones-container{
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    max-width: 1000px;
+    max-height: 450px; 
+    padding: 3px;
+    margin: 3px;
+    border-top: 1px solid #5589D2;
+    border-bottom: 1px solid #5589D2;
+  }
+
+  .terapies-option-button{
+    display: block;
+    border: none;
+    border-radius: 10px;
+    background-color: var( --container-session-show-color);
+    margin: 5px 0;
+    padding-inline: 15px;
+    padding-block: 5px;
+    font-weight: bold;
+    color:rgb(0, 0, 0);
+    transition: transform 200ms ease-in-out;
+  }
+
+
+  .terapies-selected-option-button{
+    display: block;
+    border: none;
+    border-radius: 10px;
+    background-color: #5589D2;
+    margin: 5px 0;
+    padding-inline: 15px;
+    padding-block: 5px;
+    font-weight: bold;
+    color:black;
+    transition: transform 200ms ease-in-out;
+  }
+
+  .terapias-opciones-all{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .table-space{
+    margin-bottom: 10px;
+  }

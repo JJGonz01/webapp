@@ -1,0 +1,245 @@
+
+.close-create-button{
+   margin-left: 50px;
+}
+
+@media (min-width: 881px) {
+   body{
+      background-image: url("http://172.24.100.54:8000/images/school.png");
+      background-size:cover;
+      font-size: 150%;
+   }
+
+   body h1{
+      font-size: 200%;
+      padding-top:3%;
+   }
+
+   .bg-text{
+      background-color: #0E4565;
+      border-radius: 8px;
+      color: white;
+      font-weight: bold;
+      position: absolute;
+      z-index: 2;
+      transform: translate(25%, 10%);
+      width: 60%;
+      padding: 3%;
+      text-align: center;
+   }
+
+   .bg-text li{
+      list-style:none;
+
+   }
+
+   .bg-text input{
+      width: 50%;
+
+   }
+
+   .button-column{
+      display:flex;
+      flex-direction: column;
+      text-align: center;
+      justify-content: center;
+      }
+   .login-container{
+      font-size:105%;
+   }
+
+   .login-container label{
+      margin-top: 10%;
+   }
+
+   .header{
+      margin-bottom:4%;
+   }
+   .login-container input{
+      width:25%;
+      margin-bottom: 2%;
+      font-size: large;
+   }
+
+   .error-text{
+      color:rgb(120, 17, 17);
+      font-size: x-large;
+      background-color: #f08c8c;
+      border: 3px solid rgb(119, 14, 14);
+      padding: 1%;
+      display: block;
+   }
+
+
+   .input-row{
+      display:flex;
+      flex-direction: row;
+      align-items: center;
+      text-align: center;
+      transform: translate(35%, 0%);
+      font-size:105%;
+   }
+   .input-row input{
+      width:3%;
+      margin-top:2%;
+      height:20%;
+   }
+   .register-container{
+
+   }
+
+   .register-container input{
+      width: 70%;
+      margin-bottom: 0%;
+   }
+
+   .auth-input{
+      margin:0;
+   }
+
+   .input-column{ 
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+   }
+
+   .login-create-button{
+      border-radius: 4px;
+      background-color: #80DED9;
+      color:white;
+      background-size: cover;
+      margin: 5px 0;
+      padding-inline: 15px;
+      padding-block: 10px;
+      font-size: 20px;
+      width:25%;
+      font-weight: bold;
+   }
+
+   .login-create-button:hover{
+      background-color: #62cac5;
+      color: white;
+   }
+
+   .login-create-button p{
+      margin:5px;
+      
+   }
+
+   .forgot-password-text{
+      font-size: xx-large;
+      color:white;
+   }
+
+   .forgot-password-text:visited{
+      color:aqua;
+   }
+
+      
+   .close-create-button{
+      border-radius: 4px;
+      background-color: #c14440;
+      color:white;
+      justify-content: center;
+      background-size: cover;
+      margin: 5px 0;
+      padding-inline: 15px;
+      padding-block: 10px;
+      font-size: 20px;
+      width:25%;
+      font-weight: bold;
+   }
+
+   .close-create-button:hover{
+      background-color: #941111;
+      text-align: center;
+      color: white;
+      justify-content: center;
+   }
+
+   .close-create-button p{
+      margin:5px;
+      
+   }
+}
+@media (max-width: 880px) {
+   body{
+      background-color:#609ec1;
+      font-size: 100%;
+   }
+
+   body h1{
+      font-size: 150%;
+      padding-top:3%;
+   }
+   
+   .bg-text{
+      background-color: #0E4565;
+      border-radius: 8px;
+      color: white;
+      font-weight: bold;
+      z-index: 2;
+      padding: 3%;
+      text-align: center;
+  }
+
+  .button-column{
+   display:flex;
+   flex-direction: column;
+   text-align: center;
+   justify-content: center;
+   }
+  @media (min-height: 750px) {
+      .bg-text{
+         transform: translate(0, 50%);
+      }
+   }
+
+   .login-create-button{
+      border-radius: 4px;
+      background-color: #80DED9;
+      color:white;
+      background-size: cover;
+      margin: 5px 0;
+      padding-inline: 15px;
+      padding-block: 10px;
+      font-size: 15px;
+      width:45%;
+      font-weight: bold;
+   }
+
+   .login-create-button:hover{
+      background-color: #62cac5;
+      color: white;
+   }
+
+   .login-create-button p{
+      margin:5px;
+      
+   }
+
+   
+   .close-create-button{
+      border-radius: 4px;
+      background-color: #c14440;
+      color:white;
+      background-size: cover;
+      margin: 5px 0;
+      padding-inline: 15px;
+      padding-block: 10px;
+      font-size: 20px;
+      width:25%;
+      font-weight: bold;
+   }
+
+   .close-create-button:hover{
+      background-color: #941111;
+      color: white;
+   }
+
+   .close-create-button p{
+      margin:5px;
+      
+   }
+}

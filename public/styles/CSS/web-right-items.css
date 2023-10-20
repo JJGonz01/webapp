@@ -1,0 +1,401 @@
+.user-welcome-box{
+    border:0px;
+    margin-top:10px;
+    border-radius: 4px;
+    background-color:#0E4565;
+    height:250px;
+}
+
+.patient-info-box{
+    border:0px;
+    margin-top:10px;
+    border-radius: 4px;
+    background-color:#0E4565;
+    height:250px;
+    justify-content:space-around;
+    padding-right: 5%;
+    display: flex;
+    flex-direction: row;
+
+}
+
+.patient-profile-image{
+    width:200px;
+    margin-left:8%;
+    margin-top:1.5%;
+    height:200px;
+}
+.general-items-container{
+    padding-left:5%;
+    padding-right:5%;
+    padding-top:2%;
+    padding-bottom: 3%;
+}
+
+.general-items-container p{
+    font-size:xx-large;
+    font-style: normal;
+    padding-left: 50px;
+    padding-top: 40px;
+    color:white;
+}
+
+.options-items-container{
+    border:0px;
+    align-items: center;
+    margin: 0 auto;
+    padding-top:4%;
+    margin-top:4%;
+    text-align: center;
+    border-radius: 4px;
+    background-color: white;
+}
+
+.options-items-container-inner{
+    padding-left:10%;
+    padding-right:10%;
+    padding-top:3%;
+    padding-bottom: 5%;
+}
+
+.top-index-container{
+    background-color: #edf4fb;
+    color:#0c1e5b;
+}
+
+
+
+@media (min-width: 1151px) {
+    .table-items-options{
+        border-collapse: collapse;
+        width:100%;
+    }
+
+    .table-items-options tr:first-child th{
+        border:0;
+        font-size:medium;
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    .table-items-options td{
+        font-size:medium;
+        text-align: center;
+        vertical-align: middle;
+        border-color: rgb(180, 180, 180);
+        border-left:0;
+        border-right:0;
+        border-top:0;
+    }
+
+    .table-hide-show-container{
+        padding-left:10%;
+        padding-right:10%;
+        padding-top:3%;
+        padding-bottom: 5%;
+    }
+
+    .hide-if-width-small{
+    }
+
+    .title-div-home{
+    }
+    
+    .title-div-home h1{
+        font-size:3.5em;
+        font-weight: bolder;
+        padding-bottom: 3%;
+        color:rgb(4, 14, 117); 
+    }
+    
+    .title-div-home h4{
+        font-style: oblique;
+        color:rgb(4, 14, 117); 
+    }
+    
+    .text-div-home{
+        text-align: left;
+        padding-left:10%;
+        padding-right:15%; 
+        text-align: justify;
+        text-justify: inter-word;
+    }
+    
+    .text-div-home p{
+        -webkit-text-size-adjust: none;
+        text-size-adjust: none;
+        font-size:medium;
+        font-weight: lighter;
+        text-align: justify;
+        text-justify: inter-word;
+        color:black; 
+    }
+    
+    .text-div-home ul{
+        padding-top:2%;
+        padding-left:20%;
+        padding-right:15%; 
+        font-size:medium;
+        text-align: justify;
+        justify-content: center;
+        text-justify: inter-word;
+        color:black; 
+    }
+    
+    .home-welcome-box{
+        display:flex;
+        flex-direction: row;
+        border:0px;
+        margin-top:10px;
+        justify-content:space-around;
+        width:60%;
+        margin-left: 20%;
+        border-radius: 4px;
+        background-color:#0E4565;
+        height:50px;
+    }
+    
+    .home-welcome-box-btn{
+        border-radius: 6px;
+        border:1px solid rgb(99, 167, 244);
+        height: 80%;
+        margin-top: 5px;
+        background-color: #80DED9;
+        color:rgb(255, 255, 255);
+        font-weight: bold;
+        padding: 7px;
+    }
+    
+    
+    .home-welcome-box-btn:hover{
+        border: 1px solid rgb(99, 167, 244);
+        background-color: #62cac5;
+        color:rgb(255, 255, 255);
+    }
+    
+    .home-welcome-box-btn-selected{
+        border-radius: 6px;
+        border:1px solid rgb(55, 91, 132);
+        height: 80%;
+        margin-top: 5px;
+        background-color: #388ea3;
+        color:rgb(255, 255, 255);
+        font-weight: bold;
+        padding: 7px;
+    }
+    
+    .imageHome {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left:7%;
+        width: 100%;
+      }
+
+      .create-basic-container-home{
+        margin-top:3%;
+        padding-top:5%;
+        padding-bottom:3%;
+        margin-left: 20%;
+        margin-right: 20%;
+        background-color: white;
+        border-radius: 40px;
+        text-align:center;
+        margin-bottom:2%;
+    }
+    .imageHomep{
+        font-style: oblique;
+        font-size: small;
+        color:rgb(113, 113, 113);
+        margin-left: 38%;
+      }
+}
+
+@media (max-width: 1150px) {
+
+    .create-basic-container-home{
+        margin-top:3%;
+        padding-top:5%;
+        padding-bottom:3%;
+        background-color: white;
+        border-radius: 10px;
+        text-align:center;
+        margin-bottom:2%;
+    }
+
+    .patient-info-box{
+        border:0px;
+        margin-top:10px;
+        border-radius: 4px;
+        background-color:#0E4565;
+        height:250px;
+        justify-content:space-between;
+        display: flex;
+        flex-direction: row;
+    
+    }
+    
+    .patient-profile-image{
+        width:50px;
+        margin-left:8%;
+        margin-top:1.5%;
+        height:50px;
+    }
+    .general-items-container{
+        padding-left:5%;
+        padding-right:5%;
+        padding-top:2%;
+        padding-bottom: 3%;
+    }
+    
+    .general-items-container p{
+        font-size:large;
+        font-style: normal;
+        padding-left: 50px;
+        padding-top: 20px;
+        color:white;
+    }
+
+    .options-items-container{
+        border:0px;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
+        padding-top:4%;
+        margin-top:4%;
+        text-align: center;
+        border-radius: 4px;
+        background-color: white;
+    }
+    
+    .table-items-options{
+        border-collapse: collapse;
+        width:100%;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .table-items-options tr:first-child th{
+        border:0;
+        font-size:small;
+    }
+
+    .table-items-options td{
+        font-size:small;
+        border-color: rgb(180, 180, 180);
+        border-left:0;
+        border-right:0;
+        border-top:0;
+    }
+
+    .table-hide-show-container{
+        padding-left:10%;
+        padding-right:10%;
+        padding-top:3%;
+        padding-bottom: 5%;
+    }
+
+    .hide-if-width-small{
+        display:none;
+    }
+
+    .title-div-home{
+    }
+    
+    .title-div-home h1{
+        font-size:150%;
+        font-weight: bolder;
+        padding-bottom: 3%;
+        color:rgb(4, 14, 117); 
+    }
+    
+    .title-div-home h4{
+        font-size:120%;
+        font-style: oblique;
+        color:rgb(4, 14, 117); 
+    }
+    
+    .text-div-home{
+        text-align: left;
+        padding-left:10%;
+        padding-right:15%; 
+        text-align: justify;
+        text-justify: inter-word;
+    }
+    
+    .text-div-home p{
+        
+        font-size:medium;
+        font-weight: lighter;
+        text-align: justify;
+        text-justify: inter-word;
+        color:black; 
+    }
+
+    .text-div-home ul{
+        padding-top:2%;
+        font-size:medium;
+        text-align: justify;
+        justify-content: center;
+        text-justify: inter-word;
+        color:black; 
+    }
+    
+    .home-welcome-box{
+        display:flex;
+        flex-direction: column;
+        border:0px;
+        margin-top:30px;
+        justify-content:center;
+        align-items: center;
+        text-align: center;
+        width:100%;
+        border-radius: 4px;
+        padding-bottom: 3%;
+        padding-top: 10px;
+        background-color:#0E4565;
+    }
+    
+    .home-welcome-box-btn{
+        border-radius: 6px;
+        border:1px solid rgb(99, 167, 244);
+        margin-top: 5px;
+        background-color: #80DED9;
+        color:rgb(255, 255, 255);
+        font-weight: bold;
+        width:80%;
+    }
+    
+    
+    .home-welcome-box-btn:hover{
+        border: 1px solid rgb(99, 167, 244);
+        background-color: #62cac5;
+        color:rgb(255, 255, 255);
+    }
+    
+    .home-welcome-box-btn-selected{
+        border-radius: 6px;
+        border:1px solid rgb(55, 91, 132);
+
+        width:80%;
+        margin-top: 5px;
+        background-color: #388ea3;
+        color:rgb(255, 255, 255);
+        font-weight: bold;
+        padding: 7px;
+    }
+    
+    .imageHome {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left:7%;
+        width: 100%;
+    }
+    .imageHomep{
+        font-style: oblique;
+        font-size: small;
+        color:rgb(113, 113, 113);
+        margin-left: 10%;
+    }
+}

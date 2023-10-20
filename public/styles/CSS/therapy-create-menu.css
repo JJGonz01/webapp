@@ -1,0 +1,229 @@
+.therapy-creation-container{
+    margin:5%;
+    background: white;
+    border-radius: 4px;
+    padding-bottom: 5%;
+}
+
+.therapy-input-row{
+    display:flex;
+    flex-direction: row; 
+    justify-content: space-between;
+    padding: 3%;
+    align-items:center;
+}
+
+
+.row-text-button{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+ }
+
+ 
+.header-selector{
+    background-color: #E1F0FF;
+    margin-left:5%;
+    margin-right:5%;
+    
+    margin-bottom:0px;
+    font-weight: bold;
+    padding-bottom: 15px;
+}
+
+.row-option-selector{
+    background-color: #F4FAFF;
+    height:110px;
+    margin-top:0px;
+    font-weight: bold;
+    display:flex;
+    flex-direction: row;
+    overflow-x:auto;
+    
+}
+
+.row-option-selector button{
+    background-color: #0E4565;
+    font-weight: bold;
+    color:white;
+    margin:7px;
+    padding:10px;
+    border:0px solid black;
+}
+
+.back-period-creation{
+    background-color: #F4FAFF;
+}
+
+.two-divs-row-container{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 3%;
+}
+
+.conditions-container{
+    background-color: #E1F0FF;
+    display: block;
+    overflow-y: auto;
+    width: 50%;
+    margin-right: 2%;
+}
+
+.elements-conditions{
+    overflow-y: auto;
+    height: 443px;
+    padding: 2%;
+}
+
+.row-bloque{
+    display: flex;
+    flex-direction: row;
+}
+
+.row-bloque li{
+    height: 10%;
+}
+
+.name-therapy-input{
+    width:100%;
+    height: 40px;
+    border-radius: 4px;
+}
+.elements-conditions-container{
+    background-color: #5D9DC5;
+    margin-top:2%;
+    border-radius: 4px;
+    padding: 1%;
+}
+.elements-conditions-container select{
+    width:40%;
+    margin-right: 3%;
+}
+
+
+.actions-container{
+    background-color: #E1F0FF;
+    display: block;
+    overflow-y: auto;
+    
+    width: 50%;
+}
+
+.therapy-check-row{
+    display:flex;
+    flex-direction: row; 
+    justify-content:center;
+    padding: 3%;
+    align-items:flex-start;
+}
+
+.therapy-check-row-text{
+    display:flex;
+    flex-direction: column; 
+    justify-content:space-between;
+    align-items:flex-start;
+}
+
+.therapy-check-row-text select{
+    width: 140px;
+    height:30px;
+    margin-right: auto;
+}
+
+.therapy-check-row-text input{
+    width: 100px;
+    height:30px;
+}
+
+.therapy-check-row input{
+   margin-right: 2%;
+   margin-top: 1%;
+}
+
+.therapy-check-row-text-top{
+    display:flex;
+    flex-direction: column; 
+    justify-content:space-between;
+    align-items:flex-start;
+}
+
+.therapy-check-row-text-top select{
+    width: 500px;
+    height:30px;
+    margin-right: auto;
+}
+
+.therapy-check-row-text-top input{
+    width: 230px;
+    height:30px;
+}
+
+@media (max-width: 751px) {
+
+    .therapy-input-row{
+        display: block;
+        justify-content: space-between;
+        padding: 3%;
+        padding-bottom: 10px;
+        align-items:center;
+    }
+
+    .therapy-input-row * {
+        margin-bottom: 10px;
+    }
+    
+    .row-text-button{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+     }
+    
+    .therapy-check-row{
+        display:flex;
+        flex-direction: column; 
+        justify-content:center;
+        padding: 3%;
+        align-items:flex-start;
+    }
+    .therapy-check-row-text-top{
+        display:flex;
+        flex-direction: column; 
+        justify-content:space-between;
+        align-items:flex-start;
+    }
+    .therapy-check-row{
+        display:flex;
+        flex-direction: column; 
+        justify-content:center;
+        padding: 3%;
+        align-items:flex-start;
+    }
+    
+    .two-divs-row-container{
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 3%;
+    }
+    
+    .actions-container{
+        background-color: #E1F0FF;
+        display: block;
+        overflow-y: auto;
+        
+        width: 100%;
+    }
+    .elements-conditions{
+        width:100%;
+        overflow-y: auto;
+        height: 443px;
+        padding: 2%;
+    }
+    
+    .conditions-container{
+        background-color: #E1F0FF;
+        display: block;
+        overflow-y: auto;
+        width: 100%;
+        margin-right: 2%;
+    }
+}

@@ -1,0 +1,245 @@
+.create-button{
+    border-radius: 4px; 
+    background-color: #80DED9;
+    color:white;
+    background-size: cover;
+    margin: 5px 0;
+    padding-inline: 15px;
+    padding-block: 10px;
+    font-weight: bold;
+}
+.create-button:hover{
+    background-color: #62cac5;
+    color: white;
+}
+.create-button p{
+    margin:5px;
+}
+
+.create-big-button{
+    border-radius: 4px; 
+    background-color: #80DED9;
+    color:white;
+    background-size: cover;
+    margin: 5px 0;
+    padding-inline: 15px;
+    padding-block: 10px;
+    font-weight: bold;
+    font-size: xx-large;
+}
+.create-big-button:hover{
+    background-color: #62cac5;
+    color: white;
+}
+.create-big-button p{
+    margin:5px;
+}
+
+.create-medium-button{
+    border-radius: 4px; 
+    border:1px solid black;
+    background-color: #80DED9;
+    color:white;
+    background-size: cover;
+    margin: 5px 0;
+    padding-inline: 15px;
+    padding-block: 10px;
+    font-weight: bold;
+    font-size: x-large;
+}
+.create-medium-button:hover{
+    background-color: #62cac5;
+    color: white;
+}
+.create-medium-button p{
+    margin:5px;
+}
+
+
+.llamative-button{
+    border-radius: 4px; 
+    background-color: #f29479;
+    color:white;
+    background-size: cover;
+    margin: 5px 0;
+    padding-inline: 15px;
+    padding-block: 10px;
+    font-weight: bold;
+}
+.llamative-button:hover{
+    background-color: #c87862;
+    color: white;
+}
+.llamative-button p{
+    margin:5px;
+}
+
+
+.edit-button{
+    border-radius: 4px;
+    border:0;
+    background-color: #6D9DC5;
+    color:white;
+    background-size: cover;
+    margin: 5px 0;
+    padding-inline: 25px;
+    padding-block: 10px;
+    font-weight: bold;
+}
+
+.edit-button:hover{
+    background-color: #537997;
+}
+
+.delete-button{
+    border-radius: 4px;
+    border:0;
+    background-color: #ef3c2d;
+    color:white;
+    background-size: cover;
+    margin: 5px 0;
+    padding-inline: 25px;
+    padding-block: 10px;
+    font-weight: bold;
+}
+
+.delete-button:hover{
+    background-color: #bc2d20;
+}
+
+.patient-edit-button{
+    border-radius:4px;
+    border: 1px solid #418a86;
+    background-color: #62cac5;
+    height:50px;
+    width:100%;
+    color:white;
+    font-weight: bold;
+    margin:10px;
+    margin-right:20px;
+    margin-top:20px;
+}
+
+.patient-delete-button{
+    border-radius:4px;
+    border: 1px solid #8a4141;
+    background-color: #ca7262;
+    height:50px;
+    width:100%;
+    color:white;
+    font-weight: bold;
+    margin-right:20px;
+    margin:10px;
+    margin-top:20px;
+}
+
+
+
+.session-necessary-contaner{
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-top: 5%;
+    padding-top: 3%;
+    padding-bottom:3%;
+    border-radius: 16px;
+    background-color: #0e4565; 
+    color: white;
+    justify-content: center;
+    text-align: center;
+    font-weight: bold;
+    border: 0px solid black;
+}
+
+.centeder-inputs{
+    justify-content: center;
+    text-align: center;
+  margin-bottom: 3%;
+}
+
+.inputs-session{
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  
+}
+
+.inputs-session label{
+    margin-top: 3%;
+}
+
+.inputs-session select{
+    width: 70%;
+    padding:1%;
+    background-color: white;
+}
+.session-necessary-contaner button{
+    border-radius: 14px; 
+    background-color: #80DED9;
+    color:white;
+    background-size: cover;
+    margin: 5px 0;
+    padding-inline: 15px;
+    padding-block: 10px;
+    font-weight: bold;
+    font-size: 30px;
+    margin-top: 5%;
+    font-weight: bolder;
+}
+
+.session-necessary-contaner p{
+    font-size: 40px;
+}
+
+@media (max-width: 750px) {
+    .choice-selection-container{
+        display:flex;
+        flex-direction: row;
+        text-align: center;
+        justify-content: space-around;
+        width:70%;
+        margin-left:17.5%;
+        height:10%;
+        border: 3px solid #0e4565;
+        background-color: #6D9DC5;
+        border-radius: 30px;
+        margin-top:30px;
+        margin-bottom:20px;
+    }
+    
+    .choice-selection-container button{
+        color:white;
+        border: 0px solid blue;
+        border-radius: 30px;
+        width:45%;
+        height:80%;
+    }
+    
+
+}
+
+@media (min-width: 751px) {
+    .choice-selection-container{
+        display:flex;
+        flex-direction: row;
+        text-align: center;
+        justify-content: space-around;
+        width:28%;
+        margin-left:36%;
+        height:50px;
+        border: 3px solid #0e4565;
+        background-color: #6D9DC5;
+        border-radius: 30px;
+        margin-top:30px;
+        margin-bottom:20px;
+    }
+    
+    .choice-selection-container button{
+        color:white;
+        border: 0px solid blue;
+        border-radius: 30px;
+        width:45%;
+        height:80%;
+    }
+}
