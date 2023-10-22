@@ -15,8 +15,8 @@ return new class extends Migration
         Schema::create('testdatas', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->json('actions')->default('[]');
-            $table->json('actions_temp')->default('[]');
+            $table->json('actions');
+            $table->json('actions_temp');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });

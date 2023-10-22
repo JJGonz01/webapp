@@ -20,7 +20,7 @@ return new class extends Migration
             $table->boolean('running')->default(false);
             $table->integer('stage')->default(0);
 
-            $table->json('rules')->default('[]');
+            $table->json('rules');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });

@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('reglas', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->json("rules")->default("[]");
+            $table->json("rules");
             $table->boolean("isTherapyDefault")->default(false);
 
             $table->unsignedBigInteger('session_id');

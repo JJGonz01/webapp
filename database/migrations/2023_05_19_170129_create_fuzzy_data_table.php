@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('fuzzy_data', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->json('bpm_list')->default('[]');
-            $table->json('movement_list')->default('[]');
+            $table->json('bpm_list');
+            $table->json('movement_list');
             $table->Integer('heartIncreasing')->default(0);
             $table->Integer('moveIncreasing')->default(0); 
             $table->unsignedBigInteger('session_id');

@@ -17,7 +17,7 @@ return new class extends Migration
             $table->Integer('conjuntoPeriodo')->default(0);
             $table->String('periodo')->default('Cualquiera');
             $table->String('momentoPeriodo')->default('Entero');
-            $table->json('condiciones')->default('[]');
+            $table->json('condiciones');
             $table->String('accion1')->default('Nada');
             $table->String('accion2')->default('Nada');
             $table->unsignedBigInteger('ruleset_id');
