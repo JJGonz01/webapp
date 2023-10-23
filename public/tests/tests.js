@@ -120,9 +120,11 @@ function setAsInTask(){
     const taskInfoContainer = document.getElementById('no-task-container');
     const inTaskContainer = document.getElementById('in-task-container');
     const bottonInfoText = document.getElementById('in-task-text');
-    bottonInfoText.innerHTML = testExplanationDictionary[localStorage["testId"]];
-    taskInfoContainer.style.display = "none";
-    inTaskContainer.style.display = "block";
+    if(bottonInfoText != null){
+        bottonInfoText.innerHTML = testExplanationDictionary[localStorage["testId"]];
+        taskInfoContainer.style.display = "none";
+        inTaskContainer.style.display = "block";
+    }
 }
 
 function setAsInNotStartedTask(){
