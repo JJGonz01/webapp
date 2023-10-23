@@ -3,7 +3,7 @@
 <html>
 
 <head>
-        <link rel="stylesheet" href="{{ asset('styles/CSS/tests.css') }}">
+        <link rel="stylesheet" href="https://pomodoroadhdapp.azurewebsites.net/styles/CSS/tests.css">
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>

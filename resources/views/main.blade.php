@@ -30,7 +30,7 @@
 </head>
 
 <body>
-    <script src="{{ asset('javascript/navbar.js') }}"></script>
+    <script src="https://pomodoroadhdapp.azurewebsites.net/javascript/navbar.js'"></script>
     <!-- JS SCRIPTS PARA TODA LA WEB-->
     
 
