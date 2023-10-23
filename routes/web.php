@@ -56,7 +56,7 @@ Route::get('/dashboard', function () {
   * PACIENTES
   */
 Route::get('/HOME', function () {
-    return view('general');
+    return view('main');
 })->name('main');
 
 Route::get('/patients', [PatientsController::class, 'index'])
