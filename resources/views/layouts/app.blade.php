@@ -77,14 +77,13 @@
                                         </button>
                                     </form>
                                     <div>
-                                        <button id="cerrar-session-button" class="close-create-button" href="{{route('main', [], false, true)}}"
-                                        onclick="event.preventDefault(); eraseCookies();
-                                        document.getElementById('logout-form').submit();">
-                                            {{ __('Cerrar sesión') }}
-                                        </button>
+                                        
                                     </div>
                                     <form id="logout-form" action="{{route('logout', [], false, true)}}" method="POST" class="d-none">
                                         @csrf
+                                        <button type="submit" id="cerrar-session-button" class="close-create-button" href="{{route('main', [], false, true)}}">
+                                            {{ __('Cerrar sesión') }}
+                                        </button>
                                     </form>
                                 </div>
                             </div>
