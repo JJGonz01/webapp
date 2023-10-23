@@ -6,7 +6,7 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}">
+                    <form method="POST" action="{{route('login', [], false, true)}}">
                         @csrf
                         
                         <div class="row mb-3">
@@ -68,7 +68,7 @@
                     
                     <h3>¿NO TIENES CUENTA?</h3>
                     @if (Route::has('register'))
-                    <form method="GET" action="{{ route('register') }}">
+                    <form method="GET" action="{{route('register', [], false, true)}}">
                         <button id = "go_to_register_button" class="create-button">
                             {{ __('CREAR CUENTA') }}
                         </button>
