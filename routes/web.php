@@ -10,6 +10,7 @@ use App\Http\Controllers\TestController;
 use App\Http\Controllers\RuleController;
 use App\Http\Controllers\IndividualRuleController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\authentication;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,7 +37,7 @@ Route::get('/login', function () {
 })->name('main');
 
 
-Route::post('/userlogin', [LoginController::class, 'login'])
+Route::post('/userlogin', [authentication::class, 'login'])
 ->name('userlogin');
 
 Route::get('/home', function () {
