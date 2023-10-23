@@ -77,7 +77,7 @@
                     </form>
 
                     
-                    <form id="form_crear_sesion" action="{{route('home' [], false, true)}}" method="GET">
+                    <form id="form_crear_sesion" action="{{route('home')}}" method="GET">
                         <button id="nav_bar_info" class="dissapear_button">
                             <span class="material-symbols-outlined">account_circle</span>
                             <div class="hide-text">
@@ -88,7 +88,6 @@
         </div>
         
         <div class="navbar-right-items">
-
             <div class="navbar-horizontal-container">
                 <div class="navbar-horizontal">
                     <div class=" button-small-navbar" id ="navbar_button_hor" ><button onClick="navbarButton()" class="material-symbols-outlined" id="navbar_button_horizontal">menu</button></div>
@@ -130,7 +129,3 @@
         <script>navbarStart()</script>
     </div>
 </body>
-
-
-
-
