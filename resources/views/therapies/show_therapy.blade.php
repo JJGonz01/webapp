@@ -9,10 +9,10 @@
 <div class= "general-items-container">
 
     <div>
-        <script src="{{ asset('therapy.js') }}"></script>
-        <script src="{{ asset('interactions/buttons.js') }}">
+        <script src="https://pomodoroadhdapp.azurewebsites.net/therapy.js"></script>
+        <script src="https://pomodoroadhdapp.azurewebsites.net/interactions/buttons.js">
             
-            init('esta terapia')
+        init('esta terapia')
         </script>
 
 

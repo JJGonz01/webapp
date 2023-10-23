@@ -7,23 +7,14 @@
 <meta charset="utf-8">
     <!--Nuevo-->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="{{ asset('styles/CSS/navbar.css') }}">
-    <link rel="stylesheet" href="{{ asset('styles/CSS/items.css') }}">
-     <link rel="stylesheet" href="{{ asset('styles/CSS/web-right-items.css') }}">
-     <link rel="stylesheet" href="{{ asset('styles/CSS/create-menu.css') }}">
-     <link rel="stylesheet" href="{{ asset('styles/CSS/therapy-create-menu.css') }}">
+    <link rel="stylesheet" href="https://pomodoroadhdapp.azurewebsites.net/styles/CSS/navbar.css">
+    <link rel="stylesheet" href="https://pomodoroadhdapp.azurewebsites.net/styles/CSS/items.css">
+     <link rel="stylesheet" href="https://pomodoroadhdapp.azurewebsites.net/styles/CSS/web-right-items.css">
+     <link rel="stylesheet" href="https://pomodoroadhdapp.azurewebsites.net/'styles/CSS/create-menu.css">
+     <link rel="stylesheet" href="https://pomodoroadhdapp.azurewebsites.net/styles/CSS/therapy-create-menu.css">
 
     <!--VIEJO-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="{{ asset('styles/terapias_container.css') }}">
-    <link rel="stylesheet" href="{{ asset('styles/main.css') }}">
-    <link rel="stylesheet" href="{{ asset('styles/terapias/popup_rules.css') }}">
-    <link rel="stylesheet" href="{{ asset('styles/sesiones/sessions.css') }}">
-    <link rel="stylesheet" href="{{ asset('styles/pacientes/pacientes.css') }}">
-
-    
-    <link rel="stylesheet" href="{{ asset('styles/pacientes/pacientes.css') }}">
-    <link rel="stylesheet" href="{{ asset('styles/terapias/therapies_creator.css') }}">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"rel="stylesheet">
 
     <!--ICONSÇ-->

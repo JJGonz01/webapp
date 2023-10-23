@@ -7,7 +7,7 @@
 </head>
 
 <div class="general-items-container">
-        <script src="{{ asset('session/sessionClassfication.js') }}"></script>
+        <script src="https://pomodoroadhdapp.azurewebsites.net/session/sessionClassfication.js"></script>
         <div class="patient-info-box">
             <img class="patient-profile-image" url="https://cdn-icons-png.flaticon.com/512/3135/3135768.png"></img>
             <div>

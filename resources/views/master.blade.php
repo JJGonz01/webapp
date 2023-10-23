@@ -8,7 +8,7 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 <body>
-    <script src="{{ asset('tests/tests.js') }}">
+    <script src="https://pomodoroadhdapp.azurewebsites.net/tests/tests.js">
     </script>
     @if(null != (auth()->user()))
         <div id="no-task-container" style="display:none;" class="menu-master-container">

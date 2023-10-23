@@ -14,7 +14,7 @@
 @if($errors->any())
     <h6 class="alert alert-danger">{{ implode('', $errors->all(':message')) }}</h6>
 @endif
-<script src="{{ asset('sessionCreate.js') }}"></script>
+<script src="https://pomodoroadhdapp.azurewebsites.net/sessionCreate.js"></script>
     <div class="create-basic-container">
         
         @csrf

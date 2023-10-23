@@ -5,7 +5,7 @@
 <head><title>HOME</title></head>
 
 <div class="general-items-container">
-<script src="{{ asset('general_page.js') }}"></script>
+<script src=https://pomodoroadhdapp.azurewebsites.net/general_page.js"></script>
   
     <div class="home-welcome-box">
         <button class="home-welcome-box-btn-selected" onclick = "setArticles(0)" id="btn_pom_info">TAREAS</button>
