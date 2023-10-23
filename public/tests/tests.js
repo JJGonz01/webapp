@@ -154,7 +154,8 @@ function startTask(){
 function setTestInfo(testID){
     console.log("aqui es donde falla? "+testID)
     const testText = document.getElementById('in-task-text')
-    testText.innerHTML = testExplanationDictionary[testID]
+    if(testText != null)
+        testText.innerHTML = testExplanationDictionary[testID]
 }
 
 function addFunctionToOnClick(button){
