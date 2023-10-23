@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\Controller; 
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
@@ -36,5 +36,17 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+    }
+
+    public function login(Request $request)
+    {
+        $credentials = $request->only('email', 'password');
+            
+        if (Auth::attempt($credentials)) {
+            return redirect()->intended('/HOME'); // Redirecciona al dashboard o a la URL deseada
+        }
+
+        return redirect()->route('login') // Redirige de nuevo al formulario de inicio de sesión
+            ->with('error', 'Credenciales inválidas'); // Puedes personalizar el mensaje de error
     }
 }

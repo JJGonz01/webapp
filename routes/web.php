@@ -35,6 +35,10 @@ Route::get('/login', function () {
     return view('layouts.app');
 })->name('main');
 
+
+Route::post('/userlogin', [LoginController::class, 'login'])
+->name('userlogin');
+
 Route::get('/home', function () {
     return view('index');
 })->name('register');
