@@ -5,7 +5,7 @@
 
 @media (min-width: 881px) {
    body{
-      background-image: url("http://172.24.100.54:8000/images/school.png");
+      background-image: url("https://pomodoroadhdapp.azurewebsites.net/images/school.png");
       background-size:cover;
       font-size: 150%;
    }
