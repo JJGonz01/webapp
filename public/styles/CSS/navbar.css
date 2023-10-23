@@ -1,23 +1,6 @@
 
 
-.navbar-web{
-    display:flex;
-    left:0;
-    height: 100%;
-    width:100%;
-    position:fixed;
-    justify-content: space-between;
-}
 
-.navbar-vertical{
-    display:block;
-    position: sticky;
-    bottom:0;
-    width: 15%;
-    background-color: white;
-    border-right: 1px solid rgba(115,115,155,0.5);
-    
-}
 
 .row-items{
     display:flex;
@@ -80,50 +63,60 @@
     border: 0px;
     background-color: rgb(214, 212, 212);
 }
+.navbar-horizontal{
+    display: flex;
+    position:static;
+    justify-content: center;
+    align-items: center;
+    width:100%;
+    flex-direction: row;
+    background-color: white;
+    border-bottom: 1px solid rgba(115,115,155,0.5);
+    height:40px;
+}
 
-    .navbar-horizontal{
-        display: flex;
-        position:static;
-        justify-content: center;
-        align-items: center;
-        width:100%;
-        flex-direction: row;
-        background-color: white;
-        border-bottom: 1px solid rgba(115,115,155,0.5);
-        height:40px;
-    }
+.navbar-horizontal p{
+    margin-right:auto;
+    margin-left:5%;
+    margin-right:50%;
+    margin-top:0.5%;
+    font-weight: bold;
+}
 
-    .navbar-horizontal p{
-        margin-right:auto;
-        margin-left:5%;
-        margin-right:50%;
-        margin-top:0.5%;
-        font-weight: bold;
-    }
 
-    
 
-    .navbar-horizontal button{
-        background-color: white;
-        border: 0px;
-        margin-right:5%;
-    }
-    
-    .navbar-horizontal button:hover{
-        border: 0px;
-        background-color: rgb(214, 212, 212);
-    }
+.navbar-horizontal button{
+    background-color: white;
+    border: 0px;
+    margin-right:5%;
+}
+
+.navbar-horizontal button:hover{
+    border: 0px;
+    background-color: rgb(214, 212, 212);
+}
 
     
 
 
 
 @media (min-width:951px) {
+
+    .navbar-web{
+        display:flex;
+        left:0;
+        height: 100%;
+        width:100%;
+        position:fixed;
+        justify-content: space-between;
+    }
+    
     .navbar-vertical{
         display:block;
         position: sticky;
         bottom:0;
-        width: 14%;
+        background-color: white;
+        width:fit-content;
         background-color: white;
         border-right: 1px solid rgba(115,115,155,0.5);
     }
@@ -182,39 +175,39 @@
         width:100%;
         background-color: white;
     }
+
+
 }
+
 @media (max-width: 950px) {
+
+    .navbar-web{
+    }
+    
+    .navbar-vertical-closed{
+        display:block;
+        top:0;
+        position: sticky;
+        height:fit-content;
+        background-color: white;
+        border-right: 1px solid rgba(115,115,155,0.5);
+        border-bottom: 1px solid rgba(115,115,155,0.5);
+    }
+    
+
     .navbar-vertical{
         display:block;
+        top:0;
         position: sticky;
-        bottom:0;
-        width: 80px;
+        height:fit-content;
         background-color: white;
         border-right: 1px solid rgba(115,115,155,0.5);
-    }
-    
-    
-    .button-small-navbar{
-        display: none;
+        border-bottom: 1px solid rgba(115,115,155,0.5);
     }
 
-    .button-small-navbar-open{
-        display: block;
-    }
-
-    .navbar-vertical-closed{
-        display:none;
-        position: sticky;
-        bottom:0;
-        width: 80px;
-        background-color: white;
-        border-right: 1px solid rgba(115,115,155,0.5);
-    }
-
-     
-    .navbar-vertical-closed p{ 
+    .navbar-vertical p{ 
         padding-left: 10px;
-        display: none;
+        display: block;
     }
     
     .navbar-right-items{
@@ -222,24 +215,37 @@
         overflow-y: auto;
     }
     
-    .navbar-vertical p{ 
-        padding-left: 10px;
+    .navbar-vertical-closed .dissapear_button{
         display: none;
-    }
-    
-    .navbar-vertical button:first-child{
-        display:flex;
-        flex-direction:row;
+     }
+
+        
+    .navbar-vertical-closed button{
+        display:block;
+        justify-content: left;
+        text-align:left;
+        background-color: white;
         padding:18px;
-        padding-top:20px;
         justify-content: left;
         text-align:left;
         border: 0px;
         width:100%;
         background-color: white;
     }
-    
-    .navbar-vertical button{
+
+    .navbar-vertical-closed button:active{
+        background-color: white;
+    }
+
+    .navbar-vertical-closed button::focus{
+        background-color: white;
+    }
+    .navbar-vertical-closed p{ 
+        padding-left: 10px;
+        display: none;
+    }
+
+     .navbar-vertical button{
         display:flex;
         flex-direction:row;
         padding:18px;
@@ -248,6 +254,8 @@
         text-align:left;
         border: 0px;
         width:100%;
+        height: fit-content;
         background-color: white;
     }
+    
 }

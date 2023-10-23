@@ -7,8 +7,9 @@
 <meta charset="utf-8">
     <!--Nuevo-->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://pomodoroadhdapp.azurewebsites.net/styles/CSS/navbar.css">
-    <link rel="stylesheet" href="https://pomodoroadhdapp.azurewebsites.net/styles/CSS/items.css">
+     <link rel="stylesheet" href="https://pomodoroadhdapp.azurewebsites.net/styles/CSS/main.css">
+     <link rel="stylesheet" href="https://pomodoroadhdapp.azurewebsites.net/styles/CSS/navbar.css">
+     <link rel="stylesheet" href="https://pomodoroadhdapp.azurewebsites.net/styles/CSS/items.css">
      <link rel="stylesheet" href="https://pomodoroadhdapp.azurewebsites.net/styles/CSS/web-right-items.css">
      <link rel="stylesheet" href="https://pomodoroadhdapp.azurewebsites.net/styles/CSS/create-menu.css">
      <link rel="stylesheet" href="https://pomodoroadhdapp.azurewebsites.net/styles/CSS/therapy-create-menu.css">
@@ -40,7 +41,7 @@
                     <button onClick="navbarButton()" class="material-symbols-outlined" id="navbar_button">menu</button>
 
                     <form id="form_crear_sesion"  action="{{route('general', [], false, true)}}" method="GET">
-                        <button id="nav_bar_home">
+                        <button id="nav_bar_home" class="dissapear_button">
                             <span class="material-symbols-outlined">home</span>
                             <div class="hide-text">
                                 <p id="navbar-1">GENERAL</p>
@@ -49,7 +50,7 @@
                     </form>
 
                     <form id="form_crear_sesion"  action="{{route('patients_index', [], false, true)}}" method="GET">
-                        <button id="nav_bar_patients">
+                        <button id="nav_bar_patients" class="dissapear_button">
                             <span class="material-symbols-outlined">group</span>
                             <div class="hide-text">
                                 <p id="navbar-2">PACIENTES</p>
@@ -58,7 +59,7 @@
                     </form>
 
                     <form id="form_crear_sesion"  action="{{route('therapies_index', [], false, true)}}" method="GET">
-                        <button id="nav_bar_therapies">
+                        <button id="nav_bar_therapies" class="dissapear_button">
                             <span class="material-symbols-outlined">punch_clock</span>
                             <div class="hide-text">
                                 <p  id="navbar-3">TERAPIAS</p>
@@ -67,10 +68,20 @@
                     </form>
 
                     <form id="form_crear_sesion"  action="{{route('help', [], false, true)}}" method="GET">
-                        <button id="nav_bar_info">
+                        <button id="nav_bar_info" class="dissapear_button">
                             <span class="material-symbols-outlined">info</span>
                             <div class="hide-text">
                                 <p id="navbar-4">AYUDA</p>
+                            </div>
+                        </button>
+                    </form>
+
+                    
+                    <form id="form_crear_sesion" action="{{route('home')}}" method="GET">
+                        <button id="nav_bar_info" class="dissapear_button">
+                            <span class="material-symbols-outlined">account_circle</span>
+                            <div class="hide-text">
+                                <p id="navbar-4">MI PERFIL</p>
                             </div>
                         </button>
                     </form>
@@ -95,6 +106,14 @@
             <div class="navbar-right-items-container-items">
                 @yield('patients_section')
             </div>
+            <div class="master-test">
+                <div id="in-task-container" class="in-row-container" style="display:block;">
+                    <button id="task-show-btn" onclick="showhidetext()" class="acabar-tarea-btn">OCULTAR TAREA</button>
+                    <p id="in-task-text" style="style:block;"></p>
+                    <button id="task-end-btn" onclick="endTask()" class="acabar-tarea-btn">ACABAR TAREA</button>
+                </div>
+            </div>
+
             @else
                 <div class="navbar-right-items-container-items">
                 <div class = "session-necessary-contaner">

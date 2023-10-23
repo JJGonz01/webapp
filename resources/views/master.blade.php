@@ -24,16 +24,6 @@
                     <button id="task_start_button" onclick = "startTask()" class="start-button">COMENZAR TAREA</button>
                 </div>
         </div>
-
-
-        <div class="master-test">
-       
-            <div id="in-task-container" class="in-row-container" style="display:block;">
-                <button id="task-show-btn" onclick="showhidetext()" class="acabar-tarea-btn">OCULTAR TAREA</button>
-                <p id="in-task-text" style="style:block;"></p>
-                <button id="task-end-btn" onclick="endTask()" class="acabar-tarea-btn">ACABAR TAREA</button>
-            </div>
-        </div>
     @endif
     <div class="slave-test">
         @yield('login')

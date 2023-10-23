@@ -1,7 +1,6 @@
 .master-test{
-
     width: 100%;
-    position: absolute;
+    position:sticky;
     z-index: 2;
     bottom:0;
 }

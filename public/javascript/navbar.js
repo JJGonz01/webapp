@@ -2,21 +2,14 @@
 
 function navbarStart() {
     const navContainer = document.getElementById("vertical_nv");
-    const buttonSmall = document.getElementById("navbar_button_hor");
         var cookiesStr = getCookie('navbar');
         if(cookiesStr!="true"){//se abre
             navContainer.classList.remove("navbar-vertical");
             navContainer.classList.add("navbar-vertical-closed");
-
-            navContainer.classList.remove("button-small-navbar");
-            buttonSmall.classList.add("button-small-navbar-open");
         }
         else{
             navContainer.classList.remove("navbar-vertical-closed");
             navContainer.classList.add("navbar-vertical");
-
-            buttonSmall.classList.remove("button-small-navbar-open");
-            buttonSmall.classList.add("button-small-navbar");
         }
 }  
 
@@ -76,28 +69,21 @@ function widthMaxStart(){
 */
 
 function navbarButton(){
-        const navContainer = document.getElementById("vertical_nv");
-        const buttonSmall = document.getElementById("navbar_button_hor");
-            var cookiesStr = getCookie('navbar');
+    const navContainer = document.getElementById("vertical_nv");
+        var cookiesStr = getCookie('navbar');
 
-            if(cookiesStr=="true"){//se abre
-                eraseNavBarCookies();
-                navContainer.classList.remove("navbar-vertical");
-                navContainer.classList.add("navbar-vertical-closed");
-
-                navContainer.classList.remove("button-small-navbar");
-                buttonSmall.classList.add("button-small-navbar-open");
-            }
-            else{ // se sierra
-                setNavBarCookies();
-                navContainer.classList.remove("navbar-vertical-closed");
-                navContainer.classList.add("navbar-vertical");
-
-                buttonSmall.classList.remove("button-small-navbar-open");
-                buttonSmall.classList.add("button-small-navbar");
-            }
-       
-        console.log(getCookie('navbar'));
+        if(cookiesStr=="true"){//se abre
+            eraseNavBarCookies();
+            navContainer.classList.remove("navbar-vertical");
+            navContainer.classList.add("navbar-vertical-closed");
+        }
+        else{ // se sierra
+            setNavBarCookies();
+            navContainer.classList.remove("navbar-vertical-closed");
+            navContainer.classList.add("navbar-vertical");
+        }
+   
+    console.log(getCookie('navbar'));
 }
 
 function smallNavBarButton(button){
