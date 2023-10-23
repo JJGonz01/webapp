@@ -198,8 +198,10 @@ function showhidetextBool(setOpen){
     const testText = document.getElementById('in-task-text')
     const tesButtonShow = document.getElementById('task-show-btn')
     if(!setOpen){
-        testText.style.display ="block";
-        tesButtonShow.innerHTML = "OCULTAR TAREA"
+        if(testText != null){
+            testText.style.display ="block";
+            tesButtonShow.innerHTML = "OCULTAR TAREA"
+        }
     }else{
         if(testText != null){
             testText.style.display ="none";
@@ -208,8 +210,7 @@ function showhidetextBool(setOpen){
     }
 }
 function printClickedId(button, action, form){
-    
-    
+       
         var date = new Date;
         var clickedTime = (""+date.getDate()+"-"+date.getMonth()+"-"+date.getHours()+"-"+date.getMinutes()+"-"+date.getSeconds()+"-"+date.getMilliseconds());
         console.log(button.id);
