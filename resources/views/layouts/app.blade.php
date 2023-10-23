@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="https://pomodoroadhdapp.azurewebsites.net/styles/CSS/items.css">
 
     <!-- Scripts -->
-    <script src="https://pomodoroadhdapp.azurewebsites.net/resources/js/app.js"></script>
+    <script src="https://pomodoroadhdapp.azurewebsites.net/javascript/auth/app.js"></script>
 
 
 </head>
