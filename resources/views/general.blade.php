@@ -5,7 +5,7 @@
 <head><title>HOME</title></head>
 
 <div class="general-items-container">
-<script src="https://pomodoroadhdapp.azurewebsites.net/general_page.js'"></script>
+<script src="https://pomodoroadhdapp.azurewebsites.net/general_page.js"></script>
   
     <div class="home-welcome-box">
         <button class="home-welcome-box-btn-selected" onclick = "setArticles(0)" id="btn_pom_info">POMODORO</button>
@@ -75,7 +75,7 @@
             </p>
 
             
-            <img src="{{ asset('images/graph_bloques.png') }}" class="imageHome" alt="Grafico funcionamiento aplicacion" height="600">
+            <img src="https://pomodoroadhdapp.azurewebsites.net/images/graph_bloques.png" class="imageHome" alt="Grafico funcionamiento aplicacion" height="600">
             <span class="imageHomep">Figura 1: Esquema bloques de estudio</span></img>
             <p>
                 En cada bloque el terapeuta podrá ajustar distintas condiciones, a partir de el estado anímico de del joven, para que según como se encuentre pueda realizar distintas acciones, como mensajes de ánimo,
@@ -90,7 +90,7 @@
                 añadir tiempo extra, concluir el periodo o concluir el bloque entero.
             </p>
 
-            <img src="{{ asset('images/graph_reglas.png') }}" class="imageHome" alt="Grafico funcionamiento aplicacion" height="600">
+            <img src="https://pomodoroadhdapp.azurewebsites.net/images/graph_reglas.png" class="imageHome" alt="Grafico funcionamiento aplicacion" height="600">
             <span class="imageHomep">Figura 2: Esquema reglas de la sesión</span></img>
             <p></p>
         </div>

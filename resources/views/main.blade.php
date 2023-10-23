@@ -39,7 +39,7 @@
         <div class="navbar-vertical" id="vertical_nv">
                     <button onClick="navbarButton()" class="material-symbols-outlined" id="navbar_button">menu</button>
 
-                    <form id="form_crear_sesion" action="{{route('general')}}" method="GET">
+                    <form id="form_crear_sesion"  action="{{route('general', [], false, true)}}" method="GET">
                         <button id="nav_bar_home">
                             <span class="material-symbols-outlined">home</span>
                             <div class="hide-text">
@@ -48,7 +48,7 @@
                         </button>
                     </form>
 
-                    <form id="form_crear_sesion" action="{{route('patients_index')}}" method="GET">
+                    <form id="form_crear_sesion"  action="{{route('patients_index', [], false, true)}}" method="GET">
                         <button id="nav_bar_patients">
                             <span class="material-symbols-outlined">group</span>
                             <div class="hide-text">
@@ -57,7 +57,7 @@
                         </button>
                     </form>
 
-                    <form id="form_crear_sesion" action="{{route('therapies_index')}}" method="GET">
+                    <form id="form_crear_sesion"  action="{{route('therapies_index', [], false, true)}}" method="GET">
                         <button id="nav_bar_therapies">
                             <span class="material-symbols-outlined">punch_clock</span>
                             <div class="hide-text">
@@ -66,7 +66,7 @@
                         </button>
                     </form>
 
-                    <form id="form_crear_sesion" action="{{route('help')}}" method="GET">
+                    <form id="form_crear_sesion"  action="{{route('help', [], false, true)}}" method="GET">
                         <button id="nav_bar_info">
                             <span class="material-symbols-outlined">info</span>
                             <div class="hide-text">
@@ -81,7 +81,7 @@
                 <div class="navbar-horizontal">
                     <div class=" button-small-navbar" id ="navbar_button_hor" ><button onClick="navbarButton()" class="material-symbols-outlined" id="navbar_button_horizontal">menu</button></div>
                     <p id="current-tab">General</p>
-                    <form action="{{route('home')}}" id= 'form_pat' method="GET">
+                    <form action="{{route('home', [], false, true)}}" id= 'form_pat' method="GET">
                     @if(null == (auth()->user()))    
                         <div class="row-items"><button id="navbar_login_text_button">INICIA SESIÓN</button><button id="navbar_login_img_button" class="material-symbols-outlined">account_circle</button></div>
                     @else
@@ -98,7 +98,7 @@
             @else
                 <div class="navbar-right-items-container-items">
                 <div class = "session-necessary-contaner">
-                        <form action="{{route('login')}}" id= 'form_pat' method="GET">
+                        <form action="{{route('login', [], false, true)}}" id= 'form_pat' method="GET">
                             <p>Es necesario iniciar sesión</p>
                             <p>para utilizar la plataforma</p>
                             <button id="home_gotologin_btn">IR A INICIAR SESIÓN</button>
