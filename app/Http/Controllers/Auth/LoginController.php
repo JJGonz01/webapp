@@ -43,7 +43,7 @@ class LoginController extends Controller
         $credentials = $request->only('email', 'password');
             
         if (Auth::attempt($credentials)) {
-            return redirect()->intended('/HOME'); // Redirecciona al dashboard o a la URL deseada
+            return redirect()->intended('home'); // Redirecciona al dashboard o a la URL deseada
         }
 
         return redirect()->route('login') // Redirige de nuevo al formulario de inicio de sesión
