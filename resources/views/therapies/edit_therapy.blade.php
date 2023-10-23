@@ -7,7 +7,7 @@
 </head>
 
 
-<form id="form_crear_sesion" action="{{route('therapy_complete_update', ['id' => $therapy -> id])}}" method="POST">
+<form id="form_crear_sesion" action="{{route('therapy_complete_update', ['id' => $therapy -> id],false, true)}}" method="POST">
 
 
     <script src="https://pomodoroadhdapp.azurewebsites.net/therapy_js/period_creations.js'"></script>
@@ -18,7 +18,7 @@
     <input name="rules_edit" id="rules_edit" value = "{{$therapy->rules}}" style="display: none;" />
             <input name="periods_edit" id="periods_edit" value = "{{$listaPer}}" style="display: none;" />
             
-            <script src="{{ asset('terapies_creator.js') }}"></script>
+            <script src="https://pomodoroadhdapp.azurewebsites.net/terapies_creator.js}}"></script>
 
             <!-- INPUTS FANTASMA PARA LOS DATOS-->
             <input name="periods_edit" id="periods_edit" value = "null" style="display: none;" />

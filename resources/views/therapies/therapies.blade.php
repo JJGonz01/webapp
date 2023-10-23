@@ -26,7 +26,7 @@
         </div>
 
         <div class = "options-items-container">
-            <form action = "{{route('therapies_create')}}" method = "GET">
+            <form action = "{{route('therapies_create', [], false, true)}}" method = "GET">
                 <button id="create-therapy-btn" class= "create-button">CREAR TERAPIA</button>
             </form>
             <div class="options-items-container-inner">
@@ -53,7 +53,7 @@
                                 @endif
                                 </td>
                                 <td> 
-                                    <form action="{{route('therapy_show', ['id' => $therapy -> id])}}" method = "GET">
+                                    <form action="{{route('therapy_show', ['id' => $therapy -> id], false, true)}}" method = "GET">
                                         <div>
                                         <button id="ther_index_edit_button" type="submit" class="edit-button">
                                             Acceder

@@ -8,7 +8,7 @@
 </head>
 
 
-<form id="form_crear_sesion" action="{{route('therapies_create')}}" method="POST">
+<form id="form_crear_sesion" action="{{route('therapies_create',[], false, true)}}" method="POST">
     <script src="https://pomodoroadhdapp.azurewebsites.net/therapy_js/period_creations.js'"></script>
     <script src="https://pomodoroadhdapp.azurewebsites.net/therapy_js/menus_terapia.js"></script>
     <script src="https://pomodoroadhdapp.azurewebsites.net/therapy_js/rule.js"></script>

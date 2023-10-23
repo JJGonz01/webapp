@@ -24,7 +24,7 @@
         </div>
 
         <div class = "options-items-container">
-            <form action = "{{route('patients_create')}}" method="GET">
+            <form action = "{{route('patients_create', [], false, true)}}" method="GET">
                 <button id="create-patient-button" class= "create-button" >AÑADIR PACIENTE</button>
             </form>
             <div class="options-items-container-inner">
@@ -43,7 +43,7 @@
                             <td class="hide-if-width-small">{{$patient -> name}} </td>
                             <td>{{$patient -> surname}} </td>
                             <td> 
-                                <form action="{{route('patient_show', [$patient->id])}}" method = "GET">
+                                <form action="{{route('patient_show', [$patient->id], false, true)}}" method = "GET">
                                     <div>
                                     <button id="go_to_patient_btn" type="submit" class="edit-button">
                                         Acceder

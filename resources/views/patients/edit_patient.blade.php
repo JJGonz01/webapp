@@ -13,7 +13,7 @@
 </div>
 <div class= "create-basic-container">
 
-    <form action="{{route('patient_complete_update', [$patient->id])}}" method = "POST">
+    <form action="{{route('patient_complete_update', [$patient->id], false, true)}}" method = "POST">
     @csrf
     @if (session('success'))
         <h6 class="alert alert-success"> {{ session('success') }}</h6>

@@ -7,7 +7,7 @@
 </head>
 
 
-<form action="{{route('session_update',  ['id' => $session -> id])}}" method="POST">
+<form action="{{route('session_update',  ['id' => $session -> id], false, true)}}" method="POST">
 @if (session('success'))
     <h6 class="alert alert-success"> {{ session('success') }}</h6>
 @endif
@@ -30,7 +30,7 @@
             @endforeach
             @else
                 <p>CREA UNA TERAPIA PARA PODER CREAR LA SESIÓN</p>
-                <a onclick="printClickedId(this)" class= "edit-button" href = "{{route('therapies_create')}}">CREAR TERAPIA</a>
+                <a onclick="printClickedId(this)" class= "edit-button" href = "{{route('therapies_create', [], false, true)}}">CREAR TERAPIA</a>
             @endif
         </div>
         <div class="header-selector">

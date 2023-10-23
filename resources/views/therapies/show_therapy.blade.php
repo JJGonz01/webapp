@@ -23,13 +23,13 @@
             </div>
 
             <div>
-                <form action="{{route('therapy_update', ['id' => $therapy -> id])}}" id = "editar_form" method = "GET">
+                <form action="{{route('therapy_update', ['id' => $therapy -> id], false, true)}}" id = "editar_form" method = "GET">
                     <button id="show_ther_edit_button" class="patient-edit-button">
                         EDITAR
                     </button>
                 </form>
 
-                <form action="{{route('therapy_destroy', [$therapy->id])}}" id = "eliminar_form" method = "POST">
+                <form action="{{route('therapy_destroy', [$therapy->id], false, true)}}" id = "eliminar_form" method = "POST">
                 <script>
                         //SCRIPT QUE HACE QUE SALTE EL POPUP PARA CONFIRMAR (LO PONGO AQUI PARA NO CREAR MAS js)
                         document.getElementById('eliminar_form').addEventListener("submit", (e) => {

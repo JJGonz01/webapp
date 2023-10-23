@@ -8,7 +8,7 @@
 
 
 
-<form action="{{route('sessions_create',  ['patient_id' => $patient -> id])}}" method="POST">
+<form action="{{route('sessions_create',  ['patient_id' => $patient -> id], false, true)}}" method="POST">
 @if (session('success'))
     <h6 class="alert alert-success"> {{ session('success') }}</h6>
 @endif
@@ -16,7 +16,7 @@
     <h6 class="alert alert-danger">{{ implode('', $errors->all(':message')) }}</h6>
 @endif
             
-<script src="{{ asset('sessionCreate.js') }}"></script>
+<script src="https://pomodoroadhdapp.azurewebsites.net/sessionCreate.js}}"></script>
     <div class="create-basic-container">
         @csrf
         <input id="terapia_seleccion" style="display:none" name="therapy_id"></input>
@@ -35,7 +35,7 @@
                 @endforeach
                 @else
                     <p>CREA UNA TERAPIA PARA PODER CREAR LA SESIÓN</p>
-                    <a onclick="printClickedId(this)" class= "edit-button" href = "{{route('therapies_create')}}">CREAR TERAPIA</a>
+                    <a onclick="printClickedId(this)" class= "edit-button" href = "{{route('therapies_create', [], false, true)}}">CREAR TERAPIA</a>
                 @endif
             </div>
                 

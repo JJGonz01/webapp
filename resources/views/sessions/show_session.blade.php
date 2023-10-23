@@ -30,13 +30,13 @@
            
         </div>
         <div>
-            <a class="session-show-button" href = "{{route('session_edit', ['id' => $session -> id])}}">
+            <a class="session-show-button" href = "{{route('session_edit', ['id' => $session -> id], false, true)}}">
                 EDITAR SESIÓN
             </a>
         </div>
         
         <div>
-            <a class="session-show-button" href = "{{route('therapy_show', ['id' => $session -> therapy_id])}}">
+            <a class="session-show-button" href = "{{route('therapy_show', ['id' => $session -> therapy_id], false, true)}}">
                 VOLVER A PACIENTE
             </a>
         </div>

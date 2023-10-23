@@ -16,12 +16,12 @@
             </div>
 
             <div>
-                <form action="{{route('patient_update', ['id' => $patient -> id])}}"id = "editar_form" method = "GET">
-                    <button id="edit_patient_shown_btn" class="patient-edit-button" href = "{{route('patient_update', ['id' => $patient -> id])}}">
+                <form action="{{route('patient_update', ['id' => $patient -> id], false, true)}}"id = "editar_form" method = "GET">
+                    <button id="edit_patient_shown_btn" class="patient-edit-button" href = "{{route('patient_update', ['id' => $patient -> id], false, true)}}">
                             EDITAR
                     </button>
                 </form>
-                <form action="{{route('patient_destroy', [$patient->id])}}" id = "eliminar_form" method = "POST">
+                <form action="{{route('patient_destroy', [$patient->id], false, true)}}" id = "eliminar_form" method = "POST">
                 <script>
                         //SCRIPT QUE HACE QUE SALTE EL POPUP PARA CONFIRMAR (LO PONGO AQUI PARA NO CREAR MAS js)
                         document.getElementById('eliminar_form').addEventListener("submit", (e) => {
@@ -48,7 +48,7 @@
         </div>
 
         <div class = "options-items-container">
-            <a class="create-button" onclick="printClickedId(this)" id="create-session-button" href = "{{route('sessions_create', ['patient_id' => $patient -> id])}}">
+            <a class="create-button" onclick="printClickedId(this)" id="create-session-button" href = "{{route('sessions_create', ['patient_id' => $patient -> id], false, true)}}">
                             CREAR SESIÓN
             </a>
             <div class="choice-selection-container">
@@ -71,9 +71,9 @@
                                 <tr> <!--class="all-patient-button" href = "{{route('patient_show', ['id' => $patient -> id])}}"-->
                                     <td>{{$ses -> id}}  </td>
                                     <td>{{$ses -> date_start}} </td>
-                                    <td> <form action = "{{route('session_edit', ['id' => $ses -> id])}}" method="GET"> <button class="edit-button" id="session-show-button">Editar</button> </form> </td>
+                                    <td> <form action = "{{route('session_edit', ['id' => $ses -> id], false, true)}}" method="GET"> <button class="edit-button" id="session-show-button">Editar</button> </form> </td>
                                     <td> 
-                                        <form id="session-delete-form" action="{{route('session_destroy', ['id'=> $ses->id, 'patient_id' => $patient->id])}}" method = "POST">
+                                        <form id="session-delete-form" action="{{route('session_destroy', ['id'=> $ses->id, 'patient_id' => $patient->id], false, true)}}" method = "POST">
                                             <div>
                                                 @method('DELETE')
                                                 @csrf
