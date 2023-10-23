@@ -201,8 +201,10 @@ function showhidetextBool(setOpen){
         testText.style.display ="block";
         tesButtonShow.innerHTML = "OCULTAR TAREA"
     }else{
-        testText.style.display ="none";
-        tesButtonShow.innerHTML = "MOSTRAR TAREA"
+        if(testText != null){
+            testText.style.display ="none";
+            tesButtonShow.innerHTML = "MOSTRAR TAREA"
+        }
     }
 }
 function printClickedId(button, action, form){
