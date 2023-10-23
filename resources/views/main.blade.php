@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://pomodoroadhdapp.azurewebsites.net/styles/CSS/navbar.css">
     <link rel="stylesheet" href="https://pomodoroadhdapp.azurewebsites.net/styles/CSS/items.css">
      <link rel="stylesheet" href="https://pomodoroadhdapp.azurewebsites.net/styles/CSS/web-right-items.css">
-     <link rel="stylesheet" href="https://pomodoroadhdapp.azurewebsites.net/'styles/CSS/create-menu.css">
+     <link rel="stylesheet" href="https://pomodoroadhdapp.azurewebsites.net/styles/CSS/create-menu.css">
      <link rel="stylesheet" href="https://pomodoroadhdapp.azurewebsites.net/styles/CSS/therapy-create-menu.css">
 
     <!--VIEJO-->
