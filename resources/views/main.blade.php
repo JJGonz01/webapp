@@ -77,7 +77,7 @@
                     </form>
 
                     
-                    <form id="form_crear_sesion" action="{{route('home')}}" method="GET">
+                    <form id="form_crear_sesion" action="{{route('home' [], false, true)}}" method="GET">
                         <button id="nav_bar_info" class="dissapear_button">
                             <span class="material-symbols-outlined">account_circle</span>
                             <div class="hide-text">
@@ -88,19 +88,6 @@
         </div>
         
         <div class="navbar-right-items">
-            <div class="navbar-horizontal-container">
-                <div class="navbar-horizontal">
-                    <div class=" button-small-navbar" id ="navbar_button_hor" ><button onClick="navbarButton()" class="material-symbols-outlined" id="navbar_button_horizontal">menu</button></div>
-                    <p id="current-tab">General</p>
-                    <form action="{{route('home', [], false, true)}}" id= 'form_pat' method="GET">
-                    @if(null == (auth()->user()))    
-                        <div class="row-items"><button id="navbar_login_text_button">INICIA SESIÓN</button><button id="navbar_login_img_button" class="material-symbols-outlined">account_circle</button></div>
-                    @else
-                        <div class="row-items"><button id="navbar_login_text_button">{{auth()->user()->name}}</button><button id="navbar_login_img_button" class="material-symbols-outlined">account_circle</button></div>
-                    @endif
-                    </form>
-                </div> 
-            </div>
 
             @if(null !== (auth()->user()))
             <div class="navbar-right-items-container-items">
