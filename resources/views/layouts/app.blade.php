@@ -70,20 +70,20 @@
                                 <p>
                                     Correo: {{  Auth::user()->email }}
                                 </p>
-                                <div class="button-column" onclick="printClickedId(this)" id="ir-app-button" aria-labelledby="navbarDropdown">
-                                    <form action="{{ route('main') }}" method="GET">
+                                <div class="button-column" id="ir-app-button" aria-labelledby="navbarDropdown">
+                                    <form action="{{route('main', [], false, true)}}" method="GET">
                                         <button class="login-create-button" id="go_to_app">
                                             {{ __('Ir a la aplicación') }}
                                         </button>
                                     </form>
                                     <div>
-                                        <button id="cerrar-session-button" class="close-create-button" href="{{ route('main') }}"
+                                        <button id="cerrar-session-button" class="close-create-button" href="{{route('main', [], false, true)}}"
                                         onclick="event.preventDefault(); eraseCookies();
                                         document.getElementById('logout-form').submit();">
                                             {{ __('Cerrar sesión') }}
                                         </button>
                                     </div>
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    <form id="logout-form" action="{{route('logout', [], false, true)}}" method="POST" class="d-none">
                                         @csrf
                                     </form>
                                 </div>
