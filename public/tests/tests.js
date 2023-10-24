@@ -89,7 +89,9 @@ window.onload = function() {
         }
     }
     
+    if(window.location.href != "http://pomodoroadhdapp.azurewebsites.net/login?"){
     getAllInputs()
+    }
     console.log("La id es: "+localStorage["testId"])
 } 
 
