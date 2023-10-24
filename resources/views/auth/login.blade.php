@@ -8,7 +8,7 @@
         <div>
             <div>
                 <div>
-                    <form method="POST" action="{{ route('login',[], false, true) }}">
+                    <form method="POST" action="{{ route('userlogin',[], false, true) }}">
                         @csrf
                         @error('email')
                                     <span class="error-text" role="alert">

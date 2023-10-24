@@ -89,9 +89,9 @@ window.onload = function() {
         }
     }
     
-    if(window.location.href != "http://pomodoroadhdapp.azurewebsites.net/login?"){
+   
     getAllInputs()
-    }
+    
     console.log("La id es: "+localStorage["testId"])
 } 
 
@@ -100,8 +100,10 @@ function getAllInputs() {
     if(localStorage["teststart"]){
         const inputElements = document.querySelectorAll('input');
         inputElements.forEach(function(input) {
-            setInputListener(input)
-            console.log(input.id);
+            if(input.id != "password"){
+                setInputListener(input)
+                console.log(input.id);
+            }
         // outputDiv.textContent += input.id + ': ' + input.value + '\n';
         });
     }
