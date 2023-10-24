@@ -260,3 +260,7 @@
     }
     
 }
+
+.navbar-vertical button:hover{
+    background-color: rgb(173, 173, 173);
+}
