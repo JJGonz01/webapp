@@ -87,7 +87,7 @@
         font-size:medium;
         text-align: center;
         vertical-align: middle;
-        border-color: rgb(180, 180, 180);
+        border-color: rgb(97, 96, 96);
         border-left:0;
         border-right:0;
         border-top:0;
@@ -161,11 +161,11 @@
     }
     
     .home-welcome-box-btn{
-        border-radius: 6px;
-        border:1px solid rgb(99, 167, 244);
+        border-radius: 6px;  
+        border: 0;
         height: 80%;
         margin-top: 5px;
-        background-color: #80DED9;
+        background-color: var(--azul-guardar);
         color:rgb(255, 255, 255);
         font-weight: bold;
         padding: 7px;
@@ -173,14 +173,14 @@
     
     
     .home-welcome-box-btn:hover{
-        border: 1px solid rgb(99, 167, 244);
-        background-color: #62cac5;
+        border: 0;
+        background-color: var(--azul-guardar-hover);
         color:rgb(255, 255, 255);
     }
     
     .home-welcome-box-btn-selected{
         border-radius: 6px;
-        border:1px solid rgb(55, 91, 132);
+        border:1px solid var(--azul-seleccionar);
         height: 80%;
         margin-top: 5px;
         background-color: #388ea3;
@@ -363,9 +363,9 @@
     
     .home-welcome-box-btn{
         border-radius: 6px;
-        border:1px solid rgb(99, 167, 244);
+        border:0;
         margin-top: 5px;
-        background-color: #80DED9;
+        background-color: var(--azul-guardar);
         color:rgb(255, 255, 255);
         font-weight: bold;
         width:80%;
@@ -373,18 +373,18 @@
     
     
     .home-welcome-box-btn:hover{
-        border: 1px solid rgb(99, 167, 244);
-        background-color: #62cac5;
+        border:0;
+        background-color: var(--azul-guardar-hover);
         color:rgb(255, 255, 255);
     }
     
     .home-welcome-box-btn-selected{
         border-radius: 6px;
-        border:1px solid rgb(55, 91, 132);
+        border:0;
 
         width:80%;
         margin-top: 5px;
-        background-color: #388ea3;
+        background-color: var(--azul-seleccionar);
         color:rgb(255, 255, 255);
         font-weight: bold;
         padding: 7px;

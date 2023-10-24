@@ -48,8 +48,7 @@
 }
 
 .acabar-tarea-btn{
-    background-color: rgb(232, 42, 42);
-    border-color: rgb(112, 18, 18);
+    background-color: var(--azul-cerrar);
     padding: 10px;
     color:white;
     font-weight: bolder;
@@ -58,7 +57,7 @@
 
 .start-button{
     border-radius: 4px; 
-    background-color: #77dcd0;
+    background-color: var(--azul-guardar);
     color:white;
     background-size: cover;
     margin: 5px 0;
@@ -68,7 +67,7 @@
     font-size: large;
 }
 .start-button:hover{
-    background-color: #073d3a;
+    background-color: var(--azul-guardar-hover);
     color: white;
 }
 .start-button p{

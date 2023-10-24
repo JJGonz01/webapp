@@ -18,6 +18,11 @@
     --azul-guardar:#80A0DE;
     --azul-seleccionar:#556B9D;
 
+    --azul-cerrar-hover: #d37e4d;
+    --azul-crear-hover: #2c3683;
+    --azul-guardar-hover:#5f76a3;
+    --azul-seleccionar-hover:#3a486a;
+
 }
 
 *{

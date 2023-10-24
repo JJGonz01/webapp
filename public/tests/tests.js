@@ -39,7 +39,8 @@ window.onload = function() {
 
     if(!localStorage["test_on"]){ 
         localStorage["testId"] = "0";
-        setAsInNotStartedTask();
+        if(window.location.pathname != "" && window.location.pathname != "home")
+            setAsInNotStartedTask();
         
     }
     else if(localStorage["test_on"] == "false")
