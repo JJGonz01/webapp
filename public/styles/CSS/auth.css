@@ -136,10 +136,9 @@
    .left-login-container{
       display:block;
       flex: 1; 
-      
       background-image: url("https://pomodoroadhdapp.azurewebsites.net/images/class.jpg");
       backdrop-filter: blur(15px);
-      background-size:auto;
+      background-size:cover;
       border-top-left-radius: 6px;
       border-bottom-left-radius: 6px;
       border-radius: 2px;
