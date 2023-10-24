@@ -33,9 +33,11 @@ function editWindowTherapy(){
 function saveTemporalPeriod(button) {
   console.log(button.id)
   const texto_reglas_titulo = document.getElementById('texto_regla_periodo');
+  var boton_primer_periodo = document.getElementById('save_first_period_ther_create');
+  boton_primer_periodo.innerHTML = "Guardar cambios";
   const errorMessage = document.getElementById("error_period");
   const periodInput = document.getElementById('input_period');
-  button.innerHTML = "Editar bloque";
+  button.innerHTML = "Guardar cambios";
   var t1 = document.getElementById('t1');
   var t2 = document.getElementById('t2');
   var descanso = document.getElementById('descanso');
@@ -129,7 +131,13 @@ function showCreatedPeriods(esNuevo) {
       botonPer.type =  "button";
       botonPer.id =  "button_"+(periods.length - 1);
       const p = periods.length-1;
-      botonPer.setAttribute('onclick', "irAPeriodo("+p+");printClickedId(this, saveTemporalPeriod(this);"); 
+      botonPer.setAttribute('onclick', "irAPeriodo("+p+")"); 
+      var currentOnclick = botonPer.getAttribute('onclick');
+
+      
+      additionalFunction = "event.preventDefault(); printClickedId(this, '" + currentOnclick + "', null);";
+      var newOnclick = additionalFunction
+      button.setAttribute('onclick', newOnclick); 
       listaBtts.appendChild(botonPer);
   }
 
@@ -161,7 +169,7 @@ function showCreatedPeriods(esNuevo) {
  * Edita si es crear periodo o editar periodo
  */
 function addPeriodsIdToSeleccion(button) {
-  button.innerHTML = "Editar bloque";
+  button.innerHTML = "Guardar cambios";
   showButtonFromCreatePeriod();
   selectConjPeriodo = document.getElementById('selectConjPeriodo');
   selectConjPeriodo.innerHTML = '';
@@ -234,6 +242,7 @@ function cambiarPeriodo(direccion){
   var input_de_conjuntoperiodoregla = document.getElementById('selectConjPeriodo');
   var period_creation_button = document.getElementById('period_creation_btn');
   var boton_actualizar_periodo = document.getElementById('save_extra_period_ther_create');
+ 
   //reglas 
   var texto_reglas_titulo = document.getElementById('texto_regla_periodo');
   var boton_reglas_titulo = document.getElementById('open_rule_creator_ther_create');
@@ -241,6 +250,7 @@ function cambiarPeriodo(direccion){
       posicionadoEn--;
       boolEsUltimo = false;
       texto_periodo_nombre.innerHTML="Editar bloque "+(posicionadoEn+1);
+      save_extra_period_ther_create = "Guardar cambios";
   }
   else{ //cuando sea 1 es que vamos al de crear uno nuevo
       boolEsUltimo = true;
@@ -277,7 +287,7 @@ function cambiarPeriodo(direccion){
       input_de_conjuntoperiodoregla.value = "none";
     }else { 
       period_creation_button.style="display:block;";
-      boton_actualizar_periodo.innerHTML = "Editar bloque";
+      boton_actualizar_periodo.innerHTML = "Guardar cambios";
       texto_periodo_nombre.innerHTML="Editar bloque "+(posicionadoEn+1);
       
       input_de_conjuntoperiodoregla.value = ""+(posicionadoEn+1);
