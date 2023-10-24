@@ -15,18 +15,16 @@ function navbarStart() {
 
 function navbarButton(){
     const navContainer = document.getElementById("vertical_nv");
-
         if(localStorage["navbar"]=="true"){//se abre
             navContainer.classList.remove("navbar-vertical");
             navContainer.classList.add("navbar-vertical-closed");
-            localStorage["navbar"]="true";
+            localStorage["navbar"]="false";
         }
         else{ // se sierra
             navContainer.classList.remove("navbar-vertical-closed");
             navContainer.classList.add("navbar-vertical");
-            localStorage["navbar"] = "false";
+            localStorage["navbar"] = "true";
         }
-   
 }
 
 function smallNavBarButton(button){
@@ -35,12 +33,12 @@ function smallNavBarButton(button){
         if(localStorage["navbar"] == "true"){//se abre
             navContainer.classList.remove("navbar-vertical");
             navContainer.classList.add("navbar-vertical-closed");
-            localStorage["navbar"] = "true";
+            localStorage["navbar"] = "false";
         }
         else{ // se sierra
             navContainer.classList.remove("navbar-vertical-closed");
             navContainer.classList.add("navbar-vertical");
-            localStorage["navbar"] = "false";
+            localStorage["navbar"] = "true";
         }
    
 }
