@@ -226,6 +226,8 @@
         border-radius: 30px;
         width:45%;
         height:80%;
+        vertical-align: middle;
+        margin-top:0.3%;
     }
     
 
