@@ -26,22 +26,6 @@
 
 </head>
 <body>
-    <script>
-        function eraseCookies(){
-            var xhr = new XMLHttpRequest();
-
-            xhr.open('GET', 'clear_cookies.php', true);
-
-            xhr.onreadystatechange = function(){
-                if(xhr.readyState === 4 && xhr.status === 200){
-                    alert('cookies borradas');
-                }
-            }
-
-            xhr.send();
-        }
-    
-    </script>
     <div id="app" class="bg-text">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
