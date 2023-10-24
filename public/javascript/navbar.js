@@ -16,7 +16,7 @@ function navbarStart() {
 function navbarButton(){
     const navContainer = document.getElementById("vertical_nv");
 
-        if(localStorage["navbar"]!="true"){//se abre
+        if(localStorage["navbar"]=="true"){//se abre
             navContainer.classList.remove("navbar-vertical");
             navContainer.classList.add("navbar-vertical-closed");
             localStorage["navbar"]="true";
@@ -32,7 +32,7 @@ function navbarButton(){
 function smallNavBarButton(button){
     const navContainer = document.getElementById("vertical_nv");
 
-        if(localStorage["navbar"] != "true"){//se abre
+        if(localStorage["navbar"] == "true"){//se abre
             navContainer.classList.remove("navbar-vertical");
             navContainer.classList.add("navbar-vertical-closed");
             localStorage["navbar"] = "true";
