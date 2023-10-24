@@ -17,11 +17,11 @@
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="{{ asset('styles/CSS/auth.css') }}">
-    <link rel="stylesheet" href="{{ asset('styles/CSS/items.css') }}">
+    <link rel="stylesheet" href="https://pomodoroadhdapp.azurewebsites.net/styles/CSS/auth.css">
+    <link rel="stylesheet" href="https://pomodoroadhdapp.azurewebsites.net/styles/CSS/items.css">
 
     <!-- Scripts -->
-    <script src="{{ asset('resources/js/app.js') }}"></script>
+    <script src="https://pomodoroadhdapp.azurewebsites.net/resources/js/app.js"></script>
 
 
 </head>
@@ -66,9 +66,9 @@
                                     <div>
                                         
                                     </div>
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    <form id="logout-form" action="{{ route('logout', [], false, true) }}" method="POST" class="d-none">
                                         @csrf
-                                        <button id="cerrar-session-button" class="close-create-button" href="{{ route('main') }}">
+                                        <button id="cerrar-session-button" class="close-create-button" href="{{ route('main',[],false, true) }}">
                                             {{ __('Cerrar sesión') }}
                                         </button>
                                     </form>

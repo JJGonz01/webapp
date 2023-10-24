@@ -137,7 +137,7 @@
       display:block;
       flex: 1; 
       
-      background-image: url("http://127.0.0.1:8000/images/class.png");
+      background-image: url("https://pomodoroadhdapp.azurewebsites.net/images/class.png");
       backdrop-filter: blur(15px);
       background-size:auto;
       border-top-left-radius: 6px;
@@ -340,7 +340,7 @@
       display:none;
       flex: 2; 
       
-      background-image: url("http://127.0.0.1:8000/images/school.png");
+      background-image: url("https://pomodoroadhdapp.azurewebsites.net/images/school.png");
       backdrop-filter: blur(15px);
       background-size:auto;
       border-top-left-radius: 6px;
