@@ -439,27 +439,35 @@ class SessionsController extends Controller
     public function getSessionRules(Request $request){
         
         $dateString = $request->input('date');
-
+        $dateString = "2023-10-19 12:41:00";
         $date = Carbon::parse($dateString);
             
         $formattedDate = $date->format('Y-m-d H:i:s');
-            
+           
         $session = Session::where('date_start', $formattedDate)->get();
+        if(empty($session[0])){
+            return response()->json([
+                'reglas' => "none",
+                'move' => "none",
+                'bpm' => "none",
+                'modoJuego' => "none"
+            ]);
+        }
         $terapia = Therapy::where('id', $session[0]->therapy_id)->first();
         
         if(json_decode($terapia->rules) == "empty")
             return response()->json([
                 'reglas' => "empty",
-                'move' => $session-> movement,
-                'bpm' => $session -> percentage,
-                'modoJuego' => $session ->modoJuego
+                'move' => $session[0]-> movement,
+                'bpm' => $session[0]-> percentage,
+                'modoJuego' => $session[0]->modoJuego
         ]);
         else
             return response()->json([
                 'reglas' => $terapia->rules,
-                'move' => $session-> movement,
-                'bpm' => $session -> percentage,
-                'modoJuego' => $session ->modoJuego
+                'move' => $session[0]-> movement,
+                'bpm' => $session[0] -> percentage,
+                'modoJuego' => $session[0] ->modoJuego
             ]); 
 
     }
