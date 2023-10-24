@@ -2,7 +2,6 @@
 
 function navbarStart() {
     const navContainer = document.getElementById("vertical_nv");
-        var cookiesStr = getCookie('navbar');
         if(cookiesStr!="true"){//se abre
             navContainer.classList.remove("navbar-vertical");
             navContainer.classList.add("navbar-vertical-closed");
@@ -70,74 +69,31 @@ function widthMaxStart(){
 
 function navbarButton(){
     const navContainer = document.getElementById("vertical_nv");
-        var cookiesStr = getCookie('navbar');
+
 
         if(cookiesStr=="true"){//se abre
-            eraseNavBarCookies();
             navContainer.classList.remove("navbar-vertical");
             navContainer.classList.add("navbar-vertical-closed");
         }
         else{ // se sierra
-            setNavBarCookies();
             navContainer.classList.remove("navbar-vertical-closed");
             navContainer.classList.add("navbar-vertical");
         }
    
-    console.log(getCookie('navbar'));
 }
 
 function smallNavBarButton(button){
-    const screenWidth = window.innerWidth;
     const navContainer = document.getElementById("vertical_nv");
-        var cookiesStr = getCookie('navbar');
 
         if(cookiesStr=="true"){//se abre
-            eraseNavBarCookies();
             navContainer.classList.remove("navbar-vertical");
             navContainer.classList.add("navbar-vertical-closed");
         }
         else{ // se sierra
-            setNavBarCookies();
             navContainer.classList.remove("navbar-vertical-closed");
             navContainer.classList.add("navbar-vertical");
         }
    
-    console.log(getCookie('navbar'));
-}
-function eraseNavBarCookies() {
-    // Create an XMLHttpRequest object
-    var xhr = new XMLHttpRequest();
-
-    // Configure the request
-    xhr.open('GET', 'cookies_erase.php', true);
-
-    // Set up the callback function
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState === 4 && xhr.status === 200) {
-            //alert('Se comieron las galletas');
-        }
-    };
-
-    // Send the request
-    xhr.send();
-}
-
-function setNavBarCookies() {
-    // Create an XMLHttpRequest object
-    var xhr = new XMLHttpRequest();
-
-    // Configure the request
-    xhr.open('GET', 'cookies_create.php', true);
-
-    // Set up the callback function
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState === 4 && xhr.status === 200) {
-            //alert('Galletas creadas');
-        }
-    };
-
-    // Send the request
-    xhr.send();
 }
 
 function getCookie(cname) {

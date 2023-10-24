@@ -238,6 +238,7 @@
     
     .choice-selection-container button{
         vertical-align: middle;
+        margin-top:0.6%;
         color:white;
         border: 0px solid blue;
         border-radius: 30px;
