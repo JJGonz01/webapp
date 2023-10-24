@@ -64,14 +64,13 @@
                                         </button>
                                     </form>
                                     <div>
-                                        <button id="cerrar-session-button" class="close-create-button" href="{{ route('main') }}"
-                                        onclick="
-                                        document.getElementById('logout-form').submit();">
-                                            {{ __('Cerrar sesión') }}
-                                        </button>
+                                        
                                     </div>
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
+                                        <button id="cerrar-session-button" class="close-create-button" href="{{ route('main') }}">
+                                            {{ __('Cerrar sesión') }}
+                                        </button>
                                     </form>
                                 </div>
                             </div>
