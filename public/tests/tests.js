@@ -39,8 +39,11 @@ window.onload = function() {
 
     if(!localStorage["test_on"]){ 
         localStorage["testId"] = "0";
-        if(window.location.pathname != "" && window.location.pathname != "home")
+        if(window.location.pathname != "" && window.location.pathname != "/" && window.location.pathname != "home")
             setAsInNotStartedTask();
+        else{
+            
+        }
         
     }
     else if(localStorage["test_on"] == "false")
@@ -146,9 +149,10 @@ function startTask(){
     const taskInfoContainer = document.getElementById('no-task-container');
     const inTaskContainer = document.getElementById('in-task-container');
     const bottonInfoText = document.getElementById('in-task-text');
+    taskInfoContainer.style.display = "none";
     bottonInfoText.innerHTML = testExplanationDictionary[localStorage["testId"]];
 
-    taskInfoContainer.style.display = "none"
+    
     inTaskContainer.style.display = "block"
     localStorage["test_on"] = "true"
 
