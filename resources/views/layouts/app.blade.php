@@ -17,65 +17,69 @@
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="https://pomodoroadhdapp.azurewebsites.net/styles/CSS/auth.css">
-    <link rel="stylesheet" href="https://pomodoroadhdapp.azurewebsites.net/styles/CSS/items.css">
+    <link rel="stylesheet" href="{{ asset('styles/CSS/auth.css') }}">
+    <link rel="stylesheet" href="{{ asset('styles/CSS/items.css') }}">
 
     <!-- Scripts -->
-    <script src="https://pomodoroadhdapp.azurewebsites.net/javascript/auth/app.js"></script>
+    <script src="{{ asset('resources/js/app.js') }}"></script>
 
 
 </head>
 <body>
-    <div id="app" class="bg-text">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                <h1>POMODORO WEB</h1>
-                
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav me-auto">
 
-                    </ul>
+    <div id="app" class="auth-general-container">
+            <div>
+                
+                <div id="navbarSupportedContent">
+
                     <main class="py-4">
                        @yield('content')
                     </main>
                     <!-- Right Side Of Navbar -->
-                    <div class="navbar-nav ms-auto">
+                    <div >
                         <!-- Authentication Links -->
                         @guest
                            
 
                            
                         @else
-                            <div class="button-column">
+                            <div class="right-login-container">
+                                <div class="card-body">
+                                    @if (session('status'))
+                                        <div class="alert alert-success" role="alert">
+                                            {{ session('status') }}
+                                        </div>
+                                    @endif
+                                </div>
                                 <p id="navbarDropdown" class="nav-link dropdown-toggle">
                                     Usuario: {{  Auth::user()->name }}
                                 </p>
                                 <p>
                                     Correo: {{  Auth::user()->email }}
                                 </p>
-                                <div class="button-column" id="ir-app-button" aria-labelledby="navbarDropdown">
-                                    <form action="{{route('main', [], false, true)}}" method="GET">
+                                <div class="button-column" onclick="printClickedId(this)" id="ir-app-button" aria-labelledby="navbarDropdown">
+                                    <form action="{{ route('main') }}" method="GET">
                                         <button class="login-create-button" id="go_to_app">
                                             {{ __('Ir a la aplicación') }}
                                         </button>
                                     </form>
                                     <div>
-                                        
-                                    </div>
-                                    <form id="logout-form" action="{{route('logout', [], false, true)}}" method="POST" class="d-none">
-                                        @csrf
-                                        <button type="submit" id="cerrar-session-button" class="close-create-button" href="{{route('main', [], false, true)}}">
+                                        <button id="cerrar-session-button" class="close-create-button" href="{{ route('main') }}"
+                                        onclick="
+                                        document.getElementById('logout-form').submit();">
                                             {{ __('Cerrar sesión') }}
                                         </button>
+                                    </div>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
                                     </form>
                                 </div>
                             </div>
-                        @endguest
+                        @endguest 
                     </div>
                 </div>
             </div>
-        </nav>
+
     </div>
 </body>
 </html>
