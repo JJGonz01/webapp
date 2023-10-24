@@ -439,7 +439,6 @@ class SessionsController extends Controller
     public function getSessionRules(Request $request){
         
         $dateString = $request->input('date');
-        $dateString = "2023-10-19 12:41:00";
         $date = Carbon::parse($dateString);
             
         $formattedDate = $date->format('Y-m-d H:i:s');
