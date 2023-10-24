@@ -39,6 +39,7 @@ window.onload = function() {
 
     if(!localStorage["test_on"]){ 
         localStorage["testId"] = "0";
+        console.log("pth: "+window.location.pathname)
         if(window.location.pathname != "" && window.location.pathname != "/" && window.location.pathname != "home")
             setAsInNotStartedTask();
         else{
