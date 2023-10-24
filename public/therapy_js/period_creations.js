@@ -31,10 +31,11 @@ function editWindowTherapy(){
  * Esto crea el periodo principal
  */
 function saveTemporalPeriod(button) {
+  console.log(button.id)
   const texto_reglas_titulo = document.getElementById('texto_regla_periodo');
   const errorMessage = document.getElementById("error_period");
   const periodInput = document.getElementById('input_period');
-
+  button.innerHTML = "Editar bloque";
   var t1 = document.getElementById('t1');
   var t2 = document.getElementById('t2');
   var descanso = document.getElementById('descanso');
@@ -128,7 +129,7 @@ function showCreatedPeriods(esNuevo) {
       botonPer.type =  "button";
       botonPer.id =  "button_"+(periods.length - 1);
       const p = periods.length-1;
-      botonPer.setAttribute('onclick', "irAPeriodo("+p+")"); 
+      botonPer.setAttribute('onclick', "printClickedId(this, 'saveTemporalPeriod(this)'; irAPeriodo("+p+"); "); 
       listaBtts.appendChild(botonPer);
   }
 
@@ -160,9 +161,8 @@ function showCreatedPeriods(esNuevo) {
  * Edita si es crear periodo o editar periodo
  */
 function addPeriodsIdToSeleccion(button) {
-
-  showButtonFromCreatePeriod();
   button.innerHTML = "Editar bloque";
+  showButtonFromCreatePeriod();
   selectConjPeriodo = document.getElementById('selectConjPeriodo');
   selectConjPeriodo.innerHTML = '';
   cargarValoresEnCuadraditos();
