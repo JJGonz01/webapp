@@ -43,7 +43,7 @@
 }
 
 .row-option-selector button{
-    background-color: #0E4565;
+    background-color: var(--azul-seleccionar);
     font-weight: bold;
     color:white;
     margin:7px;

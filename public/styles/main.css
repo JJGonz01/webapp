@@ -13,6 +13,11 @@
     --container-session-show-color: rgb(138, 204, 230);
     --container-session-selected-color: #5589d2;
 
+    --azul-cerrar: #ff9a5e;
+    --azul-crear: #4958D2;
+    --azul-guardar:#80A0DE;
+    --azul-seleccionar:#556B9D;
+
 }
 
 *{
