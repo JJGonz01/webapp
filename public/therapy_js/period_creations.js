@@ -31,7 +31,6 @@ function editWindowTherapy(){
  * Esto crea el periodo principal
  */
 function saveTemporalPeriod(button) {
-  console.log(button.id)
   const texto_reglas_titulo = document.getElementById('texto_regla_periodo');
   var boton_primer_periodo = document.getElementById('save_first_period_ther_create');
   boton_primer_periodo.innerHTML = "Guardar cambios";
@@ -137,7 +136,7 @@ function showCreatedPeriods(esNuevo) {
       
       additionalFunction = "event.preventDefault(); printClickedId(this, '" + currentOnclick + "', null);";
       var newOnclick = additionalFunction
-      button.setAttribute('onclick', newOnclick); 
+      botonPer.setAttribute('onclick', newOnclick); 
       listaBtts.appendChild(botonPer);
   }
 
