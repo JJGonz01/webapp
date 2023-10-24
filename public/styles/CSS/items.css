@@ -220,6 +220,7 @@
 }
 
 @media (min-width: 751px) {
+
     .choice-selection-container{
         display:flex;
         flex-direction: row;
@@ -236,10 +237,12 @@
     }
     
     .choice-selection-container button{
+        vertical-align: middle;
         color:white;
         border: 0px solid blue;
         border-radius: 30px;
         width:45%;
         height:80%;
+        margin:0.3%;
     }
 }

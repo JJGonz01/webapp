@@ -145,6 +145,7 @@
     .navbar-right-items{
         flex-grow: 1;
         overflow-y: auto;
+        background-color:var(--background-color);
     }
     
     .navbar-vertical p{ 
