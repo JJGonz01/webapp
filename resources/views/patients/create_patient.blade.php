@@ -37,6 +37,5 @@
         <button id="go_to_patient_create" class = "create-button" type="submit"> CREAR USUARIO </button>
     </form> <!--FORM PACIENTE-->
 
-
 </div>
 @endsection

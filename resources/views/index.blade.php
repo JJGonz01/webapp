@@ -2,7 +2,8 @@
 
 @section('content')
 <div class="container">
-
+    <div class="left-login-container">
+    </div>
     <div class="right-login-container">
         <div class="row justify-content-center">
             <div class="col-md-8">

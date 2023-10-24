@@ -59,7 +59,7 @@
                                     Correo: {{  Auth::user()->email }}
                                 </p>
                                 <div class="button-column" onclick="printClickedId(this)" id="ir-app-button" aria-labelledby="navbarDropdown">
-                                    <form action="{{ route('main') }}" method="GET">
+                                    <form action="{{ route('main', [], false, true) }}" method="GET">
                                         <button class="login-create-button" id="go_to_app">
                                             {{ __('Ir a la aplicación') }}
                                         </button>
