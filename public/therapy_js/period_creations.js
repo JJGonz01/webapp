@@ -129,7 +129,7 @@ function showCreatedPeriods(esNuevo) {
       botonPer.type =  "button";
       botonPer.id =  "button_"+(periods.length - 1);
       const p = periods.length-1;
-      botonPer.setAttribute('onclick', "printClickedId(this, 'saveTemporalPeriod(this)'; irAPeriodo("+p+"); "); 
+      botonPer.setAttribute('onclick', "irAPeriodo("+p+");printClickedId(this, saveTemporalPeriod("+this+");"); 
       listaBtts.appendChild(botonPer);
   }
 
