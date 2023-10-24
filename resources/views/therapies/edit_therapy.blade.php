@@ -91,7 +91,7 @@
                     <div class="row-text-button">
                         <p id="periodo_estancia">CREAR BLOQUE DE ESTUDIO</p>
                         <div id="boton_der_periodos">
-                        <button id="close_period_creator_container_btn" onclick="closePeriodCreation()" type="button" class="delete-button">CERRAR BLOQUE</button></div>
+                        <button id="close_period_creator_container_btn" onclick="closePeriodCreation()" type="button" class="close-button">CERRAR BLOQUE</button></div>
                     </div>
                     <div class="back-period-creation">
                         <div id="periodo_principal">
@@ -146,7 +146,7 @@
     
                             <div class="back-period-creation"  id="contenedor_creador_reglas" style="display:none;">
                                 
-                                <button id="close_rule_creator_ther_create" class="delete-button" type="button" onclick="closeRuleCreator()">X</button>
+                                <button id="close_rule_creator_ther_create" class="close-button" type="button" onclick="closeRuleCreator()">CERRAR EDTOR</button>
                                 <div class="therapy-input-row">
                                     <div>
                                         <label for="selectPeriodo">Nombre de la regla</label>
