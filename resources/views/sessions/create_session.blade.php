@@ -16,7 +16,7 @@
     <h6 class="alert alert-danger">{{ implode('', $errors->all(':message')) }}</h6>
 @endif
             
-<script src="https://pomodoroadhdapp.azurewebsites.net/sessionCreate.js}}"></script>
+<script src="https://pomodoroadhdapp.azurewebsites.net/sessionCreate.js"></script>
     <div class="create-basic-container">
         @csrf
         <input id="terapia_seleccion" style="display:none" name="therapy_id"></input>
