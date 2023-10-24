@@ -6,15 +6,16 @@
     </div>
     <div class="right-login-container">
         <div>
-            <div >
-                <div >
-                    <form method="POST" action="{{ route('login' [], false, true) }}">
+            <div>
+                <div>
+                    <form method="POST" action="{{ route('login',[], false, true) }}">
                         @csrf
                         @error('email')
                                     <span class="error-text" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
-                            @enderror<img src="https://pomodoroadhdapp.azurewebsites.net/images/tomatoclock.jpg" class="right-login-container-image"></img><h1>¡Hola de nuevo!</h1>
+                        @enderror
+                            <img src="https://pomodoroadhdapp.azurewebsites.net/images/tomatoclock.jpg" class="right-login-container-image"></img><h1>¡Hola de nuevo!</h1>
                         <div class="auth-input">
                             
                             
@@ -71,7 +72,7 @@
                         </div>
                     </form>
                     @if (Route::has('register'))
-                    <form method="GET" action="{{ route('register' [], false, true) }}" class="singup-line">
+                    <form method="GET" action="{{ route('register', [], false, true) }}" class="singup-line">
                         <span style="font-style:oblique">¿No  tienes cuenta? </span>
                         <button id = "go_to_register_button">
                             {{ __('Pulsa aquí') }}
