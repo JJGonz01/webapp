@@ -3,7 +3,7 @@
 function navbarStart() {
     const navContainer = document.getElementById("vertical_nv");
         if(!localStorage["navbar"] || localStorage["navbar"]!="true"){//se abre
-            localStorage["navbar"] = "true";
+            localStorage["navbar"] = "false";
             navContainer.classList.remove("navbar-vertical");
             navContainer.classList.add("navbar-vertical-closed");
         }
