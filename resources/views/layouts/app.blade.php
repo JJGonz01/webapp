@@ -43,7 +43,7 @@
 
                            
                         @else
-                            <div class="right-login-container">
+                            <div class="right-login-container" style="margin-top:1%; color: grey;">
                                 
                                 <div class="button-column" onclick="printClickedId(this)" id="ir-app-button" aria-labelledby="navbarDropdown">
                                     <form action="{{ route('main', [], false, true) }}" method="GET">
