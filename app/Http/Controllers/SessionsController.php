@@ -442,7 +442,7 @@ class SessionsController extends Controller
         $date = Carbon::parse($dateString);
             
         $formattedDate = $date->format('Y-m-d H:i:s');
-           
+            
         $session = Session::where('date_start', $formattedDate)->get();
         if(empty($session[0])){
             return response()->json([
