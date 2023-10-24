@@ -44,20 +44,7 @@
                            
                         @else
                             <div class="right-login-container">
-                                <div class="card-body">
-                                    @if (session('status'))
-                                        <div class="alert alert-success" role="alert">
-                                            {{ session('status') }}
-                                        </div>
-                                    @endif
-                                </div>
-                                <img src="https://pomodoroadhdapp.azurewebsites.net/images/tomatoclock.jpg" class="right-login-container-image"></img>
-                                <p id="navbarDropdown" class="nav-link dropdown-toggle">
-                                    Usuario: {{  Auth::user()->name }}
-                                </p>
-                                <p>
-                                    Correo: {{  Auth::user()->email }}
-                                </p>
+                                
                                 <div class="button-column" onclick="printClickedId(this)" id="ir-app-button" aria-labelledby="navbarDropdown">
                                     <form action="{{ route('main', [], false, true) }}" method="GET">
                                         <button class="login-create-button" id="go_to_app">
