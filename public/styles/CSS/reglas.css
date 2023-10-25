@@ -1,15 +1,3 @@
-.reglas-container-right{
-    right:0;
-    position: absolute;
-    border-left: 3px solid grey;
-    background-color: rgba(0, 0, 0, 0.144);
-    width: 100%;
-    display: flex;
-
-    z-index: 3;
-    top:0;
-    height: 100%;
-}
 
 
 .rule-creation-steps{
@@ -157,12 +145,25 @@
 }
 
 @media (min-width: 881px) {
+    .reglas-container-right{
+        right:0;
+        position: absolute;
+        border-left: 3px solid grey;
+        background-color: rgba(0, 0, 0, 0.144);
+        width: 100%;
+        display: flex;
+    
+        z-index: 3;
+        top:0;
+        height: 100%;
+    }
+
     .content-half{
         width: 40%;
         height:100%;
         right:0;
-        left:50%; 
-    
+        
+        flex:1;
         border-top-left-radius: 10px;
         border-bottom-left-radius: 10px;
         padding:2%;
@@ -173,9 +174,9 @@
     .content-half-image{
         width: 60%;
         height:100%;
+        flex:1;
         right:0;
         left:50%;
-       
         background-color: rgba(67, 67, 67, 0.025);
         border-left:3 px black solid;
     }
@@ -184,12 +185,23 @@
 
 @media (max-width: 880px) {
 
+    .reglas-container-right{
+        right:0;
+        position: absolute;
+        border-left: 3px solid grey;
+        background-color: rgba(0, 0, 0, 0.144);
+        width: 100%;
+        display: flex;
+        z-index: 3;
+        top:0;
+        height: 100%;
+    }
+
    .content-half{
         width: 100%;
         height:100%;
         right:0;
         left:50%; 
-    
         border-top-left-radius: 10px;
         border-bottom-left-radius: 10px;
         padding:2%;
@@ -202,7 +214,7 @@
         height:100%;
         right:0;
         left:50%;
-       
+        display: none;
         background-color: rgba(67, 67, 67, 0.025);
         border-left:3 px black solid;
     }
