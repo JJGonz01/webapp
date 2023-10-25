@@ -55,6 +55,22 @@
 
         <div>
             <div class="header-selector">
+
+                <h6 style="display:none;" class="alert alert-success" id="created_alert_period">
+                     Periodos del bloque creados correctamente
+                </h6>
+
+                <h6 style="display:none;" class="alert alert-success" id="edited_alert_period">
+                    Periodos del bloque editados correctamente
+                </h6>
+
+                <h6 style="display:none;" class="alert alert-danger" id="error_period">
+                                Tipo de comportamiento NO DECLARADO
+                </h6>
+                <h6 style="display:none;" class="alert alert-danger" id="error_period_extra">
+                                Tipo de comportamiento NO DECLARADO
+                </h6>
+
                 <div class="row-text-button">
                     <p>Bloques de estudio</p>
                     <div id="boton_der_periodos">
@@ -71,19 +87,7 @@
                 </div>
             </div>
 
-            <h6 style="display:none;" class="alert alert-danger" id="create_alert_period">
-                            Bloque creado correctamente
-            </h6>
-
-            <h6 style="display:none;" class="alert alert-danger" id="edited_alert_period">
-                            Bloque editado correctamente
-            </h6>
-            <h6 style="display:none;" class="alert alert-danger" id="error_period">
-                            Tipo de comportamiento NO DECLARADO
-            </h6>
-            <h6 style="display:none;" class="alert alert-danger" id="error_period_extra">
-                            Tipo de comportamiento NO DECLARADO
-            </h6>
+           
             <div class="header-selector" style="display:none;" id="period_creation_container">
                 <div class="row-text-button">
                     <p id="periodo_estancia">CREAR BLOQUE DE ESTUDIO</p>
@@ -130,6 +134,7 @@
                     </div>
 
                     <h4 style="display:none;" class="alert alert-danger" id="errorCreandoRegla"></h4>
+                    <h4 style="display:none;" class="alert alert-danger" id="sucessCreandoRegla">Regla creada con exito</h4>
                     
 
                     
@@ -167,19 +172,14 @@
                                 
                                 <div class="conditions-container">
                                     <label>Condiciones</label>
-                                    <div class="elements-conditions" id="appear-dissapearDiv"> </div>
                                     <button id="add_action_rule_ther_create" onclick="createDiv()" class="create-button"  type="button">Añadir condición</button>
+                                    <div class="elements-conditions" id="appear-dissapearDiv"> </div>
                                 </div>
                                 
                                 
                                 <div class="actions-container">
                                     <label>Acciones</label>
-                                    <div class="therapy-check-row">
-                                        <input type="checkbox" id="soloLanzarUnaVez" name="defaultRuleset" />
-                                        <label for="defaultRuleset">
-                                            Ejecutar regla una única vez
-                                        </label>
-                                    </div>
+                                    
 
                                     <div id="condicionPapi">
                                         <div class="elements-conditions-container">

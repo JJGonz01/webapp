@@ -82,6 +82,7 @@ function saveTemporalPeriod(button) {
     addPeriodsIdToSeleccion(button);
     showCreatedPeriods(esNuevo);
     closePeriodCreation();
+    showmessage(esNuevo);
   }
 }
 
@@ -226,6 +227,7 @@ function savePeriodExtra(button){
     periodInput.value = value;
     addPeriodsIdToSeleccion(button);
     showCreatedPeriods(esNuevo);
+    showmessage(esNuevo);
   }
 }
 
@@ -296,6 +298,25 @@ function cambiarPeriodo(direccion){
     mostrarReglasRespectoPeriodo(""+(posicionadoEn+1)); 
     cargarValoresEnCuadraditos();
 }
+
+function showmessage(isNew){
+  const created_message_sucess = document.getElementById('created_alert_period');
+  const edited_message_sucess = document.getElementById('edited_alert_period');
+  if(isNew){
+        created_message_sucess.style.display = "block";
+
+        setTimeout(function() {
+          created_message_sucess.style.display = "none";
+        }, 3000); 
+    
+  }else{
+    edited_message_sucess.style.display = "block";
+      setTimeout(function() {
+        edited_message_sucess.style.display = "none";
+      }, 3000); 
+  }
+}
+
 /*
  * SI es un periodo ya creado, carga los valores correspondientes a cada cuadradito
  */

@@ -631,6 +631,7 @@ function guardarRegla(nombreAnterior){
   }
   
   document.getElementById("errorCreandoRegla").style.display = "none";
+  showmessage();
   closeRuleCreator();
   limpiarInputs();
 
@@ -893,4 +894,16 @@ function closeRuleCreator(){
   btn.style.display = "block";
   var rc = document.getElementById("contenedor_creador_reglas");
   rc.style.display = "none";
+}
+
+function showmessage(){
+  const created_message_sucess = document.getElementById('sucessCreandoRegla');
+
+  created_message_sucess.style.display = "block";
+
+  setTimeout(function() {
+    created_message_sucess.style.display = "none";
+  }, 3000); 
+    
+
 }
