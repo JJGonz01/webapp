@@ -93,10 +93,9 @@
 }
 .elements-conditions-container{
     background-color: #ffffff;
-    box-shadow: 3px 3px 5x rgb(166, 166, 166);
-    border-right: 4px solid var(--azul-crear);
+    box-shadow: 3px 3px 5px rgb(166, 166, 166);
+    border-left: 4px solid var(--azul-crear);
     margin-top:2%;
-    border-radius: 4px;
     padding: 1%;
     border-radius: 10px;
 }
