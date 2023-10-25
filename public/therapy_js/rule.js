@@ -886,7 +886,7 @@ function openRuleCreator(isNew){
   //addEventToValuesSensor();
   actionToMake()
   var rc = document.getElementById("contenedor_creador_reglas");
-  rc.style.display = "block";
+  rc.style.display = "flex";
 }
 
 function closeRuleCreator(){  
