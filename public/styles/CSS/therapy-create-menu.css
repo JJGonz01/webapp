@@ -4,7 +4,7 @@
     border-radius: 4px;
     padding-bottom: 5%;
 }
-
+ 
 .therapy-input-row{
     display:flex;
     flex-direction: row; 
@@ -92,10 +92,13 @@
     border-radius: 4px;
 }
 .elements-conditions-container{
-    background-color: #5D9DC5;
+    background-color: #ffffff;
+    box-shadow: 3px 3px 5x rgb(166, 166, 166);
+    border-right: 4px solid var(--azul-crear);
     margin-top:2%;
     border-radius: 4px;
     padding: 1%;
+    border-radius: 10px;
 }
 .elements-conditions-container select{
     width:40%;
@@ -219,8 +222,11 @@
     .elements-conditions{
         width:100%;
         overflow-y: auto;
-        height: 443px;
+        height: 35%;
+        margin-bottom:10%;
         padding: 2%;
+        margin-top: 2px solid grey;
+        margin-bottom: 2px solid grey;
     }
     
     .conditions-container{

@@ -188,10 +188,16 @@
                                     </div> 
 
                                     <div class="rules-check-row">
-                                        <input type="checkbox" id="soloLanzarUnaVez" name="defaultRuleset" />
-                                        <label for="defaultRuleset">
-                                            Ejecutar regla una única vez en el periodo
-                                        </label>
+                                        <div class="rules-check-row-column">
+                                            <input type="checkbox" id="soloLanzarUnaVez" name="defaultRuleset" />
+                                        </div>
+                                        
+                                        <div class="rules-check-row-column">
+                                            <label for="defaultRuleset">
+                                                Ejecutar regla una única vez en el periodo
+                                            </label>
+                                        </div>
+
                                     </div>
                                     <div class="button-centered-container">
                                         <button class="button_reglas_back" type="buton" onclick="closeRuleCreator()">Salir</button>

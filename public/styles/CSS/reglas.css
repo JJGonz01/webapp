@@ -1,15 +1,4 @@
-.reglas-container-right{
-    right:0;
-    position: absolute;
-    border-left: 3px solid grey;
-    background-color: rgba(0, 0, 0, 0.144);
-    width: 100%;
-    display: flex;
 
-    z-index: 3;
-    top:0;
-    height: 100%;
-}
 
 
 .rule-creation-steps{
@@ -146,7 +135,15 @@
     align-items: left;
     left:0;
 }
-
+ 
+.rules-check-row-column{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-right: 5%;
+    padding-left: 5%;
+}
 .rules-check-row input{
     align-items: left;
     text-align: left;
@@ -157,6 +154,18 @@
 }
 
 @media (min-width: 881px) {
+    .reglas-container-right{
+        right:0;
+        position: absolute;
+        border-left: 3px solid grey;
+        background-color: rgba(0, 0, 0, 0.144);
+        width: 100%;
+        display: flex;
+    
+        z-index: 3;
+        top:0;
+        height: 100%;
+    }
     .content-half{
         width: 40%;
         height:100%;
@@ -183,13 +192,23 @@
 }
 
 @media (max-width: 880px) {
-
+    .reglas-container-right{
+        right:0;
+        position: absolute;
+        border-left: 3px solid grey;
+        background-color: rgba(0, 0, 0, 0.144);
+        width: 100%;
+        display: flex;
+        z-index: 3;
+        top:0;
+        margin-top:5%;
+        height: 100%;
+    }
    .content-half{
         width: 100%;
         height:100%;
         right:0;
         left:50%; 
-    
         border-top-left-radius: 10px;
         border-bottom-left-radius: 10px;
         padding:2%;
