@@ -118,7 +118,7 @@
     background-color: var(--azul-cerrar-hover);
 }
 .delete-button:hover{
-    background-color: #bc2d20;
+    background-color:  var(--azul-cerrar-hover);
 }
 
 .patient-edit-button{
@@ -190,7 +190,7 @@
 }
 .session-necessary-contaner button{
     border-radius: 14px; 
-    background-color: #80DED9;
+    background-color: var(--azul-guardar);
     color:white;
     background-size: cover;
     margin: 5px 0;
@@ -220,14 +220,17 @@
         border-radius: 30px;
         margin-top:30px;
         margin-bottom:20px;
+        align-items: center;
     }
     
     .choice-selection-container button{
         color:white;
-        border: 0px solid blue;
+        border: 0px solid  var(--azul-seleccionar);
         border-radius: 30px;
         width:45%;
         height:80%;
+        vertical-align: middle;
+        margin-top:2%;
     }
     
 
@@ -248,16 +251,23 @@
         border-radius: 30px;
         margin-top:30px;
         margin-bottom:20px;
+        align-items: center;
     }
     
     .choice-selection-container button{
         vertical-align: middle;
         margin-top:0.6%;
         color:white;
-        border: 0px solid blue;
+        border: 0px solid var(--azul-seleccionar);
         border-radius: 30px;
         width:45%;
         height:80%;
         margin:0.3%;
     }
+}
+
+.choice-selection-container button:hover{
+
+    border: 0px solid var(--azul-seleccionar-hover);
+
 }

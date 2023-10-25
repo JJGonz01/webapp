@@ -25,9 +25,9 @@
     background-color: white;
 }
 
-.navbar-vertical button:hover{
+.navbar-vertical-closed button:hover{
     border: 0px;
-    background-color: rgb(214, 212, 212);
+    background-color: rgb(179, 178, 178);
 }
 
 .navbar-horizontal-container{
@@ -259,4 +259,12 @@
         background-color: white;
     }
     
+}
+
+.navbar-vertical button:hover{
+    background-color: rgb(173, 173, 173);
+}
+
+.navbar-vertical button:hover{
+    background-color: rgb(173, 173, 173);
 }
