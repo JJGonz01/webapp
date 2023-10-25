@@ -1,0 +1,210 @@
+.reglas-container-right{
+    right:0;
+    position: absolute;
+    border-left: 3px solid grey;
+    background-color: rgba(0, 0, 0, 0.144);
+    width: 100%;
+    display: flex;
+
+    z-index: 3;
+    top:0;
+    height: 100%;
+}
+
+
+.rule-creation-steps{
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    background-color: rgb(255, 255, 255);
+    text-align: center;
+    justify-content: center;
+    margin-bottom: 3%;
+    margin-left:10%;
+    margin-right:10%;
+    margin-top:2%;
+}
+.button-popup-reglas{
+    width: 35px;
+    height: 35px;
+    background-color: rgb(237, 235, 235);
+    font-weight: bold;
+    border:0;
+    border-radius: 50%; /* Makes the button circular */
+    color: #000000; /* Text color */
+}
+
+.row-steps-container{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.row-steps-item{
+    display: flex;
+    padding: 3%;
+            flex-direction: column; /* Display items in a column */
+            align-items: center; /* Center items horizontally */
+            justify-content: center; /* Center items vertically */
+    
+}
+
+.input-regla-container{
+    padding: 3%;
+    flex-direction: column; /* Display items in a column */
+    align-items: center; /* Center items horizontally */
+    justify-content: center; /* Center items vertically */
+}
+
+.input-regla-container input{
+    width:100%;
+    padding:1%;
+    border: 2px solid rgba(221, 217, 217, 0.708);
+    border-radius: 8px;
+    margin-bottom: 2%;
+    font-size: large;
+}
+
+.input-regla-container select{
+    width:100%;
+    padding:1%;
+    background-color: white;
+    border: 2px solid rgba(221, 217, 217, 0.708);
+    border-radius: 8px;
+    margin-bottom: 2%;
+    font-size: large;
+}
+
+.button-centered-container{
+    text-align: center;
+    justify-content: space-between;
+    display: flex;
+}
+
+.input-regla-container-button{
+    width: 65px;
+    height: 65px;
+    background-color: rgb(97, 180, 243);
+    font-weight: bold;
+    border:0;
+    border-radius: 50%; /* Makes the button circular */
+    color: #000000;
+}
+
+.input-regla-container-button:hover{
+    width: 75px;
+    height: 75px;
+    background-color: rgb(97, 180, 243);
+    font-weight: bold;
+    border:0;
+    border-radius: 50%; /* Makes the button circular */
+    color: #000000;
+}
+
+
+
+.button_reglas_back{
+    background: 0;
+    border:0;
+    color:rgb(97, 180, 243);
+    
+    font-size: large;
+    font-weight: bold;
+}
+
+
+.button_reglas_back:hover{
+    background: 0;
+    border:0;
+    color:rgb(81, 149, 201);
+    font-size: x-large;
+    font-weight: bold;
+}
+
+.button-row{
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    justify-content: space-around;
+}
+
+.button-row button{
+    background-color: rgb(255, 254, 254);
+    border: 10px;
+    border: rgb(158, 156, 156);
+
+    padding:2%;
+    justify-content: center;
+    text-align: center;
+    width: 10%;
+}
+
+.rules-check-row{
+    align-items: left;
+    display: flex;
+    flex-direction: row;
+    text-align: left;
+    align-items: left;
+    left:0;
+}
+
+.rules-check-row input{
+    align-items: left;
+    text-align: left;
+    align-items: left;
+    left:0;
+    margin: 0;
+    padding: 0;
+}
+
+@media (min-width: 881px) {
+    .content-half{
+        width: 40%;
+        height:100%;
+        right:0;
+        left:50%; 
+    
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+        padding:2%;
+        background-color: rgb(247, 247, 247);
+        border-left:3 px black solid;
+    }
+    
+    .content-half-image{
+        width: 60%;
+        height:100%;
+        right:0;
+        left:50%;
+       
+        background-color: rgba(67, 67, 67, 0.025);
+        border-left:3 px black solid;
+    }
+
+}
+
+@media (max-width: 880px) {
+
+   .content-half{
+        width: 100%;
+        height:100%;
+        right:0;
+        left:50%; 
+    
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+        padding:2%;
+        background-color: rgb(247, 247, 247);
+        border-left:3 px black solid;
+    }
+    
+    .content-half-image{
+        width: 0%;
+        height:100%;
+        right:0;
+        left:50%;
+       
+        background-color: rgba(67, 67, 67, 0.025);
+        border-left:3 px black solid;
+    }
+
+}

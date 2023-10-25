@@ -9,6 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
      <link rel="stylesheet" href="https://pomodoroadhdapp.azurewebsites.net/styles/main.css">
      <link rel="stylesheet" href="https://pomodoroadhdapp.azurewebsites.net/styles/CSS/navbar.css">
+     <link rel="stylesheet" href="https://pomodoroadhdapp.azurewebsites.net/styles/CSS/reglas.css">
      <link rel="stylesheet" href="https://pomodoroadhdapp.azurewebsites.net/styles/CSS/items.css">
      <link rel="stylesheet" href="https://pomodoroadhdapp.azurewebsites.net/styles/CSS/web-right-items.css">
      <link rel="stylesheet" href="https://pomodoroadhdapp.azurewebsites.net/styles/CSS/create-menu.css">

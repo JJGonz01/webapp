@@ -146,52 +146,85 @@
                         <div id="lista_reglas_periodo" class="row-option-selector">
                         </div>
 
-                        <div class="back-period-creation"  id="contenedor_creador_reglas" style="display:none;">
-                            
-                            <button id="close_rule_creator_ther_create" class="close-button" type="button" onclick="closeRuleCreator()">CERRAR EDTOR</button>
-                            <div class="therapy-input-row">
-                                <div>
-                                    <label for="selectPeriodo">Nombre de la regla</label>
-                                    <input class = "rule-form-space-input" type="text" id="rule_name" name="ruleName"></input>
-                                </div> 
-                        
-                                <div>
-                                    <label for="selectPeriodo">Periodo</label>
-                                    <select id="selectPeriodo"></select>
-                                </div> 
-                                <div>
-                                    <label for="selectMomentoPeriodo">Momento Periodo</label>
-                                    <select id="selectMomentoPeriodo"></select>
-                                </div> 
+                        <div class="reglas-container-right"  id="contenedor_creador_reglas" style="display:none;">
+                            <div class="content-half-image" onclick="closeRuleCreator()"></div>
+                            <div class="content-half">
+                                <button id="close_rule_creator_ther_create" class="close-button" type="button" onclick="closeRuleCreator()">CERRAR EDITOR</button>
 
-                                <div class="therapy-check-row">
+                                <div class="rule-creation-steps">
+                                    <div class="row-steps-container">
+                                        <div class="row-steps-item">
+                                            <button type="button" id="menu_reglas_btn_one" class="button-popup-reglas" style = "background-color: rgb(33, 145, 215); color:white;" onclick="rule_creation_step(1)">1</button>
+                                            <p>Momento</p>
+                                        </div>
+
+                                        <div class="row-steps-item">
+                                            <button type="button" id="menu_reglas_btn_two" class="button-popup-reglas" onclick="rule_creation_step(2)">2</button>
+                                            <p>Condiciones</p>
+                                        </div>
+
+                                        <div class="row-steps-item">
+                                            <button type="button" id="menu_reglas_btn_three" class="button-popup-reglas" onclick="rule_creation_step(3)">3</button>
+                                            <p>Acciones</p>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+
+                                <div id = "rule_creation_step_one" class="input-regla-container">
+                                    <div>
+                                        <label for="selectPeriodo">Nombre de la regla</label>
+                                        <input type="text" id="rule_name" name="ruleName"></input>
+                                    </div> 
+                            
+                                    <div>
+                                        <label for="selectPeriodo">Periodo</label>
+                                        <select id="selectPeriodo"></select>
+                                    </div> 
+                                    <div>
+                                        <label for="selectMomentoPeriodo">Momento Periodo</label>
+                                        <select id="selectMomentoPeriodo"></select>
+                                    </div> 
+
+                                    <div class="rules-check-row">
                                         <input type="checkbox" id="soloLanzarUnaVez" name="defaultRuleset" />
                                         <label for="defaultRuleset">
-                                            Solo una vez
+                                            Ejecutar regla una única vez en el periodo
                                         </label>
-                                </div>
+                                    </div>
+                                    <div class="button-centered-container">
+                                        <button class="button_reglas_back" type="buton" onclick="closeRuleCreator()">Salir</button>
+                                        <button class="input-regla-container-button" id="add_action_rule_ther_create" onclick="rule_creation_step(2)" type="button">
+                                            <span class="material-symbols-outlined">arrow_forward</span>
+                                        </button>
+                                    </div>
 
-                                <button id="save_action_rule_ther_create" onclick="guardarRegla(null);" id="boton_guardar_regla" class="create-button" type="button"> Guardar Regla </button>
-                            </div>
-                            <input id="soloLanzarUnaVezReal" name="defaultRuleset" style="display:none;" />
-                            <div class="two-divs-row-container">
+                                    
+                                </div>
+                                <input id="soloLanzarUnaVezReal" name="defaultRuleset" style="display:none;" />
                                 
+                                    
+                                    
+                                <div class="input-regla-container" id = "rule_creation_step_two">
+                                    <div class="two-divs-row-container">
+                                    <label>Condiciones</label> 
+                                    <button id="add_action_rule_ther_create" onclick="createDiv()" class="create-button"  type="button">Añadir condición</button>
+                                    
+                                    </div>
+                                    <div class="elements-conditions" id="appear-dissapearDiv"> </div>
                                 
-                                <div class="conditions-container">
-                                    <div style="justify-content:space-between;">
-                                        <label>Condiciones</label>
-                                        <button id="add_action_rule_ther_create" onclick="createDiv()" class="create-button"  type="button">Añadir condición</button>
-                                        <div class="elements-conditions" id="appear-dissapearDiv"> </div>
+                                    <div class="button-centered-container">
+                                        <button class="button_reglas_back" type="buton" onclick="rule_creation_step(2)" >Atrás</button>
+                                        <button class="input-regla-container-button" id="add_action_rule_ther_create" onclick="rule_creation_step(2)" type="button">
+                                            <span class="material-symbols-outlined">arrow_forward</span>
+                                        </button>
                                     </div>
                                 </div>
                                 
                                 
-                                <div class="actions-container">
-                                    <div style="justify-content:space-between;">
-                                        <label>Acciones</label>
-                                        <button id="buttonAccion" class="create-button"  onclick="crearAccionFinalExtra()" type="button">Añadir Acción Extra</button> 
-                                        <div class="elements-conditions" id="appear-dissapearDiv"> </div>
-                                    </div>
+                                <div class="actions-container" id = "rule_creation_step_three">
+                                    <label>Acciones</label>
                                     
 
                                     <div id="condicionPapi">
@@ -221,12 +254,13 @@
                                             
                                         </div>
                                     </div>
-                                       
+                                    <button id="buttonAccion" class="create-button"  onclick="crearAccionFinalExtra()" type="button">Añadir Acción Extra</button>    
+                                    <button id="save_action_rule_ther_create" onclick="guardarRegla(null);" id="boton_guardar_regla" class="create-button" type="button"> Guardar Regla </button>
                                 </div>
+                                
+
+
                             </div>
-
-
-                        
                         </div>
                         
                     </div>

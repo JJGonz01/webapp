@@ -907,3 +907,41 @@ function showmessage(){
     
 
 }
+
+function rule_creation_step(goto){
+  var step_one = document.getElementById("rule_creation_step_one");
+  var step_two = document.getElementById("rule_creation_step_two");
+  var step_three = document.getElementById("rule_creation_step_three");
+
+
+  var button_one = document.getElementById("menu_reglas_btn_one");
+  var button_two = document.getElementById("menu_reglas_btn_two");
+  var button_three = document.getElementById("menu_reglas_btn_three");
+
+  var listabtn = [button_one, button_two, button_three];
+
+  for(var i = 0; i<3; i++){
+      if(i == (goto-1)){
+        listabtn[i].style = "background-color: rgb(33, 145, 215); color:white";
+      }else if(i>(goto-1)){
+        listabtn[i].style = "background-color: rgb(237, 235, 235); color:black";
+      }else{
+        listabtn[i].style = "background-color: rgb(237, 235, 235); color:rgb(33, 145, 215)";
+      }
+  }
+  if(goto == 1){
+    step_one.style.display = "block";
+    step_two.style.display = "none";
+    step_three.style.display = "none";
+  }
+  else if(goto == 2){
+    step_one.style.display = "none";
+    step_two.style.display = "block";
+    step_three.style.display = "none";
+
+  }else {
+    step_one.style.display = "none";
+    step_two.style.display = "none";
+    step_three.style.display = "block";
+  }
+}

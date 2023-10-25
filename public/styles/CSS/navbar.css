@@ -114,6 +114,7 @@
     .navbar-vertical{
         display:block;
         position: sticky;
+        z-index:7;
         bottom:0;
         background-color: white;
         width:fit-content;
@@ -131,6 +132,7 @@
     .navbar-vertical-closed{
         display:block;
         position: sticky;
+        z-index:7;
         bottom:0;
         width:70px;
         background-color: white;
@@ -189,7 +191,7 @@
         display:block;
         top:0;
         position: sticky;
-        height:fit-content;
+        height:fit-content;z-index:7;
         background-color: white;
         border-right: 1px solid rgba(115,115,155,0.5);
         border-bottom: 1px solid rgba(115,115,155,0.5);
@@ -199,7 +201,7 @@
     .navbar-vertical{
         display:block;
         top:0;
-        position: sticky;
+        position: sticky;z-index:7;
         height:fit-content;
         background-color: white;
         border-right: 1px solid rgba(115,115,155,0.5);
