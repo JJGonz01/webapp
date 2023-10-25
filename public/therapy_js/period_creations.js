@@ -76,11 +76,12 @@ function saveTemporalPeriod(button) {
     t1.value = '';
     t2.value = '';
     descanso.value = '';
-    texto_reglas_titulo.innerHTML = "Regla para periodo "+ (periods.length);
+    texto_reglas_titulo.innerHTML = "Regla para bloque "+ (periods.length);
     value = JSON.stringify(periods);
     periodInput.value = value;
     addPeriodsIdToSeleccion(button);
     showCreatedPeriods(esNuevo);
+    closePeriodCreation();
   }
 }
 
@@ -216,7 +217,7 @@ function savePeriodExtra(button){
     console.log(periods);
     var periodoSelect = document.getElementById('selectConjPeriodo');
     periodoSelect.value = ""+periods.length;
-    texto_reglas_titulo.innerHTML = "Regla para periodo "+ (periods.length);
+    texto_reglas_titulo.innerHTML = "Regla para bloque "+ (periods.length);
     
     t1.value = '';
     descanso.value = '';
@@ -255,7 +256,7 @@ function cambiarPeriodo(direccion){
       boolEsUltimo = true;
       posicionadoEn = periods.length;
       texto_periodo_nombre.innerHTML="Crear nuevo bloque";
-      texto_reglas_titulo.innerHTML = "Crea el periodo para añadirle reglas";
+      texto_reglas_titulo.innerHTML = "Guarda los periodos para añadirle reglas";
       period_creation_button.style="display:none;";
       boton_reglas_titulo.style.display="none";
   }

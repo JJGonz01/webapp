@@ -33,7 +33,7 @@
 
 .row-option-selector{
     background-color: #F4FAFF;
-    height:110px;
+    height:min-content;
     margin-top:0px;
     font-weight: bold;
     display:flex;

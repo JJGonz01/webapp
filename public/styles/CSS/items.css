@@ -28,7 +28,7 @@
     font-size: xx-large;
 }
 .create-big-button:hover{
-    background-color: #62cac5;
+    background-color: var(--azul-guardar-hover);
     color: white;
 }
 .create-big-button p{
@@ -48,7 +48,7 @@
     font-size: x-large;
 }
 .create-medium-button:hover{
-    background-color: #62cac5;
+    background-color: var(--azul-guardar-hover);
     color: white;
 }
 .create-medium-button p{
@@ -67,7 +67,7 @@
     font-weight: bold;
 }
 .llamative-button:hover{
-    background-color: #c87862;
+    background-color:  var(--azul-crear-hover);
     color: white;
 }
 .llamative-button p{
@@ -114,7 +114,9 @@
     padding-block: 10px;
     font-weight: bold;
 }
-
+.close-button:hover{
+    background-color: var(--azul-cerrar-hover);
+}
 .delete-button:hover{
     background-color: #bc2d20;
 }

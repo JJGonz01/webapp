@@ -88,7 +88,7 @@
                 <div class="row-text-button">
                     <p id="periodo_estancia">CREAR BLOQUE DE ESTUDIO</p>
                     <div id="boton_der_periodos">
-                    <button id="close_period_creator_container_btn" onclick="closePeriodCreation()" type="button" class="close-button">CERRAR BLOQUE</button></div>
+                    <button id="close_period_creator_container_btn" onclick="closePeriodCreation()" type="button" class="close-button">FINALIZAR BLOQUE</button></div>
                 </div>
                 <div class="back-period-creation">
                     <div id="periodo_principal">
@@ -109,7 +109,7 @@
                             </div>
 
                             <div>
-                            <button id="save_first_period_ther_create" type="button" class="create-medium-button" onclick="saveTemporalPeriod(this)"> Agregar nuevo bloque</button>
+                            <button id="save_first_period_ther_create" type="button" class="create-medium-button" onclick="saveTemporalPeriod(this)"> Agregar nuevos periodos</button>
                             </div>
                         </div>
                     </div>
@@ -125,7 +125,7 @@
                                 <label for="t1_extra">Estudio (Minutos)</label>
                                 <input id="t1_extra" type="number" name="t2" class="form-control" rown="10">
                             </div>
-                            <button id="save_extra_period_ther_create" type="button" onclick="savePeriodExtra(this)" class="create-medium-button"> Agregar Periodo</button>
+                            <button id="save_extra_period_ther_create" type="button" onclick="savePeriodExtra(this)" class="create-medium-button"> Agregar nuevos periodos</button>
                         </div>
                     </div>
 
