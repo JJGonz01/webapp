@@ -164,6 +164,13 @@
                                     <select id="selectMomentoPeriodo"></select>
                                 </div> 
 
+                                <div class="therapy-check-row">
+                                        <input type="checkbox" id="soloLanzarUnaVez" name="defaultRuleset" />
+                                        <label for="defaultRuleset">
+                                            Solo una vez
+                                        </label>
+                                </div>
+
                                 <button id="save_action_rule_ther_create" onclick="guardarRegla(null);" id="boton_guardar_regla" class="create-button" type="button"> Guardar Regla </button>
                             </div>
                             <input id="soloLanzarUnaVezReal" name="defaultRuleset" style="display:none;" />
@@ -171,14 +178,20 @@
                                 
                                 
                                 <div class="conditions-container">
-                                    <label>Condiciones</label>
-                                    <button id="add_action_rule_ther_create" onclick="createDiv()" class="create-button"  type="button">Añadir condición</button>
-                                    <div class="elements-conditions" id="appear-dissapearDiv"> </div>
+                                    <div style="justify-content:space-between;">
+                                        <label>Condiciones</label>
+                                        <button id="add_action_rule_ther_create" onclick="createDiv()" class="create-button"  type="button">Añadir condición</button>
+                                        <div class="elements-conditions" id="appear-dissapearDiv"> </div>
+                                    </div>
                                 </div>
                                 
                                 
                                 <div class="actions-container">
-                                    <label>Acciones</label>
+                                    <div style="justify-content:space-between;">
+                                        <label>Acciones</label>
+                                        <button id="buttonAccion" class="create-button"  onclick="crearAccionFinalExtra()" type="button">Añadir Acción Extra</button> 
+                                        <div class="elements-conditions" id="appear-dissapearDiv"> </div>
+                                    </div>
                                     
 
                                     <div id="condicionPapi">
@@ -208,7 +221,7 @@
                                             
                                         </div>
                                     </div>
-                                    <button id="buttonAccion" class="create-button"  onclick="crearAccionFinalExtra()" type="button">Añadir Acción Extra</button>    
+                                       
                                 </div>
                             </div>
 
