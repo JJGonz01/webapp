@@ -149,8 +149,8 @@
                             <div class="content-half-image" onclick="closeRuleCreator()"></div>
                             <div class="content-half">
                            
+                                <button class="close-button" type="button" onclick="closeRuleCreator()">CERRAR</button>
                                 <div class="rule-creation-steps">
-                                    <button class="close-button" type="button" onclick="closeRuleCreator()">CERRAR</button>
                                     <div class="row-steps-container">
                                         <div class="row-steps-item">
                                             <button type="button" id="menu_reglas_btn_one" class="button-popup-reglas" style = "background-color: rgb(33, 145, 215); color:white;" onclick="rule_creation_step(1)">1</button>
