@@ -213,7 +213,7 @@
                                     
                                 <div class="input-regla-container" id = "rule_creation_step_two">
                                     <div class="two-divs-row-container">
-                                    <button id="add_action_rule_ther_create" onclick="createDiv()" class="create-button"  type="button">Añadir condición</button>
+                                    <button id="add_action_rule_ther_create" onclick="createDiv()" class="button_reglas_action"  type="button">Añadir condición</button>
                                     
                                     </div>
                                     <div class="elements-conditions" id="appear-dissapearDiv"> </div>
@@ -227,9 +227,11 @@
                                 </div>
                                 
                                 
-                                <div class="actions-container" id = "rule_creation_step_three">
-                                    
-                                    <div id="condicionPapi">
+                                <div  id = "rule_creation_step_three">
+                                    <button id="buttonAccion" class="button_reglas_action"  onclick="crearAccionFinalExtra()" type="button">Añadir Acción Extra</button>    
+
+                                    <div id="condicionPapi" class="actions-container">
+                                        
                                         <div class="elements-conditions-container">
                                             <div class="therapy-input-row">
                                                 <div class="therapy-check-row-text">
@@ -255,7 +257,6 @@
                                             </div>
                                             
                                         </div>
-                                        <button id="buttonAccion" class="create-button"  onclick="crearAccionFinalExtra()" type="button">Añadir Acción Extra</button>    
                                     </div>
                                     <div class="button-centered-container">
                                         <button class="button_reglas_back" type="button" onclick="rule_creation_step(3)" >Atrás</button>
