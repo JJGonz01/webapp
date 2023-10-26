@@ -71,10 +71,17 @@
     margin-right: 2%;
 }
 
-.elements-conditions{
-    overflow-y: auto;
-    height: 443px;
-    padding: 2%;
+.elements-conditions {
+	width: 100%;
+	overflow-y: auto;
+	height: 35%;
+	margin-bottom: 10%;
+	padding: 2%;
+	margin-top: 2px solid grey;
+	margin-bottom: 2px solid grey;
+	border-top: 2px solid var(--azul-seleccionar);
+	border-bottom: 2px solid var(--azul-seleccionar);;
+	background-color: #f5f5f5;
 }
 
 .row-bloque{
@@ -209,8 +216,40 @@
         display: flex;
         flex-direction: column;
         margin-bottom: 3%;
+        justify-content: center;
     }
-    
+   
+    .create-condition-button {
+        border-radius: 4px;
+        border:0;
+        width:100%;
+        background-color: var(--azul-crear);
+        color: white;
+        background-size: cover;
+        margin: 5px 0;
+        padding-inline: 15px;
+        padding-block: 10px;
+        font-weight: bold;
+    }
+
+    .create-condition-button:hover {
+        background-color: var(--azul-crear-hover);
+    }
+
+    .create-rule-button {
+        border-radius: 50px;
+        background-color: #80DED9;
+        color: white;
+        background-size: cover;
+        margin: 5px 0;
+        padding-inline: 15px;
+        padding-block: 10px;
+        font-weight: bold;
+        width: max-content;
+        font-size: x-large;
+        border: 0;
+        margin-top: 5%;
+    }
     .actions-container{
         background-color: #E1F0FF;
         display: block;

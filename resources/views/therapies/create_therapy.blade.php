@@ -133,7 +133,7 @@
                         </div>
                     </div>
 
-                    <h4 style="display:none;" class="alert alert-danger" id="errorCreandoRegla"></h4>
+                    
                     <h4 style="display:none;" class="alert alert-danger" id="sucessCreandoRegla">Regla creada con exito</h4>
                     
 
@@ -150,7 +150,7 @@
                             <div class="content-half-image" onclick="closeRuleCreator()"></div>
                             <div class="content-half">
                                 <button id="close_rule_creator_ther_create" class="close-button" type="button" onclick="closeRuleCreator()">CERRAR EDITOR</button>
-
+                                <h4 class="aler alert-danger" style="display:none;" class="alert alert-danger" id="errorCreandoRegla"></h4>
                                 <div class="rule-creation-steps">
                                     <div class="row-steps-container">
                                         <div class="row-steps-item">
@@ -214,15 +214,14 @@
                                     
                                 <div class="input-regla-container" id = "rule_creation_step_two">
                                     <div class="two-divs-row-container">
-                                    <label>Condiciones</label> 
-                                    <button id="add_action_rule_ther_create" onclick="createDiv()" class="create-button"  type="button">Añadir condición</button>
+                                    <button id="add_action_rule_ther_create" onclick="createDiv()" class="create-condition-button"  type="button">Añadir condición</button>
                                     
                                     </div>
                                     <div class="elements-conditions" id="appear-dissapearDiv"> </div>
                                 
                                     <div class="button-centered-container">
                                         <button class="button_reglas_back" type="buton" onclick="rule_creation_step(2)" >Atrás</button>
-                                        <button class="input-regla-container-button" id="add_action_rule_ther_create" onclick="rule_creation_step(2)" type="button">
+                                        <button class="input-regla-container-button" id="add_action_rule_ther_create" onclick="rule_creation_step(3)" type="button">
                                             <span class="material-symbols-outlined">arrow_forward</span>
                                         </button>
                                     </div>
@@ -230,9 +229,7 @@
                                 
                                 
                                 <div class="actions-container" id = "rule_creation_step_three">
-                                    <label>Acciones</label>
-                                    
-
+                                    <button id="buttonAccion" class="create-condition-button"  onclick="crearAccionFinalExtra()" type="button">Añadir Acción Extra</button>    
                                     <div id="condicionPapi">
                                         <div class="elements-conditions-container">
                                             <div class="therapy-input-row">
@@ -260,8 +257,8 @@
                                             
                                         </div>
                                     </div>
-                                    <button id="buttonAccion" class="create-button"  onclick="crearAccionFinalExtra()" type="button">Añadir Acción Extra</button>    
-                                    <button id="save_action_rule_ther_create" onclick="guardarRegla(null);" id="boton_guardar_regla" class="create-button" type="button"> Guardar Regla </button>
+                                    
+                                    <button id="save_action_rule_ther_create" onclick="guardarRegla(null);" id="boton_guardar_regla" class="create-rule-button" type="button"> Guardar Regla </button>
                                 </div>
                                 
 
