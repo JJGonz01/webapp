@@ -58,8 +58,6 @@ h6{
    font-weight: bold;
    padding: 1%;
    color:grey;
-   border-top-right-radius: 20px;
-   border-top-left-radius: 20px;
    margin-left: 1.5%;
    border: 0.5px solid rgba(233, 233, 233, 0.674);
 }
@@ -93,9 +91,9 @@ h6{
    margin-top:0px;
    font-weight: bold;
    display:flex;
-   justify-content: center;
-   text-align: center;
-   flex-direction: column;
+   justify-content: left;
+   text-align: left;
+   flex-direction: row;
    overflow-x:auto;
    
 }
@@ -166,6 +164,7 @@ h6{
    margin-right: 2%;
 }
 
+
 .elements-conditions {
    width: 100%;
    overflow-y: auto;
@@ -183,7 +182,6 @@ h6{
    display: flex;
    flex-direction: row;
    justify-content:baseline;
-   padding: 1%;
    overflow-y: auto;
 }
 

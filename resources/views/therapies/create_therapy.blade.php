@@ -72,7 +72,7 @@
                 </h6>
 
                 <div class="row-text-button">
-                    <p>Bloques de estudio</p>
+                    <p style="font-size:x-large;">Bloques de estudio</p>
                     <div id="boton_der_periodos">
                     <button id="period_creation_btn" onclick="showHidePeriodCreation()" type="button" class="llamative-button">CREAR BLOQUE</button></div>
                 </div>
@@ -90,9 +90,8 @@
            
             <div class="header-selector" style="display:none;" id="period_creation_container">
                 <div class="row-text-button">
-                    <p id="periodo_estancia">CREAR BLOQUE DE ESTUDIO</p>
-                    <div id="boton_der_periodos">
-                    <button id="close_period_creator_container_btn" onclick="closePeriodCreation()" type="button" class="close-button">FINALIZAR BLOQUE</button></div>
+                    <p style="font-size:x-large;" id="periodo_estancia">CREAR BLOQUE DE ESTUDIO</p>
+                    <div id="boton_der_periodos"></div>
                 </div>
                 <div class="back-period-creation">
                     <div id="periodo_principal">
@@ -151,6 +150,7 @@
                             <div class="content-half">
                            
                                 <div class="rule-creation-steps">
+                                    <button class="close-button" type="button" onclick="closeRuleCreator()">CERRAR</button>
                                     <div class="row-steps-container">
                                         <div class="row-steps-item">
                                             <button type="button" id="menu_reglas_btn_one" class="button-popup-reglas" style = "background-color: rgb(33, 145, 215); color:white;" onclick="rule_creation_step(1)">1</button>
@@ -199,7 +199,7 @@
 
                                     </div>
                                     <div class="button-centered-container">
-                                        <button class="button_reglas_back" type="buton" onclick="closeRuleCreator()">Salir</button>
+                                        <button class="button_reglas_back" type="button" onclick="closeRuleCreator()">Salir</button>
                                         <button class="input-regla-container-button" id="add_action_rule_ther_create" onclick="rule_creation_step(2)" type="button">
                                             <span class="material-symbols-outlined">arrow_forward</span>
                                         </button>
