@@ -30,6 +30,7 @@
     background-color: var(--azul-crear-hover);
 }
 
+
 .row-text-button{
     display: flex;
     flex-direction: row;
@@ -128,10 +129,11 @@
 }
 
 .actions-container{
-    background-color: #E1F0FF;
-    display: block;
-    overflow-y: auto;
-    width: 100%;
+    margin-top: 2px solid grey;
+	margin-bottom: 2px solid grey;
+	border-top: 2px solid var(--azul-seleccionar);
+	border-bottom: 2px solid var(--azul-seleccionar);;
+	background-color: #f5f5f5;
 }
 
 .therapy-check-row{
@@ -233,37 +235,7 @@
         justify-content: center;
     }
    
-    .create-condition-button {
-        border-radius: 4px;
-        border:0;
-        width:100%;
-        background-color: var(--azul-crear);
-        color: white;
-        background-size: cover;
-        margin: 5px 0;
-        padding-inline: 15px;
-        padding-block: 10px;
-        font-weight: bold;
-    }
-
-    .create-condition-button:hover {
-        background-color: var(--azul-crear-hover);
-    }
-
-    .create-rule-button {
-        border-radius: 50px;
-        background-color: #80DED9;
-        color: white;
-        background-size: cover;
-        margin: 5px 0;
-        padding-inline: 15px;
-        padding-block: 10px;
-        font-weight: bold;
-        width: max-content;
-        font-size: x-large;
-        border: 0;
-        margin-top: 5%;
-    }
+    
     .actions-container{
         background-color: #E1F0FF;
         display: block;
