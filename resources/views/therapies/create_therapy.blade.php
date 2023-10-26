@@ -222,7 +222,7 @@
                                     <div class="button-centered-container">
                                         <button class="button_reglas_back" type="buton" onclick="rule_creation_step(2)" >Atrás</button>
                                         <button class="input-regla-container-button" id="add_action_rule_ther_create" onclick="rule_creation_step(3)" type="button">
-                                            <span class="material-symbols-outlined">arrow_forward</span>
+                                            Siguiente
                                         </button>
                                     </div>
                                 </div>

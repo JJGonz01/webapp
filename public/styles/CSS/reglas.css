@@ -65,6 +65,7 @@
     justify-content: space-between;
     display: flex;
     margin-bottom: 10%;
+    margin-top: 3%;
 }
 
 
@@ -137,7 +138,7 @@
 
 .button_reglas_back:hover{
     height: fit-content;
-	background-color: rgb(81, 151, 205);
+	background-color: rgb(208, 209, 210);
 	font-weight: bold;
 	border: 0;
 	border-radius: 100px;
