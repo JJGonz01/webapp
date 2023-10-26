@@ -213,15 +213,14 @@
                                     
                                 <div class="input-regla-container" id = "rule_creation_step_two">
                                     <div class="two-divs-row-container">
-                                    <label>Condiciones</label> 
                                     <button id="add_action_rule_ther_create" onclick="createDiv()" class="create-button"  type="button">Añadir condición</button>
                                     
                                     </div>
                                     <div class="elements-conditions" id="appear-dissapearDiv"> </div>
                                 
                                     <div class="button-centered-container">
-                                        <button class="button_reglas_back" type="buton" onclick="rule_creation_step(2)" >Atrás</button>
-                                        <button class="input-regla-container-button" id="add_action_rule_ther_create" onclick="rule_creation_step(2)" type="button">
+                                        <button class="button_reglas_back" type="button" onclick="rule_creation_step(1)" >Atrás</button>
+                                        <button class="input-regla-container-button" id="add_action_rule_ther_create" onclick="rule_creation_step(3)" type="button">
                                             <span class="material-symbols-outlined">arrow_forward</span>
                                         </button>
                                     </div>
@@ -229,9 +228,7 @@
                                 
                                 
                                 <div class="actions-container" id = "rule_creation_step_three">
-                                    <label>Acciones</label>
                                     
-
                                     <div id="condicionPapi">
                                         <div class="elements-conditions-container">
                                             <div class="therapy-input-row">
@@ -260,9 +257,14 @@
                                         </div>
                                     </div>
                                     <button id="buttonAccion" class="create-button"  onclick="crearAccionFinalExtra()" type="button">Añadir Acción Extra</button>    
-                                    <button id="save_action_rule_ther_create" onclick="guardarRegla(null);" id="boton_guardar_regla" class="create-button" type="button"> Guardar Regla </button>
+                                    
                                 </div>
-                                
+                                <div class="button-centered-container">
+                                        <button class="button_reglas_back" type="button" onclick="rule_creation_step(3)" >Atrás</button>
+                                        <button class="input-regla-container-button" id="add_action_rule_ther_create" onclick="guardarRegla(null);" type="button">
+                                            Guardar regla
+                                        </button>
+                                </div>
 
 
                             </div>
