@@ -365,12 +365,13 @@ function irACrearNuevo(){
 }
 
 function setSelectedButton(){
-  const ul = document.getElementById("button_bloques_list"); // Get the <ul> element by its ID
+    var ul = document.getElementById("button_bloques_list");
     if (ul) {
-        const buttons = ul.querySelectorAll("button"); 
+        var buttons = ul.querySelectorAll("button"); 
+        console.log(buttons);
         for(var i = 0; i<buttons.length; i++){
           if(i == posicionadoEn)
-          buttons[i].style="background-color: #E4E5FF;border-left:4px solid rgb(57, 93, 162);";
+           buttons[i].style="background-color: #E4E5FF;border-left:4px solid rgb(57, 93, 162);";
           else{
             buttons[i].style="background-color: #FFF;border-left: 3px solid #8f9af3;";
           }

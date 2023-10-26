@@ -708,7 +708,7 @@ function mostrarReglasRespectoPeriodo(ConjuntoPeriodo) {
         var eliminar = document.createElement("button");
         boton.type="button";  
         eliminar.type="button";  
-        eliminar.className = "session-show-button-delete";
+        eliminar.className = "delete-button-rules";
         boton.className = "session-show-button";
         divTodo.className = "reglas-show-container";
         
@@ -717,7 +717,7 @@ function mostrarReglasRespectoPeriodo(ConjuntoPeriodo) {
         label.className = "negrita-blanco";
 
         var labelEliminar = document.createElement("label");
-        labelEliminar.textContent = "ELIMINAR";
+        labelEliminar.textContent = "X";
         labelEliminar.className = "negrita-blanco";
 
         var value = document.createElement("span");
@@ -878,12 +878,13 @@ function openRuleCreator(isNew){
   if(isNew == 0) {
     document.getElementById("isEditing").value = "0";
     limpiarInputs();
+    
   }
   else{
     document.getElementById("isEditing").value = isNew;
   }
+  rule_creation_step(1);
   showOptionsForCondition();
-  //addEventToValuesSensor();
   actionToMake()
   var rc = document.getElementById("contenedor_creador_reglas");
   rc.style.display = "flex";
