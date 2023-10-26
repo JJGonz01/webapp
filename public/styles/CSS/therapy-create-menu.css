@@ -278,6 +278,11 @@ h6{
        align-items:center;
    }
 
+   .therapy-creation-row{
+      display:flex;
+      flex-direction: column; 
+   }
+   
    .therapy-input-row * {
        margin-bottom: 10px;
    }
@@ -341,5 +346,14 @@ h6{
        overflow-y: auto;
        width: 100%;
        margin-right: 2%;
+   }
+
+   .row-bloque{
+      display: flex;
+      flex-direction: row;
+      justify-content:baseline;
+      padding: 1%;
+      height:300px;
+      overflow-x: auto;
    }
 }

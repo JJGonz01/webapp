@@ -149,8 +149,7 @@
                         <div class="reglas-container-right"  id="contenedor_creador_reglas" style="display:none;">
                             <div class="content-half-image" onclick="closeRuleCreator()"></div>
                             <div class="content-half">
-                                <button id="close_rule_creator_ther_create" class="close-button" type="button" onclick="closeRuleCreator()">CERRAR EDITOR</button>
-
+                           
                                 <div class="rule-creation-steps">
                                     <div class="row-steps-container">
                                         <div class="row-steps-item">
