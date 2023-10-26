@@ -45,7 +45,7 @@
                 
         <div class="therapy-input-row">
             <div>
-                <p>NOMBRE</p>
+                <p style="font-weight:bold">NOMBRE</p>
                 <input type="text" id="name_therapy" name="name" class="name-therapy-input" placeholder="Nombre de la terapia"></input>
             </div>
             <button id="save_therapy_btn" type="submit" class="create-big-button">GUARDAR TERAPIA</button>
@@ -122,12 +122,12 @@
                         <div class="therapy-input-row">
                             <div class="periodos">
                                 <label for="descanso_extra">Descanso (Minutos)</label>
-                                <input id="descanso_extra" type="number" name="descanso" class="form-control" rown="10">
+                                <input id="descanso_extra" min="0" type="number" name="descanso" class="form-control" rown="10">
                             </div>
                             
                             <div class="periodos">
                                 <label for="t1_extra">Estudio (Minutos)</label>
-                                <input id="t1_extra" type="number" name="t2" class="form-control" rown="10">
+                                <input id="t1_extra" type="number" name="t2" min="0" class="form-control" rown="10">
                             </div>
                             <button id="save_extra_period_ther_create" type="button" onclick="savePeriodExtra(this)" class="create-medium-button"> Agregar nuevos periodos</button>
                         </div>
@@ -149,8 +149,6 @@
                         <div class="reglas-container-right"  id="contenedor_creador_reglas" style="display:none;">
                             <div class="content-half-image" onclick="closeRuleCreator()"></div>
                             <div class="content-half">
-                                <button id="close_rule_creator_ther_create" class="close-button" type="button" onclick="closeRuleCreator()">CERRAR EDITOR</button>
-
                                 <div class="rule-creation-steps">
                                     <div class="row-steps-container">
                                         <div class="row-steps-item">

@@ -27,7 +27,7 @@
 </head>
 <body>
 
-    <div id="app" class="auth-general-container">
+    <div id="app" class="auth-general-container" style="z-index:13;">
             <div>
                 
                 <div id="navbarSupportedContent">
