@@ -255,17 +255,17 @@
                                             </div>
                                             
                                         </div>
+                                        <button id="buttonAccion" class="create-button"  onclick="crearAccionFinalExtra()" type="button">Añadir Acción Extra</button>    
                                     </div>
-                                    <button id="buttonAccion" class="create-button"  onclick="crearAccionFinalExtra()" type="button">Añadir Acción Extra</button>    
-                                    
-                                </div>
-                                <div class="button-centered-container">
+                                    <div class="button-centered-container">
                                         <button class="button_reglas_back" type="button" onclick="rule_creation_step(3)" >Atrás</button>
                                         <button class="input-regla-container-button" id="add_action_rule_ther_create" onclick="guardarRegla(null);" type="button">
                                             Guardar regla
                                         </button>
                                 </div>
 
+                                </div>
+                                
 
                             </div>
                         </div>
