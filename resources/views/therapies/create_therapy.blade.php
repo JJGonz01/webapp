@@ -138,9 +138,9 @@
 
                     
                     <div class="header-selector">
-                        <div id ="rule-creator-btn" class="row-text-button"><p>REGLAS</p> 
+                        <div id ="rule-creator-btn" class="row-text-button"><p id="texto_regla_periodo">Guarda los periodos para añadirle reglas</p> 
                         <button id="open_rule_creator_ther_create" type="button" class="llamative-button" onclick="openRuleCreator(0)" id="boton_crear_regla"> CREAR REGLA </button></div>
-                        <h4 id="texto_regla_periodo">Crea el bloque para añadirle reglas</h4>
+                        
                         
                         <div id="lista_reglas_periodo" class="row-option-selector">
                         </div>

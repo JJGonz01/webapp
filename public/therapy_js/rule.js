@@ -735,7 +735,7 @@ function mostrarReglasRespectoPeriodo(ConjuntoPeriodo) {
         eliminar.appendChild(labelEliminar);
 
         divTodo.appendChild(boton);    
-        boton.appendChild(eliminar);
+        //boton.appendChild(eliminar);
         container_reglas.appendChild(divTodo);
 
     });
