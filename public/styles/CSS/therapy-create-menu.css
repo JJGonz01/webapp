@@ -1,290 +1,345 @@
-.therapy-creation-container{
-    margin:2%;
-    background: white;
-    border-radius: 20px;
-    padding-bottom: 5%;
+h6{
+    width:97%; 
+    margin-left:1.5%;
+    margin-bottom:0;
 }
- 
+
+.therapy-creation-container{
+   margin:2%;
+   background: rgba(255, 255, 255, 0);
+   border-radius: 20px;
+   padding-bottom: 5%;
+}
+
+.therapy-creation-row{
+   display:flex;
+   flex-direction: row; 
+}
 .therapy-input-row{
-    display:flex;
-    flex-direction: row; 
-    justify-content: space-between;
-    padding: 3%;
-    align-items:center;
+   display:flex;
+   flex-direction: row; 
+   justify-content: space-between;
+   padding: 3%;
+   align-items:center;
 }
 
 .create-condition-button {
-    border-radius: 4px;
-    border:0;
-    width:100%;
-    background-color: var(--azul-crear);
-    color: white;
-    background-size: cover;
-    margin: 5px 0;
-    padding-inline: 15px;
-    padding-block: 10px;
-    font-weight: bold;
+   border-radius: 4px;
+   border:0;
+   width:100%;
+   background-color: var(--azul-crear);
+   color: white;
+   background-size: cover;
+   margin: 5px 0;
+   padding-inline: 15px;
+   padding-block: 10px;
+   font-weight: bold;
 }
 
 .create-condition-button:hover {
-    background-color: var(--azul-crear-hover);
+   background-color: var(--azul-crear-hover);
 }
 
 
 .row-text-button{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding-left: 2%;
-    padding-right: 2%;
- }
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   padding-left: 2%;
+   padding-right: 2%;
+}
 
- 
+
+
 .header-selector{
-    background-color: #E1F0FF;
-    margin-left:3%;
-    margin-right:3%;
-    margin-bottom:0px;
-    font-weight: bold;
-    padding-bottom: 15px;
+   background-color: #ffffff;
+   margin-bottom:0px;
+   width:97%;
+   font-weight: bold;
+   padding: 1%;
+   color:grey;
+   border-top-right-radius: 20px;
+   border-top-left-radius: 20px;
+   margin-left: 1.5%;
+   border: 0.5px solid rgba(233, 233, 233, 0.674);
+}
+
+.half-div-short{
+   width:20%;
+   margin-left: 1.5%;
+   background-color: #ffffff;
+   
+   border-left: 0.5px solid rgba(233, 233, 233, 0.674);
+   border-bottom: 0.5px solid rgba(233, 233, 233, 0.674);
+   border-bottom-left-radius: 10px;
+}
+
+.half-div-big{
+   width:77%;
+   background-color: #ffffff;
+   border-right: 0.5px solid rgba(233, 233, 233, 0.674);
+   border-bottom: 0.5px solid rgba(233, 233, 233, 0.674);
+   border-bottom-right-radius: 10px;
+}
+
+.column-flex{
+   display:flex;
+   flex-direction: row;
 }
 
 .row-option-selector{
-    background-color: #F4FAFF;
-    height:min-content;
-    margin-top:0px;
-    font-weight: bold;
-    display:flex;
-    flex-direction: row;
-    overflow-x:auto;
-    
+   background-color: #ffffff;
+   height:min-content;
+   margin-top:0px;
+   font-weight: bold;
+   display:flex;
+   justify-content: center;
+   text-align: center;
+   flex-direction: column;
+   overflow-x:auto;
+   
 }
 
+.hor-line{
+   height: 100%;
+   border: #000;
+   background-color: #ff0c0c;
+   width:10px;
+}
 .row-option-selector button {
-	background-color: #FFF;
-	font-weight: normal;
-	color: #000;
-	margin: 7px;
-	padding: 10px;
-	border: 1px solid var(--azul-seleccionar-hover);
-	border-radius: 12px;
-	border-bottom: 3px solid #8f9af3;
-	font-size: large;
+   background-color: #f5f5f59d;
+   font-weight: normal;
+   color: #000;
+   margin: 7px;
+   padding: 10px;
+   border: 1px solid aliceblue;
+   box-shadow: 2px 2px 6px rgba(176, 176, 176, 0.53);
+   border-radius: 12px;
+   border-left: 3px solid #8f9af3;
+   font-size: large;
+   width:70%;
+   margin-left:15%;
 }
 
 .row-option-selector button:hover{
-    background-color: #f4f3f3;
-    transform:  scale(1.1);
-    transition: transform 0.5s, box-shadow 0.5s;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+   background-color: #f4f3f3;
+   transform:  scale(1.1);
+   transition: transform 0.5s, box-shadow 0.5s;
+   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 .delete-button-rules {
-	background-color: #b50606;
-	font-weight: normal;
-	color: #000;
-	margin: 7px;
-	padding: 10px;
-	border: 1px solid var(--azul-seleccionar-hover);
-	border-radius: 12px;
-	border: 3px solid #8f9af3;
-	font-size: large;
+   background-color: #b50606;
+   font-weight: normal;
+   color: #000;
+   margin: 7px;
+   padding: 10px;
+   border: 1px solid var(--azul-seleccionar-hover);
+   border-radius: 12px;
+   border: 3px solid #8f9af3;
+   font-size: large;
 }
 
 .delete-button-rules button:hover{
-    background-color: #960303;
-    transform:  scale(1.1);
-    transition: transform 0.5s, box-shadow 0.5s;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+   background-color: #960303;
+   transform:  scale(1.1);
+   transition: transform 0.5s, box-shadow 0.5s;
+   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 .back-period-creation{
-    background-color: #F4FAFF;
+   background-color: #ffffff;
+   border-bottom-right-radius: 10px;
+   border-left:1px solid grey;
 }
 
 .two-divs-row-container{
-    display: flex;
-    flex-direction: row;
-    margin-bottom: 3%;
+   display: flex;
+   flex-direction: row;
+   margin-bottom: 3%;
 }
 
 .conditions-container{
-    background-color: #E1F0FF;
-    display: block;
-    overflow-y: auto;
-    width: 50%;
-    margin-right: 2%;
+   background-color: #E1F0FF;
+   display: block;
+   overflow-y: auto;
+   width: 50%;
+   margin-right: 2%;
 }
 
 .elements-conditions {
-	width: 100%;
-	overflow-y: auto;
-	height: 35%;
-	margin-bottom: 10%;
-	padding: 2%;
-	margin-top: 2px solid grey;
-	margin-bottom: 2px solid grey;
-	border-top: 2px solid var(--azul-seleccionar);
-	border-bottom: 2px solid var(--azul-seleccionar);;
-	background-color: #f5f5f5;
+   width: 100%;
+   overflow-y: auto;
+   height: 35%;
+   margin-bottom: 10%;
+   padding: 2%;
+   margin-top: 2px solid grey;
+   margin-bottom: 2px solid grey;
+   border-top: 2px solid var(--azul-seleccionar);
+   border-bottom: 2px solid var(--azul-seleccionar);;
+   background-color: #f5f5f5;
 }
 
 .row-bloque{
-    display: flex;
-    flex-direction: row;
+   display: flex;
+   flex-direction: column;
+   justify-content:baseline;
+   padding: 1%;
+   height:300px;
+   overflow-y: auto;
 }
 
 .row-bloque li{
-    height: 10%;
+   height: 10%;
 }
 
 .name-therapy-input{
-    width:100%;
-    height: 40px;
-    border-radius: 4px;
+   width:100%;
+   height: 40px;
+   border-radius: 4px;
 }
 .elements-conditions-container{
-    background-color: #ffffff;
-    box-shadow: 3px 3px 5px rgb(166, 166, 166);
-    border-left: 4px solid var(--azul-crear);
-    margin-top:2%;
-    padding: 1%;
-    border-radius: 10px;
+   background-color: #ffffff;
+   box-shadow: 3px 3px 5px rgb(166, 166, 166);
+   border-left: 4px solid var(--azul-crear);
+   margin-top:2%;
+   padding: 1%;
+   border-radius: 10px;
 }
 .elements-conditions-container select{
-    width:40%;
-    margin-right: 3%;
+   width:40%;
+   margin-right: 3%;
 }
 
 .actions-container{
-    margin-top: 2px solid grey;
-	margin-bottom: 2px solid grey;
-	border-top: 2px solid var(--azul-seleccionar);
-	border-bottom: 2px solid var(--azul-seleccionar);;
-	background-color: #f5f5f5;
+   margin-top: 2px solid grey;
+   margin-bottom: 2px solid grey;
+   border-top: 2px solid var(--azul-seleccionar);
+   border-bottom: 2px solid var(--azul-seleccionar);;
+   background-color: #f5f5f5;
 }
 
 .therapy-check-row{
-    display:flex;
-    flex-direction: row; 
-    justify-content:center;
-    padding: 3%;
-    align-items:flex-start;
+   display:flex;
+   flex-direction: row; 
+   justify-content:center;
+   padding: 3%;
+   align-items:flex-start;
 }
 
 .therapy-check-row-text{
-    display:flex;
-    flex-direction: column; 
-    justify-content:space-between;
-    align-items:flex-start;
+   display:flex;
+   flex-direction: column; 
+   justify-content:space-between;
+   align-items:flex-start;
 }
 
 .therapy-check-row-text select{
-    width: 140px;
-    height:30px;
-    margin-right: auto;
+   width: 140px;
+   height:30px;
+   margin-right: auto;
 }
 
 .therapy-check-row-text input{
-    width: 100px;
-    height:30px;
+   width: 100px;
+   height:30px;
 }
 
 .therapy-check-row input{
-   margin-right: 2%;
-   margin-top: 1%;
+  margin-right: 2%;
+  margin-top: 1%;
 }
 
 .therapy-check-row-text-top{
-    display:flex;
-    flex-direction: column; 
-    justify-content:space-between;
-    align-items:flex-start;
+   display:flex;
+   flex-direction: column; 
+   justify-content:space-between;
+   align-items:flex-start;
 }
 
 .therapy-check-row-text-top select{
-    width: 500px;
-    height:30px;
-    margin-right: auto;
+   width: 500px;
+   height:30px;
+   margin-right: auto;
 }
 
 .therapy-check-row-text-top input{
-    width: 230px;
-    height:30px;
+   width: 230px;
+   height:30px;
 }
 
 @media (max-width: 951px) {
 
-    .therapy-input-row{
-        display: block;
-        justify-content: space-between;
-        padding: 3%;
-        padding-bottom: 10px;
-        align-items:center;
-    }
+   .therapy-input-row{
+       display: block;
+       justify-content: space-between;
+       padding: 3%;
+       padding-bottom: 10px;
+       align-items:center;
+   }
 
-    .therapy-input-row * {
-        margin-bottom: 10px;
-    }
-    
-    .row-text-button{
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        padding-left: 2%;
-        padding-right: 2%;
-     }
-    
-    .therapy-check-row{
-        display:flex;
-        flex-direction: column; 
-        justify-content:center;
-        padding: 3%;
-        align-items:flex-start;
-    }
-    .therapy-check-row-text-top{
-        display:flex;
-        flex-direction: column; 
-        justify-content:space-between;
-        align-items:flex-start;
-    }
-    .therapy-check-row{
-        display:flex;
-        flex-direction: column; 
-        justify-content:center;
-        padding: 3%;
-        align-items:flex-start;
-    }
-    
-    .two-divs-row-container{
-        display: flex;
-        flex-direction: column;
-        margin-bottom: 3%;
-        justify-content: center;
+   .therapy-input-row * {
+       margin-bottom: 10px;
+   }
+   
+   .row-text-button{
+       display: flex;
+       flex-direction: column;
+       justify-content: space-between;
+       padding-left: 2%;
+       padding-right: 2%;
     }
    
-    
-    .actions-container{
-        background-color: #E1F0FF;
-        display: block;
-        overflow-y: auto;
-        width: 100%;
-    }
-    .elements-conditions{
-        width:100%;
-        overflow-y: auto;
-        height: 35%;
-        margin-bottom:10%;
-        padding: 2%;
-        margin-top: 2px solid grey;
-        margin-bottom: 2px solid grey;
-    }
-    
-    .conditions-container{
-        background-color: #E1F0FF;
-        display: block;
-        overflow-y: auto;
-        width: 100%;
-        margin-right: 2%;
-    }
+   .therapy-check-row{
+       display:flex;
+       flex-direction: column; 
+       justify-content:center;
+       padding: 3%;
+       align-items:flex-start;
+   }
+   .therapy-check-row-text-top{
+       display:flex;
+       flex-direction: column; 
+       justify-content:space-between;
+       align-items:flex-start;
+   }
+   .therapy-check-row{
+       display:flex;
+       flex-direction: column; 
+       justify-content:center;
+       padding: 3%;
+       align-items:flex-start;
+   }
+   
+   .two-divs-row-container{
+       display: flex;
+       flex-direction: column;
+       margin-bottom: 3%;
+       justify-content: center;
+   }
+  
+   
+   .actions-container{
+       background-color: #E1F0FF;
+       display: block;
+       overflow-y: auto;
+       width: 100%;
+   }
+   .elements-conditions{
+       width:100%;
+       overflow-y: auto;
+       height: 35%;
+       margin-bottom:10%;
+       padding: 2%;
+       margin-top: 2px solid grey;
+       margin-bottom: 2px solid grey;
+   }
+   
+   .conditions-container{
+       background-color: #E1F0FF;
+       display: block;
+       overflow-y: auto;
+       width: 100%;
+       margin-right: 2%;
+   }
 }
