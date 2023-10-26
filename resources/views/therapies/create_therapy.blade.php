@@ -45,7 +45,7 @@
                 
         <div class="therapy-input-row">
             <div>
-                <p style="font-weight:bold">NOMBRE</p>
+                <p>NOMBRE</p>
                 <input type="text" id="name_therapy" name="name" class="name-therapy-input" placeholder="Nombre de la terapia"></input>
             </div>
             <button id="save_therapy_btn" type="submit" class="create-big-button">GUARDAR TERAPIA</button>
@@ -149,6 +149,8 @@
                         <div class="reglas-container-right"  id="contenedor_creador_reglas" style="display:none;">
                             <div class="content-half-image" onclick="closeRuleCreator()"></div>
                             <div class="content-half">
+                                <button id="close_rule_creator_ther_create" class="close-button" type="button" onclick="closeRuleCreator()">CERRAR EDITOR</button>
+
                                 <div class="rule-creation-steps">
                                     <div class="row-steps-container">
                                         <div class="row-steps-item">
