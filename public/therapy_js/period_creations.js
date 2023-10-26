@@ -33,10 +33,10 @@ function editWindowTherapy(){
 function saveTemporalPeriod(button) {
   const texto_reglas_titulo = document.getElementById('texto_regla_periodo');
   var boton_primer_periodo = document.getElementById('save_first_period_ther_create');
-  boton_primer_periodo.innerHTML = "Guardar cambios";
+  boton_primer_periodo.innerHTML = "GUARDAR CAMBIOS";
   const errorMessage = document.getElementById("error_period");
   const periodInput = document.getElementById('input_period');
-  button.innerHTML = "Guardar cambios";
+  button.innerHTML = "GUARDAR CAMBIOS";
   var t1 = document.getElementById('t1');
   var t2 = document.getElementById('t2');
   var descanso = document.getElementById('descanso');
@@ -169,7 +169,7 @@ function showCreatedPeriods(esNuevo) {
  * Edita si es crear periodo o editar periodo
  */
 function addPeriodsIdToSeleccion(button) {
-  button.innerHTML = "Guardar cambios";
+  button.innerHTML = "GUARDAR CAMBIOS";
   showButtonFromCreatePeriod();
   selectConjPeriodo = document.getElementById('selectConjPeriodo');
   selectConjPeriodo.innerHTML = '';
@@ -251,7 +251,7 @@ function cambiarPeriodo(direccion){
       posicionadoEn--;
       boolEsUltimo = false;
       texto_periodo_nombre.innerHTML="Editar bloque "+(posicionadoEn+1);
-      save_extra_period_ther_create = "Guardar cambios";
+      save_extra_period_ther_create = "GUARDAR CAMBIOS";
   }
   else{ //cuando sea 1 es que vamos al de crear uno nuevo
       boolEsUltimo = true;
@@ -281,14 +281,14 @@ function cambiarPeriodo(direccion){
     periodosOtros.style = "display:block;";
 
     if(boolEsUltimo == true) {
-      boton_actualizar_periodo.innerHTML = "Agregar nuevo bloque";
+      boton_actualizar_periodo.innerHTML = "AGREGAR NUEVO BLOQUE";
       texto_periodo_nombre.innerHTML="Crear nuevo bloque";
       period_creation_button.style="display:none;";
       
       input_de_conjuntoperiodoregla.value = "none";
     }else { 
       period_creation_button.style="display:block;";
-      boton_actualizar_periodo.innerHTML = "Guardar cambios";
+      boton_actualizar_periodo.innerHTML = "GUARDAR CAMBIOS";
       texto_periodo_nombre.innerHTML="Editar bloque "+(posicionadoEn+1);
       
       input_de_conjuntoperiodoregla.value = ""+(posicionadoEn+1);

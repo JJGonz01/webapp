@@ -112,7 +112,7 @@
                             </div>
 
                             <div>
-                            <button id="save_first_period_ther_create" type="button" class="create-medium-button" onclick="saveTemporalPeriod(this)"> Agregar nuevos periodos</button>
+                            <button id="save_first_period_ther_create" type="button" class="create-medium-button" onclick="saveTemporalPeriod(this)"> GUARDAR BLOQUE</button>
                             </div>
                         </div>
                     </div>
