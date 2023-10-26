@@ -15,12 +15,14 @@ h6{
    display:flex;
    flex-direction: row; 
 }
-.therapy-input-row{
-   display:flex;
-   flex-direction: row; 
+.therapy-input-row {
+   display: flex;
+   flex-direction: row;
    justify-content: space-between;
-   padding: 3%;
-   align-items:center;
+   padding-left: 3%;
+   align-items: center;
+   padding-right: 3%;
+   padding-bottom: 3%;
 }
 
 .create-condition-button {
@@ -147,7 +149,6 @@ h6{
 .back-period-creation{
    background-color: #ffffff;
    border-bottom-right-radius: 10px;
-   border-left:1px solid grey;
 }
 
 .two-divs-row-container{

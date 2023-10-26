@@ -144,11 +144,11 @@
 
 .button_reglas_action{
     height: fit-content;
-	background-color: var(--azul-seleccionar);
+	background-color: var(--azul-crea);
 	font-weight: bold;
-	border: 2px solid var(--azul-seleccionar-hover);
+	border: 2px solid var(--azul-crear-hover);
 	border-radius: 100px;
-	color: rgb(81, 151, 205);;
+	color: rgb(255, 255, 255);;
 	padding: 2%;
 }
 
