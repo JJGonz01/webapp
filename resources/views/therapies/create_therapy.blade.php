@@ -81,7 +81,7 @@
                             </div>
 
                             <div id="contenedor">
-                                <ul id="lista_periodo" class="row-bloque">
+                                <ul id="lista_periodo" class="row-bloque" id="button_bloques_list">
                                 </ul>
                             </div>
                 </div>
@@ -141,7 +141,7 @@
                     <div class="header-selector">
                         <div id ="rule-creator-btn" class="row-text-button"><p>REGLAS</p> 
                         <button id="open_rule_creator_ther_create" type="button" class="llamative-button" onclick="openRuleCreator(0)" id="boton_crear_regla"> CREAR REGLA </button></div>
-                        <h4 id="texto_regla_periodo">Crea el bloque para añadirle reglas</h4>
+                        <h4 id="texto_regla_periodo" style="padding-left:4%">Crea el bloque para añadirle reglas</h4>
                         
                         <div id="lista_reglas_periodo" class="row-option-selector">
                         </div>
@@ -229,8 +229,9 @@
                                 
                                 
                                 <div id = "rule_creation_step_three">
+                                    <button id="buttonAccion" class="create-condition-button"  onclick="crearAccionFinalExtra()" type="button">Añadir Acción Extra</button> 
                                     <div class="actions-container" >
-                                    <button id="buttonAccion" class="create-condition-button"  onclick="crearAccionFinalExtra()" type="button">Añadir Acción Extra</button>    
+                                       
                                     <div id="condicionPapi">
                                         <div class="elements-conditions-container">
                                             <div class="therapy-input-row">

@@ -40,8 +40,7 @@ function saveTemporalPeriod(button) {
   var t1 = document.getElementById('t1');
   var t2 = document.getElementById('t2');
   var descanso = document.getElementById('descanso');
-  var boton_reglas_titulo = document.getElementById('open_rule_creator_ther_create');
-  boton_reglas_titulo.style.display="block";
+
   const period = {
     duration_t1: t1.value,
     duration_t2: t2.value,
@@ -64,7 +63,8 @@ function saveTemporalPeriod(button) {
     errorMessage.innerHTML = "ERROR: Valor descanso debe ser mayor que cero";
     descanso.value = '';
   } else {
-    
+    var boton_reglas_titulo = document.getElementById('open_rule_creator_ther_create');
+    boton_reglas_titulo.style.display="block";
     console.log(periods.length);
     var esNuevo = false;
     if(periods.length == posicionadoEn) esNuevo = true;
@@ -81,7 +81,6 @@ function saveTemporalPeriod(button) {
     periodInput.value = value;
     addPeriodsIdToSeleccion(button);
     showCreatedPeriods(esNuevo);
-    closePeriodCreation();
     showmessage(esNuevo);
   }
 }
@@ -182,8 +181,7 @@ function addPeriodsIdToSeleccion(button) {
  * Cuando se crea un periodo a parte del principal
  */
 function savePeriodExtra(button){
-  var boton_reglas_titulo = document.getElementById('open_rule_creator_ther_create');
-  boton_reglas_titulo.style.display="block";
+  
   const texto_reglas_titulo = document.getElementById('texto_regla_periodo');
   const errorMessage = document.getElementById("error_period_extra");
   const periodInput = document.getElementById('input_period');
@@ -209,7 +207,8 @@ function savePeriodExtra(button){
     if (!period.duration_rest.trim()) {
       period.duration_rest = "";
     }
-  
+    var boton_reglas_titulo = document.getElementById('open_rule_creator_ther_create');
+    boton_reglas_titulo.style.display="block";
     console.log(posicionadoEn);
     var esNuevo = false;
     if(periods.length == posicionadoEn) esNuevo = true;
@@ -356,10 +355,25 @@ function irAPeriodo(periodo){
     posicionadoEn = (periodo+1);
     showButtonFromCreatePeriod();
     openPeriodCreation();
+    setSelectedButton();
     cambiarPeriodo(-1);
 }
 
 function irACrearNuevo(){
   posicionadoEn = periods.length-1;
   cambiarPeriodo(+1);
+}
+
+function setSelectedButton(){
+  const ul = document.getElementById("button_bloques_list"); // Get the <ul> element by its ID
+    if (ul) {
+        const buttons = ul.querySelectorAll("button"); 
+        for(var i = 0; i<buttons.length; i++){
+          if(i == posicionadoEn)
+          buttons[i].style="background-color: #E4E5FF;border-left:4px solid rgb(57, 93, 162);";
+          else{
+            buttons[i].style="background-color: #FFF;border-left: 3px solid #8f9af3;";
+          }
+        }
+    }
 }
