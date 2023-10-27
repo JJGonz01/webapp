@@ -80,7 +80,8 @@
             </div>
 
            
-            <div class="header-selector-big" style="display:none;" id="period_creation_container">
+            <div class="header-selector-big">
+            <div style="display:none;" id="period_creation_container">
                 <h6 style="display:none;" class="alert alert-success" id="created_alert_period">
                      Periodos del bloque creados correctamente
                 </h6>
@@ -282,7 +283,8 @@
                     
                 </div>
 
-                
+            
+            </div>
             </div>
         </div>
     </div>
