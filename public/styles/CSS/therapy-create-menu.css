@@ -3,12 +3,18 @@ h6{
   margin-left:1.5%;
   margin-bottom:0;
 }
+
+
 @media(min-width:981px){
 .therapy-creation-container{
  margin:2%;
  background: rgba(255, 255, 255, 0);
  border-radius: 20px;
  padding-bottom: 5%;
+}
+
+.animation-text{
+  animation: textAnimation 2s ease-in-out; 
 }
 
 .therapy-creation-row{
@@ -296,6 +302,10 @@ margin-top: 1%;
 
 @media (max-width: 980px) {
 
+  .animation-text{
+    animation: textAnimation 2s ease-in-out; 
+  }
+
  .therapy-input-row{
      display: block;
      justify-content: space-between;
@@ -392,3 +402,14 @@ margin-top: 1%;
   flex-direction: row;
 }
 
+@keyframes textAnimation {
+    0% {
+        font-size: x-large;
+    }
+    50% {
+        font-size: xx-large;
+    }
+    100% {
+        font-size: x-large;
+    }
+}

@@ -260,6 +260,11 @@ function cambiarPeriodo(direccion){
       boolEsUltimo = true;
       posicionadoEn = periods.length;
       texto_periodo_nombre.innerHTML="Crear nuevo bloque";
+      texto_periodo_nombre.classList.add('animation-text');
+
+      texto_periodo_nombre.addEventListener('animationend', () => {
+          animatedText.classList.remove('animation-text');
+      });
       texto_reglas_titulo.innerHTML = "Guarda los periodos para añadirle reglas";
       period_creation_button.style="display:none;";
       boton_reglas_titulo.style.display="none";
