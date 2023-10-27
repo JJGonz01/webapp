@@ -16,7 +16,7 @@ var accionesPosiblesReloj = [
   "Avisar de juego \" Tienes x puntos \"",
   "Avisar de juego \" A por mas estrellas \"",
   "Avisar de tranquilizarse \" Tranquilo \"",
-  "Avisar de tranquilizarse \" Calma, vas bien \"",
+  "Avisar de tranquilizarse \" Calma, vas bien \"", 
   "Suma puntos",
   "Nada"
 ]
@@ -631,7 +631,6 @@ function guardarRegla(nombreAnterior){
   }
   
   document.getElementById("errorCreandoRegla").style.display = "none";
-  showmessage();
   closeRuleCreator();
   limpiarInputs();
 
@@ -708,7 +707,7 @@ function mostrarReglasRespectoPeriodo(ConjuntoPeriodo) {
         var eliminar = document.createElement("button");
         boton.type="button";  
         eliminar.type="button";  
-        eliminar.className = "delete-button-rules";
+        eliminar.className = "session-show-button-delete";
         boton.className = "session-show-button";
         divTodo.className = "reglas-show-container";
         
@@ -717,7 +716,7 @@ function mostrarReglasRespectoPeriodo(ConjuntoPeriodo) {
         label.className = "negrita-blanco";
 
         var labelEliminar = document.createElement("label");
-        labelEliminar.textContent = "X";
+        labelEliminar.textContent = "ELIMINAR";
         labelEliminar.className = "negrita-blanco";
 
         var value = document.createElement("span");
@@ -728,6 +727,7 @@ function mostrarReglasRespectoPeriodo(ConjuntoPeriodo) {
         console.log( ">>>>"+reglaObj["nombreRegla"]+"");
         boton.onclick = function() { 
                   edicionReglaRellenarValores(reglaObj["nombreRegla"]); //para que los inputs sean iguales q los de la regla
+                  rule_creation_step(1);
                 };
         eliminar.onclick = function(){
           deletRule(reglaObj["nombreRegla"]);
@@ -735,7 +735,7 @@ function mostrarReglasRespectoPeriodo(ConjuntoPeriodo) {
         eliminar.appendChild(labelEliminar);
 
         divTodo.appendChild(boton);    
-        //boton.appendChild(eliminar);
+        boton.appendChild(eliminar);
         container_reglas.appendChild(divTodo);
 
     });
@@ -878,13 +878,12 @@ function openRuleCreator(isNew){
   if(isNew == 0) {
     document.getElementById("isEditing").value = "0";
     limpiarInputs();
-    
   }
   else{
     document.getElementById("isEditing").value = isNew;
   }
-  rule_creation_step(1);
   showOptionsForCondition();
+  //addEventToValuesSensor();
   actionToMake()
   var rc = document.getElementById("contenedor_creador_reglas");
   rc.style.display = "flex";
@@ -895,18 +894,6 @@ function closeRuleCreator(){
   btn.style.display = "block";
   var rc = document.getElementById("contenedor_creador_reglas");
   rc.style.display = "none";
-}
-
-function showmessage(){
-  const created_message_sucess = document.getElementById('sucessCreandoRegla');
-
-  created_message_sucess.style.display = "block";
-
-  setTimeout(function() {
-    created_message_sucess.style.display = "none";
-  }, 3000); 
-    
-
 }
 
 function rule_creation_step(goto){

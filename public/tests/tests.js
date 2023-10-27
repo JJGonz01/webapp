@@ -1,343 +1,383 @@
-const testNumber = 5;
-var testIds = [];
-var currentTestId = "0";
-var jsonData
-var lasttask = "5";
-const testExplanationDictionary = {
+var periods =  [];
+var numerosPeriodos = 0;
+var posicionadoEn = 0;
+var periodContainerOpen = false;
+
+function editWindowTherapy(){
+
+  const texto_reglas_titulo = document.getElementById('input_period');
+  var jsonString = texto_reglas_titulo.value;
+  
+  var cadenaJSON = JSON.stringify(jsonString);
+  console.log(cadenaJSON.substring(0, 5) + "  \"[\"[")
+  if(cadenaJSON.substring(0, 5) == "\"[\\\"["){
+    var cadenaSinBarras = cadenaJSON.replace(/\\/g, '');
+    cadenaSinBarras = cadenaSinBarras.replace('/', '');
+    var cadenaModificada = cadenaSinBarras.slice(3, -2);
+    cadenaModificada = cadenaModificada.slice(0, -1);
+    console.log(cadenaJSON);
+    texto_reglas_titulo.value = cadenaModificada;
     
-    "0": "TAREA 1: En la pestaña pacientes, crea un usuario que se llame \"Luis\" de apellidos \"Téllez\" ",
-    "1": "TAREA 2: Edita el paciente \"Editame González\" en pestaña pacientes para que se llame \"Juan González\" ",
-    "2": "TAREA 3: Crea una terapia con nombre \"Terapia normal\" y que contenga dos bloques de estudio:"
-    + " \n (a) Bloque sin reglas de Estudio:10 min; Descanso:5 min; Estudio:10 min"
-    + " \n (b) Bloque 2 con duraciones Descanso: 3 min; Estudio: 5 min; sin reglas",
-
-    "3": "TAREA 4: Crea una terapia de nombre \"Terapia reglas\" "
-    +"  \n con un bloque:[Estudio: 10 min Descanso:5 min Estudio:10 min], donde haya una regla: "
-    +" \n LA REGLA: \"Regla B1\" que cumpla: "
-    +"  \n (a)	Se ejecute en estudios y descansos."
-    +"  \n (b)	Momento del periodo: entero."
-    +"  \n (c)	Compruebe si el movimiento es bajo."
-    +"  \n (d)	Acción en la reloj: Enviar un mensaje “¿Estás estudiando?” "
-    +"  \n (e)	Acción en el sesión: Que no haga NADA "
-    +"  \n (f)  Añadir una acción extra para cuando vuelva a ocurrir esta situación."
- 	+"  \n (g)  En esta segunda acción, que envíe un mensaje “Calma vas bien” en acciones de reloj."
- 	+"  \n (h)  En esta segunda acción, en acciones de sesión, que acabe el periodo.",
-
-    "4": "TAREA 5: Crea una sesión de estudio, dentro del paciente \"Luis Tellez\", tal que: "+
-    " \n  (a) Su fecha de comienzo: las 12:00 del día de la prueba"
-    +" \n (b) Con nuestra terapia \"Terapia normal\" "
-    +" \n (c) Sensibilidad del sensor BPM a 10%"
-    + "\n (d) Sensibilidad de movimiento: bajo "
-    + "\n (e) Que sume puntos cuando ambos sensores sean bajos."
-   
+  }
+  console.log(jsonString);
+  posicionadoEn = 0;
+  numerosPeriodos = jsonString.length-1;
+  showCreatedPeriods(false);
+  irAPeriodo(0);
+  closePeriodCreation();
 }
-window.onload = function() {
-    
-    testIds = [];
-    currentTestId = "0";
-    
 
-    if(!localStorage["test_on"]){ 
-        localStorage["testId"] = "0";
-        console.log("pth: "+window.location.pathname)
-        if(window.location.pathname != "" && window.location.pathname != "/" && window.location.pathname != "home")
-            setAsInNotStartedTask();
-        else{
-            
-        }
-        
+/**
+ * Esto crea el periodo principal
+ */
+function saveTemporalPeriod(button) {
+  const texto_reglas_titulo = document.getElementById('texto_regla_periodo');
+  var boton_primer_periodo = document.getElementById('save_first_period_ther_create');
+  // boton_primer_periodo.innerHTML = "GUARDAR CAMBIOS";
+  const errorMessage = document.getElementById("error_period");
+  const periodInput = document.getElementById('input_period');
+  // button.innerHTML = "GUARDAR CAMBIOS";
+  var t1 = document.getElementById('t1');
+  var t2 = document.getElementById('t2');
+  var descanso = document.getElementById('descanso');
+
+  const period = {
+    duration_t1: t1.value,
+    duration_t2: t2.value,
+    duration_rest: descanso.value
+  };
+
+  if (!period.duration_t1.trim()||!period.duration_t2.trim()||!period.duration_rest.trim()) {
+    errorMessage.style.display = "block";
+    errorMessage.innerHTML = "ERROR: Valor no rellenado";
+  } else if (parseFloat(period.duration_t1) <= 0) {
+    errorMessage.style.display = "block";
+    errorMessage.innerHTML = "ERROR: Valor estudio 1debe ser mayor que cero";
+    t1.value = '';
+  }else if (parseFloat(period.duration_t2) <= 0) {
+    errorMessage.style.display = "block";
+    errorMessage.innerHTML = "ERROR: Valor estudio 2 debe ser mayor que cero";
+    t2.value = '';}
+  else if (parseFloat(period.duration_rest) <= 0) {
+    errorMessage.style.display = "block";
+    errorMessage.innerHTML = "ERROR: Valor descanso debe ser mayor que cero";
+    descanso.value = '';
+  } else {
+    var boton_reglas_titulo = document.getElementById('open_rule_creator_ther_create');
+    boton_reglas_titulo.style.display="block";
+    console.log(periods.length);
+    var esNuevo = false;
+    if(periods.length == posicionadoEn) esNuevo = true;
+    periods[posicionadoEn] = period;
+    errorMessage.style.display = "none";
+    console.log(periods);
+    var periodoSelect = document.getElementById('selectConjPeriodo');
+    periodoSelect.value = "1";
+    t1.value = '';
+    t2.value = '';
+    descanso.value = '';
+    texto_reglas_titulo.innerHTML = "Regla para bloque "+ (periods.length);
+    value = JSON.stringify(periods);
+    periodInput.value = value;
+    addPeriodsIdToSeleccion(button);
+    showCreatedPeriods(esNuevo);
+    showmessage(esNuevo);
+    setSelectedButton(1);
+  }
+}
+
+function showHidePeriodCreation(){
+    openPeriodCreation();
+    irACrearNuevo();
+    setSelectedButton(1)
+}
+
+function showButtonFromCreatePeriod(){
+  const period_creation_button = document.getElementById('period_creation_btn');
+  period_creation_button.style = "display:block;";
+  periodContainerOpen = false;
+}
+function closePeriodCreation(){
+  periodContainerOpen = false;
+  const period_creation_container = document.getElementById('period_creation_container');
+  const period_creation_button = document.getElementById('period_creation_btn');
+  period_creation_container.style = "display:none;";
+  period_creation_button.style = "display:block;";
+  
+}
+
+function openPeriodCreation(){
+  periodContainerOpen = true;
+  const period_creation_container = document.getElementById('period_creation_container');
+  period_creation_container.style = "display:block;";
+}
+/**
+ * Cuando se crea un periodo esto lo añade a la lista (y configura los botones)
+ */
+function showCreatedPeriods(esNuevo) {
+
+  const texto_periodo_nombre = document.getElementById('periodo_estancia');
+  const container = document.getElementById('created_periods_container');
+  const botonDerechaPeriodos = document.getElementById('boton_der_periodos');
+  const contenedor_de_reglas = document.getElementById('contenedor_creador_reglas');
+  const texto_reglas_titulo = document.getElementById('texto_regla_periodo');
+  const treglas_crear_btn = document.getElementById('boton_crear_regla');
+  container.innerHTML = '';
+  texto_periodo_nombre.innerHTML = 'Editar bloque '+ (posicionadoEn+1);
+
+  if(esNuevo == true){  
+      const listaBtts = document.getElementById('lista_periodo');
+      var botonPer = document.createElement('button');
+      botonPer.classList.add('all-period-button');
+      botonPer.textContent = 'Bloque '+(periods.length);
+      botonPer.type =  "button";
+      botonPer.id =  "button_"+(periods.length - 1);
+      const p = periods.length-1;
+      botonPer.setAttribute('onclick', "irAPeriodo("+p+")"); 
+      var currentOnclick = botonPer.getAttribute('onclick');
+
+      
+      additionalFunction = "event.preventDefault(); printClickedId(this, '" + currentOnclick + "', null);";
+      var newOnclick = additionalFunction
+      botonPer.setAttribute('onclick', newOnclick); 
+      listaBtts.appendChild(botonPer);
+  }
+
+ 
+  //contenedor_de_reglas.style.display = "block";
+  //texto_reglas_titulo.innerHTML = "Regla para periodo "+(posicionadoEn+1);
+
+  for(var i = 0; i< periods.length; i++){
+    const div = document.createElement('div');
+    div.id =  "Periodo_" + i;
+    if(i == 0){
+
+      div.innerHTML = `PERIODO PRINCIPAL: ESTUDIO: <strong>${periods[i].duration_t1}</strong> min`;
+      botonDerechaPeriodos.style.display="block";
+
+    }else{
+      div.innerHTML = `PERIODO ` + i+`: DESCANSO: <strong>${periods[i].duration_rest}</strong> min ESTUDIO: <strong>${periods[i].duration_t1}</strong> min `;
+      botonDerechaPeriodos.style.display="block";
+      
+
     }
-    else if(localStorage["test_on"] == "false")
-    {
-        if(localStorage["testId"] && localStorage["testId"] != lasttask)
-            setAsInNotStartedTask();
-        else 
-            endAllTasks();
-            return;
+    container.appendChild(div);
+  }
+  
+}
+
+
+/**
+ * Edita si es crear periodo o editar periodo
+ */
+function addPeriodsIdToSeleccion(button) {
+ // button.innerHTML = "GUARDAR CAMBIOS";
+  showButtonFromCreatePeriod();
+  selectConjPeriodo = document.getElementById('selectConjPeriodo');
+  selectConjPeriodo.innerHTML = '';
+  cargarValoresEnCuadraditos();
+}
+
+
+/**
+ * Cuando se crea un periodo a parte del principal
+ */
+function savePeriodExtra(button){
+  
+  const texto_reglas_titulo = document.getElementById('texto_regla_periodo');
+  const errorMessage = document.getElementById("error_period_extra");
+  const periodInput = document.getElementById('input_period');
+  var t1 = document.getElementById('t1_extra');
+  var descanso = document.getElementById('descanso_extra');
+  const period = {
+    duration_t1: t1.value,
+    duration_rest: descanso.value
+  };
+
+  if (!period.duration_t1.trim() || !period.duration_rest.trim()) {
+    errorMessage.style.display = "block";
+    errorMessage.innerHTML = "ERROR: Valor no rellenado";
+  } else if (parseFloat(period.duration_t1) <= 0) {
+    errorMessage.style.display = "block";
+    errorMessage.innerHTML = "ERROR: Valor debe ser mayor que cero >> t1";
+    t1.value = '';
+  } else if (parseFloat(period.duration_rest) <= 0) {
+    errorMessage.style.display = "block";
+    errorMessage.innerHTML = "ERROR: Valor debe ser mayor que cero >> descanso";
+    descanso.value = '';
+  } else {
+    if (!period.duration_rest.trim()) {
+      period.duration_rest = "";
+    }
+    var boton_reglas_titulo = document.getElementById('open_rule_creator_ther_create');
+    boton_reglas_titulo.style.display="block";
+    console.log(posicionadoEn);
+    var esNuevo = false;
+    if(periods.length == posicionadoEn) esNuevo = true;
+    periods[posicionadoEn] = period;
+    errorMessage.style.display = "none";
+    console.log(periods);
+    var periodoSelect = document.getElementById('selectConjPeriodo');
+    periodoSelect.value = ""+periods.length;
+    texto_reglas_titulo.innerHTML = "Regla para bloque "+ (periods.length);
+    
+    t1.value = '';
+    descanso.value = '';
+
+    value = JSON.stringify(periods);
+    periodInput.value = value;
+    addPeriodsIdToSeleccion(button);
+    showCreatedPeriods(esNuevo);
+    showmessage(esNuevo);
+    setSelectedButton(1);
+  }
+}
+
+  
+/**
+ * Cuando se presiona un boton, izq o derecha para moverse entre periodos
+ */
+function cambiarPeriodo(direccion){
+  console.log("POSICIONADO EN "+posicionadoEn);
+  var boolEsUltimo = true;
+  var periodosPrincipal = document.getElementById('periodo_principal');
+  var texto_periodo_nombre = document.getElementById('periodo_estancia');
+  var periodosOtros = document.getElementById('periodo_secundario');
+  var input_de_conjuntoperiodoregla = document.getElementById('selectConjPeriodo');
+  var period_creation_button = document.getElementById('period_creation_btn');
+  var boton_actualizar_periodo = document.getElementById('save_extra_period_ther_create');
+ 
+  //reglas 
+  var texto_reglas_titulo = document.getElementById('texto_regla_periodo');
+  var boton_reglas_titulo = document.getElementById('open_rule_creator_ther_create');
+  if(direccion == -1){
+      posicionadoEn--;
+      boolEsUltimo = false;
+      texto_periodo_nombre.innerHTML="Editar bloque "+(posicionadoEn+1);
+      // save_extra_period_ther_create = "GUARDAR CAMBIOS";
+  }
+  else{ //cuando sea 1 es que vamos al de crear uno nuevo
+      boolEsUltimo = true;
+      posicionadoEn = periods.length;
+      texto_periodo_nombre.innerHTML="Crear nuevo bloque";
+      texto_reglas_titulo.innerHTML = "Guarda los periodos para añadirle reglas";
+      period_creation_button.style="display:none;";
+      boton_reglas_titulo.style.display="none";
+  }
+
+
+
+  if(posicionadoEn == 0) { //es el periodo principal
+    periodosPrincipal.style.display = "block";
+    periodosOtros.style.display = "none";
+    if(periods.length > 0){
+      texto_reglas_titulo.innerHTML = "Regla para periodo "+(posicionadoEn+1);
+      boton_reglas_titulo.style.display="block";
     }
     else{
-        
-        if(!localStorage["testId"]){
-            console.log("started test on")
-            setTestInfo("0");
-            localStorage["testId"] = "0";
-        }
-        else{
-           
-            if(localStorage["testId"] == lasttask){
-                return; 
-            }
-            console.log("contiuing test on")
-            setTestInfo(localStorage["testId"]);
-        }
-        setAsInTask(); 
+      boton_reglas_titulo.style.display="none";
     }
-    for(var i = 0; i<=5; i++){
-        testIds[i+""] = "false";
+    input_de_conjuntoperiodoregla.value = ""+(posicionadoEn+1);
+  }
+  else if(posicionadoEn > 0){
+    periodosPrincipal.style = "display:none;";
+    periodosOtros.style = "display:block;";
+
+    if(boolEsUltimo == true) {
+      // boton_actualizar_periodo.innerHTML = "AGREGAR NUEVO BLOQUE";
+      texto_periodo_nombre.innerHTML="Crear nuevo bloque";
+      period_creation_button.style="display:none;";
+      
+      input_de_conjuntoperiodoregla.value = "none";
+    }else { 
+      period_creation_button.style="display:block;";
+      // boton_actualizar_periodo.innerHTML = "GUARDAR CAMBIOS";
+      texto_periodo_nombre.innerHTML="Editar bloque "+(posicionadoEn+1);
+      
+      input_de_conjuntoperiodoregla.value = ""+(posicionadoEn+1);
     }
-    //setTestInfo(currentTestId);
-    var buttonList = document.getElementsByTagName('button');
+  }
+    mostrarReglasRespectoPeriodo(""+(posicionadoEn+1)); 
+    cargarValoresEnCuadraditos();
+}
+
+function showmessage(isNew){
+  const created_message_sucess = document.getElementById('created_alert_period');
+  const edited_message_sucess = document.getElementById('edited_alert_period');
+  if(isNew){
+        created_message_sucess.style.display = "block";
+
+        setTimeout(function() {
+          created_message_sucess.style.display = "none";
+        }, 3000); 
     
-    for(var f = 0;f< buttonList.length;f++){
-        addFunctionToOnClick(buttonList[f]);
-    }
-
-    if(!localStorage["infoOpen"]){
-        localStorage["infoOpen"] = "true";
-        showhidetextBool(true)
-    }
-    else{
-        if(localStorage["infoOpen"] == "true"){
-            showhidetextBool(true)
-        }else{
-            showhidetextBool(false)
-        }
-    }
-    
-   
-    getAllInputs()
-    
-    console.log("La id es: "+localStorage["testId"])
-} 
-
-function getAllInputs() {
-    
-    if(localStorage["teststart"]){
-        const inputElements = document.querySelectorAll('input');
-        inputElements.forEach(function(input) {
-            if(input.id != "password"){
-                setInputListener(input)
-                console.log(input.id);
-            }
-        // outputDiv.textContent += input.id + ': ' + input.value + '\n';
-        });
-    }
+  }else{
+    edited_message_sucess.style.display = "block";
+      setTimeout(function() {
+        edited_message_sucess.style.display = "none";
+      }, 3000); 
+  }
 }
 
-function setInputListener(inputField){
-    var inputValue = inputField.value;
-        inputField.addEventListener("blur", function() {
-            inputValue = inputField.value;
-            console.log(inputValue);
-            var date = new Date;
-            var clickedTime = (""+date.getDate()+"-"+date.getMonth()+"-"+date.getHours()+"-"+date.getMinutes()+"-"+date.getSeconds()+"-"+date.getMilliseconds());
-            sendJsonInfo(localStorage["testId"],clickedTime,getTimeDifference(clickedTime),inputField.id+"|"+inputValue, "input", null, null)
-        });
+/*
+ * SI es un periodo ya creado, carga los valores correspondientes a cada cuadradito
+ */
+function cargarValoresEnCuadraditos(){
+  console.log("LEEENGTH "+periods[posicionadoEn] +"<>"+posicionadoEn)
+  if(posicionadoEn < periods.length){
+    if(posicionadoEn <= 0){
+      posicionadoEn = 0;
+      var t1 = document.getElementById('t1');
+      var t2 = document.getElementById('t2');
+      var descanso = document.getElementById('descanso');
+      t1.value = periods[posicionadoEn].duration_t1;
+      t2.value = periods[posicionadoEn].duration_t2;
+      descanso.value = periods[posicionadoEn].duration_rest;
 
-}
-function setAsInTask(){
-    const taskInfoContainer = document.getElementById('no-task-container');
-    const inTaskContainer = document.getElementById('in-task-container');
-    const bottonInfoText = document.getElementById('in-task-text');
-    if(bottonInfoText != null){
-        bottonInfoText.innerHTML = testExplanationDictionary[localStorage["testId"]];
-        taskInfoContainer.style.display = "none";
-        inTaskContainer.style.display = "block";
-    }
-}
-
-function setAsInNotStartedTask(){
-    const taskInfoContainer = document.getElementById('no-task-container');
-    const inTaskContainer = document.getElementById('in-task-container');
-    taskInfoContainer.style.display = "block";
-    setTestInfoTab(); //TODO
-    inTaskContainer.style.display = "none";
-    
-}
-
-function startTask(){
-    var date = new Date;
-    const taskInfoContainer = document.getElementById('no-task-container');
-    const inTaskContainer = document.getElementById('in-task-container');
-    const bottonInfoText = document.getElementById('in-task-text');
-    taskInfoContainer.style.display = "none";
-    bottonInfoText.innerHTML = testExplanationDictionary[localStorage["testId"]];
-
-    
-    inTaskContainer.style.display = "block"
-    localStorage["test_on"] = "true"
-
-    console.log("si, me meto aqui")
-    localStorage["teststart"] = (""+date.getDate()+"-"+date.getMonth()+"-"+date.getHours()+"-"+date.getMinutes()+"-"+date.getSeconds()+"-"+date.getMilliseconds());
-    setTestInfo(localStorage["testId"])
-
-}
-
-function setTestInfo(testID){
-    console.log("aqui es donde falla? "+testID)
-    const testText = document.getElementById('in-task-text')
-    if(testText != null)
-        testText.innerHTML = testExplanationDictionary[testID]
-}
-
-function addFunctionToOnClick(button){
-    if(button.id != "task_start_button" && button.id != "iniciar-sesion-button"){
-        var currentOnclick = button.getAttribute('onclick')
-        var additionalFunction
-        
-            if (button.type != 'button'){
-                additionalFunction = "event.preventDefault(); printClickedId(this, '" + currentOnclick + "', this.form);";
-            }
-            else
-            {
-                additionalFunction = "event.preventDefault(); printClickedId(this, '" + currentOnclick + "', null);";
-            }
-        
-        console.log(additionalFunction + "--"+button.id)
-        var newOnclick = additionalFunction
-        button.setAttribute('onclick', newOnclick); 
-    } 
-}
-
-function showhidetext(){
-    const testText = document.getElementById('in-task-text')
-    const tesButtonShow = document.getElementById('task-show-btn')
-    if(testText.style.display == "none"){
-        testText.style.display ="block";
-        tesButtonShow.innerHTML = "OCULTAR TAREA"
-        localStorage["infoOpen"] = "false";
     }else{
-        testText.style.display ="none";
-        tesButtonShow.innerHTML = "MOSTRAR TAREA"
-        localStorage["infoOpen"] = "true";
+
+      var t1 = document.getElementById('t1_extra');
+      var descanso = document.getElementById('descanso_extra');
+
+      t1.value = periods[posicionadoEn].duration_t1;
+      descanso.value = periods[posicionadoEn].duration_rest;
     }
+  }
+  else{
+
+    var t1 = document.getElementById('t1_extra');
+    var descanso = document.getElementById('descanso_extra');
+
+    t1.value = '';
+    descanso.value = '';
+  }
 }
 
-
-function showhidetextBool(setOpen){
-    const testText = document.getElementById('in-task-text')
-    const tesButtonShow = document.getElementById('task-show-btn')
-    if(!setOpen){
-        if(testText != null){
-            testText.style.display ="block";
-            tesButtonShow.innerHTML = "OCULTAR TAREA"
-        }
-    }else{
-        if(testText != null){
-            testText.style.display ="none";
-            tesButtonShow.innerHTML = "MOSTRAR TAREA"
-        }
-    }
-}
-function printClickedId(button, action, form){
-       
-        var date = new Date;
-        var clickedTime = (""+date.getDate()+"-"+date.getMonth()+"-"+date.getHours()+"-"+date.getMinutes()+"-"+date.getSeconds()+"-"+date.getMilliseconds());
-        console.log(button.id);
-            var timeDifference;
-        if(localStorage["teststart"]){
-            timeDifference = getTimeDifference(clickedTime);
-        }
-        else{
-            timeDifference = "0-0-0-0-0-0";
-        }
-        sendJsonInfo(localStorage["testId"], clickedTime, timeDifference, button.id,"button", action, form);
+function irAPeriodo(periodo){
    
+    posicionadoEn = (periodo+1);
+    showButtonFromCreatePeriod();
+    openPeriodCreation();
+    setSelectedButton(0);
+    cambiarPeriodo(-1);
 }
 
-function endTask(){
-    console.log("hola");
-    downloadJson();
-    localStorage["test_on"] = "false";
-    
-    var intId = parseInt(localStorage["testId"])
-
-    if(localStorage["testId"] == lasttask){
-        endAllTasks();
-        return;
-    }
-
-    console.log(intId+"id")
-
-    intId += 1
-    var stringId = intId.toString()
-    localStorage["testId"] = stringId
-    setTestInfo(stringId)
-    setAsInNotStartedTask()
-    
+function irACrearNuevo(){
+  posicionadoEn = periods.length-1;
+  cambiarPeriodo(+1);
 }
 
-function endAllTasks(){
-    const taskInfoContainer = document.getElementById('no-task-container');
-    const inTaskContainer = document.getElementById('in-task-container');
-    const bottonInfoText = document.getElementById('in-task-text');
-
-    taskInfoContainer.style.display = "none"
-    inTaskContainer.style.display = "block"
-    inTaskContainer.innerHTML = "Tareas acabadas, envíe los archivos descargados a josejesus.gonzalez@uclm.es, muchas gracias"
-    bottonInfoText.style.display = "none"
-}
-
-function sendJsonInfo(testId, dateTime, differenceTime, actionId, type, nextFunctionButton, form){
-   
-    var postData = {
-        "taskId": testId,
-        "type": type,
-        "dateTime": dateTime,
-        "differenceTime": differenceTime,
-        "actionId": actionId
-    };
-    console.log("Enviando: "+actionId)
-    $.ajax({
-        url: "/teststep",
-        type: "GET",
-        data: postData,
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        },
-        success: function(data) {
-            if (nextFunctionButton != null) {
-                try {
-                    eval(nextFunctionButton);
-                    if(form != null)
-                        form.submit();
-                    console.log("Data: " + data);
-                } catch (error) {
-                    console.error("Error executing nextFunctionButton: " + error);
-                }
-            }
-            else{
-                console.log("Data: " + data);
-            }
-        },
-        error: function(jqXHR, textStatus, errorThrown) {
-            console.error("Error: " + actionId+ ";"+errorThrown +","+textStatus);
+function setSelectedButton(sum){
+    var ul = document.getElementById("lista_periodo");console.log("saddas"+posicionadoEn)
+    var pos_en = (posicionadoEn-1) + sum;
+    if (ul) {
+        var buttons = ul.querySelectorAll("button"); 
+        for(var i = 0; i<buttons.length; i++){
+          if(i == pos_en)
+           buttons[i].style="background-color: #E4E5FF;border-right:4px solid rgb(57, 93, 162);";
+          else{
+            buttons[i].style="background-color: #FFF;border-right: 3px solid #8f9af3;";
+          }
         }
-    });
-}
-
-function downloadJson(){
-    var url = window.location.origin +'/download';
-
-    // Abre una nueva pestaña con la URL especificada
-    window.open(url, '_blank');
-}
-function getTimeDifference(dateClick){
-    var arrayTimeOriginal = localStorage["teststart"].split("-");
-    var arrayTimeClicked = dateClick.split("-");
-    var arrayDiferences = [];
-    arrayDiferences = ""+Math.abs(arrayTimeOriginal[0] - arrayTimeClicked[0]);
-    for(var i = 1; i<6; i++){
-        arrayDiferences += "-"+Math.abs(arrayTimeOriginal[i] - arrayTimeClicked[i]);
     }
-    console.log(arrayDiferences);
-    return arrayDiferences;
 }
-
-function setTestInfoTab(){
-    var textToShow = testExplanationDictionary[localStorage["testId"]];
-    const task_test = document.getElementById('task_test');
-    textToShow = textToShow.split("\n");
-    task_test.innerHTML = "";
-
-    for(let i = 0; i<textToShow.length; i++){
-        var paragraph = document.createElement("p");
-        paragraph.textContent = textToShow[i];
-        task_test.appendChild(paragraph);
-        console.log(textToShow[i]);
-    }
-
-    console.log(textToShow[0])
-}
-
-//criterios de exclusion

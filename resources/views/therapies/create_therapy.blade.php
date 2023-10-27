@@ -43,19 +43,44 @@
     <div class="therapy-creation-container">
             
                 
-        <div class="therapy-input-row">
+        <!-- div class="therapy-input-row">
             <div>
                 <p>NOMBRE</p>
                 <input type="text" id="name_therapy" name="name" class="name-therapy-input" placeholder="Nombre de la terapia"></input>
             </div>
             <button id="save_therapy_btn" type="submit" class="create-big-button">GUARDAR TERAPIA</button>
             
-        </div>
+        </div -->
+           <div class="header-selector">
+                <div style="margin-top:1%; margin-bottom:1%" class="row-text-button">
+                    <input type="text" id="name_therapy" name="name" class="name-therapy-input" placeholder="Nombre de la terapia"></input>
+                    <button id="save_therapy_btn" type="submit" class="create-big-button"><span class="material-symbols-outlined">save</span></button>
+                </div>
+                
+            </div>
+
+        <div class="flex-header-selector">
+            
+
+            <div class="header-selector-small">
+                <div class="row-text-button">
+                    <p style="font-size:x-large;">Bloques de estudio</p>
+                    <div id="boton_der_periodos">
+                    <button id="period_creation_btn" onclick="showHidePeriodCreation()" type="button" class="llamative-button"><span class="material-symbols-outlined">add</span></button></div>
+                </div>
+                <div class="row-option-selector">
+                            <div id="listas">
+                            </div>
+
+                            <div id="contenedor">
+                                <ul id="lista_periodo" class="row-bloque">
+                                </ul>
+                            </div>
+                </div>
+            </div>
+
            
-
-        <div>
-            <div class="header-selector">
-
+            <div class="header-selector-big" style="display:none;" id="period_creation_container">
                 <h6 style="display:none;" class="alert alert-success" id="created_alert_period">
                      Periodos del bloque creados correctamente
                 </h6>
@@ -70,25 +95,6 @@
                 <h6 style="display:none;" class="alert alert-danger" id="error_period_extra">
                                 Tipo de comportamiento NO DECLARADO
                 </h6>
-
-                <div class="row-text-button">
-                    <p style="font-size:x-large;">Bloques de estudio</p>
-                    <div id="boton_der_periodos">
-                    <button id="period_creation_btn" onclick="showHidePeriodCreation()" type="button" class="llamative-button">CREAR BLOQUE</button></div>
-                </div>
-                <div class="row-option-selector">
-                            <div id="listas">
-                            </div>
-
-                            <div id="contenedor">
-                                <ul id="lista_periodo" class="row-bloque">
-                                </ul>
-                            </div>
-                </div>
-            </div>
-
-           
-            <div class="header-selector" style="display:none;" id="period_creation_container">
                 <div class="row-text-button">
                     <p style="font-size:x-large;" id="periodo_estancia">CREAR BLOQUE DE ESTUDIO</p>
                     <div id="boton_der_periodos"></div>
@@ -112,7 +118,7 @@
                             </div>
 
                             <div>
-                            <button id="save_first_period_ther_create" type="button" class="create-medium-button" onclick="saveTemporalPeriod(this)"> GUARDAR BLOQUE</button>
+                            <button id="save_first_period_ther_create" type="button" class="create-medium-button" onclick="saveTemporalPeriod(this)"> <span class="material-symbols-outlined">save</span></button>
                             </div>
                         </div>
                     </div>
@@ -132,17 +138,16 @@
                         </div>
                     </div>
 
-                    <h4 style="display:none;" class="alert alert-danger" id="errorCreandoRegla"></h4>
-                    <h4 style="display:none;" class="alert alert-danger" id="sucessCreandoRegla">Regla creada con exito</h4>
+                    
                     
 
                     
                     <div class="header-selector">
                         <div id ="rule-creator-btn" class="row-text-button"><p id="texto_regla_periodo">Guarda los periodos para añadirle reglas</p> 
-                        <button id="open_rule_creator_ther_create" type="button" class="llamative-button" onclick="openRuleCreator(0)" id="boton_crear_regla"> CREAR REGLA </button></div>
+                        <button id="open_rule_creator_ther_create" type="button" class="llamative-button" onclick="openRuleCreator(0)" id="boton_crear_regla"> <span class="material-symbols-outlined">add</span></button></div>
                         
                         
-                        <div id="lista_reglas_periodo" class="row-option-selector">
+                        <div id="lista_reglas_periodo">
                         </div>
 
                         <div class="reglas-container-right"  id="contenedor_creador_reglas" style="display:none;">
@@ -150,6 +155,8 @@
                             <div class="content-half">
                            
                                 <button class="close-button" type="button" onclick="closeRuleCreator()">CERRAR</button>
+                                <h4 style="display:none;" class="alert alert-danger" id="errorCreandoRegla"></h4>
+                                <h4 style="display:none;" class="alert alert-success" id="sucessCreandoRegla">Regla creada con exito</h4>
                                 <div class="rule-creation-steps">
                                     <div class="row-steps-container">
                                         <div class="row-steps-item">
