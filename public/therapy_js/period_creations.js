@@ -292,7 +292,9 @@ function cambiarPeriodo(direccion){
       // boton_actualizar_periodo.innerHTML = "AGREGAR NUEVO BLOQUE";
       texto_periodo_nombre.innerHTML="Crear nuevo bloque";
       period_creation_button.style="display:none;";
-      
+      texto_periodo_nombre.addEventListener('animationend', () => {
+        animatedText.classList.remove('animation-text');
+    });
       input_de_conjuntoperiodoregla.value = "none";
     }else { 
       period_creation_button.style="display:block;";
