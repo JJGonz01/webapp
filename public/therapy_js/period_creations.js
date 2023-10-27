@@ -33,10 +33,10 @@ function editWindowTherapy(){
 function saveTemporalPeriod(button) {
   const texto_reglas_titulo = document.getElementById('texto_regla_periodo');
   var boton_primer_periodo = document.getElementById('save_first_period_ther_create');
-  boton_primer_periodo.innerHTML = "GUARDAR CAMBIOS";
+  // boton_primer_periodo.innerHTML = "GUARDAR CAMBIOS";
   const errorMessage = document.getElementById("error_period");
   const periodInput = document.getElementById('input_period');
-  button.innerHTML = "GUARDAR CAMBIOS";
+  // button.innerHTML = "GUARDAR CAMBIOS";
   var t1 = document.getElementById('t1');
   var t2 = document.getElementById('t2');
   var descanso = document.getElementById('descanso');
@@ -82,12 +82,14 @@ function saveTemporalPeriod(button) {
     addPeriodsIdToSeleccion(button);
     showCreatedPeriods(esNuevo);
     showmessage(esNuevo);
+    setSelectedButton(1);
   }
 }
 
 function showHidePeriodCreation(){
     openPeriodCreation();
     irACrearNuevo();
+    setSelectedButton(1)
 }
 
 function showButtonFromCreatePeriod(){
@@ -169,7 +171,7 @@ function showCreatedPeriods(esNuevo) {
  * Edita si es crear periodo o editar periodo
  */
 function addPeriodsIdToSeleccion(button) {
-  button.innerHTML = "GUARDAR CAMBIOS";
+ // button.innerHTML = "GUARDAR CAMBIOS";
   showButtonFromCreatePeriod();
   selectConjPeriodo = document.getElementById('selectConjPeriodo');
   selectConjPeriodo.innerHTML = '';
@@ -227,6 +229,7 @@ function savePeriodExtra(button){
     addPeriodsIdToSeleccion(button);
     showCreatedPeriods(esNuevo);
     showmessage(esNuevo);
+    setSelectedButton(1);
   }
 }
 
@@ -251,7 +254,7 @@ function cambiarPeriodo(direccion){
       posicionadoEn--;
       boolEsUltimo = false;
       texto_periodo_nombre.innerHTML="Editar bloque "+(posicionadoEn+1);
-      save_extra_period_ther_create = "GUARDAR CAMBIOS";
+      // save_extra_period_ther_create = "GUARDAR CAMBIOS";
   }
   else{ //cuando sea 1 es que vamos al de crear uno nuevo
       boolEsUltimo = true;
@@ -281,14 +284,14 @@ function cambiarPeriodo(direccion){
     periodosOtros.style = "display:block;";
 
     if(boolEsUltimo == true) {
-      boton_actualizar_periodo.innerHTML = "AGREGAR NUEVO BLOQUE";
+      // boton_actualizar_periodo.innerHTML = "AGREGAR NUEVO BLOQUE";
       texto_periodo_nombre.innerHTML="Crear nuevo bloque";
       period_creation_button.style="display:none;";
       
       input_de_conjuntoperiodoregla.value = "none";
     }else { 
       period_creation_button.style="display:block;";
-      boton_actualizar_periodo.innerHTML = "GUARDAR CAMBIOS";
+      // boton_actualizar_periodo.innerHTML = "GUARDAR CAMBIOS";
       texto_periodo_nombre.innerHTML="Editar bloque "+(posicionadoEn+1);
       
       input_de_conjuntoperiodoregla.value = ""+(posicionadoEn+1);
@@ -351,11 +354,11 @@ function cargarValoresEnCuadraditos(){
 }
 
 function irAPeriodo(periodo){
-   console.log("shh")
+   
     posicionadoEn = (periodo+1);
     showButtonFromCreatePeriod();
     openPeriodCreation();
-    setSelectedButton();
+    setSelectedButton(0);
     cambiarPeriodo(-1);
 }
 
@@ -364,16 +367,16 @@ function irACrearNuevo(){
   cambiarPeriodo(+1);
 }
 
-function setSelectedButton(){
-    var ul = document.getElementById("button_bloques_list");
+function setSelectedButton(sum){
+    var ul = document.getElementById("lista_periodo");console.log("saddas"+posicionadoEn)
+    var pos_en = (posicionadoEn-1) + sum;
     if (ul) {
         var buttons = ul.querySelectorAll("button"); 
-        console.log(buttons);
         for(var i = 0; i<buttons.length; i++){
-          if(i == posicionadoEn)
-           buttons[i].style="background-color: #E4E5FF;border-left:4px solid rgb(57, 93, 162);";
+          if(i == pos_en)
+           buttons[i].style="background-color: #E4E5FF;border-right:4px solid rgb(57, 93, 162);";
           else{
-            buttons[i].style="background-color: #FFF;border-left: 3px solid #8f9af3;";
+            buttons[i].style="background-color: #FFF;border-right: 3px solid #8f9af3;";
           }
         }
     }
