@@ -1,13 +1,25 @@
-@extends('main')
- 
-@section('patients_section')
 
+@yield('session')
+
+@extends('main')
+@section('patients_section')
 <head>
     <title>EDITAR | {{$patient->name}}</title>
 </head>
 
 <div class="general-items-container">
-        <script src="https://pomodoroadhdapp.azurewebsites.net/session/sessionClassfication.js"></script>
+        
+        <script src="https://pomodoroadhdapp.azurewebsites.net/sessionClassfication.js"></script>
+        <script src="https://pomodoroadhdapp.azurewebsites.net/period_creations.js"></script>
+        <script src="https://pomodoroadhdapp.azurewebsites.net/rule.js"></script>
+
+        @if (session('success'))
+            <h6 class="alert alert-success"> {{ session('success') }}</h6>
+        @endif
+        @if($errors->any())
+            <h6 class="alert alert-danger">{{ implode('', $errors->all(':message')) }}</h6>
+        @endif
+
         <div class="patient-info-box">
             <img class="patient-profile-image" url="https://cdn-icons-png.flaticon.com/512/3135/3135768.png"></img>
             <div>
@@ -16,12 +28,12 @@
             </div>
 
             <div>
-                <form action="{{route('patient_update', ['id' => $patient -> id], false, true)}}"id = "editar_form" method = "GET">
-                    <button id="edit_patient_shown_btn" class="patient-edit-button" href = "{{route('patient_update', ['id' => $patient -> id], false, true)}}">
+                <form action="{{route('patient_update', ['id' => $patient -> id])}}"id = "editar_form" method = "GET">
+                    <button id="edit_patient_shown_btn" class="patient-edit-button" href = "{{route('patient_update', ['id' => $patient -> id])}}">
                             EDITAR
                     </button>
                 </form>
-                <form action="{{route('patient_destroy', [$patient->id], false, true)}}" id = "eliminar_form" method = "POST">
+                <form action="{{route('patient_destroy', [$patient->id])}}" id = "eliminar_form" method = "POST">
                 <script>
                         //SCRIPT QUE HACE QUE SALTE EL POPUP PARA CONFIRMAR (LO PONGO AQUI PARA NO CREAR MAS js)
                         document.getElementById('eliminar_form').addEventListener("submit", (e) => {
@@ -48,12 +60,12 @@
         </div>
 
         <div class = "options-items-container">
-            <a class="create-button" onclick="printClickedId(this)" id="create-session-button" href = "{{route('sessions_create', ['patient_id' => $patient -> id], false, true)}}">
+        <a class="create-button" onclick="printClickedId(this)" id="create-session-button" href = "{{route('sessions_create', ['patient_id' => $patient -> id], false, true)}}">
                             CREAR SESIÓN
             </a>
             <div class="choice-selection-container">
                     <button id="session_pending_tab_patient" class="session-filter-button" style = "background-color:var(--container-session-selected-color)"  type = "button" onclick="showSessionCompleted(false)">Pendientes</button>     
-                    <button id="session_completed_tab_patient" class="session-filter-button"style="background-color: var(--container-session-show-color);"  type = "button" onclick="showSessionCompleted(true)">Completadas</button>
+                    <button id="session_completed_tab_patient" class="session-filter-button" type = "button" onclick="showSessionCompleted(true)">Completadas</button>
             </div>
             <div class="table-hide-show-container" id ="notCompleted_sessions">
                     @if(count($sessions)>0)
@@ -71,9 +83,9 @@
                                 <tr> <!--class="all-patient-button" href = "{{route('patient_show', ['id' => $patient -> id])}}"-->
                                     <td>{{$ses -> id}}  </td>
                                     <td>{{$ses -> date_start}} </td>
-                                    <td> <form action = "{{route('session_edit', ['id' => $ses -> id], false, true)}}" method="GET"> <button class="edit-button" id="session-show-button">Editar</button> </form> </td>
+                                    <td> <form action = "{{route('session_edit', ['id' => $ses -> id])}}" method="GET"> <button class="edit-button" id="session-show-button">Editar</button> </form> </td>
                                     <td> 
-                                        <form id="session-delete-form" action="{{route('session_destroy', ['id'=> $ses->id, 'patient_id' => $patient->id], false, true)}}" method = "POST">
+                                        <form id="session-delete-form" action="{{route('session_destroy', ['id'=> $ses->id, 'patient_id' => $patient->id])}}" method = "POST">
                                             <div>
                                                 @method('DELETE')
                                                 @csrf
@@ -143,6 +155,8 @@
                     @endif
             </div>
         </div>
-</div>
 
+        
+        
+</div>
 @endsection

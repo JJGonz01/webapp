@@ -1,75 +1,114 @@
-@extends('main')
+@extends('patients_section')
 
 <head>
     <title>CREAR SESIÓN</title>
 </head>
 
-@section('patients_section')
+@section('session')
 
-
-
-<form action="{{route('sessions_create',  ['patient_id' => $patient -> id], false, true)}}" method="POST">
-@if (session('success'))
-    <h6 class="alert alert-success"> {{ session('success') }}</h6>
-@endif
-@if($errors->any())
-    <h6 class="alert alert-danger">{{ implode('', $errors->all(':message')) }}</h6>
-@endif
-            
-<script src="https://pomodoroadhdapp.azurewebsites.net/sessionCreate.js"></script>
-    <div class="create-basic-container">
-        @csrf
-        <input id="terapia_seleccion" style="display:none" name="therapy_id"></input>
-        <h3>CREAR SESIÓN</h3>
-        <p for="date_start">SELECCIONAR FECHA</p>
-        <input type="datetime-local" id="fechaHora" class="create-basic-container-input" name="date_start"></input>
-
-
-        <div class="header-selector">
-                <p>Elegir terapia para sesión</p>              
-        </div>
-        <div id="terapias_botones" class="therapy-selection-container">
-                @if(count($therapies) > 0)
-                @foreach($therapies as $ter)
-                <button id="button_{{$ter->id}}" class="edit-button" type="button" onclick="selectTerapia( {{$ter->id}} , this )">{{ $ter->name }}</button>
-                @endforeach
-                @else
-                    <p>CREA UNA TERAPIA PARA PODER CREAR LA SESIÓN</p>
-                    <a onclick="printClickedId(this)" class= "edit-button" href = "{{route('therapies_create', [], false, true)}}">CREAR TERAPIA</a>
-                @endif
+<div class = "options-items-container">
+            <a class="create-button" onclick="printClickedId(this)" id="create-session-button" href = "{{route('sessions_create', ['patient_id' => $patient -> id], false, true)}}">
+                            CREAR SESIÓN
+            </a>
+            <div class="choice-selection-container">
+                    <button id="session_pending_tab_patient" class="session-filter-button" style = "background-color:var(--container-session-selected-color)"  type = "button" onclick="showSessionCompleted(false)">Pendientes</button>     
+                    <button id="session_completed_tab_patient" class="session-filter-button"style="background-color: var(--container-session-show-color);"  type = "button" onclick="showSessionCompleted(true)">Completadas</button>
             </div>
-                
-        <div class="header-selector">
-                <p>Sensibilidad de los sensores</p>
-            <div class="back-period-creation">
+            <div class="table-hide-show-container" id ="notCompleted_sessions">
+                    @if(count($sessions)>0)
+                    <table class="table-items-options">
+                        <tr class ="top-index-container">
+                            <th>ID</th> 
+                            <th>Fecha inicio</th> 
+                            <th>Editar</th> 
+                            <th>Borrar</th>
+                        </tr>
+                        <div class="table-items-options-overflow">
+                            
+                                @foreach($sessions as $ses)
+                                @if($ses->completed == false)
+                                <tr> <!--class="all-patient-button" href = "{{route('patient_show', ['id' => $patient -> id])}}"-->
+                                    <td>{{$ses -> id}}  </td>
+                                    <td>{{$ses -> date_start}} </td>
+                                    <td> <form action = "{{route('session_edit', ['id' => $ses -> id], false, true)}}" method="GET"> <button class="edit-button" id="session-show-button">Editar</button> </form> </td>
+                                    <td> 
+                                        <form id="session-delete-form" action="{{route('session_destroy', ['id'=> $ses->id, 'patient_id' => $patient->id], false, true)}}" method = "POST">
+                                            <div>
+                                                @method('DELETE')
+                                                @csrf
+                                                
+                                                <script>
+                                                            //SCRIPT QUE HACE QUE SALTE EL POPUP PARA CONFIRMAR (LO PONGO AQUI PARA NO CREAR MAS js)
+                                                            document.getElementById('session-delete-form').addEventListener("submit", (e) => {
+                                                                e.preventDefault();
+                                                                console.log("hola")
+                                                                if(window.confirm("Va a eliminar a este paciente ¿está seguro? (no podrá rehacer los cambios)")){
+                                                                    document.getElementById('session-delete-form').submit();
+                                                                }else{
+                                                                return false;
+                                                                } 
+                                                            });
+                                                    </script> 
+                                                <button id="delete_session_patient_delete" class="edit-button" style="background-color:#B90000;">
+                                                    BORRAR
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </td>
+                                </tr> 
+                                @endif
+                                @endforeach
+                            
+                        </div>
+                    </table>
+                    @else
+                            <tr><h1>No hay sesiones pendientes</h1></tr>
+                    @endif
+            </div>
+            <div class="table-hide-show-container" id ="completed_sessions" style = "display:none">
+                    @if(count($sessions)>0)
+                    <table class="table-items-options">
+                        <tr class ="top-index-container">
+                            <th>ID</th> 
+                            <th>Fecha inicio</th> 
+                            <th>Editar</th> 
+                            <th>Borrar</th>
+                        </tr>
+                        <div class="table-items-options-overflow">
+                            @foreach($sessions as $ses)
+                            @if($ses->completed == true)
+                            <tr> <!--class="all-patient-button" href = "{{route('patient_show', ['id' => $patient -> id])}}"-->
+                                <td>{{$ses -> id}}  </td>
+                                <td>{{$ses -> date_start}} </td>
+                                <td> <form action = "{{route('session_show', ['id' => $ses -> id])}}" method="GET"> <button class="edit-button" id="session-show-button">Ver</button> </form> </td>
+                                <td> 
+                                    <form action="{{route('session_destroy', ['id'=> $ses->id, 'patient_id' => $patient->id])}}" method = "POST">
+                                        <div>
+                                            @method('DELETE')
+                                            @csrf
+                                            <button id="delete_patient_show" class="edit-button" style="background-color:#B90000;">
+                                                BORRAR
+                                            </button>
+                                        </div>
+                                    </form>
+                                </td>
+                            </tr> 
+                            @endif
+                            @endforeach
+                        </div>
+                        
 
-                <div class="centeder-inputs">
-                    <div class="inputs-session">
-                        <label for="porcentaje">Sensibilidad (%) BPM</label>
-                        <input id="porcentaje" value = 8 type="number" name="porcentaje" class="form-control" rown="10"></input>
-                    </div>
+                        <div class="reglas-container-right"  id="contenedor_creador_reglas" style="display:none;">
+                            <div class="content-half-image" onclick="closeRuleCreator()"></div>
+                            <div class="content-half">
 
-                    <div class="inputs-session">
-                            <label for="movement">Sensibilidad (%) movimiento</label>
-                            <select name ="movement" >
-                                <option value="Bajo"> Bajo (0.4)</option>
-                                <option value="Medio"> Medio (0.6)</option>
-                                <option value="Alto"> Alto (0.9)</option>
-                            </select>
-                    </div>
-                    <div class="inputs-session">
-                            <label for="modoJuego">Juego en estudio</label>
-                            <select name ="modoJuego" id="modoJuego">
-                                <option value="JuegoReglas">Solo suma puntos con lo definido en las reglas</option>
-                                <option value="juegoAmbos">Sumar puntos en función del tiempo que este relajado <strong>(ambos sensores en bajo)</strong></option>
-                                <option value="juegoCorazon">Sumar puntos en función del tiempo que tenga las <b>pulsaciones en bajo</b></option>
-                                <option value="juegoMovimiento">Sumar puntos en función del tiempo que el <b>movimiento sea bajo</b></option>
-                            </select>                   
-                    </div>
-                </div>
+                            </div>
+                        </div>
+                    </table>
+                    @else
+                            <tr><h1>No hay sesiones completadas</h1></tr>
+                    @endif
             </div>
         </div>
-        <button id="session_create" class="create-button">CREAR SESIÓN</button>
-    </div>
-</form>
+</div>
 @endsection

@@ -172,8 +172,8 @@
 
 .inputs-session{
     justify-content: center;
-    text-align: center;
-    align-items: center;
+    text-align: left;
+    align-items: left;
     display: flex;
     flex-direction: column;
   
