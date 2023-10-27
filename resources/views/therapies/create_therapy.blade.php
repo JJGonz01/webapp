@@ -119,7 +119,7 @@
                             </div>
 
                             <div>
-                            <button id="save_first_period_ther_create" type="button" class="create-medium-button" onclick="saveTemporalPeriod(this)"> <span class="material-symbols-outlined">save</span></button>
+                            <button id="save_first_period_ther_create" type="button" class="create-medium-button-save" onclick="saveTemporalPeriod(this)"> <span class="material-symbols-outlined">save</span></button>
                             </div>
                         </div>
                     </div>
@@ -135,7 +135,7 @@
                                 <label for="t1_extra">Estudio (Minutos)</label>
                                 <input id="t1_extra" type="number" name="t2" min="0" class="form-control" rown="10">
                             </div>
-                            <button id="save_extra_period_ther_create" type="button" onclick="savePeriodExtra(this)" class="create-medium-button"> <span class="material-symbols-outlined">save</span></button>
+                            <button id="save_extra_period_ther_create" type="button" onclick="savePeriodExtra(this)" class="create-medium-button-save"> <span class="material-symbols-outlined">save</span></button>
                         </div>
                     </div>
 

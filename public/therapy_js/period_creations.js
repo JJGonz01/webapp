@@ -263,7 +263,7 @@ function cambiarPeriodo(direccion){
       texto_periodo_nombre.classList.add('animation-text');
 
       texto_periodo_nombre.addEventListener('animationend', () => {
-          animatedText.classList.remove('animation-text');
+        texto_periodo_nombre.classList.remove('animation-text');
       });
       texto_reglas_titulo.innerHTML = "Guarda los periodos para añadirle reglas";
       period_creation_button.style="display:none;";
@@ -293,7 +293,7 @@ function cambiarPeriodo(direccion){
       texto_periodo_nombre.innerHTML="Crear nuevo bloque";
       period_creation_button.style="display:none;";
       texto_periodo_nombre.addEventListener('animationend', () => {
-        animatedText.classList.remove('animation-text');
+        texto_periodo_nombre.classList.remove('animation-text');
     });
       input_de_conjuntoperiodoregla.value = "none";
     }else { 
