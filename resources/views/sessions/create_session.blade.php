@@ -1,10 +1,11 @@
-@extends('patients_section')
+@extends('/patients/show_patient')
+ 
+@section('session')
 
 <head>
     <title>CREAR SESIÓN</title>
 </head>
 
-@section('session')
 
 <div class = "options-items-container">
             <a class="create-button" onclick="printClickedId(this)" id="create-session-button" href = "{{route('sessions_create', ['patient_id' => $patient -> id], false, true)}}">

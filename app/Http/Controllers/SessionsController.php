@@ -28,7 +28,8 @@ class SessionsController extends Controller
         $patient = patient::find($patient_id);
         $usuario = Auth::user();
         $therapiesList = Therapy::where('user_id',$usuario -> id)->get();
-        return view('sessions.create_session',  ['patient' => $patient, 'therapies' => $therapiesList]);
+        $sessiones = $patient->session;
+        return view('sessions.create_session',  ['patient' => $patient, 'therapies' => $therapiesList, 'sessions'=> $sessiones]);
     }
 
     public function store(Request $request, string $patient_id)
@@ -196,10 +197,11 @@ class SessionsController extends Controller
 
     public function edit(string $id)
     {
-        $session = Session::find($id);
-        $patient = patient::find($session->patient_id);
-        $therapiesList = Therapy::all();
-        return view('sessions.edit_session',  ['session' => $session, 'patient' => $patient, 'therapies' => $therapiesList]);
+        $patient = patient::find($patient_id);
+        $usuario = Auth::user();
+        $therapiesList = Therapy::where('user_id',$usuario -> id)->get();
+        $sessiones = $patient->session;
+        return view('sessions.edit_session',  ['patient' => $patient, 'therapies' => $therapiesList, 'sessions'=> $sessiones]);
     }
 
 
