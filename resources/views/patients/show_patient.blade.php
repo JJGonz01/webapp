@@ -9,9 +9,9 @@
 
 <div class="general-items-container">
         
-        <script src="https://pomodoroadhdapp.azurewebsites.net/sessionClassfication.js"></script>
-        <script src="https://pomodoroadhdapp.azurewebsites.net/period_creations.js"></script>
-        <script src="https://pomodoroadhdapp.azurewebsites.net/rule.js"></script>
+        <script src="https://pomodoroadhdapp.azurewebsites.net/session/sessionClassfication.js"></script>
+        <script src="https://pomodoroadhdapp.azurewebsites.net/therapy_js/period_creations.js"></script>
+        <script src="https://pomodoroadhdapp.azurewebsites.net/therapy_js/rule.js"></script>
 
         @if (session('success'))
             <h6 class="alert alert-success"> {{ session('success') }}</h6>
