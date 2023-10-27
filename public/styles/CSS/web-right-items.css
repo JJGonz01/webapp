@@ -91,6 +91,9 @@
         border-left:0;
         border-right:0;
         border-top:0;
+        border-bottom: 1px solid rgba(128, 128, 128, 0.817);
+        padding-top:0.2%;
+        padding-bottom:0.2%;
     }
 
     .table-hide-show-container{
@@ -291,6 +294,9 @@
         border-left:0;
         border-right:0;
         border-top:0;
+        border-bottom: 1px solid rgba(128, 128, 128, 0.817);
+        padding-top:0.2%;
+        padding-bottom:0.2%;
     }
 
     .table-hide-show-container{
