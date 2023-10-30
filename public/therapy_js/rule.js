@@ -891,7 +891,7 @@ function openRuleCreator(isNew){
 
 function closeRuleCreator(){  
   var btn = document.getElementById("open_rule_creator_ther_create");
-  btn.style.display = "block";
+  if(btn != null) btn.style.display = "block";
   var rc = document.getElementById("contenedor_creador_reglas");
   rc.style.display = "none";
 }
@@ -907,29 +907,29 @@ function rule_creation_step(goto){
   var button_three = document.getElementById("menu_reglas_btn_three");
 
   var listabtn = [button_one, button_two, button_three];
+  var listastep = [step_one, step_two, step_three];
 
   for(var i = 0; i<3; i++){
-      if(i == (goto-1)){
-        listabtn[i].style = "background-color: rgb(33, 145, 215); color:white";
-      }else if(i>(goto-1)){
-        listabtn[i].style = "background-color: rgb(237, 235, 235); color:black";
-      }else{
-        listabtn[i].style = "background-color: rgb(237, 235, 235); color:rgb(33, 145, 215)";
-      }
+    if(listabtn[i]!=null){
+        if(i == (goto-1)){
+          listabtn[i].style = "background-color: rgb(33, 145, 215); color:white";
+          listastep[i].style.display = "block";
+        }else if(i>(goto-1)){
+          listabtn[i].style = "background-color: rgb(237, 235, 235); color:black";
+          listastep[i].style.display = "none";
+        }else{
+          listabtn[i].style = "background-color: rgb(237, 235, 235); color:rgb(33, 145, 215)";
+          listastep[i].style.display = "none";
+        }
+    }
   }
-  if(goto == 1){
-    step_one.style.display = "block";
-    step_two.style.display = "none";
-    step_three.style.display = "none";
-  }
-  else if(goto == 2){
-    step_one.style.display = "none";
-    step_two.style.display = "block";
-    step_three.style.display = "none";
 
-  }else {
-    step_one.style.display = "none";
-    step_two.style.display = "none";
-    step_three.style.display = "block";
-  }
+}
+
+
+
+function openSessionCreator(isNew){
+
+  var rc = document.getElementById("contenedor_creador_reglas");
+  rc.style.display = "flex";
 }
