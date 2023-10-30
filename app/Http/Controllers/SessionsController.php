@@ -197,11 +197,12 @@ class SessionsController extends Controller
 
     public function edit(string $id)
     {
-        $patient = patient::find($id);
+        $session = Session::find($id);
+        $patient = patient::find($session->patient_id);
         $usuario = Auth::user();
         $therapiesList = Therapy::where('user_id',$usuario -> id)->get();
         $sessiones = $patient->session;
-        return view('sessions.edit_session',  ['patient' => $patient, 'therapies' => $therapiesList, 'sessions'=> $sessiones]);
+        return view('sessions.edit_session',  ['patient' => $patient, 'therapies' => $therapiesList, 'sessions'=> $sessiones, 'session' => $session]);
     }
 
 

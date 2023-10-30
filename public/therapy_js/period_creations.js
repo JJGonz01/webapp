@@ -131,12 +131,11 @@ function showCreatedPeriods(esNuevo) {
       botonPer.classList.add('all-period-button');
       botonPer.textContent = 'Bloque '+(periods.length);
       botonPer.type =  "button";
-      botonPer.id =  "button_"+(periods.length - 1);
+      botonPer.id =  "button_bloque_"+(periods.length - 1);
       const p = periods.length-1;
+      
       botonPer.setAttribute('onclick', "irAPeriodo("+p+")"); 
       var currentOnclick = botonPer.getAttribute('onclick');
-
-      
       additionalFunction = "event.preventDefault(); printClickedId(this, '" + currentOnclick + "', null);";
       var newOnclick = additionalFunction
       botonPer.setAttribute('onclick', newOnclick); 

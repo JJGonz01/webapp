@@ -171,7 +171,7 @@ function setTestInfo(testID){
 }
 
 function addFunctionToOnClick(button){
-    if(button.id != "task_start_button" && button.id != "iniciar-sesion-button"){
+    if(button.id != "task_start_button" && button.id != "iniciar-sesion-button" && !button.id.includes("button_bloque_") ){
         var currentOnclick = button.getAttribute('onclick')
         var additionalFunction
         
