@@ -115,9 +115,9 @@ class TherapiesController extends Controller
     public function show(string $id)
     {
         $therapy = Therapy::find($id);
-        //dd($therapy);
+        $periodo = SessionPeriod::where('therapy_id', $therapy->id)->first();
         return view('therapies.show_therapy',
-         ['therapy' => $therapy]);
+         ['therapy' => $therapy, 'period' => $periodo]);
     }
 
     public function edit(string $id)

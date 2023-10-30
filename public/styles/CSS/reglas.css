@@ -9,6 +9,20 @@
     margin-right:10%;
     margin-top:2%;
 }
+
+.input-regla-container-input {
+	width: 100%;
+	padding: 1%;
+	border: 2px solid rgba(221, 217, 217, 0.708);
+	border-radius: 8px;
+	margin-bottom: 2%;
+	font-size: large;
+}
+
+.step-font{
+    font-weight: bold;
+    color: grey;
+}
 .button-popup-reglas{
     width: 35px;
     height: 35px;
@@ -189,7 +203,6 @@
     background-color: var(--azul-seleccionar-hover);
 }
 
-
 .input-borrar-regla-container-button {
 	height: fit-content;
     display:flex;
@@ -229,6 +242,7 @@
         padding-block: 10px;
         font-weight: bold;
         font-size: x-large;
+        width: 100%;
     }
 
     .reglas-container-right{

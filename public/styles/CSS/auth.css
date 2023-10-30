@@ -83,7 +83,8 @@
    background-color: #58aca8;
    color:white;
 }
-@media (min-width: 881px) {
+
+@media (min-width: 981px) {
    body{
       
       font-size: 150%;background-color: #506b8d;
@@ -283,7 +284,7 @@
 }
 
 
-@media (max-width: 880px) {
+@media (max-width: 980px) {
    body{
       
       font-size: 100%;background-color: #506b8d;
@@ -433,7 +434,7 @@
       padding-inline: 15px;
       padding-block: 10px;
       font-size: 20px;
-      width:25%;
+      width:100%;
       font-weight: bold;
    }
 
@@ -467,7 +468,7 @@
       padding-inline: 15px;
       padding-block: 10px;
       font-size: 20px;
-      width:25%;
+      width:100%;
       font-weight: bold;
    }
 

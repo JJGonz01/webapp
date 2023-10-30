@@ -4,6 +4,21 @@ h6{
     margin-bottom:0;
   }
   
+  .reglas-show-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 5px 0;
+    padding-inline: 15px;
+    padding-block: 5px;
+    font-weight: bold;
+  }
+  
+  .reglas-show-container > *{
+    margin: 10px;
+    padding: 10px;
+  }
+
   
   @media(min-width:981px){
   .therapy-creation-container{

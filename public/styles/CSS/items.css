@@ -1,16 +1,18 @@
-.create-button{
-    border-radius: 4px; 
-    background-color: #80DED9;
-    color:white;
-    background-size: cover;
-    margin: 5px 0;
-    padding-inline: 15px;
-    padding-block: 10px;
-    font-weight: bold;
+.create-button {
+	border-radius: 30px;
+	background-color: #80DED9;
+	color: white;
+	background-size: cover;
+	margin: 5px 0;
+	padding-inline: 25px;
+	padding-block: 15px;
+	font-weight: bold;
+	border: 0;
 }
 .create-button:hover{
     background-color: #62cac5;
     color: white;
+    transform:  scale(1.1);
 }
 .create-button p{
     margin:5px;
@@ -184,7 +186,7 @@
 }
 
 .inputs-session select{
-    width: 70%;
+    width: 100%;
     padding:1%;
     background-color: white;
 }

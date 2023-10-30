@@ -16,11 +16,10 @@
 
         <div class="user-welcome-box">
             @if(auth()->user() !== null)
-            <p>Bienvendo {{auth()->user()->name}}</p>
+            <p>LISTADO DE PACIENTES</p>
             @else
             <p> INICIA SESION PARA CONTINUAR </p>
             @endif
-            <p>Sección de los pacientes</p>
         </div>
 
         <div class = "options-items-container">

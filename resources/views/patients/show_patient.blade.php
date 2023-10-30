@@ -65,7 +65,7 @@
             </a>
             <div class="choice-selection-container">
                     <button id="session_pending_tab_patient" class="session-filter-button" style = "background-color:var(--container-session-selected-color)"  type = "button" onclick="showSessionCompleted(false)">Pendientes</button>     
-                    <button id="session_completed_tab_patient" class="session-filter-button" type = "button" onclick="showSessionCompleted(true)">Completadas</button>
+                    <button id="session_completed_tab_patient" class="session-filter-button" type = "button" onclick="showSessionCompleted(true)" style="background-color: var(--container-session-show-color);">Completadas</button>
             </div>
             <div class="table-hide-show-container" id ="notCompleted_sessions">
                     @if(count($sessions)>0)
