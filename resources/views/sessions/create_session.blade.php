@@ -7,6 +7,7 @@
 </head>
 
 
+
 <div class="reglas-container-right"  id="contenedor_creador_reglas" style="display:flex;">
                 <div class="content-half-image" onclick="closeRuleCreator()"></div>
                 <div class="content-half">
