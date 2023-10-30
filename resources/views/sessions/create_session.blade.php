@@ -13,8 +13,13 @@
                 <div class="content-half">
                     <div>
                     <form action="{{route('sessions_create',  ['patient_id' => $patient -> id], false, true)}}" method="POST">
-                       
-                                    
+                        @if (session('success'))
+                            <h6 class="alert alert-success"> {{ session('success') }}</h6>
+                        @endif
+                        @if($errors->any())
+                            <h6 class="alert alert-danger">{{ implode('', $errors->all(':message')) }}</h6>
+                        @endif
+                                        
                         <script src="https://pomodoroadhdapp.azurewebsites.net/sessionCreate.js"></script>
                            <button class="close-button" type="button" onclick="closeRuleCreator()">CERRAR</button> 
                            <div class="rule-creation-steps">
@@ -90,7 +95,7 @@
                                         </div>
                                     </div>
                                     <div class="button-centered-container">
-                                        <button class="button_reglas_back" type="button" onclick="rule_creation_step(2)" >Atrás</button>
+                                        <button class="button_reglas_back" type="button" onclick="rule_creation_step(1)" >Atrás</button>
                                         <button class="input-regla-container-button" id="add_action_rule_ther_create">
                                             Guardar sesión
                                         </button>

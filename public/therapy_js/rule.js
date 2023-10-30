@@ -683,8 +683,7 @@ function guardarRegla(nombreAnterior){
 /**
  * 
  * Crea contenedor con la infor de la regla
- */
-function mostrarReglasRespectoPeriodo(ConjuntoPeriodo) {
+ */function mostrarReglasRespectoPeriodo(ConjuntoPeriodo) {
   
   var container_reglas = document.getElementById("lista_reglas_periodo"); //limpio las reglas del periodo anterior
   container_reglas.innerHTML = '';
@@ -703,21 +702,25 @@ function mostrarReglasRespectoPeriodo(ConjuntoPeriodo) {
     if (reglasValues.length > 0) { 
       reglasValues.forEach((reglaObj) => {
         var divTodo = document.createElement("div");
+
+        var divBoton = document.createElement("div");
         var boton = document.createElement("button");
         var eliminar = document.createElement("button");
+
+
         boton.type="button";  
         eliminar.type="button";  
         eliminar.className = "session-show-button-delete";
-        boton.className = "session-show-button";
+        boton.className = "input-regla-select-button";
         divTodo.className = "reglas-show-container";
-        
+        divBoton.className ="input-borrar-regla-container-button";
         var label = document.createElement("label");
         label.textContent = "";
         label.className = "negrita-blanco";
 
-        var labelEliminar = document.createElement("label");
-        labelEliminar.textContent = "ELIMINAR";
-        labelEliminar.className = "negrita-blanco";
+        var labelEliminar = document.createElement("span");
+        labelEliminar.textContent = "delete";
+        labelEliminar.className = "material-symbols-outlined";
 
         var value = document.createElement("span");
         value.textContent = reglaObj["nombreRegla"]+""; 
@@ -734,15 +737,16 @@ function mostrarReglasRespectoPeriodo(ConjuntoPeriodo) {
         }
         eliminar.appendChild(labelEliminar);
 
-        divTodo.appendChild(boton);    
-        boton.appendChild(eliminar);
+        divBoton.appendChild(boton);    
+        divBoton.appendChild(eliminar);    
+        //boton.appendChild(eliminar);
+        divTodo.appendChild(divBoton);
         container_reglas.appendChild(divTodo);
 
     });
   }
   }
 }
-
 /**
  * Rellenara los inputs de la regla a editar, hay q pasarle el nombre
  */

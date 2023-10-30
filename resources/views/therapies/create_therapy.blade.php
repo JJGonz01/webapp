@@ -219,7 +219,7 @@
                                 
                                     
                                     
-                                <div class="input-regla-container" id = "rule_creation_step_two">
+                                <div class="input-regla-container" id = "rule_creation_step_two" style="display:none;">
                                     <div class="two-divs-row-container">
                                     <button id="add_action_rule_ther_create" onclick="createDiv()" class="button_reglas_action"  type="button">Añadir condición</button>
                                     
@@ -235,7 +235,7 @@
                                 </div>
                                 
                                 
-                                <div  id = "rule_creation_step_three">
+                                <div  id = "rule_creation_step_three" style="display:none;">
                                     <button id="buttonAccion" class="button_reglas_action"  onclick="crearAccionFinalExtra()" type="button">Añadir Acción Extra</button>    
 
                                     <div id="condicionPapi" class="actions-container">
