@@ -67,7 +67,7 @@
                                         <div>
                                             <div class="inputs-session">
                                                 <label for="porcentaje">Sensibilidad (%) BPM</label>
-                                                <input id="porcentaje" value="{{$session->movement}}" type="number" name="porcentaje" class="form-control" rown="10"></input>
+                                                <input id="porcentaje" value="{{$session->percentage}}" type="number" name="porcentaje" class="form-control" rown="10"></input>
                                             </div>
 
                                             <div class="inputs-session">
