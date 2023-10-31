@@ -1,6 +1,7 @@
 
 
 function navbarStart() {
+    if(window.innerWidth >= 981){
     const navContainer = document.getElementById("vertical_nv");
         if(!localStorage["navbar"] || localStorage["navbar"]!="false"){//se abre
             localStorage["navbar"] = "true";
@@ -11,6 +12,11 @@ function navbarStart() {
             navContainer.classList.remove("navbar-vertical");
             navContainer.classList.add("navbar-vertical-closed");
         }
+    }else{
+            navContainer.classList.remove("navbar-vertical");
+            navContainer.classList.add("navbar-vertical-closed");
+            localStorage["navbar"] = "false";
+    }
 }  
 
 function navbarButton(){
