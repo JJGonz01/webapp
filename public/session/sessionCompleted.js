@@ -3,15 +3,14 @@ var bpmValores;
 var moveValores;
 var conjuntoPeriodoMostrar;
 var periodoMostrar;
-var numeroConjuntos;
+var numeroConjuntos; 
 var sensorChart;
 var barrasReglasChart;
 var tituloTabla;
 
 var limiteBPM;
 var reglas;
-window.onload = function() {
-
+function startShowTables() {
   //consigo los elementos para la tabla
   tituloTabla = document.getElementById("titulo_tabla");
   tituloTabla.innerHTML = "Estudio conjunto periodo 1";
@@ -19,6 +18,7 @@ window.onload = function() {
   var InbpmValores = document.getElementById("bpm_val");
   var InmoveValores = document.getElementById("move_val");
   var objreglas = document.getElementById("reglas");
+  var barrasReglasChart = document.getElementById("barrasReglas");
   limiteBPM = document.getElementById("limite_bpm").value;
   
   var divTabla = document.getElementById("prueba");
@@ -30,78 +30,34 @@ window.onload = function() {
   bpmValores = JSON.parse(bpmValoresRaw);
   moveValores = JSON.parse(move_valValoresRaw);
   numeroConjuntos = Object.keys(bpmValores).length;
-  console.log(reglasValores);
-  
-  // pongo lo primero que quiero mostrar
-  conjuntoPeriodoMostrar = "1"; //el primero
-  periodoMostrar = "Estudio"; //primero muestro el estudio
-  putInfoRelevante();
-  setTabla(bpmValores, moveValores, reglasValores);
+  periodoMostrar = 1; //primero muestro el estudio
+  //putInfoRelevante();
+  console.log("a.."+bpmValores);
+  console.log("a.."+moveValores);
+  setTabla(periodoMostrar);
   
 }
   
 function moveThrowTables(dir){
-  if(periodoMostrar == "Estudio")
-  {
     if(dir == -1) //izq
     {
-      if(conjuntoPeriodoMostrar == "1") //estamos borde
-      {
-        periodoMostrar = "Relajacion";
-        changeTableToShow(conjuntoPeriodoMostrar, periodoMostrar);
-      }
-      else{
-        
-        conjuntoPeriodoMostrar = (parseInt(conjuntoPeriodoMostrar)-1) + ""; //restamos uno
-        putInfoRelevante();
-        changeTableToShow(conjuntoPeriodoMostrar, periodoMostrar);
+      if(periodoMostrar > 0){
+          //putInfoRelevante();
+          periodoMostrar -= 1;
+          changeTableToShow(periodoMostrar);
       }
     }
     else //derecha
     {
-        if(parseInt(numeroConjuntos) != parseInt(conjuntoPeriodoMostrar)){ //si no 
-          
-          periodoMostrar = "Descanso";
-         
-          conjuntoPeriodoMostrar = (parseInt(conjuntoPeriodoMostrar)+1)+"";
-          putInfoRelevante();
-          changeTableToShow(conjuntoPeriodoMostrar, periodoMostrar);
-        }
-        console.log("Dee studio ha pasao a "+periodoMostrar);
+      if(periodoMostrar < (numeroConjuntos-1)){
+        //putInfoRelevante();
+        periodoMostrar += 1;
+        changeTableToShow(periodoMostrar);
+      }
     }
-
-  } 
-  else if(periodoMostrar == "Descanso")
-  {
-    if(dir == 1) //será siempre estudio pero si es izq sera el conjunto anterior!
-    {
-      
-      periodoMostrar = "Estudio";
-      putInfoRelevante();
-      changeTableToShow(conjuntoPeriodoMostrar, periodoMostrar);
-    }
-    else{
-      conjuntoPeriodoMostrar = (parseInt(conjuntoPeriodoMostrar)-1)+"";
-      periodoMostrar = "Estudio";
-      putInfoRelevante();
-      changeTableToShow(conjuntoPeriodoMostrar, periodoMostrar);
-    }
-
-  } else{ // la relajacion
-
-    if(dir == 1) //solo se puede mover a la derecha
-    {
-      periodoMostrar = "Estudio";
-      putInfoRelevante();
-      changeTableToShow(conjuntoPeriodoMostrar, periodoMostrar);
-    }
-  }
-
 }
 
 function putInfoRelevante(){
-
-
   var bpmMed = JSON.parse(document.getElementById("bpm_medios").value);
   var pbpm_medios = document.getElementById("pbpm_medios");
 
@@ -112,34 +68,58 @@ function putInfoRelevante(){
   pmove_medios.innerHTML = move_medios[conjuntoPeriodoMostrar][periodoMostrar].toFixed(2);
 }
 
-function changeTableToShow(conjPer, periodo){
-  conjuntoPeriodoMostrar = conjPer;
-  periodoMostrar = periodo;
-  setTabla(bpmValores, moveValores, reglasValores);
+function changeTableToShow(periodo){
+  setTabla(periodo);
 }
 
-function setTabla(arrayValoresBpm, arrayValoresMove, arrayReglas){
-  var ctx = document.getElementById('myChart').getContext('2d');
-  var etiquetasBpm = Object.keys(arrayValoresBpm[conjuntoPeriodoMostrar][periodoMostrar]);
-  var valoresBpm = Object.values(arrayValoresBpm[conjuntoPeriodoMostrar][periodoMostrar]);
+function setTimeValueForPeriod(array_valores){
 
-  if(periodoMostrar != "Relajacion"){
-  var etiquetasMove = Object.keys(arrayValoresMove[conjuntoPeriodoMostrar][periodoMostrar]);
-  var valoresMove = Object.values(arrayValoresMove[conjuntoPeriodoMostrar][periodoMostrar]);
+  dictionary = {};
+  var val, newval;
+  dictionary["0"] = 0;
+  for(let i = 0; i<array_valores.length; i++){
+
+    if(dictionary[array_valores[i.toString()]["timestamp"]] == null)
+      dictionary[array_valores[i.toString()]["timestamp"]] = array_valores[i.toString()]["value"];
+    else{
+      val = dictionary[array_valores[i.toString()]["timestamp"]];
+      newval = (array_valores[i.toString()]["value"] + val) / 2;
+      dictionary[array_valores[i.toString()]["timestamp"]] = newval;
+    }
+  }
+  
+  return dictionary;
+}
+
+function setTabla(periodo){
+  var ctx = document.getElementById('myChart').getContext('2d');
+  var itemsBpm = Object.values(bpmValores[periodo.toString()]);
+
+  var dictBPM = setTimeValueForPeriod(itemsBpm);
+  var etiquetasBpm = Object.keys(dictBPM);
+  var valoresBpm = Object.values(dictBPM);
+  console.log("valores "+valoresBpm+", etiquetas "+etiquetasBpm);
+  if(periodo != 0){
+    var itemsMove = Object.values(moveValores[periodo.toString()]);
+    var dictMove = setTimeValueForPeriod(itemsMove);
+    var etiquetasMove = Object.keys(dictMove);
+    var valoresMove = Object.values(dictMove);
   }
   else{
       etiquetasMove = etiquetasBpm; //si estamos en relajacion q sean estas las etiquetas
       valoresMove = [];
   }
-
+  console.log(".--......--------------------------");
   etiquetas = etiquetasBpm+etiquetasMove;
-
+/*
   etiquetasBpm.sort(function(a, b) { //no llega en orden cronologico, lo cambio aqiu
     return parseInt(a) - parseInt(b);
   });
   etiquetasMove.sort(function(a, b) { 
     return parseInt(a) - parseInt(b);
   });
+
+*/
 
   tituloTabla.innerHTML = periodoMostrar+ " conjunto periodo "+conjuntoPeriodoMostrar;
   etiquetasBpm = etiquetasBpm.map(passSecondsToMinutes);
@@ -270,7 +250,7 @@ if (sensorChart) {
 
 
   
-  if(periodoMostrar != "Relajacion"){
+  if(periodo != 0){
   
   var valoresRawReglas = Object.values(reglasValores[conjuntoPeriodoMostrar][periodoMostrar]);
   var valoresReglas = pasaraValoresBuenos(reglasValores[conjuntoPeriodoMostrar][periodoMostrar]);
