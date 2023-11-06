@@ -5,14 +5,14 @@ var jsonData
 var lasttask = "5";
 const testExplanationDictionary = {
     
-    "0": "TAREA 1: En la pestaña pacientes, crea un usuario que se llame \"Luis\" de apellidos \"Téllez\" ",
-    "1": "TAREA 2: Edita el paciente \"Editame González\" en pestaña pacientes para que se llame \"Juan González\" ",
-    "2": "TAREA 3: Crea una terapia con nombre \"Terapia normal\" y que contenga dos bloques de estudio:"
-    + " \n (a) Bloque sin reglas de Estudio:10 min; Descanso:5 min; Estudio:10 min"
-    + " \n (b) Bloque 2 con duraciones Descanso: 3 min; Estudio: 5 min; sin reglas",
+    
+    "0": "TAREA 1: Crea una terapia con nombre \"Terapia normal\" y que contenga dos bloques de estudio:"
+    + " \n (a) Bloque sin reglas de Estudio: 5 min; Descanso: 3 min; Estudio: 5 min"
+    + " \n (b) Otro bloque, sin reglas, con duraciones Descanso: 3 min; Estudio: 5 min; sin reglas",
 
-    "3": "TAREA 4: Crea una terapia de nombre \"Terapia reglas\" "
-    +"  \n con un bloque:[Estudio: 10 min Descanso:5 min Estudio:10 min], donde haya una regla: "
+
+    "2": "TAREA 3: Crea una terapia de nombre \"Terapia reglas\" "
+    +"  \n con un bloque de Estudio: 5 minutos, Descanso: 3 minutos y Estudio:10 mininutos, donde haya una regla: "
     +" \n LA REGLA: \"Regla B1\" que cumpla: "
     +"  \n (a)	Se ejecute en estudios y descansos."
     +"  \n (b)	Momento del periodo: entero."
@@ -23,11 +23,13 @@ const testExplanationDictionary = {
  	+"  \n (g)  En esta segunda acción, que envíe un mensaje “Calma vas bien” en acciones de reloj."
  	+"  \n (h)  En esta segunda acción, en acciones de sesión, que acabe el periodo.",
 
-    "4": "TAREA 5: Crea una sesión de estudio, dentro del paciente \"Luis Tellez\", tal que: "+
-    " \n  (a) Su fecha de comienzo: las 12:00 del día de la prueba"
-    +" \n (b) Con nuestra terapia \"Terapia normal\" "
-    +" \n (c) Sensibilidad del sensor BPM a 10%"
-    + "\n (d) Sensibilidad de movimiento: bajo "
+    
+    "3": "TAREA 2: En la pestaña pacientes, crea un usuario que se llame \"Luis\" de apellidos \"Téllez\" "
+    + " Una vez en el paciente, crea una sesión de estudio, dentro del paciente \"Luis Tellez\", tal que: "+
+    " \n  (a) Su fecha de comienzo: la fecha en la que se vaya a comprobar en el día de la prueba"
+    +" \n (b) Con nuestra terapia \"Terapia reglas\" "
+    +" \n (c) Sensibilidad del sensor BPM a 15"
+    + "\n (d) Sensibilidad de movimiento: alto "
     + "\n (e) Que sume puntos cuando ambos sensores sean bajos."
    
 }
@@ -190,15 +192,15 @@ function addFunctionToOnClick(button){
 }
 
 function showhidetext(){
-    const testText = document.getElementById('in-task-text')
-    const tesButtonShow = document.getElementById('task-show-btn')
+    const testText = document.getElementById('no-task-container');
+    const tesButtonShow = document.getElementById('task_start_button')
     if(testText.style.display == "none"){
         testText.style.display ="block";
-        tesButtonShow.innerHTML = "OCULTAR TAREA"
+        tesButtonShow.innerHTML = "CONTINUAR TAREA"
         localStorage["infoOpen"] = "false";
     }else{
         testText.style.display ="none";
-        tesButtonShow.innerHTML = "MOSTRAR TAREA"
+        tesButtonShow.innerHTML = "COMENZAR TAREA"
         localStorage["infoOpen"] = "true";
     }
 }
