@@ -2,10 +2,10 @@
 
 @section('patients_section')
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!--para la grafica-->
-<script src="https://pomodoroadhdapp.azurewebsites.net/session/sessionCompleted.js"></script>  
-<div class= "container w-80 border p-4">
+<script src="{{ asset('session/sessionCompleted.js') }}"></script>  
+<div class="general-items-container">
     
-    <h1>SESION COMPLETADA</h1>
+    
     <input id = "bpm_val" value="{{$bpm_valores}}" style="display:none;"></input>
     <input id = "move_val" value="{{$move_valores}}" style="display:none;"></input>
     <input id = "limite_bpm" value="{{$limite_bpm}}" style="display:none;"></input>
@@ -14,33 +14,46 @@
     <input style="display:none;" id = "bpm_medios" value = "{{$bpm_medios}}"></input>
     <input style="display:none;" id = "move_medios" value = "{{$move_medios}}"></input>
     <div id="prueba"></div>
-    <div>
-    
+    <div class="options-items-container" style="padding:5%;">
+        <h1>SESION COMPLETADA</h1>
         <div> 
+
             @if (session('success'))
                 <h6 class="alert alert-success"> {{ session('success') }}</h6>
             @endif
             @error('name')
                 <h6 class="alert alert-danger"> {{ $message }}</h6>
             @enderror
-            <p>FECHA PROGRAMADA: {{$session -> date_start}}  DESCRIPCION: {{$session -> description}}</p>
-            <p>TERAPIA ID: {{$session -> therapy_id}}</p>
+
+            <h4>FECHA PROGRAMADA: {{$session -> date_start}}  DESCRIPCION: {{$session -> description}}</h4>
+            <h4>TERAPIA ID: {{$session -> therapy_id}}</h4>
+
+            
+           
         </div>
         <div class="table-space">
-            <button id="boton_tabla_izquierda" onclick="moveThrowTables(-1)"><<</button>
-            <spam id="titulo_tabla"> TABLA 1 </spam>
-            <button id="boton_tabla_derecha" onclick="moveThrowTables(1)">>></button>
+            <div class="button-row">
+                <button id="boton_tabla_izquierda" onclick="moveThrowTables(-1)" ><span class="material-symbols-outlined button-circle">arrow_left</span></button>
+                <h1 id="titulo_tabla"> TABLA 1 </h1>
+                <button id="boton_tabla_derecha" onclick="moveThrowTables(1)" ><span class="material-symbols-outlined button-circle">arrow_right</span></button>
+            </div>
+            
         </div>
         <div class="table-space">
             <h4>Sensores</h4>
         </div>
+        
                 <canvas id="myChart"></canvas>
+       
 
-        <div class="table-space">
-            <h4>Reglas ejecutadas</h4>
-        </div>
+        
+        <div id="reglas_div" style="display:block;">
+                <div class="table-space">
+                    <h4>Reglas ejecutadas</h4>
+                </div>
                 <canvas id="barrasReglas"></canvas>
-                
+        </div>  
+
         <div class="margin-info-container">
             <h4>Información Relevante Periodo</h4>
             <table>
@@ -63,11 +76,7 @@
         
         
     </div>
-    <div class="table-space">
-            <a class="all-patient-button-create" href = "{{route('patient_show', ['id' => $session -> patient_id])}}">
-                VOLVER A PACIENTE
-            </a>
-        </div>
+
           <script>startShowTables()</script>
 </div>
 

@@ -52,7 +52,7 @@ class SessionsController extends Controller
         
         switch($request->movement){
             case "Bajo":
-                $session-> movement = 0.4;
+                $session-> movement = 0.4; 
                 break;
             case "Medio":
                 $session-> movement = 0.6;
@@ -368,11 +368,7 @@ class SessionsController extends Controller
         if(!$results->isEmpty()){
 
             $valores_bpm = json_encode($request->input('bpm_valores'));
-
-
             $valores_move = json_encode($request->input('move_valores'));
-
-            
             $session_results = SessionResult::where('session_id', $results[0]->id)->get(); //cogemos el objeto de resultados para rellenarle los valores
             
 
@@ -387,10 +383,10 @@ class SessionsController extends Controller
             return response()->json([
                 'response' => "funciono!"
             ]);
-         }
+        }
 
          return response()->json([
-            'response' => $date
+            'response' => $session_results[0]
         ]);
     }
 

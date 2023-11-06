@@ -10,6 +10,20 @@
     margin-top:2%;
 }
 
+.button-circle {
+    background-color:rgb(164, 247, 247);
+    box-shadow: 3px 3px 3px rgb(189, 231, 231);
+    border-radius: 20px;
+    font-size: xx-large;
+  }
+  
+  .button-circle :hover {
+    background-color: var(--azul-seleccionar);
+    transform:  scale(1.1);
+    transition: transform 0.5s, box-shadow 0.5s;
+    color: white;
+  }
+  
 .input-regla-container-input {
 	width: 100%;
 	padding: 1%;
