@@ -154,7 +154,7 @@ function startTask(){
     const inTaskContainer = document.getElementById('in-task-container');
     const bottonInfoText = document.getElementById('in-task-text');
     taskInfoContainer.style.display = "none";
-    bottonInfoText.innerHTML = testExplanationDictionary[localStorage["testId"]];
+    bottonInfoText.style.display = "none";
 
     
     inTaskContainer.style.display = "block"
@@ -170,7 +170,7 @@ function setTestInfo(testID){
     console.log("aqui es donde falla? "+testID)
     const testText = document.getElementById('in-task-text')
     if(testText != null)
-        testText.innerHTML = testExplanationDictionary[testID]
+        testText.style.display="none";
 }
 
 function addFunctionToOnClick(button){
@@ -212,7 +212,7 @@ function showhidetextBool(setOpen){
     const tesButtonShow = document.getElementById('task-show-btn')
     if(!setOpen){
         if(testText != null){
-            testText.style.display ="block";
+            testText.style.display ="none";
             tesButtonShow.innerHTML = "OCULTAR TAREA"
         }
     }else{
