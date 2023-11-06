@@ -17,16 +17,6 @@
     text-align: center;
 }
 
-.menu-container{
-    background-color: rgb(71, 127, 149);
-    border-radius: 9px;
-    margin-left: 10%;
-    margin-right: 10%;
-    margin-bottom: 10%;
-    padding:3%;
-    align-items: center;
-    text-align: center;
-}
 
 .menu-container h1, h3{
     padding-bottom: 3%;
@@ -79,3 +69,38 @@
     z-index: 1;
 }
 
+.test-container-task{
+        color: white;
+        overflow-y: scroll;
+        height: 60%;
+        background: #6094a9;
+        border-radius: 20px;
+        font-size: x-large;
+}
+
+@media (min-width:951px) {
+    .menu-container{
+        background-color: rgb(71, 127, 149);
+        border-radius: 9px;
+        margin-left: 10%;
+        margin-right: 10%;
+        margin-bottom: 10%;
+        padding:3%;
+        align-items: center;
+        text-align: center;
+    }
+
+}
+
+
+@media (min-width:951px) {
+    .menu-container{
+        background-color: rgb(71, 127, 149);
+        border-radius: 9px;
+        margin-bottom: 10%;
+        padding:3%;
+        align-items: center;
+        text-align: center;
+    }
+
+}
