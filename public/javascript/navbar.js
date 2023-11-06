@@ -1,8 +1,8 @@
 
 
 function navbarStart() {
-    if(window.innerWidth >= 981){
     const navContainer = document.getElementById("vertical_nv");
+    if(window.innerWidth >= 981){
         if(!localStorage["navbar"] || localStorage["navbar"]!="false"){//se abre
             localStorage["navbar"] = "true";
             navContainer.classList.remove("navbar-vertical-closed");

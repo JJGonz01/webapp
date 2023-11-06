@@ -132,7 +132,8 @@ function setAsInTask(){
     const inTaskContainer = document.getElementById('in-task-container');
     const bottonInfoText = document.getElementById('in-task-text');
     if(bottonInfoText != null){
-        bottonInfoText.innerHTML = testExplanationDictionary[localStorage["testId"]];
+        bottonInfoText.style.display="none";
+        setTestInfoTab(); 
         taskInfoContainer.style.display = "none";
         inTaskContainer.style.display = "block";
     }
