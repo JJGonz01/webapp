@@ -11,7 +11,7 @@ const testExplanationDictionary = {
     + " \n (b) Otro bloque, sin reglas, con duraciones Descanso: 3 min; Estudio: 5 min; sin reglas",
 
 
-    "2": "TAREA 3: Crea una terapia de nombre \"Terapia reglas\" "
+    "1": "TAREA 3: Crea una terapia de nombre \"Terapia reglas\" "
     +"  \n con un bloque de Estudio: 5 minutos, Descanso: 3 minutos y Estudio:10 mininutos, donde haya una regla: "
     +" \n LA REGLA: \"Regla B1\" que cumpla: "
     +"  \n (a)	Se ejecute en estudios y descansos."
@@ -24,7 +24,7 @@ const testExplanationDictionary = {
  	+"  \n (h)  En esta segunda acción, en acciones de sesión, que acabe el periodo.",
 
     
-    "3": "TAREA 2: En la pestaña pacientes, crea un usuario que se llame \"Luis\" de apellidos \"Téllez\" "
+    "2": "TAREA 2: En la pestaña pacientes, crea un usuario que se llame \"Luis\" de apellidos \"Téllez\" "
     + " Una vez en el paciente, crea una sesión de estudio, dentro del paciente \"Luis Tellez\", tal que: "+
     " \n  (a) Su fecha de comienzo: la fecha en la que se vaya a comprobar en el día de la prueba"
     +" \n (b) Con nuestra terapia \"Terapia reglas\" "
@@ -213,7 +213,7 @@ function showhidetextBool(setOpen){
     if(!setOpen){
         if(testText != null){
             testText.style.display ="none";
-            tesButtonShow.innerHTML = "OCULTAR TAREA"
+            tesButtonShow.innerHTML = "MOSTRAR TAREA"
         }
     }else{
         if(testText != null){
