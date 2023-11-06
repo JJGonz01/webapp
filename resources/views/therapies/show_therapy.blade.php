@@ -45,7 +45,7 @@
                         @method('DELETE')
                         @csrf
                         <button id="show_ther_delete_button" type="submit" class="patient-delete-button">
-                            BORRAR
+                            Borrar
                         </button>
                 
                     </div>
@@ -77,7 +77,7 @@
                 
                 
                 jsonObject.forEach(function(item) {
-                        console.log("sss")
+                        
                         bloque += 1;
                         var div = document.createElement("div");
                         div.classList.add("flex-text-row"); 

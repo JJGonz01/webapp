@@ -40,7 +40,7 @@ window.onload = function() {
     if(!localStorage["test_on"]){ 
         localStorage["testId"] = "0";
         console.log("pth: "+window.location.pathname)
-        if(window.location.pathname != "" && window.location.pathname != "/" && window.location.pathname != "home")
+        if(window.location.pathname != "" && window.location.pathname != "/" && window.location.pathname != "/home"  && window.location.pathname != "home")
             setAsInNotStartedTask();
         else{
             
@@ -49,7 +49,7 @@ window.onload = function() {
     }
     else if(localStorage["test_on"] == "false")
     {
-        if(localStorage["testId"] && localStorage["testId"] != lasttask)
+        if(localStorage["testId"] && localStorage["testId"] != lasttask && window.location.pathname != "" && window.location.pathname != "/" && window.location.pathname != "/home"  && window.location.pathname != "home")
             setAsInNotStartedTask();
         else 
             endAllTasks();
