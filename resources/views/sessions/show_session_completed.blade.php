@@ -2,10 +2,10 @@
 
 @section('patients_section')
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!--para la grafica-->
-<script src="{{ asset('session/sessionCompleted.js') }}"></script>  
+
+<script src="https://pomodoroadhdapp.azurewebsites.net/session/sessionCompleted.js"></script>  
+
 <div class="general-items-container">
-    
-    
     <input id = "bpm_val" value="{{$bpm_valores}}" style="display:none;"></input>
     <input id = "move_val" value="{{$move_valores}}" style="display:none;"></input>
     <input id = "limite_bpm" value="{{$limite_bpm}}" style="display:none;"></input>
