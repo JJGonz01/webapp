@@ -81,7 +81,7 @@
                         bloque += 1;
                         var div = document.createElement("div");
                         div.classList.add("flex-text-row"); 
-                        var h = document.createElement("h2");
+                        var h = document.createElement("p");
                         h.textContent = "Bloque "+bloque+":";
                         div.appendChild(h);
                         per = 0;
