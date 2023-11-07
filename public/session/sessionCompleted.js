@@ -134,7 +134,7 @@ function setTabla(periodo){
     var valoresBpm = Object.values(dictBPM);
     console.log("valores "+valoresBpm+", etiquetas "+etiquetasBpm);
     if(periodo != 0){
-      var dictMove = setTimeValueForPeriod(moveValores[periodo]);
+      var dictMove = setTimeValueForPeriod(JSON.parse(moveValores[periodo]));
       var etiquetasMove = Object.keys(dictMove);
       var valoresMove = Object.values(dictMove);
     }

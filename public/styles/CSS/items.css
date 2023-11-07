@@ -226,6 +226,10 @@
     padding:10px;
 }
 
+.table-data td{
+    border: 1px solid grey;
+    padding:10px;
+}
 
 @media (max-width: 750px) {
     .choice-selection-container{
