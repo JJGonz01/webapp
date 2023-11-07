@@ -129,7 +129,7 @@ function setTimeValueForPeriod(array_valores){
 
 function setTabla(periodo){
     var ctx = document.getElementById('myChart').getContext('2d');
-    var dictBPM = setTimeValueForPeriod(bpmValores[periodo]);
+    var dictBPM = setTimeValueForPeriod(JSON.parse(bpmValores[periodo]));
     var etiquetasBpm = Object.keys(dictBPM);
     var valoresBpm = Object.values(dictBPM);
     console.log("valores "+valoresBpm+", etiquetas "+etiquetasBpm);
