@@ -56,7 +56,7 @@
         </div -->
            <div class="header-selector">
                 <div style="margin-top:1%; margin-bottom:1%" class="row-text-button">
-                    <input type="text" id="name_therapy" name="name" class="name-therapy-input" placeholder="Nombre de la terapia"></input>
+                    <input type="text" id="name_therapy" value="{{$therapy->name}}" name="name" class="name-therapy-input" placeholder="Nombre de la terapia"></input>
                     <button id="save_therapy_btn" type="submit" class="create-big-button"><span class="material-symbols-outlined">save</span></button>
                 </div>
                 
