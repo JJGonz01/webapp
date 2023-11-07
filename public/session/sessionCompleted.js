@@ -134,8 +134,7 @@ function setTabla(periodo){
     var valoresBpm = Object.values(dictBPM);
     console.log("valores "+valoresBpm+", etiquetas "+etiquetasBpm);
     if(periodo != 0){
-      var itemsMove = Object.values(moveValores[periodo.toString()]);
-      var dictMove = setTimeValueForPeriod(itemsMove);
+      var dictMove = setTimeValueForPeriod(moveValores[periodo]);
       var etiquetasMove = Object.keys(dictMove);
       var valoresMove = Object.values(dictMove);
     }
@@ -145,15 +144,6 @@ function setTabla(periodo){
     }
     console.log(".--......--------------------------");
     etiquetas = etiquetasBpm+etiquetasMove;
-  /*
-    etiquetasBpm.sort(function(a, b) { //no llega en orden cronologico, lo cambio aqiu
-      return parseInt(a) - parseInt(b);
-    });
-    etiquetasMove.sort(function(a, b) { 
-      return parseInt(a) - parseInt(b);
-    });
-
-  */
 
     if(periodoMostrar == 0)
       tituloTabla.innerHTML = "Periodo de Relajación";

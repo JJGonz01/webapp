@@ -40,7 +40,7 @@
             
         </div>
         <div class="table-space">
-            <h4>Sensores</h4>
+            <h3>Sensores</h3>
         </div>
         
                 <canvas id="myChart"></canvas>
@@ -49,14 +49,14 @@
         
         <div id="reglas_div" style="display:block;">
                 <div class="table-space">
-                    <h4>Reglas ejecutadas</h4>
+                    <h3>Reglas ejecutadas</h3>
                 </div>
                 <canvas id="barrasReglas"></canvas>
         </div>  
 
-        <div class="margin-info-container">
-            <h4>Información Relevante Periodo</h4>
-            <table>
+        <div class="container-tabla">
+            <h3>Información Relevante Periodo</h3>
+            <table class="table-data">
                 <tr>
                     <th>Pulsacion media</th>
                     <th>Movimiento medio</th>
@@ -71,7 +71,7 @@
         </div>
         <div class="margin-info-container">
         <h3>Juego durante toda la sesión</h3>
-        <h5>Durante esta sesión, el paciente Luis ha conseguido {{$puntos}}</h5>
+        <h5>Durante esta sesión, el paciente Luis ha conseguido {{$puntos}} puntos</h5>
         </div>
         
         

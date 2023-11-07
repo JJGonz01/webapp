@@ -208,6 +208,25 @@
     font-size: 40px;
 }
 
+.container-tabla{
+        align-content: center;
+        align-items: center;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        margin: 50px;
+}
+.table-data{
+    margin: 10px;
+    text-align: center;
+}
+
+.table-data th{
+    border: 1px solid black;
+    padding:10px;
+}
+
+
 @media (max-width: 750px) {
     .choice-selection-container{
         display:flex;
