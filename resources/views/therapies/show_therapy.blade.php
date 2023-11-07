@@ -57,11 +57,11 @@
         <input style="display:none;"  value="{{$period->durations}}" id="periods_therapy"></input>
         <div class = "options-items-container" >
             
-            <div id="output" class="text-therapies-info">
+            <div id="output" class="text-therapies-info" style="padding-bottom:10px;">
                 <h1 style="font-size: 50px;">Bloques de estudio de la terapia</h1>
                 <br><br>
 
-            </input>
+            </div>
         </div>
 
         <script>
