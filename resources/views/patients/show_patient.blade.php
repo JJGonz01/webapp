@@ -30,7 +30,7 @@
             <div>
                 <form action="{{route('patient_update', ['id' => $patient -> id])}}"id = "editar_form" method = "GET">
                     <button id="edit_patient_shown_btn" class="patient-edit-button" href = "{{route('patient_update', ['id' => $patient -> id])}}">
-                            EDITAR
+                            Editar
                     </button>
                 </form>
                 <form action="{{route('patient_destroy', [$patient->id])}}" id = "eliminar_form" method = "POST">
@@ -50,7 +50,7 @@
                         @method('DELETE')
                         @csrf
                         <button id="delete_patient_shown_btn" type="submit" class="patient-delete-button">
-                            BORRAR
+                            Borrar
                         </button>
                 
                     </div>

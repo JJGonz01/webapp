@@ -24,7 +24,7 @@
             <div>
                 <form action="{{route('therapy_update', ['id' => $therapy -> id])}}" id = "editar_form" method = "GET">
                     <button id="show_ther_edit_button" class="patient-edit-button">
-                        EDITAR
+                        Editar
                     </button>
                 </form>
 
