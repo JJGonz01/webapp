@@ -129,9 +129,7 @@ function setTimeValueForPeriod(array_valores){
 
 function setTabla(periodo){
     var ctx = document.getElementById('myChart').getContext('2d');
-    var itemsBpm = Object.values(bpmValores[periodo]);
-
-    var dictBPM = setTimeValueForPeriod(itemsBpm);
+    var dictBPM = setTimeValueForPeriod(bpmValores[periodo]);
     var etiquetasBpm = Object.keys(dictBPM);
     var valoresBpm = Object.values(dictBPM);
     console.log("valores "+valoresBpm+", etiquetas "+etiquetasBpm);
@@ -348,8 +346,8 @@ function setTabla(periodo){
               var valueY = context.parsed.y; // Valor de Y
               var valueX = context.parsed.x; // Valor de X
               var label = context.label || '';
-              var dataIndex = context.dataIndex + 1;
-              return "Reglas Ejecutadas " + ': ' + valueY + ". Ejecutadas: "+ valoresString[40 * dataIndex].replace('undefined', '');
+              var dataIndex = context.dataIndex;
+              return "Reglas Ejecutadas " + ': ' + valueY +". Ejecutadas: "+ valoresString[stringIndexes[dataIndex]].replace('undefined', '');
             }
           }
         }
@@ -372,8 +370,10 @@ function setTabla(periodo){
 }
 
 var valoresString = {};
+var stringIndexes = [];
 function setTimeValueForPeriodReglas(array_valores){
   valoresString = {};
+  stringIndexes = [];
   dictionary = {};
   var val, newval;
   console.log(array_valores);
@@ -381,7 +381,7 @@ function setTimeValueForPeriodReglas(array_valores){
 
     if(dictionary[array_valores[i.toString()]["timestamp"]] == null){
       dictionary[array_valores[i.toString()]["timestamp"]] = 1;
-
+      stringIndexes.push(array_valores[i.toString()]["timestamp"]);
       valoresString[array_valores[i.toString()]["timestamp"]] = array_valores[i.toString()]["rulename"];
     }
     else{
@@ -390,7 +390,6 @@ function setTimeValueForPeriodReglas(array_valores){
       valoresString[array_valores[i.toString()]["timestamp"]] = valoresString[array_valores[i.toString()]["timestamp"]] + ", " +array_valores[i.toString()]["rulename"];
     }
   }
-  console.log(Object.values(valoresString))
   return dictionary;
 }
 
