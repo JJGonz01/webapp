@@ -87,6 +87,27 @@ function changeTableToShow(periodo){
   setTabla(periodo);
 }
 
+function setTimeValueForPeriodBPM(array_valores){
+
+  dictionary = {};
+  var val, newval;
+  dictionary["0"] = 0;
+  for(let i = 0; i<array_valores.length; i++){
+
+    if(dictionary[array_valores[i.toString()]["timestamp"]] == null)
+      dictionary[array_valores[i.toString()]["timestamp"]] = array_valores[i.toString()]["value"];
+    else{
+      val = dictionary[array_valores[i.toString()]["timestamp"]];
+      newval = (array_valores[i.toString()]["value"] + val) / 2;
+      dictionary[array_valores[i.toString()]["timestamp"]] = newval;
+    }
+  }
+  
+  return dictionary;
+}
+
+
+
 function setTimeValueForPeriod(array_valores){
 
   dictionary = {};
@@ -110,7 +131,7 @@ function setTabla(periodo){
     var ctx = document.getElementById('myChart').getContext('2d');
     var itemsBpm = Object.values(bpmValores[periodo.toString()]);
 
-    var dictBPM = setTimeValueForPeriod(itemsBpm);
+    var dictBPM = setTimeValueForPeriod(itemsBpm[periodoMostrar]);
     var etiquetasBpm = Object.keys(dictBPM);
     var valoresBpm = Object.values(dictBPM);
     console.log("valores "+valoresBpm+", etiquetas "+etiquetasBpm);
@@ -335,8 +356,6 @@ function setTabla(periodo){
       }
     };
     
-    
-
     var ctxReglas = document.getElementById('barrasReglas').getContext('2d');
     if(barrasReglasChart){
       barrasReglasChart.data = dataReglas;
