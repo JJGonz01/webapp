@@ -56,7 +56,7 @@ window.onload = function() {
         if(localStorage["testId"] && localStorage["testId"] != lasttask && window.location.pathname != "" && window.location.pathname != "/" && window.location.pathname != "/home"  && window.location.pathname != "home")
         {
             setAsInNotStartedTask();
-            sendJsonInfo(localStorage["testId"], clickedTime, timeDifference, button.id,"url", action, form);
+            sendJsonInfo(localStorage["testId"], clickedTime, timeDifference, window.location ,"url", action, form);
         }
 
         else 
@@ -77,7 +77,7 @@ window.onload = function() {
             setTestInfo(localStorage["testId"]);
         }
         setAsInTask(); 
-        sendJsonInfo(localStorage["testId"], clickedTime, timeDifference, button.id,"url", action, form);
+        sendJsonInfo(localStorage["testId"], clickedTime, timeDifference, window.location ,"url", action, form);
     }
     for(var i = 0; i<=5; i++){
         testIds[i+""] = "false";
