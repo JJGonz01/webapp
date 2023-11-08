@@ -83,9 +83,9 @@
                                 <tr> <!--class="all-patient-button" href = "{{route('patient_show', ['id' => $patient -> id])}}"-->
                                     <td>{{$ses -> id}}  </td>
                                     <td>{{$ses -> date_start}} </td>
-                                    <td> <form action = "{{route('session_edit', ['id' => $ses -> id])}}" method="GET"> <button class="edit-button" id="session-show-button">Editar</button> </form> </td>
+                                    <td> <form action = "{{route('session_edit', ['id' => $ses -> id], false, true)}}" method="GET"> <button class="edit-button" id="session-show-button">Editar</button> </form> </td>
                                     <td> 
-                                        <form id="session-delete-form" action="{{route('session_destroy', ['id'=> $ses->id, 'patient_id' => $patient->id])}}" method = "POST">
+                                        <form id="session-delete-form" action="{{route('session_destroy', ['id'=> $ses->id, 'patient_id' => $patient->id], false, true)}}" method = "POST">
                                             <div>
                                                 @method('DELETE')
                                                 @csrf
@@ -133,9 +133,9 @@
                             <tr> <!--class="all-patient-button" href = "{{route('patient_show', ['id' => $patient -> id])}}"-->
                                 <td>{{$ses -> id}}  </td>
                                 <td>{{$ses -> date_start}} </td>
-                                <td> <form action = "{{route('session_show', ['id' => $ses -> id])}}" method="GET"> <button class="edit-button" id="session-show-button">Ver</button> </form> </td>
+                                <td> <form action = "{{route('session_show', ['id' => $ses -> id], false, true)}}" method="GET"> <button class="edit-button" id="session-show-button">Ver</button> </form> </td>
                                 <td> 
-                                    <form action="{{route('session_destroy', ['id'=> $ses->id, 'patient_id' => $patient->id])}}" method = "POST">
+                                    <form action="{{route('session_destroy', ['id'=> $ses->id, 'patient_id' => $patient->id], false, true)}}" method = "POST">
                                         <div>
                                             @method('DELETE')
                                             @csrf
