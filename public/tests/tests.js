@@ -2,7 +2,7 @@ const testNumber = 5;
 var testIds = [];
 var currentTestId = "0";
 var jsonData
-var lasttask = "5";
+var lasttask = "3";
 const testExplanationDictionary = {
     
     
@@ -37,7 +37,8 @@ window.onload = function() {
     
     testIds = [];
     currentTestId = "0";
-    
+    var clickedTime = (""+date.getDate()+"-"+date.getMonth()+"-"+date.getHours()+"-"+date.getMinutes()+"-"+date.getSeconds()+"-"+date.getMilliseconds());
+    var timeDifference = getTimeDifference(clickedTime);
 
     if(!localStorage["test_on"]){ 
         localStorage["testId"] = "0";
@@ -45,14 +46,18 @@ window.onload = function() {
         if(window.location.pathname != "" && window.location.pathname != "/" && window.location.pathname != "/home"  && window.location.pathname != "home")
             setAsInNotStartedTask();
         else{
-            
+            sendJsonInfo(localStorage["testId"], clickedTime, timeDifference, window.location ,"url", action, form);
         }
         
     }
     else if(localStorage["test_on"] == "false")
     {
         if(localStorage["testId"] && localStorage["testId"] != lasttask && window.location.pathname != "" && window.location.pathname != "/" && window.location.pathname != "/home"  && window.location.pathname != "home")
+        {
             setAsInNotStartedTask();
+            sendJsonInfo(localStorage["testId"], clickedTime, timeDifference, button.id,"url", action, form);
+        }
+
         else 
             endAllTasks();
             return;
@@ -60,7 +65,6 @@ window.onload = function() {
     else{
         
         if(!localStorage["testId"]){
-            console.log("started test on")
             setTestInfo("0");
             localStorage["testId"] = "0";
         }
@@ -69,10 +73,10 @@ window.onload = function() {
             if(localStorage["testId"] == lasttask){
                 return; 
             }
-            console.log("contiuing test on")
             setTestInfo(localStorage["testId"]);
         }
         setAsInTask(); 
+        sendJsonInfo(localStorage["testId"], clickedTime, timeDifference, button.id,"url", action, form);
     }
     for(var i = 0; i<=5; i++){
         testIds[i+""] = "false";
@@ -95,11 +99,7 @@ window.onload = function() {
             showhidetextBool(false)
         }
     }
-    
-   
     getAllInputs()
-    
-    console.log("La id es: "+localStorage["testId"])
 } 
 
 function getAllInputs() {
@@ -235,7 +235,6 @@ function printClickedId(button, action, form){
             timeDifference = "0-0-0-0-0-0";
         }
         sendJsonInfo(localStorage["testId"], clickedTime, timeDifference, button.id,"button", action, form);
-   
 }
 
 function endTask(){

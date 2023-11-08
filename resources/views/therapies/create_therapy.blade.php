@@ -16,21 +16,21 @@
     <script src="https://pomodoroadhdapp.azurewebsites.net/therapy_js/period_creations.js"></script>
 
     <!-- INPUTS FANTASMA PARA LOS DATOS-->
-    <input name="rules_edit" id="rules_edit" value = "null" style="display: none;" />
-    <input name="periods_edit" id="periods_edit" value = "null" style="display: none;" />
-    <input name="periods[]" id="input_period" style="display: none;" />
-    <input name="rules" id="input_rules" style="display: none;" />
+    <input name="rules_edit" id="rules_edit" value = "null" style="display: none;"/>
+    <input name="periods_edit" id="periods_edit" value = "null" style="display: none;"/>
+    <input name="periods[]" id="input_period" style="display: none;"/>
+    <input name="rules" id="input_rules" style="display: none;"/>
     <input name="newRuleSet" id="newRuleSet" style="display: none;" />
-    <input name="defaultNewRuleSet" id="defaultNewRuleSet" style="display: none;" />
+    <input name="defaultNewRuleSet" id="defaultNewRuleSet" style="display: none;"/>
     <input id="selectConjPeriodo" style="display:none;"></input>
     <div id="created_periods_container" style="display:none"></div>
-    <input id="soloLanzarUnaVezReal" name="defaultRuleset" style="display:none;" /> 
-    <input id="ruleNameEditing" name="ruleNameEditing" style="display:none;" /> 
+    <input id="soloLanzarUnaVezReal" name="defaultRuleset" style="display:none;"/> 
+    <input id="ruleNameEditing" name="ruleNameEditing" style="display:none;"/> 
     <div id="juegoTiempo" style= "display:none;">
                             <input  value = 0 type="number" name="juegoPuntos" class="form-control" rown="10"> puntos</input>
     </div>
            
-    <input name="isEditing" id="isEditing" value = "0" style="display: none;" />
+    <input name="isEditing" id="isEditing" value = "0" style="display: none;"/>
    
     @csrf
     @if (session('success'))

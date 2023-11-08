@@ -103,7 +103,7 @@
                                                             });
                                                     </script> 
                                                 <button id="delete_session_patient_delete" class="edit-button" style="background-color:#B90000;">
-                                                    BORRAR
+                                                    Borrar
                                                 </button>
                                             </div>
                                         </form>
@@ -111,7 +111,6 @@
                                 </tr> 
                                 @endif
                                 @endforeach
-                            
                         </div>
                     </table>
                     @else
@@ -140,7 +139,7 @@
                                             @method('DELETE')
                                             @csrf
                                             <button id="delete_patient_show" class="edit-button" style="background-color:#B90000;">
-                                                BORRAR
+                                                Borrar
                                             </button>
                                         </div>
                                     </form>

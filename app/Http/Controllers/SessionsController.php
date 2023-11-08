@@ -85,6 +85,7 @@ class SessionsController extends Controller
     public function show($id)
     {
         $session = Session::find($id);
+        $patient = Patient::find($session->patient_id);
         $session_results = SessionResult::where('session_id', $id)->get();
         //sensor corazon
         $bpm_valores = $session_results[0]->bpm_valores;
@@ -106,7 +107,7 @@ class SessionsController extends Controller
             return view('sessions.show_session_completed', 
             ['session' => $session, 'bpm_valores' => $bpm_valores, 'bpm_medios'=>$bpm_medios,
             'move_valores'=>$move_valores, 'move_medios'=>$move_medios, 'limite_bpm'=>$limite_bpm, 'reglas'=>$reglas,
-             'puntos' => $puntos,'listaReglasIniciales'=> $listaReglasIniciales]);
+             'puntos' => $puntos,'listaReglasIniciales'=> $listaReglasIniciales, 'patient' => $patient]);
 
     }
 

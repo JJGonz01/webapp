@@ -69,19 +69,17 @@
                 var periodos = document.getElementById("periods_therapy").value;
                 var outputDiv = document.getElementById("output");
                 var jsonObject = JSON.parse(periodos);
-                console.log(periodos)
                 var per = 0;
                 var perMax = 3;
                 var bloque = 0;
                 var keys = ["Estudio", "Descanso", "Estudio"];
-                
-                
-                jsonObject.forEach(function(item) {
-                        
+                jsonObject.forEach(function(item){
                         bloque += 1;
                         var div = document.createElement("div");
                         div.classList.add("flex-text-row"); 
                         var h = document.createElement("p");
+                        h.style.color = "black";
+                        h.style.fontWeight  = "bold";
                         h.textContent = "Bloque "+bloque+":";
                         div.appendChild(h);
                         per = 0;
@@ -91,13 +89,10 @@
                             pElement.textContent = keys[per] + ": " + item[key]+" minutos";
                             div.appendChild(pElement);
                             per += 1;
-                            
                         }
                         outputDiv.appendChild(div);
                     });
                 }
-            
-
             printElements();
         </script>
 </div>
