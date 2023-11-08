@@ -10,12 +10,8 @@
 
     <div>
         <script src="{{ asset('therapy.js') }}"></script>
-
-
-       
-
-
         <div class="patient-info-box">
+        <img src="https://pomodoroadhdapp.azurewebsites.net/images/patient.jpg" style="color:white;" class="right-login-container-image"></img>
             <div>
                     <p> Terapia: {{$therapy -> name}}</p>
                     <p> Terapia de estudiao </p>

@@ -154,7 +154,7 @@ class TherapiesController extends Controller
       
        if(!Auth::check()){
         return view('layouts.app'); 
-        }
+       }
 
        $usuario = Auth::user();
 
@@ -166,9 +166,9 @@ class TherapiesController extends Controller
        $terapia->user_id = $usuario->id;
        $terapia->rules = $rules;
        $terapia->save(); 
-
+       
        $array_per_raw = $request->input('periods');
-       if (!empty($array_per_raw) && !is_null($array_per_raw) && !is_null($array_per_raw[0])) {
+       if (!is_null($array_per_raw) && !empty($array_per_raw) && !is_null($array_per_raw[0])) {
             $array_per = json_decode($array_per_raw[0], true);
 
             $periods_array = [];
