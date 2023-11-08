@@ -92,7 +92,7 @@ class SessionsController extends Controller
         
         $move_valores = $session_results[0]->move_valores;
         $move_medios = $session_results[0]->move_medios;
-        $limite_bpm = $session[0]->move_lim;
+        $limite_bpm = $session->move_lim;
         $reglas = $session_results[0]->rules;
 
         $puntos = $session_results[0]->puntosObtenidos;
