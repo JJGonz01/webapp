@@ -139,8 +139,8 @@ class TherapiesController extends Controller
      }
 
      /*******/
-     public function update(Request $request, $id)
-      {
+    public function update(Request $request, $id)
+    {
        $today = Carbon::now();
        echo $today->toDateTimeString();
 
@@ -201,8 +201,7 @@ class TherapiesController extends Controller
             $session_period->save();
         }
     
-    return redirect()->route('therapy_show', ['id'=> $terapia->id])->with('success','Terapia editada correctamente');
-
+        return redirect()->route('therapies_index', ['id'=> $id], false, true)->with('success','Terapia editada correctamente');
     }
     public function destroy(string $id)
     {

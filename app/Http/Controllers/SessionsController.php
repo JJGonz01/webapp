@@ -264,12 +264,6 @@ class SessionsController extends Controller
         return redirect()->route('patient_show', ['id' => $patient_id])->with('success','Sesión eliminada correctamente');;
         
     }
-
-
-    /**
-     * 
-     */
-
      /**
       * EL reloj llama para coger el calendario de sesiones del paciente!
       * HAY QUE PASAR LA id DEL ALUMNO
