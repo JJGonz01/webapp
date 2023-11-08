@@ -16,7 +16,7 @@
     <div id="prueba"></div>
     <div class="user-welcome-box">
             @if(auth()->user() !== null)
-            <p><a href="https://pomodoroadhdapp.azurewebsites.net/patient/{{}}">Paciente</a>/Ver sesión</p>
+            <p><a href="https://pomodoroadhdapp.azurewebsites.net/patient/{{$patient->id}}">Paciente</a>/Ver sesión</p>
             @else
                 <p> INICIA SESION PARA CONTINUAR </p>
             @endif
@@ -46,8 +46,10 @@
             <h3>Sensores</h3>
         </div>
         
-        <canvas id="myChart"></canvas>
-               
+        <div>
+            <canvas id="myChart"></canvas>
+        </div>      
+        
         <div id="reglas_div" style="display:block;">
                 <div class="table-space">
                     <h3>Reglas ejecutadas</h3>
