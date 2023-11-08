@@ -115,7 +115,7 @@ function setTimeValueForPeriod(array_valores){
   dictionary["0"] = 0;
   for(let i = 0; i<array_valores.length; i++){
 
-    if(array_valores[i.toString()]["value"] == 0 && i != 0 && i != array_valores.length-1){
+    if(array_valores[i.toString()]["value"] < 45 && i != 0 && i != array_valores.length-1){
       array_valores[i.toString()]["value"] = linearInterpolation(array_valores, i)
     }
 
@@ -136,8 +136,8 @@ function linearInterpolation(valores, index){
   var yizq = valores[index-1]["value"];
   
   var yder = valores[index+1]["value"];
-  if(valores[index+1]["value"] == 0){
-    return 0;
+  if(valores[index+1]["value"] < 45){
+    return valores[index+1]["value"];
   }
   var xder = valores[index+1]["timestamp"];
   
