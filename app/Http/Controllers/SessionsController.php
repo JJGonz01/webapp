@@ -85,7 +85,7 @@ class SessionsController extends Controller
     public function show($id)
     {
         $session = Session::find($id);
-        $patient = Patient::find($session->patient_id);
+        $patient = patient::find($session->patient_id);
         $session_results = SessionResult::where('session_id', $id)->get();
         //sensor corazon
         $bpm_valores = $session_results[0]->bpm_valores;

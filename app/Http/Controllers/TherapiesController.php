@@ -26,7 +26,6 @@ class TherapiesController extends Controller
             $therapies = [];
             return view('therapies.therapies', ['therapies' => $therapies]);
         }
-        
     }
     
     public function create()
@@ -108,8 +107,7 @@ class TherapiesController extends Controller
            $session_period->save();
        }
        
-       return redirect()->route('therapy_show', ['id'=> $terapia->id])->with('success','Terapia creada correctamente');
-  
+       return redirect()->route('therapy_', ['id'=> $terapia->id])->with('success','Terapia creada correctamente');
     }
 
     public function show(string $id)
@@ -122,7 +120,7 @@ class TherapiesController extends Controller
 
     public function edit(string $id)
     {
-        //
+
     }
  
     public function showFormUpdate($id)
@@ -132,7 +130,7 @@ class TherapiesController extends Controller
         
      
         $periodo = SessionPeriod::where('therapy_id', $therapy->id)->first();
-        $listaSesionesPeriods = []; //añado los periodos junto a la fecha por la que empieza
+        $listaSesionesPeriods = [];
         $listaSesionesPeriods[] = $periodo->durations;
         $listaPer = json_encode($listaSesionesPeriods);
         return view('therapies.edit_therapy', ['patients_all' => $patients_all, 'therapy' => $therapy,'listaPer' => $listaPer]);
@@ -169,8 +167,7 @@ class TherapiesController extends Controller
        $terapia->rules = $rules;
        $terapia->save(); 
 
-       $array_per_raw = $request->input('periods'); //array con un elemento (con todos los elementos)
-       //dd($array_per_raw);
+       $array_per_raw = $request->input('periods');
        if (!empty($array_per_raw) && !is_null($array_per_raw) && !is_null($array_per_raw[0])) {
             $array_per = json_decode($array_per_raw[0], true);
 
@@ -201,7 +198,7 @@ class TherapiesController extends Controller
             $session_period->save();
         }
     
-        return redirect()->route('therapies_index', ['id'=> $id], false, true)->with('success','Terapia editada correctamente');
+        return redirect()->route('therapy_show', ['id'=> $terapia->id])->with('success','Terapia creada correctamente');
     }
     public function destroy(string $id)
     {
