@@ -115,6 +115,10 @@ function setTimeValueForPeriod(array_valores){
   dictionary["0"] = 0;
   for(let i = 0; i<array_valores.length; i++){
 
+    if(array_valores[i.toString()]["value"] == 0 && i != 0 && i != array_valores.length-1){
+      array_valores[i.toString()]["value"] = linearInterpolation(array_valores, i)
+    }
+
     if(dictionary[array_valores[i.toString()]["timestamp"]] == null)
       dictionary[array_valores[i.toString()]["timestamp"]] = array_valores[i.toString()]["value"];
     else{
@@ -125,6 +129,25 @@ function setTimeValueForPeriod(array_valores){
   }
   
   return dictionary;
+}
+
+function linearInterpolation(valores, index){
+  var xizq = valores[index-1]["timestamp"];
+  var yizq = valores[index-1]["value"];
+  
+  var yder = valores[index+1]["value"];
+  if(valores[index+1]["value"] == 0){
+    return 0;
+  }
+  var xder = valores[index+1]["timestamp"];
+  
+
+  var xcon = valores[index]["timestamp"];
+
+  var pendiente = (yder-yizq) / (xder-xizq);
+
+  var yInter = yizq + pendiente * (xcon - xizq);
+  return yInter;
 }
 
 function setTabla(periodo){
@@ -367,19 +390,26 @@ function setTimeValueForPeriodReglas(array_valores){
   dictionary = {};
   var val, newval;
   console.log(array_valores);
-  for(let i = 0; i<array_valores.length; i++){
 
-    if(dictionary[array_valores[i.toString()]["timestamp"]] == null){
-      dictionary[array_valores[i.toString()]["timestamp"]] = 1;
-      stringIndexes.push(array_valores[i.toString()]["timestamp"]);
-      valoresString[array_valores[i.toString()]["timestamp"]] = array_valores[i.toString()]["rulename"];
+  var tag = passSecondsToMinutes(parseInt(array_valores[0]["timestamp"]));
+  var lastTag = passSecondsToMinutes(0);
+
+  for(let i = 0; i<array_valores.length; i++){
+    tag = passSecondsToMinutes(parseInt(array_valores[i.toString()]["timestamp"]));
+    tag = lastTag + "-" + tag;
+    if(dictionary[tag] == null){
+      dictionary[tag] = 1;
+      stringIndexes.push(tag);
+      valoresString[tag] = array_valores[i.toString()]["rulename"];
     }
     else{
-      newval = (dictionary[array_valores[i.toString()]["timestamp"]] + 1);
-      dictionary[array_valores[i.toString()]["timestamp"]] = newval;
-      valoresString[array_valores[i.toString()]["timestamp"]] = valoresString[array_valores[i.toString()]["timestamp"]] + ", " +array_valores[i.toString()]["rulename"];
+      newval = (dictionary[tag] + 1);
+      dictionary[tag] = newval;
+      valoresString[tag] = valoresString[tag] + ", " +array_valores[i.toString()]["rulename"];
     }
+    lastTag = passSecondsToMinutes(parseInt(array_valores[i.toString()]["timestamp"]));
   }
+  
   return dictionary;
 }
 

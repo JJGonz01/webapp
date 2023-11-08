@@ -21,7 +21,7 @@
         @endif
 
         <div class="patient-info-box">
-            <img class="patient-profile-image" url="https://cdn-icons-png.flaticon.com/512/3135/3135768.png"></img>
+            <img src="https://pomodoroadhdapp.azurewebsites.net/images/hijo.png" style="color:white;" class="right-login-container-image"></img>
             <div>
                     <p> Paciente: {{$patient -> name}}  {{$patient -> surname}}</p>
                     <p> Comment: {{$patient -> description }}</p>

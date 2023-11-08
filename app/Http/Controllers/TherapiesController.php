@@ -120,7 +120,7 @@ class TherapiesController extends Controller
 
     public function edit(string $id)
     {
-
+            
     }
  
     public function showFormUpdate($id)
