@@ -9,6 +9,7 @@
     <input id = "bpm_val" value="{{$bpm_valores}}" style="display:none;"></input>
     <input id = "move_val" value="{{$move_valores}}" style="display:none;"></input>
     <input id = "limite_bpm" value="{{$limite_bpm}}" style="display:none;"></input>
+    <input id = "limite_move" value="{{$limite_move}}" style="display:none;"></input>
     <input id = "reglas" value="{{$reglas}}" style="display:none;"></input>
 
     <input style="display:none;" id = "bpm_medios" value = "{{$bpm_medios}}"></input>

@@ -9,6 +9,7 @@ var barrasReglasChart;
 var tituloTabla;
 
 var limiteBPM;
+var limiteMove;
 var reglas;
 function startShowTables() {
   //consigo los elementos para la tabla
@@ -20,6 +21,7 @@ function startShowTables() {
   var objreglas = document.getElementById("reglas");
   var barrasReglasChart = document.getElementById("barrasReglas");
   limiteBPM = document.getElementById("limite_bpm").value;
+  limiteMove = document.getElementById("limite_move").value;
   
   var divTabla = document.getElementById("prueba");
   var bpmValoresRaw = InbpmValores.value;
@@ -63,7 +65,6 @@ function moveThrowTables(dir){
     else
     {
       document.getElementById('reglas_div').style="display:block;";
-      console.log("asgdhjasgdhsaghjgahgdhjagjahsgdhasg")
     }
     console.log("periodo "+periodoMostrar)
 }
@@ -213,7 +214,7 @@ function setTabla(periodo){
       },
       {
         label: 'Limite Movimiento',
-        data: Array(valoresBpm.length).fill(0.4), 
+        data: Array(valoresBpm.length).fill(limiteMove), 
         backgroundColor: 'rgba(0,0,255, 0.2)',
         borderColor: 'rgba(0,0,255, 1)',
         borderWidth: 1,
@@ -300,7 +301,7 @@ function setTabla(periodo){
     });
   }
 
-    if(periodoMostrar != 0){
+    if(periodoMostrar != 0 && JSON.parse(Object.values(reglasValores)[periodoMostrar-1]) != []){
       var dictReglas = setTimeValueForPeriodReglas(JSON.parse(Object.values(reglasValores)[periodoMostrar-1]));
       var etiquetasReglas = Object.keys(dictReglas);
       var valoresReglas = Object.values(dictReglas);
