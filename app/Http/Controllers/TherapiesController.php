@@ -107,7 +107,7 @@ class TherapiesController extends Controller
            $session_period->save();
        }
        
-       return redirect()->route('therapy_', ['id'=> $terapia->id])->with('success','Terapia creada correctamente');
+       return redirect()->route('therapy_show', ['id'=> $terapia->id])->with('success','Terapia creada correctamente');
     }
 
     public function show(string $id)
