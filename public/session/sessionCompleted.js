@@ -264,17 +264,6 @@ function setTabla(periodo){
       }
     },
     plugins: {
-      zoom: {
-        zoom: {
-          wheel: {
-            enabled: true
-          },
-          pinch: {
-            enabled: true
-          },
-          mode: 'xy'
-        }
-      },
       tooltip: {
         callbacks: {
           labels: function(context) {
