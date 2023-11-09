@@ -248,7 +248,7 @@ function setTabla(periodo){
           }
         },
         beginAtZero: false,
-        min: 50
+        min: 40
       },
       y1: {
         position: 'right',
