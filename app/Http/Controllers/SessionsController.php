@@ -89,7 +89,7 @@ class SessionsController extends Controller
         $session_results = SessionResult::where('session_id', $id)->get();
         //sensor corazon
         $bpm_valores = $session_results[0]->bpm_valores;
-        $bpm_medios = $session[0]->bpm_medios;
+        $bpm_medios = $session_results[0]->bpm_medios;
         
         $move_valores = $session_results[0]->move_valores;
         $move_medios = $session_results[0]->move_medios;
