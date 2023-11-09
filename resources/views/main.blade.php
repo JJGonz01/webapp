@@ -89,29 +89,27 @@
         </div>
         
         <div class="navbar-right-items">
-            
             @if(null !== (auth()->user()))
-            <div class="navbar-right-items-container-items">
-                @yield('patients_section')
-            </div>
-            <div class="master-test">
-                <div id="in-task-container" class="in-row-container" style="display:block;">
-                    <button id="task-show-btn" onclick="showhidetext()" class="acabar-tarea-btn">OCULTAR TAREA</button>
-                    <p id="in-task-text" style="style:block;"></p>
-                    <button id="task-end-btn" onclick="endTask()" class="acabar-tarea-btn">ACABAR TAREA</button>
+                <div class="navbar-right-items-container-items">
+                    @yield('patients_section')
                 </div>
-            </div>
-
+                <div class="master-test">
+                    <div id="in-task-container" class="in-row-container" style="display:block;">
+                        <button id="task-show-btn" onclick="showhidetext()" class="acabar-tarea-btn">MOSTRAR TAREA</button>
+                        <p id="in-task-text" style="style:block;"></p>
+                        <button id="task-end-btn" onclick="endTask()" class="acabar-tarea-btn">ACABAR TAREA</button>
+                    </div>
+                </div>
             @else
                 <div class="navbar-right-items-container-items">
-                <div class = "session-necessary-contaner">
-                        <form action="{{route('login', [], false, true)}}" id= 'form_pat' method="GET">
-                            <p>Es necesario iniciar sesión</p>
-                            <p>para utilizar la plataforma</p>
-                            <button id="home_gotologin_btn">IR A INICIAR SESIÓN</button>
-                        </form>
-                </div>  
-            </div>
+                    <div class = "session-necessary-contaner">
+                            <form action="{{route('login', [], false, true)}}" id= 'form_pat' method="GET">
+                                <p>Es necesario iniciar sesión</p>
+                                <p>para utilizar la plataforma</p>
+                                <button id="home_gotologin_btn">IR A INICIAR SESIÓN</button>
+                            </form>
+                    </div>  
+                </div>
             @endif
         </div>
         <script>navbarStart()</script>
