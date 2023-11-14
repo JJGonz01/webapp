@@ -302,6 +302,7 @@ function setTabla(periodo){
   }
 
     if(periodoMostrar != 0){
+      console.log(periodoMostrar);
       var dictReglas = setTimeValueForPeriodReglas(JSON.parse(Object.values(reglasValores)[periodoMostrar-1]));
       var etiquetasReglas = Object.keys(dictReglas);
       var valoresReglas = Object.values(dictReglas);
