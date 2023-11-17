@@ -7,25 +7,28 @@
 </head>
 
 <div class="general-items-container">
-        @if (session('success'))
-            <h6 class="alert alert-success"> {{ session('success') }}</h6>
-        @endif
-        @error('name')
-            <h6 class="alert alert-danger"> {{ $message }}</h6>
-        @enderror
-
+        
         <div class="user-welcome-box">
             @if(auth()->user() !== null)
-            <p>LISTADO DE PACIENTES</p>
+            <div class="user-welcome-box-container">
+                <h4>Pacientes</h4>
+                <form action = "{{route('patients_create', [], false, true)}}" method="GET">
+                    <button id="create-patient-button">AÑADIR PACIENTE</button>
+                </form>
+            </div>
             @else
             <p> INICIA SESION PARA CONTINUAR </p>
             @endif
         </div>
 
         <div class = "options-items-container">
-            <form action = "{{route('patients_create', [], false, true)}}" method="GET">
-                <button id="create-patient-button" class= "create-button" >AÑADIR PACIENTE</button>
-            </form>
+            @if (session('success'))
+            <h6 class="alert alert-success"> {{ session('success') }}</h6>
+        @endif
+        @error('name')
+            <h6 class="alert alert-danger"> {{ $message }}</h6>
+        @enderror
+
             <div class="options-items-container-inner">
                 @if(count($patients)>0)
                 <table class="table-items-options">

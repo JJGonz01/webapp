@@ -1,11 +1,47 @@
 .user-welcome-box{
-    border:0px;
-    margin-top:10px;
-    border-radius: 4px;
-    background-color:#0E4565;
+    width:100%;
+    background-color:rgb(246, 246, 246);
     padding-bottom:1%;
+    border-bottom: 1px solid rgb(177, 176, 176);
+    
 }
 
+.user-welcome-box-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.user-welcome-box-container button{
+    border-radius: 10px;
+	background-color: #4361ee;
+	color: white;
+	background-size: cover;
+	margin: 5px 0;
+    margin-top: 40px;
+    margin-right:50px;
+	padding-inline: 25px;
+	padding-block: 15px;
+	font-weight: bold;
+	border: 0;
+}
+
+.user-welcome-box-container button:hover{
+    transition: transform 0.3s ease-in-out;
+    transform: scale(1.1);
+}
+
+.user-welcome-box h4{
+    color:black;
+    font-size:xx-large;
+    font-style: normal;
+    font-weight: bold;
+    padding-left: 50px;
+    padding-top: 40px;
+}
+/**/
 .patient-info-box{
     border:0px;
     margin-top:10px;
@@ -25,20 +61,7 @@
     margin-top:1.5%;
     height:200px;
 }
-.general-items-container{
-    padding-left:5%;
-    padding-right:5%;
-    padding-top:2%;
-    padding-bottom: 3%;
-}
 
-.general-items-container p{
-    font-size:xx-large;
-    font-style: normal;
-    padding-left: 50px;
-    padding-top: 40px;
-    color:white;
-}
 
 .options-items-container{
     border:0px;
@@ -75,9 +98,74 @@
     margin: 3%;
 }
 
+.right-img-container button{
+    border-radius: 10px;
+    background-color: #4361ee;
+    color: white;
+    background-size: cover;
+    padding: 2%;
+    font-weight: bold;
+    border: 0;
+    transition: transform 0.3s ease-in-out;
+}
+
+.right-img-container button:hover{
+    transform: scale(1.1);
+    transition: transform 0.3s ease-in-out;
+} 
 
 @media (min-width: 1151px) {
 
+    .img-container{
+        display: flex;
+        text-align: center;
+        height: max-content;
+        margin-top:1%;
+        margin-left: 10%;
+        margin-right: 10%;
+        background-color: white;
+        border-radius: 4%;
+        text-align:center;
+        margin-bottom:2%;
+
+     }
+  
+     .left-img-container{
+        display:block;
+        flex: 1; 
+        background-image: url("https://pomodoroadhdapp.azurewebsites.net/images/paciente.jpg");
+        backdrop-filter: blur(15px);
+        background-size:cover;
+        border-top-left-radius: 6px;
+        border-bottom-left-radius: 6px;
+        border-radius: 2px;
+        padding: 10px;
+     }
+  
+     .right-img-container{
+        border-top-right-radius: 6px;
+        border-bottom-right-radius: 6px;
+        flex: 1; 
+        color:black;
+        padding: 4%;
+        background-color: rgb(255, 255, 255);
+        font-weight: normal;
+        padding-bottom: 10%;
+     }
+     .right-img-container input{
+        width: 100%;
+        margin-bottom: 8%;
+    }
+    
+    .right-img-container h3{
+        margin-bottom: 5%;
+        font-weight: bold;
+    }
+    .right-img-container textarea{
+        width: 100%;
+        margin-bottom: 4%;
+    }
+     
     .text-therapies-info{
         justify-content: left;
         text-align: left;
@@ -247,6 +335,49 @@
 
 @media (max-width: 1150px) {
 
+    .img-container{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    height: min-content;
+    }
+
+ .left-img-container{
+    display:none;
+    flex: 2; 
+    background-image: url("https://pomodoroadhdapp.azurewebsites.net/images/school.png");
+    backdrop-filter: blur(15px);
+    background-size:auto;
+    border-top-left-radius: 6px;
+    border-top-left-radius: 6px;
+    border-radius: 2px;
+    padding: 10px;
+ }
+
+ .right-img-container{
+
+    border-radius: 6px;
+    flex: 2; 
+    color:black;
+    background-color: rgb(255, 255, 255);
+    padding: 5%;
+    font-weight: normal;
+ }
+
+ .right-img-container input{
+    width: 100%;
+    margin-bottom: 8%;
+}
+
+.right-img-container h3{
+    margin-bottom: 5%;
+    font-weight: bold;
+}
+.right-img-container textarea{
+    width: 100%;
+    margin-bottom: 4%;
+}
     .create-basic-container-home{
         margin-top:3%;
         padding-top:5%;
@@ -274,20 +405,6 @@
         margin-left:8%;
         margin-top:1.5%;
         height:50px;
-    }
-    .general-items-container{
-        padding-left:5%;
-        padding-right:5%;
-        padding-top:2%;
-        padding-bottom: 3%;
-    }
-    
-    .general-items-container p{
-        font-size:large;
-        font-style: normal;
-        padding-left: 50px;
-        padding-top: 15px;
-        color:white;
     }
 
     .options-items-container{

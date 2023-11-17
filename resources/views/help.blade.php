@@ -7,6 +7,18 @@
 <div class="general-items-container">
 <script src="https://pomodoroadhdapp.azurewebsites.net/general_page.js"></script>
   
+        <div class="user-welcome-box">
+            @if(auth()->user() !== null)
+            <div class="user-welcome-box-container">
+                <h4>Ayuda y soporte</h4>
+
+            </div>
+            @else
+            <p> INICIA SESION PARA CONTINUAR </p>
+            @endif
+        </div>
+
+
     <div class="home-welcome-box">
         <button class="home-welcome-box-btn-selected" onclick = "setArticles(0)" id="btn_pom_info">TAREAS</button>
         <button class="home-welcome-box-btn" onclick = "setArticles(1)" id="btn_app_info">AYUDA APLICACIÓN</button>

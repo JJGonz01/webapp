@@ -32,60 +32,64 @@
 </head>
 
 <body>
-    <script src="https://pomodoroadhdapp.azurewebsites.net/javascript/navbar.js"></script>
+    <script src="{{ asset('javascript/navbar.js')}}"></script>
     <!-- JS SCRIPTS PARA TODA LA WEB-->
     
 
     <!-- NAVBAR-->
     <div class="navbar-web">
+        <button class="navbar-menu-selector" onclick="navbarButton()">Menu</button>
         <div class="navbar-vertical" id="vertical_nv">
-                    <button onClick="navbarButton()" class="material-symbols-outlined" id="navbar_button">menu</button>
-
+            
+        <div class="general-navbar-vertical">
+            
                     <form id="form_crear_sesion"  action="{{route('general', [], false, true)}}" method="GET">
-                        <button id="nav_bar_home" class="dissapear_button">
-                            <span class="material-symbols-outlined">home</span>
-                            <div class="hide-text">
-                                <p id="navbar-1">GENERAL</p>
+                        <button id="nav_bar_home">
+                            <!--span class="material-symbols-outlined">home</span-->
+                            <div>
+                                <p id="navbar-1">Home</p>
                             </div>
                         </button>
                     </form>
 
                     <form id="form_crear_sesion"  action="{{route('patients_index', [], false, true)}}" method="GET">
-                        <button id="nav_bar_patients" class="dissapear_button">
-                            <span class="material-symbols-outlined">group</span>
-                            <div class="hide-text">
-                                <p id="navbar-2">PACIENTES</p>
+                        <button id="nav_bar_patients">
+                            <!--span class="material-symbols-outlined">group</span-->
+                            <div>
+                                <p id="navbar-2">Pacientes</p>
                             </div>
                         </button>
                     </form>
 
                     <form id="form_crear_sesion"  action="{{route('therapies_index', [], false, true)}}" method="GET">
-                        <button id="nav_bar_therapies" class="dissapear_button">
-                            <span class="material-symbols-outlined">punch_clock</span>
-                            <div class="hide-text">
-                                <p  id="navbar-3">TERAPIAS</p>
+                        <button id="nav_bar_therapies">
+                            <!--span class="material-symbols-outlined">punch_clock</span-->
+                            <div>
+                                <p  id="navbar-3">Terapias</p>
                             </div>
                         </button>
                     </form>
 
                     <form id="form_crear_sesion"  action="{{route('help', [], false, true)}}" method="GET">
-                        <button id="nav_bar_info" class="dissapear_button">
-                            <span class="material-symbols-outlined">info</span>
-                            <div class="hide-text">
-                                <p id="navbar-4">AYUDA</p>
+                        <button id="nav_bar_info">
+                            <!--span class="material-symbols-outlined">info</span-->
+                            <div>
+                                <p id="navbar-4">Ayuda</p>
                             </div>
                         </button>
                     </form>
 
-                    
+        </div>
+        <div>     
                     <form id="form_crear_sesion" action="{{route('home', [], false, true)}}" method="GET">
                         <button id="nav_bar_info" class="dissapear_button">
-                            <span class="material-symbols-outlined">account_circle</span>
+                            <!--span class="material-symbols-outlined">account_circle</span-->
                             <div class="hide-text">
-                                <p id="navbar-4">MI PERFIL</p>
+                                <p id="navbar-4">Perfil</p>
                             </div>
                         </button>
                     </form>
+        </div>
         </div>
         
         <div class="navbar-right-items">

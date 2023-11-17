@@ -7,11 +7,7 @@
     <title>CREAR PACIENTE</title>
 </head>
 
-
-<div class="blue-photo-menu">
-    <img class="blue-photo-menu" url="https://cdn-icons-png.flaticon.com/512/3135/3135768.png"></img>        
-</div>
-<div class= "create-basic-container">
+<div>
 
     <form action="{{route('patients_create', [], false, true)}}" id= 'form_pat' method="POST">
     @csrf
@@ -26,6 +22,12 @@
     @error('surname')
         <h6 class="alert alert-danger"> Falta apellido: {{ $message }}</h6>
     @enderror
+
+    <div class="img-container">
+    <div class="left-img-container">
+    </div>
+    <div class="right-img-container">
+        <h3>Crear Paciente</h3>
         <p>NOMBRE</p>
         <input type="text" name = "name" id = "name" class = "create-basic-container-inputs">
 
@@ -34,8 +36,9 @@
 
         <p>COMENTARIO</p>
         <textarea type="text" name = "description" id="commentary" class = "form-control" rown="10"></textarea>
-        <button id="go_to_patient_create" class = "create-button" type="submit"> CREAR USUARIO </button>
+        <button id="go_to_patient_create" type="submit"> CREAR USUARIO </button>
     </form> <!--FORM PACIENTE-->
-
+    </div>
+    </div>
 </div>
 @endsection

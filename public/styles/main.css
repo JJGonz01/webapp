@@ -29,8 +29,9 @@
     margin: 0;
     padding: 0;
 }
+
 body{
-    font-family: "Montserrat", sans-serif;
+    font-family: 'Nunito', sans-serif;
     height: 100%;
     background-color: var(--background-color);
 }
