@@ -31,7 +31,7 @@
             @error('name')
                 <h6 class="alert alert-danger"> {{ $message }}</h6>
             @enderror
-            <h4>FECHA PROGRAMADA: {{$session -> date_start}}  DESCRIPCION: {{$session -> description}}</h4>
+            <h4>FECHA PROGRAMADA: {{$session -> date_start}}</h4>
             <h4>TERAPIA ID: {{$session -> therapy_id}}</h4>   
         </div>
 
