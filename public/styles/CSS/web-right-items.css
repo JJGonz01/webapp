@@ -1,9 +1,7 @@
 .user-welcome-box{
     width:100%;
     background-color:rgb(246, 246, 246);
-    padding-bottom:1%;
     border-bottom: 1px solid rgb(177, 176, 176);
-    
 }
 
 .user-welcome-box-container{
@@ -14,7 +12,7 @@
 }
 
 
-.user-welcome-box-container button{
+.user-welcome-box-container-button{
     border-radius: 10px;
 	background-color: #4361ee;
 	color: white;
@@ -28,7 +26,7 @@
 	border: 0;
 }
 
-.user-welcome-box-container button:hover{
+.user-welcome-box-container-button:hover{
     transition: transform 0.3s ease-in-out;
     transform: scale(1.1);
 }
@@ -40,6 +38,7 @@
     font-weight: bold;
     padding-left: 50px;
     padding-top: 40px;
+    margin-bottom: 30px;
 }
 /**/
 .patient-info-box{
@@ -68,7 +67,6 @@
     align-items: center;
     margin: 0 auto;
     padding-top:4%;
-    margin-top:4%;
     text-align: center;
     border-radius: 4px;
     background-color: white;
@@ -133,7 +131,7 @@
      .left-img-container{
         display:block;
         flex: 1; 
-        background-image: url("https://pomodoroadhdapp.azurewebsites.net/images/paciente.jpg");
+        background-image: url("https://pomodoroadhdapp.azurewebsites.net/images/paciente.png");
         backdrop-filter: blur(15px);
         background-size:cover;
         border-top-left-radius: 6px;
@@ -237,10 +235,12 @@
     
     .text-div-home{
         text-align: left;
-        padding-left:10%;
-        padding-right:15%; 
+        padding-right:5%; 
         text-align: justify;
         text-justify: inter-word;
+        overflow-y: scroll; /* Enable vertical scrolling if content overflows */
+        flex: 1; /* Make the scrollable content take up all available space */
+        padding: 20px;
     }
     
     .text-div-home p{
@@ -269,41 +269,49 @@
         flex-direction: row;
         border:0px;
         margin-top:10px;
-        justify-content:space-around;
+        justify-content:left;
         width:60%;
-        margin-left: 20%;
         border-radius: 4px;
-        background-color:#0E4565;
         height:50px;
+        padding-left: 30px;
     }
     
     .home-welcome-box-btn{
-        border-radius: 6px;
-        border:1px solid rgb(99, 167, 244);
-        height: 80%;
-        margin-top: 5px;
-        background-color: #80DED9;
-        color:rgb(255, 255, 255);
+        border:0px;
+        background: 0;
+        color:rgb(0, 0, 0);
         font-weight: bold;
-        padding: 7px;
+        bottom:0;
+        padding-right: 3px;
+        padding-left: 3px;    
+        margin-left: 2%;
+        margin-right: 2%;
     }
     
-    
+    .home-welcome-box-input {
+        height: 60%;
+        margin-top: 10;
+        margin-right: 50px;
+        left: 0;
+    }
+
     .home-welcome-box-btn:hover{
-        border: 1px solid rgb(99, 167, 244);
-        background-color: #62cac5;
-        color:rgb(255, 255, 255);
+        background: 0;
+        color: rgb(18, 114, 198);    
     }
     
     .home-welcome-box-btn-selected{
-        border-radius: 6px;
-        border:1px solid rgb(55, 91, 132);
-        height: 80%;
+        border:0px;
         margin-top: 5px;
-        background-color: #388ea3;
-        color:rgb(255, 255, 255);
+        color: rgb(18, 114, 198);        
         font-weight: bold;
-        padding: 7px;
+        background: 0;
+        padding-right: 3px;
+        padding-left: 3px;
+        border-bottom: 2px solid rgb(18, 114, 198);        
+        
+        margin-left: 2%;
+        margin-right: 2%;
     }
     
     .imageHome {
@@ -315,16 +323,14 @@
       }
 
       .create-basic-container-home{
-        margin-top:3%;
-        padding-top:5%;
-        padding-bottom:3%;
-        margin-left: 20%;
-        margin-right: 20%;
         background-color: white;
-        border-radius: 40px;
-        text-align:center;
+        padding-left: 5%;
+        padding-top: 3%;
+        text-align:left;
         margin-bottom:2%;
+        padding-right: 10%;
     }
+
     .imageHomep{
         font-style: oblique;
         font-size: small;
@@ -379,7 +385,6 @@
     margin-bottom: 4%;
 }
     .create-basic-container-home{
-        margin-top:3%;
         padding-top:5%;
         padding-bottom:3%;
         background-color: white;
@@ -413,12 +418,11 @@
         justify-content: center;
         margin: 0 auto;
         padding-top:4%;
-        margin-top:4%;
         text-align: center;
         border-radius: 4px;
         background-color: white;
     }
-    
+
     .table-items-options{
         border-collapse: collapse;
         width:100%;
@@ -452,28 +456,29 @@
 
     .title-div-home{
     }
-    
+
     .title-div-home h1{
         font-size:150%;
         font-weight: bolder;
         padding-bottom: 3%;
         color:rgb(4, 14, 117); 
     }
-    
+
     .title-div-home h4{
         font-size:120%;
         font-style: oblique;
         color:rgb(4, 14, 117); 
     }
-    
+
     .text-div-home{
         text-align: left;
-        padding-left:10%;
-        padding-right:15%; 
+        padding-right:5%; 
+        padding-left:5%; 
         text-align: justify;
         text-justify: inter-word;
+        overflow-y: scroll;
     }
-    
+
     .text-div-home p{
         
         font-size:medium;
@@ -491,49 +496,48 @@
         text-justify: inter-word;
         color:black; 
     }
-    
+
     .home-welcome-box{
         display:flex;
         flex-direction: column;
         border:0px;
-        margin-top:30px;
-        justify-content:center;
-        align-items: center;
-        text-align: center;
+        margin-top:10px;
+        justify-content:left;
+        text-align: left;
         width:100%;
         border-radius: 4px;
-        padding-bottom: 3%;
-        padding-top: 10px;
-        background-color:#0E4565;
     }
     
     .home-welcome-box-btn{
-        border-radius: 6px;
-        border:1px solid rgb(99, 167, 244);
-        margin-top: 5px;
-        background-color: #80DED9;
-        color:rgb(255, 255, 255);
+        border:0px;
+        background: 0;
+        color:rgb(0, 0, 0);
         font-weight: bold;
-        width:80%;
+        bottom:0;
+        margin-bottom: 2%;
+        margin-top: 2%;
     }
     
-    
+    .home-welcome-box-input {
+        height: 60%;
+        margin-top: 10;
+        left: 0;
+    }
     .home-welcome-box-btn:hover{
-        border: 1px solid rgb(99, 167, 244);
-        background-color: #62cac5;
-        color:rgb(255, 255, 255);
+        background: 0;
+        color: rgb(18, 114, 198);    
     }
     
     .home-welcome-box-btn-selected{
-        border-radius: 6px;
-        border:1px solid rgb(55, 91, 132);
-
-        width:80%;
+        border:0px;
         margin-top: 5px;
-        background-color: #388ea3;
-        color:rgb(255, 255, 255);
+        color: rgb(18, 114, 198);        
         font-weight: bold;
-        padding: 7px;
+        background: 0;
+        border-left: 2px solid rgb(18, 114, 198);        
+        border-right: 2px solid rgb(18, 114, 198);        
+        margin-bottom: 2%;
+        margin-top: 2%;
     }
     
     .imageHome {
@@ -549,4 +553,16 @@
         color:rgb(113, 113, 113);
         margin-left: 10%;
     }
+    .user-welcome-box{
+        padding-bottom: 10px;
+    }
 }
+
+.home-welcome-box-btn:focus{
+    outline: 0;
+ }
+
+ 
+.home-welcome-box-btn-selected:focus{
+    outline: 0;
+ }

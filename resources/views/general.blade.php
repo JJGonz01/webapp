@@ -9,20 +9,20 @@
   
         <div class="user-welcome-box">
             @if(auth()->user() !== null)
+            
+            <h4>General</h4>
             <div class="user-welcome-box-container">
-                <h4>Home</h4>
+                <div class="home-welcome-box">
+                    <button class="home-welcome-box-btn-selected" onclick = "setArticles(0)" id="btn_pom_info">POMODORO</button>
+                    <button class="home-welcome-box-btn" onclick = "setArticles(1)" id="btn_app_info">NUESTRA APLICACIÓN</button>
+                    <button class="home-welcome-box-btn" onclick = "setArticles(2)" id="btn_nos_option">NOSOTROS</button>
+                </div>
             </div>
             @else
             <p> INICIA SESION PARA CONTINUAR </p>
             @endif
         </div>
 
-
-    <div class="home-welcome-box">
-        <button class="home-welcome-box-btn-selected" onclick = "setArticles(0)" id="btn_pom_info">POMODORO</button>
-        <button class="home-welcome-box-btn" onclick = "setArticles(1)" id="btn_app_info">NUESTRA APLICACIÓN</button>
-        <button class="home-welcome-box-btn" onclick = "setArticles(2)" id="btn_nos_option">NOSOTROS</button>
-    </div>
 
     <div class= "create-basic-container-home" id="pom_info">
         <div class="title-div-home">
@@ -111,7 +111,7 @@
 
     <div class= "create-basic-container-home" id="app_option" style="display:none;">
         <div class="title-div-home">
-            <h1> NOSOTROS </h1>
+            <h1> Nosotros </h1>
             <h4> Comunícate con nosotros</h4>
         </div>
         <div class="text-div-home">

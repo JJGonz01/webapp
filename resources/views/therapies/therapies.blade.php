@@ -18,17 +18,30 @@
 
         <div class="user-welcome-box">
             @if(auth()->user() !== null)
-            <p>LISTADO DE TERAPIAS DE ESTUDIO</p>
+            <div class="user-welcome-box-container">
+                <h4>Terapias</h4>
+                <form action = "{{route('therapies_create', [], false, true)}}" method = "GET">
+                    <button class="user-welcome-box-container-button" id="create-therapy-btn">CREAR TERAPIA</button>
+                </form>
+            </div>
+            <div class="user-welcome-box-container">
+            <div class="home-welcome-box">
+                <button class="home-welcome-box-btn-selected" id="btn_pom_info" onclick="sortTable(0)">TODOS</button>
+                <button class="home-welcome-box-btn" id="btn_app_info" onclick="sortTable(1)">NOMBRE</button>
+                <button class="home-welcome-box-btn" id="btn_nos_option" onclick="sortTable(2)">REGLAS</button>
+                
+                </div>
+                <button class="home-welcome-box-btn" id="btn_pom_info" onclick="filtrarPacientes('')">Limpiar Filtro</button>
+                <input class="home-welcome-box-input" id="filter-input" placeholder="Buscar"></input>
+            </div>
             @else
-                <p> INICIA SESION PARA CONTINUAR </p>
+            <p> INICIA SESION PARA CONTINUAR </p>
             @endif
         </div>
 
         <div class = "options-items-container">
-            <form action = "{{route('therapies_create', [], false, true)}}" method = "GET">
-                <button id="create-therapy-btn" class= "create-button">CREAR TERAPIA</button>
-            </form>
-            <div class="options-items-container-inner">
+            
+            <div  class="options-items-container-inner">
                 @if(count($therapies)>0)
                 <table class="table-items-options">
                     <tr class ="top-index-container">
@@ -37,7 +50,7 @@
                         <th>REGLAS</th>
                         <th>ACCEDER</th> 
                     </tr>
-                    <div class="table-items-options-overflow">
+                    <div id="patient-list" class="table-items-options-overflow">
                         
                             @foreach ($therapies as $therapy)
                             <tr> 
@@ -73,4 +86,6 @@
         </div>
     
 </div> 
+<script src="https://pomodoroadhdapp.azurewebsites.net/filter.js"></script>
+<script>startFilter()</script>
 @endsection

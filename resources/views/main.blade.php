@@ -32,11 +32,7 @@
 </head>
 
 <body>
-    <script src="{{ asset('javascript/navbar.js')}}"></script>
-    <!-- JS SCRIPTS PARA TODA LA WEB-->
-    
-
-    <!-- NAVBAR-->
+    <script src="https://pomodoroadhdapp.azurewebsites.net/javascript/navbar.js"></script>
     <div class="navbar-web">
         <button class="navbar-menu-selector" onclick="navbarButton()">Menu</button>
         <div class="navbar-vertical" id="vertical_nv">
@@ -47,7 +43,7 @@
                         <button id="nav_bar_home">
                             <!--span class="material-symbols-outlined">home</span-->
                             <div>
-                                <p id="navbar-1">Home</p>
+                                <p id="navbar-1">General</p>
                             </div>
                         </button>
                     </form>
@@ -80,15 +76,21 @@
                     </form>
 
         </div>
-        <div>     
-                    <form id="form_crear_sesion" action="{{route('home', [], false, true)}}" method="GET">
-                        <button id="nav_bar_info" class="dissapear_button">
-                            <!--span class="material-symbols-outlined">account_circle</span-->
-                            <div class="hide-text">
-                                <p id="navbar-4">Perfil</p>
-                            </div>
-                        </button>
-                    </form>
+        <div class="general-navbar-vertical">     
+                <button id="nav_bar_info" onclick="showhidetext()" style="color:red;" class="dissapear_button">
+                    <!--span class="material-symbols-outlined">account_circle</span-->
+                    <div class="hide-text">
+                        <p id="navbar-4">Tarea</p>
+                    </div>
+                </button>
+            <form id="form_crear_sesion" action="{{route('home', [], false, true)}}" method="GET">
+                <button id="nav_bar_info" class="dissapear_button">
+                    <!--span class="material-symbols-outlined">account_circle</span-->
+                    <div class="hide-text">
+                        <p id="navbar-4">Perfil</p>
+                    </div>
+                </button>
+            </form>
         </div>
         </div>
         
@@ -99,7 +101,7 @@
                 </div>
                 <div class="master-test">
                     <div id="in-task-container" class="in-row-container" style="display:block;">
-                        <button id="task-show-btn" onclick="showhidetext()" class="acabar-tarea-btn">MOSTRAR TAREA</button>
+                        
                         <p id="in-task-text" style="style:block;"></p>
                         <button id="task-end-btn" onclick="endTask()" class="acabar-tarea-btn">ACABAR TAREA</button>
                     </div>
