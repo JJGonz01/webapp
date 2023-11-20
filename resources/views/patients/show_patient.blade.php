@@ -13,61 +13,38 @@
         <script src="https://pomodoroadhdapp.azurewebsites.net/therapy_js/period_creations.js"></script>
         <script src="https://pomodoroadhdapp.azurewebsites.net/therapy_js/rule.js"></script>
 
+        <div class="user-welcome-box">
         @if (session('success'))
-            <h6 class="alert alert-success"> {{ session('success') }}</h6>
-        @endif
-        @if($errors->any())
-            <h6 class="alert alert-danger">{{ implode('', $errors->all(':message')) }}</h6>
-        @endif
+                <h6 class="alert alert-success"> {{ session('success') }}</h6>
+            @endif
+            @if($errors->any())
+                <h6 class="alert alert-danger">{{ implode('', $errors->all(':message')) }}</h6>
+            @endif
 
-        <div class="patient-info-box">
-            <img src="https://pomodoroadhdapp.azurewebsites.net/images/hijo.png" style="color:white;" class="right-login-container-image"></img>
-            <div>
-                    <p> Paciente: {{$patient -> name}}  {{$patient -> surname}}</p>
-                    <p> Comment: {{$patient -> description }}</p>
+            @if(auth()->user() !== null)
+            <div class="user-welcome-box-container">
+            <h4>{{$patient-> surname}}, {{$patient-> name}}</h4>
+                <form action="{{route('sessions_create', ['patient_id' => $patient -> id], false, true)}}" method="GET">
+            <button class="user-welcome-box-container-button" id="create-patient-button">AÑADIR SESIÓN</button>
+        </form>
             </div>
-
-            <div>
-                <form action="{{route('patient_update', ['id' => $patient -> id])}}"id = "editar_form" method = "GET">
-                    <button id="edit_patient_shown_btn" class="patient-edit-button" href = "{{route('patient_update', ['id' => $patient -> id])}}">
-                            Editar
-                    </button>
-                </form>
-                <form action="{{route('patient_destroy', [$patient->id])}}" id = "eliminar_form" method = "POST">
-                <script>
-                        //SCRIPT QUE HACE QUE SALTE EL POPUP PARA CONFIRMAR (LO PONGO AQUI PARA NO CREAR MAS js)
-                        document.getElementById('eliminar_form').addEventListener("submit", (e) => {
-                            e.preventDefault();
-                            console.log("hola")
-                            if(window.confirm("Va a eliminar a este paciente ¿está seguro? (no podrá rehacer los cambios)")){
-                                document.getElementById('eliminar_form').submit();
-                            }else{
-                            return false;
-                            } 
-                        });
-                </script>  
-                    <div>
-                        @method('DELETE')
-                        @csrf
-                        <button id="delete_patient_shown_btn" type="submit" class="patient-delete-button">
-                            Borrar
-                        </button>
-                
-                    </div>
-                        
-                </form>
-            </div>  
+            <h5 style="margin-left:50px;">{{$patient-> description}}</h5>
+            <div class="user-welcome-box-container">
+                <div class="home-welcome-box" style="margin-right:10px">
+                    <button class="home-welcome-box-btn-selected" onclick = "setTabs(0)" id="btn_pom_info">SESIONES PENDIENTES</button>
+                    <button class="home-welcome-box-btn" onclick = "setTabs(1)" id="btn_app_info">SESIONES COMPLETADAS</button>
+                </div>
+                <div class="left-option">
+                    <button class="home-welcome-box-btn" onclick = "setTabs(2)" id="btn_nos_option">EDITAR PACIENTE</button>
+                </div>
+            </div>
+            @else
+            <p> INICIA SESION PARA CONTINUAR </p>
+            @endif
         </div>
 
-        <div class = "options-items-container">
-        <a class="create-button" onclick="printClickedId(this)" id="create-session-button" href = "{{route('sessions_create', ['patient_id' => $patient -> id], false, true)}}">
-                            CREAR SESIÓN
-            </a>
-            <div class="choice-selection-container">
-                    <button id="session_pending_tab_patient" class="session-filter-button" style = "background-color:var(--container-session-selected-color)"  type = "button" onclick="showSessionCompleted(false)">Pendientes</button>     
-                    <button id="session_completed_tab_patient" class="session-filter-button" type = "button" onclick="showSessionCompleted(true)" style="background-color: var(--container-session-show-color);">Completadas</button>
-            </div>
-            <div class="table-hide-show-container" id ="notCompleted_sessions">
+        <div class = "options-items-container" >
+            <div class="table-hide-show-container" id="pom_info">
                     @if(count($sessions)>0)
                     <table class="table-items-options">
                         <tr class ="top-index-container">
@@ -117,7 +94,7 @@
                             <tr><h1>No hay sesiones pendientes</h1></tr>
                     @endif
             </div>
-            <div class="table-hide-show-container" id ="completed_sessions" style = "display:none">
+            <div class="table-hide-show-container" id="app_info" style="display:none;">
                     @if(count($sessions)>0)
                     <table class="table-items-options">
                         <tr class ="top-index-container">
@@ -153,9 +130,70 @@
                             <tr><h1>No hay sesiones completadas</h1></tr>
                     @endif
             </div>
+
+            <div class="table-hide-show-container" id="app_option" style="display:none;">
+                <form action="{{route('patients_create', [], false, true)}}" id= 'form_pat' method="POST">
+                    @csrf
+                    @if (session('success'))
+                        <h6 class="alert alert-success"> {{ session('success') }}</h6>
+                    @endif
+
+                    @error('name')
+                        <h6 class="alert alert-danger"> Falta nombre: {{ $message }}</h6>
+                    @enderror
+
+                    @error('surname')
+                        <h6 class="alert alert-danger"> Falta apellido: {{ $message }}</h6>
+                    @enderror
+                    <div>
+                        <h3>Editar Paciente</h3>
+                        <p>NOMBRE</p>
+                        <input type="text" value="{{$patient->name}}" name = "name" id = "name" class = "create-basic-container-inputs">
+
+                        <p>APELLIDOS</p>
+                        <input type="text" value="{{$patient->surname}}" name = "surname" id = "surname" class = "create-basic-container-inputs">
+
+                        <p>COMENTARIO</p>
+                        <textarea type="text" value="{{$patient->description}}" name = "description" id="commentary" class = "form-control" rown="10"></textarea>
+                        <button class="edit-button" id="go_to_patient_create" type="submit"> EDITAR </button>    
+                    </form>        
+                <div>
+                    
+                   
+                    <form action="{{route('patient_destroy', [$patient->id])}}" id = "eliminar_form" method = "POST">
+
+                    <script>
+                            //SCRIPT QUE HACE QUE SALTE EL POPUP PARA CONFIRMAR (LO PONGO AQUI PARA NO CREAR MAS js)
+                            document.getElementById('eliminar_form').addEventListener("submit", (e) => {
+                                e.preventDefault();
+                                console.log("hola")
+                                if(window.confirm("Va a eliminar a este paciente ¿está seguro? (no podrá rehacer los cambios)")){
+                                    document.getElementById('eliminar_form').submit();
+                                }else{
+                                return false;
+                                } 
+                            });
+                    </script>  
+                        <div>
+                            @method('DELETE')
+                            @csrf
+                            <button id="delete_patient_shown_btn" type="submit" class="rm-button">
+                                Borrar
+                            </button>
+                    
+                        </div>
+                            
+                    </form>
+                </div>
+                </div>
+                     
+            </div>
         </div>
 
         
         
 </div>
+
+<script src="https://pomodoroadhdapp.azurewebsites.net/filter.js"></script>
+<script>startFilter()</script>
 @endsection

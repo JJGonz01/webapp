@@ -10,17 +10,52 @@
 
     <div>
         <script src="{{ asset('therapy.js') }}"></script>
-        <div class="patient-info-box">
-        <img src="https://pomodoroadhdapp.azurewebsites.net/images/estudiante.png" style="color:white;" class="right-login-container-image"></img>
-            <div>
-                    <p> Terapia: {{$therapy -> name}}</p>
-                    <p> Terapia de estudiao </p>
-            </div>
 
-            <div>
+        <div class="user-welcome-box">
+        @if (session('success'))
+                <h6 class="alert alert-success"> {{ session('success') }}</h6>
+            @endif
+            @if($errors->any())
+                <h6 class="alert alert-danger">{{ implode('', $errors->all(':message')) }}</h6>
+            @endif
+
+            @if(auth()->user() !== null)
+            <div class="user-welcome-box-container">
+            <h4>{{$therapy-> name}}</h4>
+            
+            </div>
+            <div class="user-welcome-box-container">
+                <div class="home-welcome-box" style="margin-right:10px">
+                    <button class="home-welcome-box-btn-selected" onclick = "setTabs(0)" id="btn_pom_info">BLOQUES DE TIEMPO</button>
+                    <button class="home-welcome-box-btn" onclick = "setTabs(1)" id="btn_app_info">REGLAS CREADAS</button>
+                </div>
+                <div class="left-option">
+                    <button class="home-welcome-box-btn" onclick = "setTabs(2)" id="btn_nos_option">EDITAR TERAPIA</button>
+                </div>
+            </div>
+            @else
+            <p> INICIA SESION PARA CONTINUAR </p>
+            @endif
+        </div>
+
+        <input style="display:none;"  value="{{$period->durations}}" id="periods_therapy"></input>
+        <div class = "options-items-container"  id="pom_info">
+            
+            <div id="output" class="text-therapies-info" style="padding-bottom:10px;">
+                <h1 style="font-size: 50px;">Bloques de estudio de la terapia</h1>
+                <br><br>
+
+            </div>
+        </div>
+
+        <div id="app_info" style="display:none;">
+                
+            </div>  
+
+            <div id="app_option" style="display:none;" class="buttons-container">
                 <form action="{{route('therapy_update', ['id' => $therapy -> id], false, true)}}" id = "editar_form" method = "GET">
-                    <button id="show_ther_edit_button" class="patient-edit-button">
-                        Editar
+                    <button style="background-color:#b5dada;" id="show_ther_edit_button">
+                        Ir a editar terapia
                     </button>
                 </form>
 
@@ -40,26 +75,14 @@
                     <div>
                         @method('DELETE')
                         @csrf
-                        <button id="show_ther_delete_button" type="submit" class="patient-delete-button">
-                            Borrar
+                        <button style="background-color:red;"  id="show_ther_delete_button" type="submit">
+                            Borrar terapia
                         </button>
                 
                     </div>
                         
                 </form>
-            </div>  
-        </div>
-
-        <input style="display:none;"  value="{{$period->durations}}" id="periods_therapy"></input>
-        <div class = "options-items-container" >
-            
-            <div id="output" class="text-therapies-info" style="padding-bottom:10px;">
-                <h1 style="font-size: 50px;">Bloques de estudio de la terapia</h1>
-                <br><br>
-
             </div>
-        </div>
-
         <script>
             function printElements(){
                 var periodos = document.getElementById("periods_therapy").value;
@@ -92,5 +115,8 @@
             printElements();
         </script>
 </div>
+
+<script src="https://pomodoroadhdapp.azurewebsites.net/filter.js"></script>
+<script>startFilter()</script>
 
 @endsection
