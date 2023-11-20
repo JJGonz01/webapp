@@ -284,9 +284,8 @@
         padding-right:5%; 
         text-align: justify;
         text-justify: inter-word;
-        overflow-y: scroll; /* Enable vertical scrolling if content overflows */
         flex: 1; /* Make the scrollable content take up all available space */
-        padding: 20px;
+
     }
     
     .text-div-home p{
