@@ -160,10 +160,8 @@ function startTask(){
     bottonInfoText.style.display = "none";
 
     
-    inTaskContainer.style.display = "block"
-    localStorage["test_on"] = "true"
-
-    console.log("si, me meto aqui")
+    inTaskContainer.style.display = "block";
+    localStorage["test_on"] = "true";
     localStorage["teststart"] = (""+date.getDate()+"-"+date.getMonth()+"-"+date.getHours()+"-"+date.getMinutes()+"-"+date.getSeconds()+"-"+date.getMilliseconds());
     setTestInfo(localStorage["testId"])
 
@@ -216,12 +214,10 @@ function showhidetextBool(setOpen){
     if(!setOpen){
         if(testText != null){
             testText.style.display ="none";
-            tesButtonShow.innerHTML = "MOSTRAR TAREA"
         }
     }else{
         if(testText != null){
             testText.style.display ="none";
-            tesButtonShow.innerHTML = "MOSTRAR TAREA"
         }
     }
 }
@@ -253,13 +249,15 @@ function endTask(){
     }
 
     console.log(intId+"id")
+    
 
     intId += 1
     var stringId = intId.toString()
     localStorage["testId"] = stringId
     setTestInfo(stringId)
+    const tesButtonShow = document.getElementById('task_start_button')
+    tesButtonShow.innerHTML = "COMENZAR TAREA"
     setAsInNotStartedTask()
-    
 }
 
 function endAllTasks(){
@@ -313,8 +311,6 @@ function sendJsonInfo(testId, dateTime, differenceTime, actionId, type, nextFunc
 
 function downloadJson(){
     var url = window.location.origin +'/download';
-
-    // Abre una nueva pestaña con la URL especificada
     window.open(url, '_blank');
 }
 function getTimeDifference(dateClick){

@@ -8,6 +8,8 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 <body>
+    <script src="https://pomodoroadhdapp.azurewebsites.net/tests/tests.js">
+    </script>
     @if(null != (auth()->user()))
         <div id="no-task-container" style="display:none;" class="menu-master-container">
                 <div  class="menu-container" >
@@ -20,12 +22,13 @@
                     </div>
 
                     <button id="task_start_button" onclick = "startTask()" class="start-button">COMENZAR TAREA</button>
+                    <button id="task-end-btn" onclick="endTask()" class="acabar-tarea-btn">ACABAR TAREA</button>
                 </div>
         </div>
     @endif
     <div class="slave-test">
         @yield('login')
     </div>
-    <script src="https://pomodoroadhdapp.azurewebsites.net/tests/tests.js"></script>
+
 </body>
 </html>
