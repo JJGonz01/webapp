@@ -78,7 +78,7 @@
         flex-grow: 1;
         height: 100vh; 
         overflow-y: auto;
-        background-color:var(--background-color);
+        background-color:white;
     }
     
     .navbar-vertical p{
