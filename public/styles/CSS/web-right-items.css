@@ -284,8 +284,7 @@
         padding-right:5%; 
         text-align: justify;
         text-justify: inter-word;
-        flex: 1; /* Make the scrollable content take up all available space */
-
+        padding-bottom: 15%;
     }
     
     .text-div-home p{
@@ -395,9 +394,50 @@
         color:rgb(113, 113, 113);
         margin-left: 38%;
       }
+
+      .user-welcome-box h5{
+        display: block;
+    }
 }
 
 @media (max-width: 1150px) {
+
+    
+.user-welcome-box-container-button{
+    border-radius: 10px;
+	background-color: #4361ee;
+	color: white;
+	background-size: cover;
+	margin: 0px 0;
+    margin-top: 40px;
+    margin-right:0px;
+	padding-inline: 25px;
+	padding-block: 15px;
+	font-weight: bold;
+	border: 0;
+    }
+    .user-welcome-box-container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: left;
+        text-align: left;
+    }
+
+    .user-welcome-box h4{
+        color:black;
+        font-size:xx-large;
+        font-style: normal;
+        font-weight: bold;
+        text-align: center;
+        padding-top: 40px;
+        margin-left: 0;
+        margin-bottom: 30px;
+    }
+
+    .user-welcome-box h5{
+        display: none;
+    }
 
     .img-container{
     display: flex;

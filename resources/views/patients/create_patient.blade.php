@@ -36,7 +36,7 @@
 
         <p>COMENTARIO</p>
         <textarea type="text" name = "description" id="commentary" class = "form-control" rown="10"></textarea>
-        <button id="go_to_patient_create" type="submit"> CREAR USUARIO </button>
+        <button id="go_to_patient_create" type="submit"> CREAR PACIENTE </button>
     </form> <!--FORM PACIENTE-->
     </div>
     </div>
