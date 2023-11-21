@@ -51,14 +51,20 @@ class SessionsController extends Controller
         $session = new Session;
         
         switch($request->movement){
-            case "Bajo":
+            case "Muy Bajo":
                 $session-> movement = 0.4; 
                 break;
+            case "Bajo":
+                $session-> movement = 0.6; 
+                break;
             case "Medio":
-                $session-> movement = 0.6;
+                $session-> movement = 0.9;
                 break;
             case "Alto":
-                $session-> movement = 0.9;
+                $session-> movement = 1.5;
+                break;
+            case "Muy Alto":
+                $session-> movement = 2; 
                 break;
         }
         
