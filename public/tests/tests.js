@@ -37,10 +37,13 @@ window.onload = function() {
     
     testIds = [];
     currentTestId = "0";
+
+    var windowpath = window.location.href;
+    startTask();
     var date = new Date;
     var clickedTime = (""+date.getDate()+"-"+date.getMonth()+"-"+date.getHours()+"-"+date.getMinutes()+"-"+date.getSeconds()+"-"+date.getMilliseconds());
     var timeDifference = getTimeDifference(clickedTime);
-    var windowpath = window.location.href;
+
     if(!localStorage["test_on"]){ 
         localStorage["testId"] = "0";
         console.log("pth: "+window.location.pathname)
