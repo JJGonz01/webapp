@@ -81,7 +81,7 @@
                                                         <option value="Muy Bajo"> Muy Bajo (0.4)</option>
                                                         <option value="Bajo"> Bajo (0.6)</option>
                                                         <option value="Medio"> Medio (0.9)</option>
-                                                        <option value="Alto"> Alto (1.2)</option>
+                                                        <option value="Alto"> Alto (1.5)</option>
                                                         <option value="Muy Alto"> Muy Alto (2)</option>
                                                     </select>
                                             </div>

@@ -75,6 +75,8 @@ window.onload = function() {
         else{
            
             if(localStorage["testId"] == lasttask){
+                const testButtonShow = document.getElementById('task_start_button')
+                tesButtonShow.innerHTML = "HACER DE NUEVO";
                 return; 
             }
             setTestInfo(localStorage["testId"]);
@@ -240,20 +242,30 @@ function printClickedId(button, action, form){
 }
 
 function endTask(){
+
     console.log("hola");
-    downloadJson();
-    localStorage["test_on"] = "false";
     
-    var intId = parseInt(localStorage["testId"])
+    localStorage["test_on"] = "false";
 
     if(localStorage["testId"] == lasttask){
+        downloadJson();
         endAllTasks();
+        localStorage["testId"] = "REINICIO";
         return;
     }
 
-    console.log(intId+"id")
-    
+    if(localStorage["testId"] == "REINICIO"){
+        localStorage["testId"] = 0; 
+        setTestInfo(stringId)
+        const tesButtonShow = document.getElementById('task_start_button')
+        tesButtonShow.innerHTML = "COMENZAR TAREA"
+        setAsInNotStartedTask()
+        return;
+    }
 
+    var intId = parseInt(localStorage["testId"])
+    downloadJson();
+    console.log(intId+"id")
     intId += 1
     var stringId = intId.toString()
     localStorage["testId"] = stringId
