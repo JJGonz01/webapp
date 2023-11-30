@@ -13,6 +13,13 @@ h6{
     padding-block: 5px;
     font-weight: bold;
   }
+
+    
+  .reglas-show-container-flow{
+    display: flex;
+    overflow-y: auto;
+    
+  }
   
   .reglas-show-container > *{
     margin: 10px;

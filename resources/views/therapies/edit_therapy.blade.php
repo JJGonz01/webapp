@@ -151,7 +151,7 @@
                         <button id="open_rule_creator_ther_create" type="button" class="llamative-button" onclick="openRuleCreator(0)" id="boton_crear_regla"> <span class="material-symbols-outlined">add</span></button></div>
                         
                         
-                        <div id="lista_reglas_periodo">
+                        <div id="lista_reglas_periodo"  class="reglas-show-container-flow" >
                         </div>
 
                         <div class="reglas-container-right"  id="contenedor_creador_reglas" style="display:none;">
