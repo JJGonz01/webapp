@@ -147,7 +147,7 @@ function setAsInNotStartedTask(){
     const taskInfoContainer = document.getElementById('no-task-container');
     const inTaskContainer = document.getElementById('in-task-container');
     taskInfoContainer.style.display = "block";
-    setTestInfoTab(); //TODO
+    setTestInfoTab();
     inTaskContainer.style.display = "none";
     
 }
@@ -344,15 +344,11 @@ function setTestInfoTab(){
     const task_test = document.getElementById('task_test');
     textToShow = textToShow.split("\n");
     task_test.innerHTML = "";
-
     for(let i = 0; i<textToShow.length; i++){
         var paragraph = document.createElement("p");
         paragraph.textContent = textToShow[i];
         task_test.appendChild(paragraph);
         console.log(textToShow[i]);
     }
-
     console.log(textToShow[0])
 }
-
-//criterios de exclusion

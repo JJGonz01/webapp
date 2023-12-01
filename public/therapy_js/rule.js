@@ -50,7 +50,7 @@ function rulesStart() {
   if (valorReglasAnteriores != "null" && valorReglasAnteriores != "\"empty\"") {
     console.log(valorReglasAnteriores);
     const reglasViejas = JSON.parse(valorReglasAnteriores);
-    console.log(reglasViejas[0]);
+    console.log("reglas viejas"+reglasViejas[0]);
   
     reglasViejas.forEach((regla) => {
       var parsedRegla = JSON.parse(regla);

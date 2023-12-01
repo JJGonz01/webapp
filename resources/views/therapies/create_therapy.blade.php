@@ -5,7 +5,7 @@
 
 <head>
     <title>CREAR TERAPIA</title>
-</head>
+</head> 
 
 
 <form id="form_crear_sesion" action="{{route('therapies_create',[], false, true)}}" method="POST">

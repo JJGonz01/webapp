@@ -275,7 +275,7 @@ function cambiarPeriodo(direccion){
     periodosPrincipal.style.display = "block";
     periodosOtros.style.display = "none";
     if(periods.length > 0){
-      texto_reglas_titulo.innerHTML = "Regla para periodo "+(posicionadoEn+1);
+      texto_reglas_titulo.innerHTML = "Regla para bloque "+(posicionadoEn+1);
       boton_reglas_titulo.style.display="block";
     }
     else{

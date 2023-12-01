@@ -2,7 +2,7 @@
 function navbarStart() {
     var ids = ["nav_bar_home","nav_bar_patients","nav_bar_therapies","nav_bar_info"];
     var name;
-    if( !localStorage["navbar"] || window.location.pathname == "/general"){
+    if( !localStorage["navbar"] || window.location.pathname == "/general" || window.location.pathname == "/HOME" ){
         localStorage["navbar"] = "0";
         name = "General";
     }else if(window.location.pathname == "/patients"){

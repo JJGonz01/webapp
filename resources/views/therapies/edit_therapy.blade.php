@@ -44,16 +44,7 @@
     @endif
     
     <div class="therapy-creation-container">
-            
-                
-        <!-- div class="therapy-input-row">
-            <div>
-                <p>NOMBRE</p>
-                <input type="text" id="name_therapy" name="name" class="name-therapy-input" placeholder="Nombre de la terapia"></input>
-            </div>
-            <button id="save_therapy_btn" type="submit" class="create-big-button">GUARDAR TERAPIA</button>
-            
-        </div -->
+        
            <div class="header-selector">
                 <div style="margin-top:1%; margin-bottom:1%" class="row-text-button">
                     <input type="text" id="name_therapy" value="{{$therapy->name}}" name="name" class="name-therapy-input" placeholder="Nombre de la terapia"></input>
