@@ -17,9 +17,9 @@
 }
 
 .buttons-container button{
-    width: 80%;
+    width: 50%;
     margin-bottom: 10px;
-    margin-top: 10px;
+    margin-top: 20px;
     padding: 10px;
     border-radius: 10px;
 }
@@ -220,6 +220,8 @@
 
     .text-therapies-info p{
         font-size: large;
+        padding-left: 20px;
+        padding-top: 15px;
     }
 
     .text-therapies-info h1{

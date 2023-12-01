@@ -4,14 +4,12 @@ var currentTestId = "0";
 var jsonData
 var lasttask = "3";
 const testExplanationDictionary = {
-    
-    
     "0": "TAREA 1: Crea una terapia con nombre \"Terapia normal\" y que contenga dos bloques de estudio:"
     + " \n (a) Bloque sin reglas de Estudio: 5 min; Descanso: 3 min; Estudio: 5 min"
     + " \n (b) Otro bloque, sin reglas, con duraciones Descanso: 3 min; Estudio: 5 min; sin reglas",
 
 
-    "1": "TAREA 3: Crea una terapia de nombre \"Terapia reglas\" "
+    "1": "TAREA 2: Crea una terapia de nombre \"Terapia reglas\" "
     +"  \n con un bloque de Estudio: 5 minutos, Descanso: 3 minutos y Estudio:10 mininutos, donde haya una regla: "
     +" \n LA REGLA: \"Regla B1\" que cumpla: "
     +"  \n (a)	Se ejecute en estudios y descansos."
@@ -24,9 +22,9 @@ const testExplanationDictionary = {
  	+"  \n (h)  En esta segunda acción, en acciones de sesión, que acabe el periodo.",
 
     
-    "2": "TAREA 2: En la pestaña pacientes, crea un usuario que se llame \"Luis\" de apellidos \"Téllez\" "
-    + " Una vez en el paciente, crea una sesión de estudio, dentro del paciente \"Luis Tellez\", tal que: "+
-    " \n  (a) Su fecha de comienzo: la fecha en la que se vaya a comprobar en el día de la prueba"
+    "2": "TAREA 3: En la pestaña pacientes, crea un usuario que se llame \"Luis\" de apellidos \"Téllez\" "
+    +" Una vez en el paciente, crea una sesión de estudio, dentro del paciente \"Luis Tellez\", tal que: "
+    +" \n  (a) Su fecha de comienzo: la fecha en la que se vaya a comprobar en el día de la prueba"
     +" \n (b) Con nuestra terapia \"Terapia reglas\" "
     +" \n (c) Sensibilidad del sensor BPM a 15"
     + "\n (d) Sensibilidad de movimiento: alto "
@@ -75,8 +73,6 @@ window.onload = function() {
         else{
            
             if(localStorage["testId"] == lasttask){
-                const testButtonShow = document.getElementById('task_start_button')
-                tesButtonShow.innerHTML = "HACER DE NUEVO";
                 return; 
             }
             setTestInfo(localStorage["testId"]);
@@ -204,6 +200,9 @@ function showhidetext(){
     if(testText.style.display == "none"){
         testText.style.display ="block";
         tesButtonShow.innerHTML = "CONTINUAR TAREA"
+        if(localStorage["testId"] == "REINICIO"){
+            tesButtonShow.innerHTML = "HACER DE NUEVO";
+        }
         localStorage["infoOpen"] = "false";
     }else{
         testText.style.display ="none";

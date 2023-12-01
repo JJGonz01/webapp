@@ -54,7 +54,7 @@
 
             <div id="app_option" style="display:none;" class="buttons-container">
                 <form action="{{route('therapy_update', ['id' => $therapy -> id], false, true)}}" id = "editar_form" method = "GET">
-                    <button style="background-color:#b5dada;" id="show_ther_edit_button">
+                    <button style="background-color:#fff;" id="show_ther_edit_button">
                         Ir a editar terapia
                     </button>
                 </form>
@@ -75,7 +75,7 @@
                     <div>
                         @method('DELETE')
                         @csrf
-                        <button style="background-color:red;"  id="show_ther_delete_button" type="submit">
+                        <button style="background-color:#c23c3c;"  id="show_ther_delete_button" type="submit">
                             Borrar terapia
                         </button>
                 

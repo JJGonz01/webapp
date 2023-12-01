@@ -168,7 +168,7 @@ class TherapiesController extends Controller
        $terapia->save(); 
        
        $array_per_raw = $request->input('periods');
-       if (!is_null($array_per_raw) && !empty($array_per_raw) && !is_null($array_per_raw[0])) {
+       if (!is_null($array_per_raw) && !empty($array_per_raw) && !is_null($array_per_raw[0]) && !is_null($array_per_raw[0]['duration_t1'])) {
             $array_per = json_decode($array_per_raw[0], true);
 
             $periods_array = [];
