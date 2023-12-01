@@ -13,7 +13,7 @@ var accionesPosiblesReloj = [
   "Avisar \" ¿Estas estudiando? \"",
   "Avisar \" Animo \"",
   "Avisar \" Sigue asi \" ",
-  "Avisar de juego \" Tienes x puntos \"",
+  "Avisar de juego \" Tienes x puntos \"", 
   "Avisar de juego \" A por mas estrellas \"",
   "Avisar de tranquilizarse \" Tranquilo \"",
   "Avisar de tranquilizarse \" Calma, vas bien \"", 
@@ -66,8 +66,8 @@ function rulesStart() {
   
       reglasNuevas.push(regla); // Agrega la cadena de texto en lugar de parsedRegla
       mostrarReglasRespectoPeriodo("Todos");
-      console.log(mapaReglasPeriodo);
-      console.log(reglasNuevas);
+      console.log("mapa"+mapaReglasPeriodo);
+      console.log("reglas nuevas"+reglasNuevas);
     });
   }
 
@@ -151,9 +151,6 @@ function showOptionsForCondition() {
 
   
   }
-
-  
-
 //ACCIONES (EN LA REGLA: THEN)
 function actionToMake(){
   selectActionReloj.innerHTML = '';
@@ -870,9 +867,12 @@ function deletRule(nombre){
   });
   if (reglaEliminarid != -1) { //borrarla del array y del mapa para que no se muestre en la web
     console.log("hoaslsda");
-    reglasNuevas.splice(reglaEliminarid, 1);
+    reglasNuevas.splice(reglaEliminarid, 1);    console.log("Borrado");
+
+    rulesInput.value = JSON.stringify(reglasNuevas);
     delete mapaReglasPeriodo[regla.conjPeriodo][nombre]; 
   }
+  
   mostrarReglasRespectoPeriodo(regla.conjPeriodo)
 }
 

@@ -154,12 +154,17 @@
                         <input type="text" value="{{$patient->surname}}" name = "surname" id = "surname" class = "create-basic-container-inputs">
 
                         <p>COMENTARIO</p>
-                        <textarea type="text" value="{{$patient->description}}" name = "description" id="commentary" class = "text-area-container form-control" rown="10"></textarea>
+                        <textarea type="text" value="{{$patient->description}}" name = "description" id="commentary" class = "text-area-container" rown="10"></textarea>
                         <button class="edit-button" id="go_to_patient_create" type="submit"> EDITAR </button>    
                     </form>        
                 <div>
                 
-                    <script>
+                     
+                    <form action="{{route('patient_destroy', [$patient->id], false, true)}}" id = "eliminar_form" method = "POST">
+                        <div>
+                            @method('DELETE')
+                            @csrf
+                            <script>
                             //SCRIPT QUE HACE QUE SALTE EL POPUP PARA CONFIRMAR (LO PONGO AQUI PARA NO CREAR MAS js)
                             document.getElementById('eliminar_form').addEventListener("submit", (e) => {
                                 e.preventDefault();
@@ -170,11 +175,7 @@
                                 return false;
                                 } 
                             });
-                    </script>  
-                    <form action="{{route('patient_destroy', [$patient->id], false, true)}}" id = "eliminar_form" method = "POST">
-                        <div>
-                            @method('DELETE')
-                            @csrf
+                        </script> 
                             <button id="delete_patient_shown_btn" type="submit" class="rm-button">
                                 Borrar
                             </button>

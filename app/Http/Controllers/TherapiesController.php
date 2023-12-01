@@ -168,10 +168,11 @@ class TherapiesController extends Controller
        if (!is_null($array_per_raw) && !empty($array_per_raw) && !is_null($array_per_raw[0])) {
             $array_per = json_decode($array_per_raw[0], true);
 
-            if(!is_null($array_per[0]['duration_t1']))
+            
+            if(is_null($array_per[0]) && is_null($array_per[0]['duration_t1']))
             {
                 return redirect()->route('therapy_show', ['id'=> $terapia->id])->with('success','Terapia creada correctamente');
-            }            
+            }                  
             
             $periods_array = [];
 
