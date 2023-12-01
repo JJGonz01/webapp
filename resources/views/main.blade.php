@@ -77,12 +77,7 @@
 
         </div>
         <div class="general-navbar-vertical">     
-                <button id="nav_bar_info" onclick="showhidetext()" style="color:red;" class="dissapear_button">
-                    <!--span class="material-symbols-outlined">account_circle</span-->
-                    <div class="hide-text">
-                        <p id="navbar-4">Tarea</p>
-                    </div>
-                </button>
+               
             <form id="form_crear_sesion" action="{{route('home', [], false, true)}}" method="GET">
                 <button id="nav_bar_info" class="dissapear_button">
                     <!--span class="material-symbols-outlined">account_circle</span-->

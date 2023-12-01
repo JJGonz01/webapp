@@ -23,12 +23,15 @@ const testExplanationDictionary = {
 
     
     "2": "TAREA 3: En la pestaña pacientes, crea un usuario que se llame \"Luis\" de apellidos \"Téllez\" "
-    +" Una vez en el paciente, crea una sesión de estudio, dentro del paciente \"Luis Tellez\", tal que: "
-    +" \n  (a) Su fecha de comienzo: la fecha en la que se vaya a comprobar en el día de la prueba"
-    +" \n (b) Con nuestra terapia \"Terapia reglas\" "
-    +" \n (c) Sensibilidad del sensor BPM a 15"
+    + " Una vez en el paciente, crea una sesión de estudio, dentro del paciente \"Luis Tellez\", tal que: "
+    + " \n  (a) Su fecha de comienzo: la fecha en la que se vaya a comprobar en el día de la prueba"
+    + " \n (b) Con nuestra terapia \"Terapia reglas\" "
+    + " \n (c) Sensibilidad del sensor BPM a 15"
     + "\n (d) Sensibilidad de movimiento: alto "
-    + "\n (e) Que sume puntos cuando ambos sensores sean bajos."
+    + "\n (e) Que sume puntos cuando ambos sensores sean bajos.",
+
+    "3": "TAREAS FINALIZADAS, ENVÍE LOS ARCHIVOS AL CORREO josejesus.gonzalez@uclm.es \n"+
+    "Si quiere repetir las tareas pulse \" HACER DE NUEVO \""
    
 }
 window.onload = function() {
@@ -37,55 +40,27 @@ window.onload = function() {
     currentTestId = "0";
 
     var windowpath = window.location.href;
-    startTask();
-    var date = new Date;
-    var clickedTime = (""+date.getDate()+"-"+date.getMonth()+"-"+date.getHours()+"-"+date.getMinutes()+"-"+date.getSeconds()+"-"+date.getMilliseconds());
-    var timeDifference = getTimeDifference(clickedTime);
-
-    if(!localStorage["test_on"]){ 
+    
+    if(!localStorage["test_on"]){ //No se ha comenzado a hacer tests
         localStorage["testId"] = "0";
-        console.log("pth: "+window.location.pathname)
-        if(window.location.pathname != "" && window.location.pathname != "/" && window.location.pathname != "/home"  && window.location.pathname != "home")
-            setAsInNotStartedTask();
-        else{
-            sendJsonInfo(localStorage["testId"], clickedTime, timeDifference, windowpath ,"url", null, null);
-        }
-        
+        localStorage["test_on"] = "true";
     }
-    else if(localStorage["test_on"] == "false")
-    {
-        if(localStorage["testId"] && localStorage["testId"] != lasttask && window.location.pathname != "" && window.location.pathname != "/" && window.location.pathname != "/home"  && window.location.pathname != "home")
-        {
-            setAsInNotStartedTask();
-            sendJsonInfo(localStorage["testId"], clickedTime, timeDifference, windowpath ,"url", null, null);
-        }
 
-        else 
-            endAllTasks();
-            return;
+    if(window.location.pathname != "" && window.location.pathname != "/" && window.location.pathname != "/home"  && window.location.pathname != "home"){
+        setAsInNotStartedTask();
+        var date = new Date;
+        var clickedTime = (""+date.getDate()+"-"+date.getMonth()+"-"+date.getHours()+"-"+date.getMinutes()+"-"+date.getSeconds()+"-"+date.getMilliseconds());
+        var timeDifference = getTimeDifference(clickedTime);
+        sendJsonInfo(localStorage["testId"], clickedTime, timeDifference, windowpath ,"url", null, null);
     }
     else{
-        
-        if(!localStorage["testId"]){
-            setTestInfo("0");
-            localStorage["testId"] = "0";
-        }
-        else{
-           
-            if(localStorage["testId"] == lasttask){
-                return; 
-            }
-            setTestInfo(localStorage["testId"]);
-        }
-        setAsInTask(); 
-
-        sendJsonInfo(localStorage["testId"], clickedTime, timeDifference, windowpath ,"url", null, null);
-
+        return;
     }
+
     for(var i = 0; i<=5; i++){
         testIds[i+""] = "false";
     }
-    //setTestInfo(currentTestId);
+
     var buttonList = document.getElementsByTagName('button');
     
     for(var f = 0;f< buttonList.length;f++){
@@ -152,15 +127,30 @@ function setAsInNotStartedTask(){
     
 }
 
+function setTestInfoTab(){
+    var textToShow = testExplanationDictionary[localStorage["testId"]];
+    const task_test = document.getElementById('task_test');
+    textToShow = textToShow.split("\n");
+    task_test.innerHTML = "";
+    for(let i = 0; i<textToShow.length; i++){
+        var paragraph = document.createElement("p");
+        paragraph.textContent = textToShow[i];
+        task_test.appendChild(paragraph);
+        console.log(textToShow[i]);
+    }
+    console.log(textToShow[0])
+}
+
 function startTask(){
     var date = new Date;
     const taskInfoContainer = document.getElementById('no-task-container');
     const inTaskContainer = document.getElementById('in-task-container');
     const bottonInfoText = document.getElementById('in-task-text');
+    const endButton = document.getElementById('task-end-btn')
+    endButton.innerHTML = "HE TERMINADO LA TAREA";
+
     taskInfoContainer.style.display = "none";
     bottonInfoText.style.display = "none";
-
-    
     inTaskContainer.style.display = "block";
     localStorage["test_on"] = "true";
     localStorage["teststart"] = (""+date.getDate()+"-"+date.getMonth()+"-"+date.getHours()+"-"+date.getMinutes()+"-"+date.getSeconds()+"-"+date.getMilliseconds());
@@ -169,7 +159,7 @@ function startTask(){
 }
 
 function setTestInfo(testID){
-    console.log("aqui es donde falla? "+testID)
+    
     const testText = document.getElementById('in-task-text')
     if(testText != null)
         testText.style.display="none";
@@ -197,16 +187,21 @@ function addFunctionToOnClick(button){
 function showhidetext(){
     const testText = document.getElementById('no-task-container');
     const tesButtonShow = document.getElementById('task_start_button')
+    const endButton = document.getElementById('task-end-btn')
+
     if(testText.style.display == "none"){
         testText.style.display ="block";
-        tesButtonShow.innerHTML = "CONTINUAR TAREA"
-        if(localStorage["testId"] == "REINICIO"){
-            tesButtonShow.innerHTML = "HACER DE NUEVO";
+        tesButtonShow.innerHTML = "-"
+        if(localStorage["testId"] == lasttask){
+            endButton.innerHTML = "HACER DE NUEVO";
+        }
+        else{
+            endButton.innerHTML = "HE TERMINADO LA TAREA";
         }
         localStorage["infoOpen"] = "false";
     }else{
         testText.style.display ="none";
-        tesButtonShow.innerHTML = "COMENZAR TAREA"
+        tesButtonShow.innerHTML = "-"
         localStorage["infoOpen"] = "true";
     }
 }
@@ -243,46 +238,25 @@ function printClickedId(button, action, form){
 function endTask(){
 
     console.log("hola");
-    
-    localStorage["test_on"] = "false";
-
-    if(localStorage["testId"] == lasttask){
-        downloadJson();
-        endAllTasks();
-        localStorage["testId"] = "REINICIO";
-        return;
-    }
-
-    if(localStorage["testId"] == "REINICIO"){
-        localStorage["testId"] = 0; 
-        setTestInfo(stringId)
-        const tesButtonShow = document.getElementById('task_start_button')
-        tesButtonShow.innerHTML = "COMENZAR TAREA"
-        setAsInNotStartedTask()
-        return;
-    }
-
     var intId = parseInt(localStorage["testId"])
     downloadJson();
     console.log(intId+"id")
     intId += 1
     var stringId = intId.toString()
     localStorage["testId"] = stringId
+    if(localStorage["testId"] == "2"){
+        const endButton = document.getElementById('task-end-btn')
+        endButton.innerHTML = "HACER DE NUEVO";
+        setTestInfoTab()
+        return;
+    }
+    else if (localStorage["testId"] == lasttask){
+        localStorage["testId"] = 0;
+    }
     setTestInfo(stringId)
     const tesButtonShow = document.getElementById('task_start_button')
-    tesButtonShow.innerHTML = "COMENZAR TAREA"
+    tesButtonShow.innerHTML = "-"
     setAsInNotStartedTask()
-}
-
-function endAllTasks(){
-    const taskInfoContainer = document.getElementById('no-task-container');
-    const inTaskContainer = document.getElementById('in-task-container');
-    const bottonInfoText = document.getElementById('in-task-text');
-
-    taskInfoContainer.style.display = "none"
-    inTaskContainer.style.display = "block"
-    inTaskContainer.innerHTML = "Tareas acabadas, envíe los archivos descargados a josejesus.gonzalez@uclm.es, muchas gracias"
-    bottonInfoText.style.display = "none"
 }
 
 function sendJsonInfo(testId, dateTime, differenceTime, actionId, type, nextFunctionButton, form){
@@ -339,16 +313,4 @@ function getTimeDifference(dateClick){
     return arrayDiferences;
 }
 
-function setTestInfoTab(){
-    var textToShow = testExplanationDictionary[localStorage["testId"]];
-    const task_test = document.getElementById('task_test');
-    textToShow = textToShow.split("\n");
-    task_test.innerHTML = "";
-    for(let i = 0; i<textToShow.length; i++){
-        var paragraph = document.createElement("p");
-        paragraph.textContent = textToShow[i];
-        task_test.appendChild(paragraph);
-        console.log(textToShow[i]);
-    }
-    console.log(textToShow[0])
-}
+

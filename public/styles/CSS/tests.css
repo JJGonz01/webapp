@@ -17,6 +17,10 @@
     text-align: center;
 }
 
+.sticky-button button:hover {
+    transform: scale(1.1); /* Hace que el botón sea un 10% más grande en hover */
+}
+  
 
 .menu-container h1, h3{
     padding-bottom: 3%;
@@ -90,6 +94,35 @@
         align-items: center;
         text-align: center;
     }
+    
+    
+.sticky-button {
+    position: fixed;
+    bottom: 0;
+    left: 10%;
+    transform: translateX(-50%);
+    background-color: #4c84af; /* Color de fondo del botón */
+    padding: 10px;
+    text-align: center;
+    width: max-content;
+    z-index: 1000; /* Asegura que esté por encima del contenido */
+}
+
+.sticky-button button {
+    /* Estilos adicionales para el botón */
+    color: white;
+    font-weight: bold;
+    background-color: rgb(18, 185, 185);
+    border: none;
+    padding: 20px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 36px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
 
 }
 
@@ -106,5 +139,33 @@
         align-items: center;
         text-align: center;
     }
+
+    
+.sticky-button {
+    position: fixed;
+    bottom: 0;
+    left: 10%;
+    transform: translateX(-50%);
+    background-color: #4c84af; /* Color de fondo del botón */
+    padding: 5px;
+    text-align: center;
+    width: max-content;
+    z-index: 1000; /* Asegura que esté por encima del contenido */
+}
+
+.sticky-button button {
+    /* Estilos adicionales para el botón */
+    color: white;
+    font-weight: bold;
+    background-color: rgb(18, 185, 185);
+    border: none;
+    padding: 5px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
 
 }
