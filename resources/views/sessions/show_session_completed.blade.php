@@ -15,13 +15,29 @@
     <input style="display:none;" id = "bpm_medios" value = "{{$bpm_medios}}"></input>
     <input style="display:none;" id = "move_medios" value = "{{$move_medios}}"></input>
     <div id="prueba"></div>
-    <div class="user-welcome-box">
+
+    <script src="https://pomodoroadhdapp.azurewebsites.net/general_page.js"></script>
+  
+        <div class="user-welcome-box">
+            
             @if(auth()->user() !== null)
-            <p><a href="https://pomodoroadhdapp.azurewebsites.net/patient/{{$patient->id}}">Paciente</a>/Ver sesión</p>
+            
+            <h4>General</h4>
+            <form action="{{route('patient_show', [$patientId], false, true)}}" method="GET">
+                <button class="user-welcome-box-container-button" id="create-patient-button">VOLVER A PACIENTE</button>
+            </form>
+            <div class="user-welcome-box-container">
+                <div class="home-welcome-box">
+                    <button class="home-welcome-box-btn-selected" onclick = "setArticles(0)" id="btn_pom_info">SENSORES</button>
+                    <button class="home-welcome-box-btn" onclick = "setArticles(1)" id="btn_app_info">INFORMACIÓN RELEVANTE</button>
+                    <button class="home-welcome-box-btn" onclick = "setArticles(2)" id="btn_nos_option">JUEGO</button>
+                </div>
+            </div>
             @else
-                <p> INICIA SESION PARA CONTINUAR </p>
+            <p> INICIA SESION PARA CONTINUAR </p>
             @endif
-    </div>
+        </div>
+    <div class= "create-basic-container-home" id="pom_info">
     <div class="options-items-container" style="padding:5%;">
         <h1>SESION COMPLETADA</h1>
         <div>
@@ -58,7 +74,9 @@
                 <canvas id="barrasReglas"></canvas>
         </div>  
 
-        <div class="container-tabla">
+    </div>
+
+    <div class="container-tabla" id="app_info" style="display:none;">
             <h3>Información Relevante Periodo</h3>
             <table class="table-data">
                 <tr>
@@ -72,8 +90,8 @@
             </table>
 
 
-        </div>
-        <div class="margin-info-container">
+    </div>
+        <div class="margin-info-container" id="app_option" style="display:none;">
         <h3>Juego durante toda la sesión</h3>
         <h5>Durante esta sesión, el paciente {{$patient->name}} ha conseguido {{$puntos}} puntos</h5>
         </div>

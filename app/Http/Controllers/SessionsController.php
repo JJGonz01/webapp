@@ -112,7 +112,7 @@ class SessionsController extends Controller
             return view('sessions.show_session_running', ['session' => $session]);
         else if($session -> completed == true) //si ya se acabo
             return view('sessions.show_session_completed', 
-            ['session' => $session, 'bpm_valores' => $bpm_valores, 'bpm_medios'=>$bpm_medios,
+            ['session' => $session, 'bpm_valores' => $bpm_valores, 'bpm_medios'=>$bpm_medios,'patientId'=>$patient->id,
             'move_valores'=>$move_valores, 'move_medios'=>$move_medios, 'limite_bpm'=>$limite_bpm, 'limite_move' => $limite_move,'reglas'=>$reglas,
              'puntos' => $puntos,'listaReglasIniciales'=> $listaReglasIniciales, 'patient' => $patient]);
 
