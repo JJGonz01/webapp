@@ -38,7 +38,7 @@
 }
 
 .master-test p{
-    font-weight: bolder;
+    font-weight: bolder; 
 }
 
 .acabar-tarea-btn{
@@ -49,19 +49,9 @@
     
 }
 
-.start-button{
-    border-radius: 4px; 
-    background-color: var(--azul-guardar);
-    color:white;
-    background-size: cover;
-    margin: 5px 0;
-    padding-inline: 15px;
-    padding-block: 10px;
-    font-weight: bold;
-    font-size: large;
-}
+
 .start-button:hover{
-    background-color: var(--azul-guardar-hover);
+    background-color: #92b7ff;
     color: white;
 }
 .start-button p{
@@ -84,13 +74,26 @@
 }
 
 @media (min-width:951px) {
+
+    .start-button{
+        border-radius: 4px; 
+        background-color: #92b7ff;
+        color:white;
+        background-size: cover;
+        margin: 5px 0;
+        padding-inline: 15px;
+        margin-left:90%;
+        font-weight: bold;
+        font-size: large;
+    }
+
     .menu-container{
         background-color: rgb(71, 127, 149);
         border-radius: 9px;
         margin-left: 10%;
         margin-right: 10%;
         margin-bottom: 10%;
-        padding:3%;
+        padding:1%;
         align-items: center;
         text-align: center;
     }
@@ -128,6 +131,20 @@
 
 
 @media (max-width:950px) {
+
+    .start-button{
+        border-radius: 4px; 
+        background-color: #92b7ff;
+        color:white;
+        background-size: cover;
+        margin: 5px 0;
+        padding-inline: 15px;
+        left:10px;
+        width:90%;
+        font-weight: bold;
+        font-size: large;
+    }
+
     .menu-container{
         background-color: rgb(71, 127, 149);
         border-radius: 9px;

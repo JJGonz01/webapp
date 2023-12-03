@@ -15,8 +15,9 @@
 
 
        <div id="no-task-container" style="display:none;" class="menu-master-container">
-               <button id="task_start_button" onclick = "startTask()" class="start-button">-</button>
+               
                <div  class="menu-container">
+                   <button id="task_start_button" onclick = "startTask()" class="start-button">-</button>
                    <div>
                        <h1 class="test-container-task" style="color:white;" id="task_test"></h1> 
                        <h3 style="color:white; font-style:oblique">Realice la tarea, y cuando esté completa (o se vea atascado) pulse "ACABAR TAREA" y DESCARGUE el archivo, cuando acabe
