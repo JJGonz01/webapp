@@ -148,12 +148,14 @@ function startTask(){
     const bottonInfoText = document.getElementById('in-task-text');
     const endButton = document.getElementById('task-end-btn')
     endButton.innerHTML = "HE TERMINADO LA TAREA";
-
     taskInfoContainer.style.display = "none";
     bottonInfoText.style.display = "none";
     inTaskContainer.style.display = "block";
     localStorage["test_on"] = "true";
-    localStorage["teststart"] = (""+date.getDate()+"-"+date.getMonth()+"-"+date.getHours()+"-"+date.getMinutes()+"-"+date.getSeconds()+"-"+date.getMilliseconds());
+    localStorage["infoOpen"] = "false";
+    if(!localStorage["teststart"]){
+        localStorage["teststart"] = (""+date.getDate()+"-"+date.getMonth()+"-"+date.getHours()+"-"+date.getMinutes()+"-"+date.getSeconds()+"-"+date.getMilliseconds());
+    }
     setTestInfo(localStorage["testId"])
 
 }
@@ -191,32 +193,31 @@ function showhidetext(){
 
     if(testText.style.display == "none"){
         testText.style.display ="block";
+        localStorage["infoOpen"] = "true";
         tesButtonShow.innerHTML = "-"
-        if(localStorage["testId"] == lasttask){
+        if(localStorage["testId"] == "3"){
             endButton.innerHTML = "HACER DE NUEVO";
         }
         else{
             endButton.innerHTML = "HE TERMINADO LA TAREA";
         }
-        localStorage["infoOpen"] = "false";
     }else{
         testText.style.display ="none";
+        localStorage["infoOpen"] = "false";
         tesButtonShow.innerHTML = "-"
-        localStorage["infoOpen"] = "true";
     }
 }
 
 
 function showhidetextBool(setOpen){
-    const testText = document.getElementById('in-task-text')
-    const tesButtonShow = document.getElementById('task-show-btn')
+    const taskInfoContainer = document.getElementById('no-task-container');
     if(!setOpen){
-        if(testText != null){
-            testText.style.display ="none";
+        if(taskInfoContainer != null){
+            taskInfoContainer.style.display ="none";
         }
     }else{
-        if(testText != null){
-            testText.style.display ="none";
+        if(taskInfoContainer != null){
+            taskInfoContainer.style.display ="block";
         }
     }
 }
@@ -244,14 +245,16 @@ function endTask(){
     intId += 1
     var stringId = intId.toString()
     localStorage["testId"] = stringId
-    if(localStorage["testId"] == "2"){
-        const endButton = document.getElementById('task-end-btn')
+    const endButton = document.getElementById('task-end-btn')
+    if(localStorage["testId"] == "3"){
+        setTestInfo(stringId)
         endButton.innerHTML = "HACER DE NUEVO";
         setTestInfoTab()
         return;
     }
-    else if (localStorage["testId"] == lasttask){
+    else if (localStorage["testId"] == "4"){
         localStorage["testId"] = 0;
+        endButton.innerHTML = "HE TERMINADO LA TAERA";
     }
     setTestInfo(stringId)
     const tesButtonShow = document.getElementById('task_start_button')
