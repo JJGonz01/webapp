@@ -9,7 +9,7 @@
 <div class= "general-items-container">
 
     <div>
-        <script src="https://pomodoroadhdapp.azurewebsites.net/therapy_js/menus_terapia.js') }}"></script>
+        <script src="https://pomodoroadhdapp.azurewebsites.net/therapy_js/menus_terapia.js"></script>
 
         <div class="user-welcome-box">
         @if (session('success'))

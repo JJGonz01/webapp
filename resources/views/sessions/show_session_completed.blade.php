@@ -21,11 +21,11 @@
         <div class="user-welcome-box">
             
             @if(auth()->user() !== null)
-            
-            <h4>General</h4>
             <form action="{{route('patient_show', [$patientId], false, true)}}" method="GET">
-                <button class="user-welcome-box-container-button" id="create-patient-button">VOLVER A PACIENTE</button>
+                <button style="margin-left:50px;" class="user-welcome-box-container-button" id="create-patient-button">VOLVER A PACIENTE</button>
             </form>
+            <h4>General</h4>
+            
             <div class="user-welcome-box-container">
                 <div class="home-welcome-box">
                     <button class="home-welcome-box-btn-selected" onclick = "setArticles(0)" id="btn_pom_info">SENSORES</button>
