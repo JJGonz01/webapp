@@ -1,4 +1,5 @@
 var periods =  [];
+var changed = {};
 var numerosPeriodos = 0;
 var posicionadoEn = 0;
 var periodContainerOpen = false;
@@ -41,6 +42,7 @@ function saveTemporalPeriod(button) {
   var t2 = document.getElementById('t2');
   var descanso = document.getElementById('descanso');
 
+
   const period = {
     duration_t1: t1.value,
     duration_t2: t2.value,
@@ -50,7 +52,7 @@ function saveTemporalPeriod(button) {
   if (!period.duration_t1.trim()||!period.duration_t2.trim()||!period.duration_rest.trim()) {
     errorMessage.style.display = "block";
     errorMessage.innerHTML = "ERROR: Valor no rellenado";
-  } else if (parseFloat(period.duration_t1) <= 0) {
+  } else if (parseFloat(period.duration_t1) <= 0) { 
     errorMessage.style.display = "block";
     errorMessage.innerHTML = "ERROR: Valor estudio 1debe ser mayor que cero";
     t1.value = '';
@@ -63,6 +65,7 @@ function saveTemporalPeriod(button) {
     errorMessage.innerHTML = "ERROR: Valor descanso debe ser mayor que cero";
     descanso.value = '';
   } else {
+    
     var boton_reglas_titulo = document.getElementById('open_rule_creator_ther_create');
     boton_reglas_titulo.style.display="block";
     console.log(periods.length);
@@ -82,6 +85,7 @@ function saveTemporalPeriod(button) {
     addPeriodsIdToSeleccion(button);
     showCreatedPeriods(esNuevo);
     showmessage(esNuevo);
+    agregarListeners() 
     setSelectedButton(1);
   }
 }
@@ -124,7 +128,7 @@ function showCreatedPeriods(esNuevo) {
   const treglas_crear_btn = document.getElementById('boton_crear_regla');
   container.innerHTML = '';
   texto_periodo_nombre.innerHTML = 'Editar bloque '+ (posicionadoEn+1);
-
+  takeChangeWithoutResolving();
   if(esNuevo == true){  
       const listaBtts = document.getElementById('lista_periodo');
       var botonPer = document.createElement('button');
@@ -182,7 +186,7 @@ function addPeriodsIdToSeleccion(button) {
  * Cuando se crea un periodo a parte del principal
  */
 function savePeriodExtra(button){
-  
+ 
   const texto_reglas_titulo = document.getElementById('texto_regla_periodo');
   const errorMessage = document.getElementById("error_period_extra");
   const periodInput = document.getElementById('input_period');
@@ -214,6 +218,7 @@ function savePeriodExtra(button){
     var esNuevo = false;
     if(periods.length == posicionadoEn) esNuevo = true;
     periods[posicionadoEn] = period;
+    takeChangeWithoutResolving();
     errorMessage.style.display = "none";
     console.log(periods);
     var periodoSelect = document.getElementById('selectConjPeriodo');
@@ -228,6 +233,7 @@ function savePeriodExtra(button){
     addPeriodsIdToSeleccion(button);
     showCreatedPeriods(esNuevo);
     showmessage(esNuevo);
+    agregarListeners();
     setSelectedButton(1);
   }
 }
@@ -386,4 +392,46 @@ function setSelectedButton(sum){
           }
         }
     }
+}
+
+
+function validarFormulario(){
+  if (true) {
+    // Mostrar el mensaje de confirmación
+    var confirmacion = confirm("¿Estás seguro que quieres enviar el formulario?");
+    return confirmacion; // Devuelve true o false dependiendo de la respuesta del usuario
+  } else {
+    return true; // Si no se cumple la condición, enviar el formulario sin confirmación
+  }
+}
+function checkChanges(){
+  var chg = false;
+  for(var i = 0; i<changed.length; i++){
+    chg = chg && changed[i];
+  }
+  
+  return chg;
+}
+function agregarListeners() {
+  // Obtener todos los elementos input del documento
+  var inputs = document.querySelectorAll('input, select, textarea');
+
+  // Recorrer todos los inputs y agregar un event listener para el cambio
+  inputs.forEach(function(input) {
+    input.addEventListener('change', function(event) {
+      addChangeWithoutResolving();
+    });
+  });
+}
+
+function addChangeWithoutResolving(){
+  console.log("eing"+posicionadoEn)
+  changed[posicionadoEn] = false;
+  console.log("hola" + checkChanges())
+}
+
+function takeChangeWithoutResolving(){
+  changed[posicionadoEn] = true;
+  console.log("adios" + checkChanges())
+
 }

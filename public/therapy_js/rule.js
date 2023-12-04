@@ -524,7 +524,7 @@ function guardarRegla(nombreAnterior){
     
     if (indiceEliminar != -1) {
       reglasNuevas.splice(indiceEliminar, 1);
-      delete mapaReglasPeriodo[conjPeriodo][ruleNameInput.value]; //lo elimino tambien del mapa!
+      delete mapaReglasPeriodo[conjPeriodo][isEditing]; //lo elimino tambien del mapa!
     }
   }
   else{

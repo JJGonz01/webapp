@@ -14,7 +14,7 @@
                 <div class="home-welcome-box">
                     <button class="home-welcome-box-btn-selected" onclick = "setArticles(0)" id="btn_pom_info">TAREAS</button>
                     <button class="home-welcome-box-btn" onclick = "setArticles(1)" id="btn_app_info">AYUDA APLICACIÓN</button>
-                    <button class="home-welcome-box-btn" onclick = "setArticles(2)" id="btn_nos_option">SUGERENIAS</button>
+                    <button class="home-welcome-box-btn" onclick = "setArticles(2)" id="btn_nos_option">SUGERENCIAS</button>
                 </div>
             </div>
             @else
@@ -35,8 +35,9 @@
                 Cuando acabe las tareas, rellene el siguiente <a href="https://forms.gle/vZvypwLjoNV8YfAP6">formulario</a>.
             </p>
             <p>
-                Las tareas a realizar consisten en cumplir el objetivo establecido, no hay limite de tiempo. Cuando crea que la ha completado o se queda atascado en algún paso, 
-                seleccione el botón "ACABAR TAREA" que aparecerá en la parte inferior de la web. Para más comodidad se puede mostrar y ocultar la tarea a realizar.
+                Las tareas a realizar consisten en cumplir el objetivo establecido, no hay limite de tiempo. El botón que encontrará abajo a la izquierda de su monitor le permitirá ir alternando entre
+                el menú en el que se detalla la tarea y la aplicación web. Una vez acabado el test, deberá darle al botón "HE TERMINADO LA TAREA" y automáticamente se le descargará un archivo. Una vez lo
+                descargue guardelo, y al acabar las tres tareas, envíelo al correo josejesus.gonzalez@uclm.es
             </p>
 
             <p>
@@ -54,8 +55,12 @@
         </div>
         <div class="text-div-home">
             <p>
-                Crea pacientes en la pestaña pacientes, junto al icono de dos usuarios en la barra de tareas. Por cada usuario creado, se añadirá una id y una información adicional, si cree que puede
-                haber cualquier otra opción o configuración, escribanos sus comentarios.
+                Crea pacientes en la pestaña pacientes, en la barra de tareas "Pacientes". Por cada usuario creado, se añadirá una id y una información adicional, si cree que se podría incluir
+                cualquier otra opción o configuración, escribanos sus comentarios.
+            </p>
+            <p>
+                Crea terapias en la pestaña terapias, en la barra de tareas "Terapias". Cada terapia tiene bloques de estudio, donde podrá editar un periodo de estudio y de descanso. Recuerde siempre guardar
+                cuando cree o edite un bloque.
             </p>
             <p></p>
         </div>

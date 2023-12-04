@@ -39,6 +39,8 @@
         </div>
 
         <input style="display:none;"  value="{{$period->durations}}" id="periods_therapy"></input>
+        <input style="display:none;"  value="{{$therapy->rules}}" id="rules_therapy"></input>
+
         <div class = "options-items-container"  id="pom_info">
             
             <div id="output" class="text-therapies-info" style="padding-bottom:10px;">

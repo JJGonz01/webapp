@@ -23,7 +23,7 @@
 
             @if(auth()->user() !== null)
             <div class="user-welcome-box-container">
-            <h4>{{$patient-> surname}}, {{$patient-> name}}</h4>
+                <h4>{{$patient-> surname}}, {{$patient-> name}}</h4>
                 <form action="{{route('sessions_create', ['patient_id' => $patient -> id], false, true)}}" method="GET">
                     <button class="user-welcome-box-container-button" id="create-patient-button">AÑADIR SESIÓN</button>
                 </form>
