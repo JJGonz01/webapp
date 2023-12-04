@@ -23,6 +23,7 @@ return new class extends Migration
 
             $table->float('bpm_lim')->default(0);
             $table->float('move_lim')->default(0);
+            $table->string('time_show')->default("mostrarNada");
 
             $table->integer('percentage')->default(8);
             $table->float('movement')->default(0.6);

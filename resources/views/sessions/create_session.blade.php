@@ -70,6 +70,16 @@
                                     <div>
 
                                         <div>
+
+                                            <div class="inputs-session">
+                                                    <label for="tiempoFalta">Pantalla reloj durante la sesión</label>
+                                                    <select name ="tiempoFalta" id="tiempoFalta">
+                                                        <option value="mostrarNada">No mostrar en reloj minutos durante la sesión</option>
+                                                        <option value="mostrarRestante">Mostrar el tiempo que falta del periodo (estudio/descanso)</option>
+                                                        <option value="mostrarHora">Mostrar la hora actual</option>
+                                                    </select>                   
+                                            </div>
+
                                             <div class="inputs-session">
                                                 <label for="porcentaje">Sensibilidad (%) BPM</label>
                                                 <input id="porcentaje" value = 8 type="number" name="porcentaje" class="form-control" rown="10"></input>

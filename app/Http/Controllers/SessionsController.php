@@ -45,7 +45,8 @@ class SessionsController extends Controller
             'therapy_id' => 'required | max:255',           
             'movement' => 'required',
             'porcentaje' => 'required|numeric|between:1,100',
-            'modoJuego' => 'max:255'
+            'modoJuego' => 'max:255',
+            'tiempoFalta' => ''
         ]);
 
         $session = new Session;
@@ -70,6 +71,7 @@ class SessionsController extends Controller
         
         
         $session-> percentage = $request-> porcentaje;
+        $session-> time_show = $request-> tiempoFalta;
         $session-> description = $request-> description;
         $session-> modoJuego = $request-> modoJuego;
 
@@ -232,7 +234,8 @@ class SessionsController extends Controller
             'therapy_id' => 'required | max:255',           
             'movement' => 'required',
             'porcentaje' => 'required|numeric|between:1,100',
-            'modoJuego' => 'max:255'
+            'modoJuego' => 'max:255',
+            'tiempoFalta' => ''
         ]);
         
         switch($request->movement){
@@ -250,7 +253,7 @@ class SessionsController extends Controller
         $session-> percentage = $request-> porcentaje;
         $session-> description = $request-> description;
         $session-> modoJuego = $request-> modoJuego;
-
+        $session-> time_show = $request-> tiempoFalta;
         $session -> date_start = $request -> date_start;
         $session -> description = $request-> description;
         $session -> therapy_id = $request -> therapy_id;
@@ -450,7 +453,8 @@ class SessionsController extends Controller
                 'reglas' => "none",
                 'move' => "none",
                 'bpm' => "none",
-                'modoJuego' => "none"
+                'modoJuego' => "none",
+                'tiempoFalta' => "none"
             ]);
         }
         $terapia = Therapy::where('id', $session[0]->therapy_id)->first();
@@ -460,14 +464,16 @@ class SessionsController extends Controller
                 'reglas' => "empty",
                 'move' => $session[0]-> movement,
                 'bpm' => $session[0]-> percentage,
-                'modoJuego' => $session[0]->modoJuego
+                'modoJuego' => $session[0]->modoJuego,
+                'tiempoFalta' => $session[0]->time_show
         ]);
         else
             return response()->json([
                 'reglas' => $terapia->rules,
                 'move' => $session[0]-> movement,
                 'bpm' => $session[0] -> percentage,
-                'modoJuego' => $session[0] ->modoJuego
+                'modoJuego' => $session[0] ->modoJuego,
+                'screenShowing' => $session[0]->time_show
             ]); 
 
     }

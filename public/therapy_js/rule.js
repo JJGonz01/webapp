@@ -17,6 +17,7 @@ var accionesPosiblesReloj = [
   "Avisar de juego \" A por mas estrellas \"",
   "Avisar de tranquilizarse \" Tranquilo \"",
   "Avisar de tranquilizarse \" Calma, vas bien \"", 
+  "Avisar de tiempo que queda \" Quedan x minutos \"",
   "Suma puntos",
   "Nada"
 ]
