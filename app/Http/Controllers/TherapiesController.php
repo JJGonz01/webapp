@@ -167,25 +167,18 @@ class TherapiesController extends Controller
        $array_per_raw = $request->input('periods');
        if (!is_null($array_per_raw) && !empty($array_per_raw) && !is_null($array_per_raw[0])) {
             $array_per = json_decode($array_per_raw[0], true);
-
-            
-            if(is_null($array_per[0]) && is_null($array_per[0]['duration_t1']))
+            if(is_null($array_per) || is_null($array_per[0]) || is_null($array_per[0]['duration_t1']))
             {
-                return redirect()->route('therapy_show', ['id'=> $terapia->id])->with('success','Terapia creada correctamente');
+                return redirect()->route('therapy_show', ['id'=> $terapia->id])->with('success','Terapia editada correctamente');
             }                  
-            
             $periods_array = [];
-
             $period = [
                 'duration_t1' => $array_per[0]['duration_t1'],
                 'duration_t2' => $array_per[0]['duration_t2'],
                 'duration_rest' => $array_per[0]['duration_rest'],
             ];
-            
             array_push($periods_array, $period);
-            
-            array_shift($array_per); 
-            
+            array_shift($array_per);
             foreach ($array_per as $per_indv) {
                 $period = [
                     'duration_t1' => $per_indv['duration_t1'],
@@ -200,8 +193,7 @@ class TherapiesController extends Controller
             $session_period-> durations = $json_aray;
             $session_period->save();
         }
-    
-        return redirect()->route('therapy_show', ['id'=> $terapia->id])->with('success','Terapia creada correctamente');
+        return redirect()->route('therapy_show', ['id'=> $terapia->id])->with('success','Terapia editada correctamente');
     }
     public function destroy(string $id)
     {

@@ -87,6 +87,16 @@
     padding-top: 40px;
     margin-bottom: 30px;
 }
+
+.user-welcome-box h5{
+    color:black;
+    font-size: large;
+    font-style: normal;
+    font-weight: bold;
+    padding-left: 50px;
+    padding-top: 40px;
+    margin-bottom: 30px;
+}
 /**/
 .patient-info-box{
     border:0px;

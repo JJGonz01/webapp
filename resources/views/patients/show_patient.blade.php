@@ -24,11 +24,11 @@
             @if(auth()->user() !== null)
             <div class="user-welcome-box-container">
             <h4>{{$patient-> surname}}, {{$patient-> name}}</h4>
-            <h5>Id del paciente: {{$patient-> id}}</h5>
                 <form action="{{route('sessions_create', ['patient_id' => $patient -> id], false, true)}}" method="GET">
-            <button class="user-welcome-box-container-button" id="create-patient-button">AÑADIR SESIÓN</button>
-        </form>
+                    <button class="user-welcome-box-container-button" id="create-patient-button">AÑADIR SESIÓN</button>
+                </form>
             </div>
+            <h5>Id del paciente: {{$patient-> id}}</h5>
             <h5 style="margin-left:50px;">{{$patient-> description}}</h5>
             <div class="user-welcome-box-container">
                 <div class="home-welcome-box" style="margin-right:10px">
