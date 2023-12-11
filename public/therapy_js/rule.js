@@ -10,7 +10,8 @@ var optionSensorValues = {
     };
 
 var accionesPosiblesReloj = [
-  "Avisar \" ¿Estas estudiando? \"",
+  "Preguntar \" ¿Estas estudiando? \"",
+  "Preguntar \" ¿Sigues ahi? \"",
   "Avisar \" Animo \"",
   "Avisar \" Sigue asi \" ",
   "Avisar de juego \" Tienes x puntos \"", 
