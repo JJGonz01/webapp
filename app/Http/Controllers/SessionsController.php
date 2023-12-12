@@ -473,7 +473,7 @@ class SessionsController extends Controller
                 'move' => $session[0]-> movement,
                 'bpm' => $session[0] -> percentage,
                 'modoJuego' => $session[0] ->modoJuego,
-                'screenShowing' => $session[0]->time_show
+                'tiempoFalta' => $session[0]->time_show
             ]); 
 
     }

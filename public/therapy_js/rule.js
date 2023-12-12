@@ -158,7 +158,7 @@ function actionToMake(){
   selectActionReloj.innerHTML = '';
   selectActionSesion.innerHTML = '';
 
-    for (var i = 0; i < 9; i++) {
+    for (var i = 0; i < 11; i++) {
       var option = document.createElement('option');
       option.value = accionesPosiblesReloj[i];
       option.text = accionesPosiblesReloj[i];
@@ -458,7 +458,7 @@ function crearAccionFinalExtra(){
 
 function addOptionsToNewConclusion(concluR, concluS){
       
-    for (var i = 0; i < 9; i++) {
+    for (var i = 0; i < 11; i++) {
       var option = document.createElement('option');
       option.value = accionesPosiblesReloj[i];
       option.text = accionesPosiblesReloj[i];
