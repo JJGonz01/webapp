@@ -81,30 +81,45 @@ function transformarAHTML() {
 }
 
 function printElements(){
-    var periodos = document.getElementById("periods_therapy").value;
-    var outputDiv = document.getElementById("output");
-    var jsonObject = JSON.parse(periodos);
-    var per = 0;
-    var perMax = 3;
-    var bloque = 0;
-    var keys = ["Estudio", "Descanso", "Estudio"];
-    jsonObject.forEach(function(item){
-            bloque += 1;
-            var div = document.createElement("div");
-            div.classList.add("flex-text-row"); 
-            var h = document.createElement("p");
-            h.style.color = "black";
-            h.style.fontWeight  = "bold";
-            h.textContent = "Bloque "+bloque+":";
-            div.appendChild(h);
-            per = 0;
-            for (var key in item) { 
-                var pElement = document.createElement("p");
-                pElement.style.color = "black";
-                pElement.textContent = keys[per] + ": " + item[key]+" minutos";
-                div.appendChild(pElement);
-                per += 1;
-            }
-            outputDiv.appendChild(div);
-        });
-    }
+  var periodos = document.getElementById("periods_therapy").value;
+  var outputDiv = document.getElementById("output");
+  var jsonObject = JSON.parse(periodos);
+  var per = 0;
+  var perMax = 3;
+  var bloque = 0;
+  var keys = ["Estudio", "Descanso", "Estudio"];
+  jsonObject.forEach(function(item){
+          bloque += 1;
+          var div = document.createElement("div");
+          div.classList.add("flex-text-row"); 
+          var h = document.createElement("p");
+          h.style.color = "black";
+          h.style.fontWeight  = "bold";
+          h.textContent = "Bloque "+bloque+":";
+          div.appendChild(h);
+          per = 0;
+
+          const keys = Object.keys(item);
+          var p1Element = document.createElement("p");
+          p1Element.style.color = "black";
+          p1Element.textContent = "Estudio" + ": " + item["duration_t1"]+" minutos";
+          div.appendChild(p1Element);
+
+
+          var p2Element = document.createElement("p");
+          p2Element.style.color = "black";
+          p2Element.textContent = "Descanso" + ": " + item["duration_rest"]+" minutos";
+          div.appendChild(p2Element);
+
+          if(keys.length >= 3){
+
+            var p3Element = document.createElement("p");
+            p3Element.style.color = "black";
+            p3Element.textContent = "Descanso" + ": " + item["duration_t2"]+" minutos";
+            div.appendChild(p3Element);
+
+          }
+        
+          outputDiv.appendChild(div);
+      });
+  }
