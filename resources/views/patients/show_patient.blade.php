@@ -29,12 +29,10 @@
                 </form>
             </div>
             <h5>Id del paciente: {{$patient-> id}}</h5>
-
-            @if(!empty($string))
-                 <h5 style="margin-left:50px;">Comentario: {{$patient->description}}</h5>
+           
+            @if(!empty($patient->description))
+                 <h5 style="margin-left:5px;">Comentario: {{$patient->description}}</h5>
             @endif
-
-
             <div class="user-welcome-box-container">
                 <div class="home-welcome-box" style="margin-right:10px">
                     <button class="home-welcome-box-btn-selected" onclick = "setTabs(0)" id="btn_pom_info">SESIONES PENDIENTES</button>
@@ -138,7 +136,7 @@
             </div>
 
             <div class="table-hide-show-container" id="app_option" style="display:none;">
-                <form action="{{route('patient_complete_update', [], false, true)}}" id= 'form_pat' method="POST">
+                <form action="{{route('patient_complete_update', [$patient->id], false, true)}}" id= 'form_pat' method="POST">
                     @csrf
                     @if (session('success'))
                         <h6 class="alert alert-success"> {{ session('success') }}</h6>
@@ -160,7 +158,7 @@
                         <input type="text" value="{{$patient->surname}}" name = "surname" id = "surname" class = "create-basic-container-inputs">
 
                         <p>COMENTARIO</p>
-                        <textarea type="text" value="{{$patient->description}}" name = "description" id="commentary" class = "text-area-container" rown="10"></textarea>
+                        <textarea type="text" value="{{$patient->description}}" name = "description" id="commentary" class = "text-area-container" rown="10">{{$patient->description}}</textarea>
                         <button class="edit-button" id="go_to_patient_create" type="submit"> EDITAR </button>    
                     </form>        
                 <div>
