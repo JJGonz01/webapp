@@ -29,9 +29,11 @@
                 </form>
             </div>
             <h5>Id del paciente: {{$patient-> id}}</h5>
-            @if($patient->description != '')
-                <h5 style="margin-left:50px;">Comentario: {{$patient->description}}</h5>
+
+            @if(!empty($string))
+                 <h5 style="margin-left:50px;">Comentario: {{$patient->description}}</h5>
             @endif
+
 
             <div class="user-welcome-box-container">
                 <div class="home-welcome-box" style="margin-right:10px">
