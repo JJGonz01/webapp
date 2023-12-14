@@ -37,7 +37,6 @@ class SessionsController extends Controller
     
         $today = Carbon::now();
         echo $today->toDateTimeString();
-
         //dd($request);
         $request -> validate([
             'date_start' =>'required|unique:sessions|date_format:Y-m-d\TH:i|after_or_equal:' . $today,
@@ -46,6 +45,8 @@ class SessionsController extends Controller
             'movement' => 'required',
             'porcentaje' => 'required|numeric|between:1,100',
             'modoJuego' => 'max:255',
+            'opcion'=>'',
+            'barraFalta'=>'',
             'tiempoFalta' => ''
         ]);
 
@@ -68,13 +69,26 @@ class SessionsController extends Controller
                 $session-> movement = 2; 
                 break;
         }
-        
+        $arrayPalabras = $request->opcion;
+        $progreso = is_array($request->opcion) && array_search("Barra", $arrayPalabras) !== false ? true : false;
+        $minuto = is_array($request->opcion) && array_search("Reloj", $arrayPalabras) !== false ? true : false;
+        $nombre = is_array($request->opcion) && array_search("Nombre", $arrayPalabras) !== false ? true : false;
         
         $session-> percentage = $request-> porcentaje;
-        $session-> time_show = $request-> tiempoFalta;
+        
+        $relojView = array(
+            'barraFalta' => $request -> barraFalta,
+            'pantalla' => $request -> tiempoFalta,
+            'barra' => $progreso,
+            'minuto' => $minuto,
+            'periodo'=> $nombre
+        );
+
+
+        $relojViewJson = json_encode($relojView);
+        $session-> time_show = $relojViewJson;
         $session-> description = $request-> description;
         $session-> modoJuego = $request-> modoJuego;
-
         $session -> date_start = $request -> date_start;
         $session -> description = $request-> description;
         $session -> therapy_id = $request -> therapy_id;
@@ -235,6 +249,8 @@ class SessionsController extends Controller
             'movement' => 'required',
             'porcentaje' => 'required|numeric|between:1,100',
             'modoJuego' => 'max:255',
+            'opcion'=>'',
+            'barraFalta'=>'',
             'tiempoFalta' => ''
         ]);
         
@@ -249,11 +265,27 @@ class SessionsController extends Controller
                 $session-> movement = 0.9;
                 break;
         }
+        $arrayPalabras = $request->opcion;
+        $progreso = is_array($request->opcion) && array_search("Barra", $arrayPalabras) !== false ? true : false;
+        $minuto = is_array($request->opcion) && array_search("Reloj", $arrayPalabras) !== false ? true : false;
+        $nombre = is_array($request->opcion) && array_search("Nombre", $arrayPalabras) !== false ? true : false;
         
+        $session-> percentage = $request-> porcentaje;
+        $relojView = array(
+            'barraFalta' => $request -> barraFalta,
+            'pantalla' => $request -> tiempoFalta,
+            'barra' => $progreso,
+            'minuto' => $minuto,
+            'periodo'=> $nombre
+        );
+
+
+        $relojViewJson = json_encode($relojView);
+        $session-> time_show = $relojViewJson;
+
         $session-> percentage = $request-> porcentaje;
         $session-> description = $request-> description;
         $session-> modoJuego = $request-> modoJuego;
-        $session-> time_show = $request-> tiempoFalta;
         $session -> date_start = $request -> date_start;
         $session -> description = $request-> description;
         $session -> therapy_id = $request -> therapy_id;
@@ -465,7 +497,11 @@ class SessionsController extends Controller
                 'move' => $session[0]-> movement,
                 'bpm' => $session[0]-> percentage,
                 'modoJuego' => $session[0]->modoJuego,
-                'tiempoFalta' => $session[0]->time_show
+                'pantalla' =>json_decode($session[0]->time_show)->pantalla,
+                'barra' =>json_decode($session[0]->time_show)->barra,
+                'minuto' =>json_decode($session[0]->time_show)->minuto,
+                'periodo' =>json_decode($session[0]->time_show)->periodo,
+                'barraFalta' => json_decode($session[0]->time_show)->barraFalta
         ]);
         else
             return response()->json([
@@ -473,7 +509,11 @@ class SessionsController extends Controller
                 'move' => $session[0]-> movement,
                 'bpm' => $session[0] -> percentage,
                 'modoJuego' => $session[0] ->modoJuego,
-                'tiempoFalta' => $session[0]->time_show
+                'pantalla' =>json_decode($session[0]->time_show)->pantalla,
+                'barra' =>json_decode($session[0]->time_show)->barra,
+                'minuto' =>json_decode($session[0]->time_show)->minuto,
+                'periodo' =>json_decode($session[0]->time_show)->periodo,
+                'barraFalta' => json_decode($session[0]->time_show)->barraFalta
             ]); 
 
     }

@@ -44,7 +44,7 @@
         <table class="table-items-options">
             <tr class="top-index-container">
                 <th>ID</th>
-                <th class="hide-if-width-small">NOMBRE</th>
+                <th>NOMBRE</th>
                 <th>APELLIDOS</th>
                 <th>ACCEDER</th>
             </tr>

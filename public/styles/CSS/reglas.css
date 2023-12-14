@@ -283,6 +283,7 @@
         padding:2%;
         background-color: rgb(247, 247, 247);
         border-left:3 px black solid;
+        
     }
     
     .content-half-image{
@@ -333,6 +334,7 @@
         padding:2%;
         background-color: rgb(247, 247, 247);
         border-left:3 px black solid;
+        overflow-x: scroll;
     }
     
     .content-half-image{

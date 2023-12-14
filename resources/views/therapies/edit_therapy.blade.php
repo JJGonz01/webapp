@@ -282,7 +282,7 @@
             </div>
         </div>
     </div>
-        <script>rulesStart();editWindowTherapy();</script>
+        <script>rulesStart();editWindowTherapy();irAPeriodo(0);</script>
     </form>
     
     @endsection

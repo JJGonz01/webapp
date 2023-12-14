@@ -23,10 +23,10 @@ var accionesPosiblesReloj = [
   "Nada"
 ]
 var accionesPosiblesSesion = [
+  "Nada",
   "Concluir periodo",
   "Concluir Sesion",
-  "Añadir tiempo al periodo",
-  "Nada"
+  "Añadir tiempo al periodo"
 ];
 
 var reglasNuevas = [];
@@ -931,8 +931,6 @@ function rule_creation_step(goto){
   }
 
 }
-
-
 
 function openSessionCreator(isNew){
 

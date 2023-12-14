@@ -20,7 +20,7 @@
                             <h6 class="alert alert-danger">{{ implode('', $errors->all(':message')) }}</h6>
                         @endif
                                         
-                        <script src="https://pomodoroadhdapp.azurewebsites.net/sessionCreate.js"></script>
+                        <script src="https://pomodoroadhdapp.azurewebsites.net/sessionCreate.js'"></script>
                            <button class="close-button" type="button" onclick="closeRuleCreator()">CERRAR</button> 
                            <div class="rule-creation-steps">
                                 
@@ -33,6 +33,11 @@
                                     <div class="row-steps-item">
                                         <button type="button" id="menu_reglas_btn_two" class="button-popup-reglas" onclick="rule_creation_step(2)">2</button>
                                         <p class="step-font">Sensores</p>
+                                    </div>
+
+                                    <div class="row-steps-item">
+                                        <button type="button" id="menu_reglas_btn_three" class="button-popup-reglas" onclick="rule_creation_step(3)">3</button>
+                                        <p class="step-font">Reloj</p>
                                     </div>
                                 </div>
                             </div>
@@ -66,20 +71,10 @@
                                 </div>
                             </div>            
                                 <div class="input-regla-container" id = "rule_creation_step_two" style="display:none;">
-                                        <p>Sensibilidad de los sensores</p>
+                                    <p class="step-font">Sensibilidad de los sensores</p>        
                                     <div>
 
                                         <div>
-
-                                            <div class="inputs-session">
-                                                    <label for="tiempoFalta">Pantalla reloj durante la sesión</label>
-                                                    <select name ="tiempoFalta" id="tiempoFalta">
-                                                        <option value="mostrarNada">No mostrar nada en la pantalla durante la sesión</option>
-                                                        <option value="mostrarRestante">Mostrar el tiempo que falta del periodo (estudio/descanso)</option>
-                                                        <option value="mostrarHora">Mostrar la hora actual</option>
-                                                    </select>                   
-                                            </div>
-
                                             <div class="inputs-session">
                                                 <label for="porcentaje">Sensibilidad (%) BPM</label>
                                                 <input id="porcentaje" value = 8 type="number" name="porcentaje" class="form-control" rown="10"></input>
@@ -108,15 +103,58 @@
                                     </div>
                                     <div class="button-centered-container">
                                         <button class="button_reglas_back" type="button" onclick="rule_creation_step(1)" >Atrás</button>
-                                        <button class="input-regla-container-button" id="add_action_rule_ther_create">
-                                            Guardar sesión
+                                        <button class="input-regla-container-button" id="add_action_rule_ther_create" onclick="rule_creation_step(3)" type="button">
+                                            <span class="material-symbols-outlined">arrow_forward</span>
                                         </button>
                                     </div>
                                 </div>
                                 
                             </div>
+                            <div  id = "rule_creation_step_three" class="input-regla-container" style="display:none;">
+                            <p class="step-font">Reloj durante las sesiones de estudio</p>        
+                            <div class="clock-preview">
+                                <div class="clock">
+                                    <div id="progreso" class="inner-circle"></div>
+                                    <div id="minutos" class="time">
+                                        10:00
+                                    </div>
+                                    <div id="periodo" class="day">
+                                        Estudia
+                                    </div>
+                                </div>
+                                <div class="options-clock">  
+                                    <label><input id="especifico-input" class="options-clock-input" type="checkbox" name="opcion[]" value="Barra" checked> Añadir barra de progreso</input></label>
+                                    <label><input id="especifico-input" class="options-clock-input" type="checkbox" name="opcion[]" value="Reloj" checked> Añadir reloj/ conómetro</input></label>
+                                    <label><input id="especifico-input" class="options-clock-input" type="checkbox" name="opcion[]" value="Nombre" checked> Añadir nombre periodo</input></label>
+                                </div>
+                            </div>
+                            
+                            <div class="inputs-session">
+                                <label for="tiempoFalta">Minutos en texto (si seleccionado)</label>
+                                <select name ="tiempoFalta" id="tiempoFalta">
+                                    <option value="mostrarRestante">Mostrar los minutos que faltan para acabar</option>
+                                    <option value="mostrarHora">Mostrar la hora actual</option>
+                                </select>                   
+                            </div>
+
+                            <div class="inputs-session">
+                                <label for="barraFalta">Minutos en texto (si seleccionado)</label>
+                                <select name ="barraFalta" id="barraFalta">
+                                    <option value="desdeCero">Que la barra aumente según se vaya completando</option>
+                                    <option value="desdeTotal">Que la barra se reduzca según se vaya completando</option>
+                                </select>                   
+                            </div>
+
+                                    <div class="button-centered-container">
+                                        <button class="button_reglas_back" type="button" onclick="rule_creation_step(2)" >Atrás</button>
+                                        <button class="input-regla-container-button" id="add_action_rule_ther_create">
+                                            Guardar sesión
+                                        </button>
+                                    </div>
+                            </div>
                     </form> 
                     </div>                        
             </div>
         </div>
+        <script>setOpciones();</script>
 @endsection

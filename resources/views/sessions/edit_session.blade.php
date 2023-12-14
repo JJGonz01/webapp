@@ -14,9 +14,9 @@
                     <div>
                     <form action="{{route('session_update',  ['id' => $session -> id], false, true)}}" method="POST">
                        
-                                    
+                    <input id="valoresReloj" style="display:none;" value="{{$session->time_show}}">
                         <script src="https://pomodoroadhdapp.azurewebsites.net/sessionCreate.js"></script>
-                           <button class="close-button" type="button" onclick="closeRuleCreator()">CERRAR</button> 
+                        <button class="close-button" type="button" onclick="closeRuleCreator()">CERRAR</button> 
                            <div class="rule-creation-steps">
                                 
                                 <div class="row-steps-container">
@@ -29,11 +29,16 @@
                                         <button type="button" id="menu_reglas_btn_two" class="button-popup-reglas" onclick="rule_creation_step(2)">2</button>
                                         <p class="step-font">Sensores</p>
                                     </div>
+
+                                    <div class="row-steps-item">
+                                        <button type="button" id="menu_reglas_btn_three" class="button-popup-reglas" onclick="rule_creation_step(3)">3</button>
+                                        <p class="step-font">Reloj</p>
+                                    </div>
                                 </div>
                             </div>
                             <div  id = "rule_creation_step_one" class="input-regla-container">
                                 @csrf
-                                <input id="terapia_seleccion" style="display:none" name="therapy_id"></input>
+                                <input id="terapia_seleccion" style="display:none" name="therapy_id" value="{{$session->therapy_id}}"></input>
                                 <p class="step-font" for="date_start">Fecha y hora de la sesión</p>
                                 <input type="datetime-local" id="fechaHora" value="{{$session->date_start}}" class="input-regla-container-input" name="date_start"></input>
                                 
@@ -107,8 +112,51 @@
                                 </div>
                                 
                             </div>
+                            <div  id = "rule_creation_step_three" class="input-regla-container" style="display:none;">
+                            <p class="step-font">Reloj durante las sesiones de estudio</p>        
+                            <div class="clock-preview">
+                                <div class="clock">
+                                    <div id="progreso" class="inner-circle"></div>
+                                    <div id="minutos" class="time">
+                                        10:00
+                                    </div>
+                                    <div id="periodo" class="day">
+                                        Estudia
+                                    </div>
+                                </div>
+                                <div class="options-clock">  
+                                    <label><input id="especifico-input" class="options-clock-input" type="checkbox" name="opcion[]" value="Barra" checked> Añadir barra de progreso</input></label>
+                                    <label><input id="especifico-input" class="options-clock-input" type="checkbox" name="opcion[]" value="Reloj" checked> Añadir reloj/ conómetro</input></label>
+                                    <label><input id="especifico-input" class="options-clock-input" type="checkbox" name="opcion[]" value="Nombre" checked> Añadir nombre periodo</input></label>
+                                </div>
+                            </div>
+                            
+                            <div class="inputs-session">
+                                <label for="tiempoFalta">Minutos en texto (si seleccionado)</label>
+                                <select name ="tiempoFalta" id="tiempoFalta">
+                                    <option value="mostrarRestante">Mostrar los minutos que faltan para acabar</option>
+                                    <option value="mostrarHora">Mostrar la hora actual</option>
+                                </select>                   
+                            </div>
+
+                            <div class="inputs-session">
+                                <label for="barraFalta">Minutos en texto (si seleccionado)</label>
+                                <select name ="barraFalta" id="barraFalta">
+                                    <option value="desdeCero">Que la barra aumente según se vaya completando</option>
+                                    <option value="desdeTotal">Que la barra se reduzca según se vaya completando</option>
+                                </select>                   
+                            </div>
+
+                                    <div class="button-centered-container">
+                                        <button class="button_reglas_back" type="button" onclick="rule_creation_step(2)" >Atrás</button>
+                                        <button class="input-regla-container-button" id="add_action_rule_ther_create">
+                                            Guardar sesión
+                                        </button>
+                                    </div>
+                            </div>
                     </form> 
                     </div>                        
             </div>
         </div>
+        <script>setOpciones(); getEditClockOptions();</script>
 @endsection

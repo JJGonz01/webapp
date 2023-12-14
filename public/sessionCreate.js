@@ -31,3 +31,59 @@ function setButtonAsSelected(buttonid){
     lastClickedButton = buttonClicked;
     buttonClicked.style = "background-color: #3f5e77";
 }
+
+
+
+
+function setOpciones(){
+    const opciones = document.querySelectorAll('input[type="checkbox"]');
+    opciones.forEach(opcion => {
+        opcion.addEventListener('change', () => manejarCambio(opcion));
+      });
+}
+    
+function manejarCambio(opcion){
+    var elem;
+    if(opcion.value == "Barra"){
+        elem = document.getElementById("progreso");
+    }else if(opcion.value == "Reloj"){
+        elem = document.getElementById("minutos");
+    }else{
+        elem = document.getElementById("periodo");
+    }
+
+    if (opcion.checked) {
+        elem.style.display = "block";
+      } else {
+        elem.style.display = "none";
+      }
+}
+
+
+function getEditClockOptions(){
+    selectTerapia(document.getElementById("terapia_seleccion").value);
+    var input = document.getElementById("valoresReloj");
+
+    const opciones = document.querySelectorAll('input[type="checkbox"]');
+    var elem;
+    var string;
+    opciones.forEach(opcion => {
+        if(opcion.value == "Barra"){
+            elem = document.getElementById("progreso");
+            string = "barra";
+        }else if(opcion.value == "Reloj"){
+            elem = document.getElementById("minutos");
+            string = "minuto";
+        }else{
+            elem = document.getElementById("periodo");            
+            string = "periodo";
+        }
+    
+    if (JSON.parse(input.value)[string]) {
+        elem.style.display = "block";
+      } else {
+        elem.style.display = "none";
+        opcion.checked = false;
+      }
+    });
+}
