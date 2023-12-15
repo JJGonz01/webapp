@@ -23,17 +23,13 @@ function setButtonAsSelected(buttonid){
     var div = document.getElementsByName('ther_select');
     var buttonClicked = document.getElementById(buttonid);
     if(booleanButtonClicked){
-        lastClickedButton.style = "background-color: #6D9DC5";
-    }
-    else{
+            lastClickedButton.style = "background-color: #4361ee";    
+    }else{
         booleanButtonClicked = true;
     }
     lastClickedButton = buttonClicked;
-    buttonClicked.style = "background-color: #3f5e77";
+    buttonClicked.style = "background-color: #0224b2";
 }
-
-
-
 
 function setOpciones(){
     const opciones = document.querySelectorAll('input[type="checkbox"]');
