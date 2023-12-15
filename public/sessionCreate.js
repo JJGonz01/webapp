@@ -59,7 +59,7 @@ function manejarCambio(opcion){
 function getEditClockOptions(){
     selectTerapia(document.getElementById("terapia_seleccion").value);
     var input = document.getElementById("valoresReloj");
-
+    setOptionsInEdit();
     const opciones = document.querySelectorAll('input[type="checkbox"]');
     var elem;
     var string;
@@ -82,4 +82,34 @@ function getEditClockOptions(){
         opcion.checked = false;
       }
     });
+}
+
+
+function setOptionsInEdit(){
+    var input = document.getElementById("modoJuegoInput");
+    var selectedInput = document.getElementById("sensibilidadInput");
+
+
+    var selinput = document.getElementById("selectModoJuego");
+    var movementInput = document.getElementById("movementInput");
+    console.log(selectedInput.value);
+    selinput.value = input.value;
+
+    if(selectedInput.value == "0.4"){
+        movementInput.value = "Muy Bajo"
+    }else if(selectedInput.value == "0.6"){
+        movementInput.value = "Bajo"
+
+    }else if(selectedInput.value == "0.9"){
+        movementInput.value = "Medio"
+
+    }else if(selectedInput.value == "1.5"){
+        movementInput.value = "Alto"
+
+    }else {
+        movementInput.value = "Muy Alto"
+    }
+
+
+    selinput.value = input.value;
 }

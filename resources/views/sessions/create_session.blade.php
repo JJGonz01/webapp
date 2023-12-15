@@ -20,7 +20,7 @@
                             <h6 class="alert alert-danger">{{ implode('', $errors->all(':message')) }}</h6>
                         @endif
                                         
-                        <script src="https://pomodoroadhdapp.azurewebsites.net/sessionCreate.js'"></script>
+                        <script src="https://pomodoroadhdapp.azurewebsites.net/sessionCreate.js"></script>
                            <button class="close-button" type="button" onclick="closeRuleCreator()">CERRAR</button> 
                            <div class="rule-creation-steps">
                                 
@@ -77,7 +77,7 @@
                                         <div>
                                             <div class="inputs-session">
                                                 <label for="porcentaje">Sensibilidad (%) BPM</label>
-                                                <input id="porcentaje" value = 8 type="number" name="porcentaje" class="form-control" rown="10"></input>
+                                                <input id="porcentaje" value = 20 type="number" name="porcentaje" class="form-control" rown="10"></input>
                                             </div>
 
                                             <div class="inputs-session">
@@ -93,10 +93,10 @@
                                             <div class="inputs-session">
                                                     <label for="modoJuego">Juego en estudio</label>
                                                     <select name ="modoJuego" id="modoJuego">
-                                                        <option value="JuegoReglas">Solo suma puntos con lo definido en las reglas</option>
                                                         <option value="juegoAmbos">Sumar puntos en función del tiempo que este relajado <strong>(ambos sensores en bajo)</strong></option>
                                                         <option value="juegoCorazon">Sumar puntos en función del tiempo que tenga las <b>pulsaciones en bajo</b></option>
                                                         <option value="juegoMovimiento">Sumar puntos en función del tiempo que el <b>movimiento sea bajo</b></option>
+                                                        <option value="JuegoReglas">Solo suma puntos con lo definido en las reglas</option>
                                                     </select>                   
                                             </div>
                                         </div>

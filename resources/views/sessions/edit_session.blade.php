@@ -15,6 +15,8 @@
                     <form action="{{route('session_update',  ['id' => $session -> id], false, true)}}" method="POST">
                        
                     <input id="valoresReloj" style="display:none;" value="{{$session->time_show}}">
+                    <input id="modoJuegoInput" style="display:none;" value="{{$session->modoJuego}}">
+
                         <script src="https://pomodoroadhdapp.azurewebsites.net/sessionCreate.js"></script>
                         <button class="close-button" type="button" onclick="closeRuleCreator()">CERRAR</button> 
                            <div class="rule-creation-steps">
@@ -68,14 +70,7 @@
                                 <div class="input-regla-container" id = "rule_creation_step_two" style="display:none;">
                                         <p>Sensibilidad de los sensores</p>
                                     <div>
-                                        <div class="inputs-session">
-                                                    <label for="tiempoFalta">Pantalla reloj durante la sesión</label>
-                                                    <select name ="tiempoFalta" id="tiempoFalta">
-                                                        <option value="mostrarNada">No mostrar nada en la pantalla durante la sesión</option>
-                                                        <option value="mostrarRestante">Mostrar el tiempo que falta del periodo (estudio/descanso)</option>
-                                                        <option value="mostrarHora">Mostrar la hora actual</option>
-                                                    </select>                   
-                                        </div>
+                                        
                                         <div>
                                             <div class="inputs-session">
                                                 <label for="porcentaje">Sensibilidad (%) BPM</label>
@@ -84,7 +79,7 @@
 
                                             <div class="inputs-session">
                                                     <label for="movement">Sensibilidad (%) movimiento</label>
-                                                    <select name ="movement" >
+                                                    <select name ="movement" id="movementInput">
                                                         <option value="Muy Bajo"> Muy Bajo (0.4)</option>
                                                         <option value="Bajo"> Bajo (0.6)</option>
                                                         <option value="Medio"> Medio (0.9)</option>
@@ -94,7 +89,7 @@
                                             </div>
                                             <div class="inputs-session">
                                                     <label for="modoJuego">Juego en estudio</label>
-                                                    <select name ="modoJuego" id="modoJuego">
+                                                    <select name ="modoJuego" id="selectModoJuego">
                                                         <option value="JuegoReglas">Solo suma puntos con lo definido en las reglas</option>
                                                         <option value="juegoAmbos">Sumar puntos en función del tiempo que este relajado <strong>(ambos sensores en bajo)</strong></option>
                                                         <option value="juegoCorazon">Sumar puntos en función del tiempo que tenga las <b>pulsaciones en bajo</b></option>
