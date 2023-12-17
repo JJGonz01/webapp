@@ -77,7 +77,7 @@
                     <div>
                         @method('DELETE')
                         @csrf
-                        <button style="background-color:#c23c3c;"  id="show_ther_delete_button" type="submit">
+                        <button style="background-color:#c23c3c;font-weight:bold;"  id="show_ther_delete_button" type="submit">
                             Borrar terapia
                         </button>
                 

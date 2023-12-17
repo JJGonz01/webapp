@@ -135,7 +135,7 @@
                             </div>
 
                             <div class="inputs-session">
-                                <label for="barraFalta">Minutos en texto (si seleccionado)</label>
+                                <label for="barraFalta">Barra de progreso (si seleccionada)</label>
                                 <select name ="barraFalta" id="barraFalta">
                                     <option value="desdeCero">Que la barra aumente según se vaya completando</option>
                                     <option value="desdeTotal">Que la barra se reduzca según se vaya completando</option>

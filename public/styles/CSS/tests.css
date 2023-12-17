@@ -18,7 +18,7 @@
 }
 
 .sticky-button button:hover {
-    transform: scale(1.1); /* Hace que el botón sea un 10% más grande en hover */
+    transform: scale(1.05); /* Hace que el botón sea un 10% más grande en hover */
 }
   
 
@@ -45,6 +45,7 @@
     background-color: var(--azul-cerrar);
     padding: 10px;
     color:white;
+    border-radius: 5px;
     font-weight: bolder;
     
 }
@@ -88,14 +89,15 @@
     }
 
     .menu-container{
-        background-color: rgb(71, 127, 149);
+        background-color: rgb(235 235 235);
         border-radius: 9px;
         margin-left: 10%;
         margin-right: 10%;
         margin-bottom: 10%;
         padding:1%;
         align-items: center;
-        text-align: center;
+        text-align: left;
+        box-shadow: 10px 5px #84848491;
     }
     
     
@@ -104,15 +106,14 @@
     bottom: 0;
     left: 10%;
     transform: translateX(-50%);
-    background-color: #4c84af; /* Color de fondo del botón */
+    background-color: #4c84af; 
     padding: 10px;
     text-align: center;
     width: max-content;
-    z-index: 1000; /* Asegura que esté por encima del contenido */
+    z-index: 1000; 
 }
 
 .sticky-button button {
-    /* Estilos adicionales para el botón */
     color: white;
     font-weight: bold;
     background-color: rgb(18, 185, 185);
@@ -146,7 +147,7 @@
     }
 
     .menu-container{
-        background-color: rgb(71, 127, 149);
+        background-color: rgb(235 235 235);
         border-radius: 9px;
         margin-bottom: 10%;
         margin-bottom: 30%;
@@ -154,7 +155,7 @@
         height: max-content;
         overflow-y: scroll;
         align-items: center;
-        text-align: center;
+        text-align: left;
     }
 
     
@@ -163,15 +164,14 @@
     bottom: 0;
     left: 10%;
     transform: translateX(-50%);
-    background-color: #4c84af; /* Color de fondo del botón */
+    background-color: #4c84af;
     padding: 5px;
     text-align: center;
     width: max-content;
-    z-index: 1000; /* Asegura que esté por encima del contenido */
+    z-index: 1000;
 }
 
 .sticky-button button {
-    /* Estilos adicionales para el botón */
     color: white;
     font-weight: bold;
     background-color: rgb(18, 185, 185);

@@ -15,7 +15,7 @@ const testExplanationDictionary = {
     +"  \n (a)	Se ejecute en estudios y descansos."
     +"  \n (b)	Momento del periodo: entero."
     +"  \n (c)	Compruebe si el movimiento es bajo."
-    +"  \n (d)	Acción en la reloj: Enviar un mensaje “¿Estás estudiando?” "
+    +"  \n (d)	Acción en la reloj: Enviar un mensaje “Sigue así” "
     +"  \n (e)	Acción en el sesión: Que no haga NADA "
     +"  \n (f)  Añadir una acción extra para cuando vuelva a ocurrir esta situación."
  	+"  \n (g)  En esta segunda acción, que envíe un mensaje “Calma vas bien” en acciones de reloj."
@@ -254,7 +254,7 @@ function endTask(){
     }
     else if (localStorage["testId"] == "4"){
         localStorage["testId"] = 0;
-        endButton.innerHTML = "HE TERMINADO LA TAERA";
+        endButton.innerHTML = "HE TERMINADO LA TAREA";
     }
     setTestInfo(stringId)
     const tesButtonShow = document.getElementById('task_start_button')
