@@ -47,7 +47,7 @@
     color:white;
     border-radius: 5px;
     font-weight: bolder;
-    
+    width:100%;
 }
 
 
@@ -68,7 +68,7 @@
         color: white;
         overflow-y: auto;
         height: 60%;
-        background: #6094a9;
+        background: #ffffff;
         padding:14px;
         border-radius: 20px;
         font-size: x-large;
