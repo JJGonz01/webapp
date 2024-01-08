@@ -20,7 +20,7 @@
                             <h6 class="alert alert-danger">{{ implode('', $errors->all(':message')) }}</h6>
                         @endif
                                         
-                        <script src="https://pomodoroadhdapp.azurewebsites.net/sessionCreate.js"></script>
+                        <script src="{{asset('sessionCreate.js')}}"></script>
                            <button class="close-button" type="button" onclick="closeRuleCreator()">CERRAR</button> 
                            <div class="rule-creation-steps">
                                 

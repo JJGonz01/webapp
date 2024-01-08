@@ -79,7 +79,7 @@ function saveTemporalPeriod(button) {
     t1.value = '';
     t2.value = '';
     descanso.value = '';
-    texto_reglas_titulo.innerHTML = "Regla para bloque "+ (periods.length);
+    texto_reglas_titulo.innerHTML = "Regla para bloque";
     value = JSON.stringify(periods);
     periodInput.value = value;
     addPeriodsIdToSeleccion(button);
@@ -223,7 +223,7 @@ function savePeriodExtra(button){
     console.log(periods);
     var periodoSelect = document.getElementById('selectConjPeriodo');
     periodoSelect.value = ""+periods.length;
-    texto_reglas_titulo.innerHTML = "Regla para bloque "+ (periods.length);
+    texto_reglas_titulo.innerHTML = "Regla para bloque";
     
     t1.value = '';
     descanso.value = '';
@@ -281,7 +281,7 @@ function cambiarPeriodo(direccion){
     periodosPrincipal.style.display = "block";
     periodosOtros.style.display = "none";
     if(periods.length > 0){
-      texto_reglas_titulo.innerHTML = "Regla para bloque "+(posicionadoEn+1);
+      texto_reglas_titulo.innerHTML = "Regla para bloque";
       boton_reglas_titulo.style.display="block";
     }
     else{

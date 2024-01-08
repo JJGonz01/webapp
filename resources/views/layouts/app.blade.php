@@ -17,11 +17,11 @@
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="https://pomodoroadhdapp.azurewebsites.net/styles/CSS/auth.css">
-    <link rel="stylesheet" href="https://pomodoroadhdapp.azurewebsites.net/styles/CSS/items.css">
+    <link rel="stylesheet" href="{{asset('styles/CSS/auth.css')}}">
+    <link rel="stylesheet" href="{{asset('styles/CSS/items.css')}}">
 
     <!-- Scripts -->
-    <script src="https://pomodoroadhdapp.azurewebsites.net/resources/js/app.js"></script>
+    <script src="{{asset('resources/js/app.js')}}"></script>
 
 
 </head>

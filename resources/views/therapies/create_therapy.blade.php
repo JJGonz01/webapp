@@ -9,11 +9,11 @@
 
 
 <form id="form_crear_sesion" action="{{route('therapies_create',[], false, true)}}" method="POST">
-    <script src="https://pomodoroadhdapp.azurewebsites.net/therapy_js/period_creations.js"></script>
-    <script src="https://pomodoroadhdapp.azurewebsites.net/therapy_js/menus_terapia.js"></script>
-    <script src="https://pomodoroadhdapp.azurewebsites.net/therapy_js/rule.js"></script>
-    <script src="https://pomodoroadhdapp.azurewebsites.net/terapies_creator.js"></script>
-    <script src="https://pomodoroadhdapp.azurewebsites.net/therapy_js/period_creations.js"></script>
+    <script src="{{asset('therapy_js/period_creations.js')}}"></script>
+    <script src="{{asset('therapy_js/menus_terapia.js')}}"></script>
+    <script src="{{asset('therapy_js/rule.js')}}"></script>
+    <script src="{{asset('terapies_creator.js')}}"></script>
+    <script src="{{asset('therapy_js/period_creations.js')}}"></script>
 
     <!-- INPUTS FANTASMA PARA LOS DATOS-->
     <input name="rules_edit" id="rules_edit" value = "null" style="display: none;"/>

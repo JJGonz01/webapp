@@ -5,7 +5,7 @@
 <head><title>HOME</title></head>
 
 <div class="general-items-container">
-<script src="https://pomodoroadhdapp.azurewebsites.net/general_page.js"></script>
+<script src="{{asset('general_page.js')}}"></script>
   
         <div class="user-welcome-box">
             @if(auth()->user() !== null)

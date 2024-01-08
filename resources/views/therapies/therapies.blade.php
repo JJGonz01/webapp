@@ -86,6 +86,6 @@
         </div>
     
 </div> 
-<script src="https://pomodoroadhdapp.azurewebsites.net/filter.js"></script>
+<script src="{{asset('filter.js')}}"></script>
 <script>startFilter()</script>
 @endsection

@@ -17,7 +17,7 @@
                     <input id="valoresReloj" style="display:none;" value="{{$session->time_show}}">
                     <input id="modoJuegoInput" style="display:none;" value="{{$session->modoJuego}}">
 
-                        <script src="https://pomodoroadhdapp.azurewebsites.net/sessionCreate.js"></script>
+                        <script src="{{asset('sessionCreate.js')}}"></script>
                         <button class="close-button" type="button" onclick="closeRuleCreator()">CERRAR</button> 
                            <div class="rule-creation-steps">
                                 
