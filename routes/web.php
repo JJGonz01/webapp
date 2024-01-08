@@ -22,20 +22,18 @@ use App\Http\Controllers\authentication;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+/* MASTER CALL--MAIN PAGE*/
+
 Route::get('/gran', function () {
     return view('master');
 })->name('master');
-/*****
- * 
- * REGISTRARSE 
- *
- * 
- *////
+
+/* AUTENTICACIÓN */
 
 Route::get('/login', function () {
     return view('layouts.app');
 })->name('main');
-
 
 Route::post('/userlogin', [authentication::class, 'login'])
 ->name('userlogin');
@@ -160,6 +158,7 @@ Route::get('/sessiondata/{id}', [SessionsController::class, 'getSessionData'])
 /**
  * PERIODOS DE SESION
  */
+
 //La id es la id de la terapia en la que se encuentra
 Route::get('/createperiod/{session_id}', [SessionPeriodsController::class, 'create'])
 ->name('speriod_create');
