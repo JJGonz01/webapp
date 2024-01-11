@@ -14,6 +14,8 @@ class VerifyAndroidToken extends Middleware{
 
     public function handle($request, Closure $next, ...$guards)
     {
+        $token = $request->header('Authorization');
+        
         $guard = [
             '/session/response',
             '/start',
@@ -27,17 +29,9 @@ class VerifyAndroidToken extends Middleware{
             '/login?'
         ];
 
-        $token = $request->header('Authorization');
-
+        
         if(!in_array($request -> path(), $guard)){ /*No es una ruta a la que haya que aplicar el middleware*/
-            if (!in_array($request -> path(), $auth)) {
-                if(Auth::check())
-                    return $next($request);
-                else
-                    return redirect()->route('login');
-            }else {
-                    return $next($request);
-            }
+            return $next($request);
         }
 
         if (!$token) {//modificar
