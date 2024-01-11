@@ -194,7 +194,7 @@ function showhidetext(){
     if(testText.style.display == "none"){
         testText.style.display ="block";
         localStorage["infoOpen"] = "true";
-        tesButtonShow.innerHTML = "-"
+        tesButtonShow.innerHTML = "X"
         if(localStorage["testId"] == "3"){
             endButton.innerHTML = "HACER DE NUEVO";
         }
@@ -204,7 +204,7 @@ function showhidetext(){
     }else{
         testText.style.display ="none";
         localStorage["infoOpen"] = "false";
-        tesButtonShow.innerHTML = "-"
+        tesButtonShow.innerHTML = "X"
     }
 }
 
@@ -258,7 +258,7 @@ function endTask(){
     }
     setTestInfo(stringId)
     const tesButtonShow = document.getElementById('task_start_button')
-    tesButtonShow.innerHTML = "-"
+    tesButtonShow.innerHTML = "X"
     setAsInNotStartedTask()
 }
 
