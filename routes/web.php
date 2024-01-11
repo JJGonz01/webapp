@@ -23,13 +23,11 @@ use App\Http\Controllers\authentication;
 |
 */
 
-/* MASTER CALL--MAIN PAGE*/
 
-Route::get('/gran', function () {
-    return view('master');
-})->name('master');
 
 /* AUTENTICACIÓN */
+Route::get('/flogin',  function () {
+    return view('layouts.app');})->middleware('VerifyAndroidToken');
 
 Route::get('/login', function () {
     return view('layouts.app');

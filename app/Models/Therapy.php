@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\patient;
+use App\Models\therapyforum;
 
 class Therapy extends Model
 {
@@ -25,4 +26,8 @@ class Therapy extends Model
         return $this->hasOne(Regla::class, 'regla');
     }
 
+    public function therapyforum()
+    {
+        return $this->haasMany(therapyforum::class);
+    }
 }

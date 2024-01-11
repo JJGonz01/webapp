@@ -7,6 +7,7 @@ use \Firebase\JWT\JWT;
 use Firebase\JWT\Key;
 use Illuminate\Auth\Middleware\Authenticate as Middleware;
 
+use Illuminate\Support\Facades\Auth;
 
 
 class VerifyAndroidToken extends Middleware{
@@ -20,10 +21,23 @@ class VerifyAndroidToken extends Middleware{
             '/finishExtra',
             '/getrules'
         ];
-    
+        
+        $auth = [
+            '/login',
+            '/login?'
+        ];
+
         $token = $request->header('Authorization');
+
         if(!in_array($request -> path(), $guard)){ /*No es una ruta a la que haya que aplicar el middleware*/
-            return $next($request);
+            if (!in_array($request -> path(), $auth)) {
+                if(Auth::check())
+                    return $next($request);
+                else
+                    return redirect()->route('login');
+            }else {
+                    return $next($request);
+            }
         }
 
         if (!$token) {//modificar

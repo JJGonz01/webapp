@@ -19,8 +19,9 @@ return new class extends Migration
             $table->boolean('completed')->default(false); 
             $table->boolean('running')->default(false);
             $table->integer('stage')->default(0);
-
+            
             $table->json('rules');
+            $table->json('posts');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
