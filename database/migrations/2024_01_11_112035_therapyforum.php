@@ -11,13 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
+        Schema::create('therapyforum', function (Blueprint $table) {
         $table->id();
         $table->timestamps();
         $table->string('title');
         $table->string('description')->nullable();
 
         $table->unsignedBigInteger('therapy_id');
-        $table->foreign('therapy_id')->references('id')->on('therapies')->onDelete('cascade');
+        $table->foreign('therapy_id')->references('id')->on('therapies')->onDelete('cascade');      
+    });
     }
 
     /**
