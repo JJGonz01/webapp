@@ -949,5 +949,3 @@ function openSessionCreator(isNew){
 function getrules_page(){
   return rules_page;
 }
-
-function 
