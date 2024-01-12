@@ -3,6 +3,10 @@ var changed = {};
 var numerosPeriodos = 0;
 var posicionadoEn = 0;
 var periodContainerOpen = false;
+var rulesOpen = false;
+
+
+
 
 function editWindowTherapy(){
 
@@ -34,10 +38,8 @@ function editWindowTherapy(){
 function saveTemporalPeriod(button) {
   const texto_reglas_titulo = document.getElementById('texto_regla_periodo');
   var boton_primer_periodo = document.getElementById('save_first_period_ther_create');
-  // boton_primer_periodo.innerHTML = "GUARDAR CAMBIOS";
   const errorMessage = document.getElementById("error_period");
   const periodInput = document.getElementById('input_period');
-  // button.innerHTML = "GUARDAR CAMBIOS";
   var t1 = document.getElementById('t1');
   var t2 = document.getElementById('t2');
   var descanso = document.getElementById('descanso');
@@ -51,21 +53,29 @@ function saveTemporalPeriod(button) {
 
   if (!period.duration_t1.trim()||!period.duration_t2.trim()||!period.duration_rest.trim()) {
     errorMessage.style.display = "block";
-    errorMessage.innerHTML = "ERROR: Valor no rellenado";
+    t1.style="border:1px solid red;"
+    t2.style="border:1px solid red;"
+    descanso.style="border:1px solid red;"
+    errorMessage.innerHTML = "ERROR: Rellena todos los valores";
   } else if (parseFloat(period.duration_t1) <= 0) { 
+    t1.style="border:1px solid red;"
     errorMessage.style.display = "block";
-    errorMessage.innerHTML = "ERROR: Valor estudio 1debe ser mayor que cero";
+    errorMessage.innerHTML = "ERROR: Valor estudio debe ser mayor que cero";
     t1.value = '';
   }else if (parseFloat(period.duration_t2) <= 0) {
+    t2.style="border:1px solid red;"
     errorMessage.style.display = "block";
     errorMessage.innerHTML = "ERROR: Valor estudio 2 debe ser mayor que cero";
     t2.value = '';}
   else if (parseFloat(period.duration_rest) <= 0) {
+    descanso.style="border:1px solid red;"
     errorMessage.style.display = "block";
     errorMessage.innerHTML = "ERROR: Valor descanso debe ser mayor que cero";
     descanso.value = '';
   } else {
-    
+    t1.style="border:1px solid #ced4da;"
+    t2.style="border:1px solid #ced4da;"
+    descanso.style="border:1px solid #ced4da;"
     var boton_reglas_titulo = document.getElementById('open_rule_creator_ther_create');
     boton_reglas_titulo.style.display="block";
     console.log(periods.length);
@@ -199,19 +209,25 @@ function savePeriodExtra(button){
 
   if (!period.duration_t1.trim() || !period.duration_rest.trim()) {
     errorMessage.style.display = "block";
+    t1.style="border:1px solid red;"
+    descanso.style="border:1px solid red;"
     errorMessage.innerHTML = "ERROR: Valor no rellenado";
   } else if (parseFloat(period.duration_t1) <= 0) {
     errorMessage.style.display = "block";
-    errorMessage.innerHTML = "ERROR: Valor debe ser mayor que cero >> t1";
+    t1.style="border:1px solid red;"
+    errorMessage.innerHTML = "ERROR: Valor de estudio debe ser mayor que cero";
     t1.value = '';
   } else if (parseFloat(period.duration_rest) <= 0) {
     errorMessage.style.display = "block";
-    errorMessage.innerHTML = "ERROR: Valor debe ser mayor que cero >> descanso";
+    descanso.style="border:1px solid red;"
+    errorMessage.innerHTML = "ERROR: Valor de descanso debe ser mayor que cero";
     descanso.value = '';
   } else {
     if (!period.duration_rest.trim()) {
       period.duration_rest = "";
     }
+    t1.style="border:1px solid #ced4da;"
+    descanso.style="border:1px solid #ced4da;"
     var boton_reglas_titulo = document.getElementById('open_rule_creator_ther_create');
     boton_reglas_titulo.style.display="block";
     console.log(posicionadoEn);
@@ -434,4 +450,51 @@ function takeChangeWithoutResolving(){
   changed[posicionadoEn] = true;
   console.log("adios" + checkChanges())
 
+}
+
+window.addEventListener('keydown', function (e) {
+  if (e.key === 'Enter') {
+    e.preventDefault();
+
+    var currentPath = window.location.pathname;
+    if(!ejecutarFuncion()) return false;
+
+    if(currentPath.includes("therapy")){
+        if(rulesOpen){
+          console.log(getrules_page())
+          if(getrules_page() == 3)
+            guardarRegla(null);
+          else
+            rule_creation_step(getrules_page()+1)
+        }else{
+          if(posicionadoEn == 0)
+            saveTemporalPeriod(this.document.getElementById("save_first_period_ther_create"))
+          else
+            savePeriodExtra(this.document.getElementById("save_extra_period_ther_create"))
+        }
+      }else if(currentPath.includes("session")){
+        console.log(getrules_page())
+          if(getrules_page() == 3)
+            guardarRegla(null);
+          else
+            rule_creation_step(getrules_page()+1)
+      }
+    }
+}, false);
+
+function setRuleOpenedContainer(open){
+  rulesOpen = open;
+}
+
+let ultimaEjecucion = 0;
+function ejecutarFuncion() {
+  const tiempoActual = Date.now();
+  if (tiempoActual - ultimaEjecucion >= 100) {
+    console.log("La función se ejecutó.");
+    ultimaEjecucion = tiempoActual;
+    return true;
+  } else {
+    console.log("Esperando...");
+    return false;
+  }
 }

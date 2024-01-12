@@ -21,7 +21,7 @@ return new class extends Migration
             $table->integer('stage')->default(0);
             
             $table->json('rules');
-            $table->json('posts');
+            $table->json('posts')->nullable();
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });

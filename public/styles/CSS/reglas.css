@@ -45,8 +45,12 @@
     border:0;
     border-radius: 50%; /* Makes the button circular */
     color: #000000; /* Text color */
+    transition: transform 0.3s ease;
 }
 
+.button-popup-reglas:hover{
+    transform: scale(1.2);
+}
 .row-steps-container{
     display:flex;
     flex-direction: row;
@@ -178,6 +182,7 @@
 	border-radius: 100px;
 	color: rgb(255, 255, 255);;
 	padding: 2%;
+    margin-bottom: 10px;
 }
 
 

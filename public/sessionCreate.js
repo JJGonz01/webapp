@@ -32,9 +32,18 @@ function setButtonAsSelected(buttonid){
 }
 
 function setOpciones(){
+
     const opciones = document.querySelectorAll('input[type="checkbox"]');
     opciones.forEach(opcion => {
         opcion.addEventListener('change', () => manejarCambio(opcion));
+      });
+}
+
+function listenerFecha(){
+    document.getElementById('fechaHora').addEventListener('input', function(event) {
+        var selectedDateTime = event.target.value;
+        console.log('Fecha y hora seleccionadas:', selectedDateTime);
+        // Puedes realizar acciones adicionales aquí con la fecha y hora seleccionadas
       });
 }
     
