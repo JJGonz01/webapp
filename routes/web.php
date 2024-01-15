@@ -22,24 +22,12 @@ use App\Http\Controllers\authentication;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
-
-
-/* AUTENTICACIÓN */
-Route::get('/flogin',  function () {
-    return view('layouts.app');})->middleware('VerifyAndroidToken');
-
 Route::get('/login', function () {
     return view('layouts.app');
 })->name('main');
 
 Route::post('/userlogin', [authentication::class, 'login'])
 ->name('userlogin');
-
-Route::get('/home', function () {
-    return view('index');
-})->name('register');
-
 
 Route::get('/logout', function () {
     return view('layouts.app');
@@ -48,6 +36,14 @@ Route::get('/logout', function () {
 Route::get('/dashboard', function () {
 })->middleware('auth');
 
+Route::group( ['middleware' => 'auth' ], function()
+{
+    Route::get('/patients', [PatientsController::class, 'index'])->name('patients_index');
+
+
+Route::get('/home', function () {
+    return view('index');
+})->name('register');
  /** 
   * PACIENTES
   */
@@ -55,8 +51,6 @@ Route::get('/HOME', function () {
     return view('general');
 })->name('main');
 
-Route::get('/patients', [PatientsController::class, 'index'])
-->name('patients_index');
 
 //SHOW_PATIENT Mostrar un unico paciente
 Route::get('/patient/{id}', [PatientsController::class, 'show'])
@@ -186,6 +180,8 @@ Route::get('/therapy/{id}', [TherapiesController::class, 'show'])
  Route::get('/createsession/{patient_id}', [SessionsController::class, 'create'])->name('sessions_create');
  Route::post('/createsession/{patient_id}', [SessionsController::class, 'store'])
 ->name('sessions_create');
+
+});
 /**
  * AUTHENTICATION
  */
@@ -211,3 +207,4 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('ho
     Route::get('/help', function () {
         return view('help');
     })->name('help');
+

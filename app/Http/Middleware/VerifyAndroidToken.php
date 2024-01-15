@@ -15,7 +15,7 @@ class VerifyAndroidToken extends Middleware{
     public function handle($request, Closure $next, ...$guards)
     {
         $token = $request->header('Authorization');
-        
+
         $guard = [
             '/session/response',
             '/start',
