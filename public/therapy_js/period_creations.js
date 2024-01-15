@@ -475,7 +475,7 @@ window.addEventListener('keydown', function (e) {
       }else if(currentPath.includes("session")){
         console.log(getrules_page())
           if(getrules_page() == 3)
-            guardarRegla(null);
+            this.document.getElementById("session_form").submit();
           else
             rule_creation_step(getrules_page()+1)
       }

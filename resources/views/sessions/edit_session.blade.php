@@ -12,7 +12,7 @@
                 <div class="content-half-image" onclick="closeRuleCreator()"></div>
                 <div class="content-half">
                     <div>
-                    <form action="{{route('session_update',  ['id' => $session -> id], false, true)}}" method="POST">
+                    <form id="session_form" action="{{route('session_update',  ['id' => $session -> id], false, true)}}" method="POST">
                        
                     <input id="valoresReloj" style="display:none;" value="{{$session->time_show}}">
                     <input id="modoJuegoInput" style="display:none;" value="{{$session->modoJuego}}">

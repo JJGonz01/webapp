@@ -828,6 +828,7 @@ function edicionReglaRellenarValores(reglaAEditar)
     else{
       var buttonCrear = document.getElementById("buttonAccion");
       buttonCrear.style.display = "block";
+      buttonCrear.style = "border: 2px solid red;"
     }
     document.getElementById('soloLanzarUnaVezReal').checked = (regla.lanzarUnaVez === "true");
   }
@@ -948,4 +949,8 @@ function openSessionCreator(isNew){
 
 function getrules_page(){
   return rules_page;
+}
+
+function setrulepage(n){
+  rules_page = n;
 }
