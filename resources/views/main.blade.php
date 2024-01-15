@@ -65,7 +65,7 @@
                         </button>
                     </form>
 
-                    <form id="form_crear_sesion"  action="{{route('help', [], false, true)}}" method="GET">
+                    <form id="form_crear_sesion"  action="{{route('forum', [], false, true)}}" method="GET">
                         <button id="nav_bar_info">
                             <!--span class="material-symbols-outlined">info</span-->
                             <div>

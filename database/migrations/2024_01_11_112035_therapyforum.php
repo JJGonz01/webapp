@@ -16,10 +16,11 @@ return new class extends Migration
         $table->timestamps();
         $table->string('title');
         $table->string('description')->nullable();
-
+        $table->json('ids_upload')->nullable();
         $table->unsignedBigInteger('therapy_id');
-        $table->foreign('therapy_id')->references('id')->on('therapies')->onDelete('cascade');      
-    });
+        $table->foreign('therapy_id')->references('id')->on('therapies')->onDelete('cascade'); 
+             
+        });
     }
 
     /**

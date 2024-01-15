@@ -36,152 +36,164 @@ Route::get('/logout', function () {
 Route::get('/dashboard', function () {
 })->middleware('auth');
 
+Route::get('/home', function () {
+    return view('general');
+})->name('register');
+
 Route::group( ['middleware' => 'auth' ], function()
 {
     Route::get('/patients', [PatientsController::class, 'index'])->name('patients_index');
 
-
-Route::get('/home', function () {
-    return view('index');
-})->name('register');
  /** 
   * PACIENTES
   */
-Route::get('/HOME', function () {
-    return view('general');
-})->name('main');
+    Route::get('/HOME', function () {
+        return view('general');
+    })->name('main');
 
 
-//SHOW_PATIENT Mostrar un unico paciente
-Route::get('/patient/{id}', [PatientsController::class, 'show'])
-->name('patient_show');
+    //SHOW_PATIENT Mostrar un unico paciente
+    Route::get('/patient/{id}', [PatientsController::class, 'show'])
+    ->name('patient_show');
 
 
-//Formulario de actualizacion de paciente (no hay accion, es el form)
-Route::get('/patientedit/{id}', [PatientsController::class, 'showFormUpdate'])
-->name('patient_update');
+    //Formulario de actualizacion de paciente (no hay accion, es el form)
+    Route::get('/patientedit/{id}', [PatientsController::class, 'showFormUpdate'])
+    ->name('patient_update');
 
-//UPDATE_PATIENT Actualizar el paciente e ir a menu de show
-Route::post('/patient/{id}', [PatientsController::class, 'update'])
-->name('patient_complete_update');
+    //UPDATE_PATIENT Actualizar el paciente e ir a menu de show
+    Route::post('/patient/{id}', [PatientsController::class, 'update'])
+    ->name('patient_complete_update');
 
-//Borrar el paciente
-Route::delete('/patient/{id}', [PatientsController::class, 'destroy'])
-->name('patient_destroy');
-
-
-Route::get('/createpatient', function () {
-    return view('patients.create_patient');
-})->name('patients_create');
+    //Borrar el paciente
+    Route::delete('/patient/{id}', [PatientsController::class, 'destroy'])
+    ->name('patient_destroy');
 
 
-//CREATE_PATIENT_POST (Llamada al controlador)
-Route::post('/createpatient', [PatientsController::class, 'store'])
-->name('patients_create');
+    Route::get('/createpatient', function () {
+        return view('patients.create_patient');
+    })->name('patients_create');
 
 
-/***
- * TERAPIAS
- */
+    //CREATE_PATIENT_POST (Llamada al controlador)
+    Route::post('/createpatient', [PatientsController::class, 'store'])
+    ->name('patients_create');
 
- //INDEX_ALL_PATIENTS Mostrar lista de pacientes
-Route::get('/therapies', [TherapiesController::class, 'index'])
-->name('therapies_index');
 
-//Formulario de actualizacion de paciente (no hay accion, es el form)
-Route::get('/therapyedit/{id}', [TherapiesController::class, 'showFormUpdate'])
-->name('therapy_update');
+    /***
+     * TERAPIAS
+     */
 
-//UPDATE_PATIENT Actualizar el paciente e ir a menu de show
-Route::post('/therapyedit/{id}', [TherapiesController::class, 'update'])
-->name('therapy_complete_update');
+    //INDEX_ALL_PATIENTS Mostrar lista de pacientes
+    Route::get('/therapies', [TherapiesController::class, 'index'])
+    ->name('therapies_index');
 
-//Borrar la terapia
-Route::delete('/therapydelete/{id}', [TherapiesController::class, 'destroy'])
-->name('therapy_destroy'); 
+    //Formulario de actualizacion de paciente (no hay accion, es el form)
+    Route::get('/therapyedit/{id}', [TherapiesController::class, 'showFormUpdate'])
+    ->name('therapy_update');
 
-/***
- * SESIONES
- */
+    //UPDATE_PATIENT Actualizar el paciente e ir a menu de show
+    Route::post('/therapyedit/{id}', [TherapiesController::class, 'update'])
+    ->name('therapy_complete_update');
 
-//Sesion Mostrar una unica sesion
-Route::get('/session/{id}', [SessionsController::class, 'show'])
-->name('session_show');
+    //Borrar la terapia
+    Route::delete('/therapydelete/{id}', [TherapiesController::class, 'destroy'])
+    ->name('therapy_destroy'); 
 
-Route::get('/sessionedit/{id}', [SessionsController::class, 'edit'])
-->name('session_edit');
+    /***
+     * SESIONES
+     */
 
-Route::post('/sessionupdate/{id}', [SessionsController::class, 'update'])
-->name('session_update');
+    //Sesion Mostrar una unica sesion
+    Route::get('/session/{id}', [SessionsController::class, 'show'])
+    ->name('session_show');
 
-Route::get('/resultsession/{id}', [SessionsController::class, 'result'])
-->name('session_results');
+    Route::get('/sessionedit/{id}', [SessionsController::class, 'edit'])
+    ->name('session_edit');
 
-Route::put('/exitsessions/{id}',[SessionsController::class, 'update']);
+    Route::post('/sessionupdate/{id}', [SessionsController::class, 'update'])
+    ->name('session_update');
 
-Route::get('/sessionorder/getwatchresponse/{id}',[SessionsController::class, 'getSessionWatchResponseData'])->name('order_create'); ///el json pone la orden de nuevo a sero
+    Route::get('/resultsession/{id}', [SessionsController::class, 'result'])
+    ->name('session_results');
 
-Route::post('/session/response',[SessionsController::class, 'getSessionDataWatch'])->name('order_response'); //endpoint al que llama el reloj para poner su respuesta!
+    Route::put('/exitsessions/{id}',[SessionsController::class, 'update']);
 
-// El reloj llamará a este endpoint para recoger las horas y periodos de cada sesion que tenga que analizar
-Route::get('/session/userdata/{id}',[SessionsController::class, 'getUserSessionList'])->name('session_getSessionList');
+    Route::get('/sessionorder/getwatchresponse/{id}',[SessionsController::class, 'getSessionWatchResponseData'])->name('order_create'); ///el json pone la orden de nuevo a sero
 
-//el reloj recoge las reglas
-Route::put('/getrules',[SessionsController::class, 'getSessionRules'])->name('session_getrules');
+    Route::post('/session/response',[SessionsController::class, 'getSessionDataWatch'])->name('order_response'); //endpoint al que llama el reloj para poner su respuesta!
 
-Route::put('/start',[SessionsController::class, 'startSession'])->name('start'); //rel reloj envia info de la sesion
+    // El reloj llamará a este endpoint para recoger las horas y periodos de cada sesion que tenga que analizar
+    Route::get('/session/userdata/{id}',[SessionsController::class, 'getUserSessionList'])->name('session_getSessionList');
 
-Route::put('/finish',[SessionsController::class, 'sessionFinish'])->name('finish'); //rel reloj envia info de la sesion
+    //el reloj recoge las reglas
+    Route::put('/getrules',[SessionsController::class, 'getSessionRules'])->name('session_getrules');
 
-Route::put('/finishExtra',[SessionsController::class, 'sessionFinish2'])->name('finish2'); //rel reloj envia info de la sesion
+    Route::put('/start',[SessionsController::class, 'startSession'])->name('start'); //rel reloj envia info de la sesion
 
-//Reglas
+    Route::put('/finish',[SessionsController::class, 'sessionFinish'])->name('finish'); //rel reloj envia info de la sesion
 
-Route::get('/rulesForSession', [RuleController::class, 'show'])->name('rules_create');
+    Route::put('/finishExtra',[SessionsController::class, 'sessionFinish2'])->name('finish2'); //rel reloj envia info de la sesion
 
-Route::get('/createRule', [IndividualRuleController::class, 'create'])->name('rule_create');
+    //Reglas
 
-Route::post('/createRule', [IndividualRuleController::class, 'store'])
-->name('rule_create');
+    Route::get('/rulesForSession', [RuleController::class, 'show'])->name('rules_create');
 
-Route::get('/sessiondata/{id}', [SessionsController::class, 'getSessionData'])
-->name('session_data');
+    Route::get('/createRule', [IndividualRuleController::class, 'create'])->name('rule_create');
 
-/**
- * PERIODOS DE SESION
- */
+    Route::post('/createRule', [IndividualRuleController::class, 'store'])
+    ->name('rule_create');
 
-//La id es la id de la terapia en la que se encuentra
-Route::get('/createperiod/{session_id}', [SessionPeriodsController::class, 'create'])
-->name('speriod_create');
-Route::post('/createperiod/{session_id}', [SessionPeriodsController::class, 'store'])
-->name('period_create');
+    Route::get('/sessiondata/{id}', [SessionsController::class, 'getSessionData'])
+    ->name('session_data');
 
-//Borrar paciente
-Route::delete('/sessiondestroy/{id}{patient_id}', [SessionsController::class, 'destroy'])
-->name('session_destroy');
+    /**
+     * PERIODOS DE SESION
+     */
 
-//Sesion Mostrar un unico paciente
-Route::get('/period/{id}', [SessionsController::class, 'show'])
-->name('period_show');
+    //La id es la id de la terapia en la que se encuentra
+    Route::get('/createperiod/{session_id}', [SessionPeriodsController::class, 'create'])
+    ->name('speriod_create');
+    Route::post('/createperiod/{session_id}', [SessionPeriodsController::class, 'store'])
+    ->name('period_create');
 
-//terapias
-Route::get('/createtherapy', [TherapiesController::class, 'create'])->name('therapies_create');
+    //Borrar paciente
+    Route::delete('/sessiondestroy/{id}{patient_id}', [SessionsController::class, 'destroy'])
+    ->name('session_destroy');
 
-Route::post('/createtherapy', [TherapiesController::class, 'store'])
-->name('therapies_create');
+    //Sesion Mostrar un unico paciente
+    Route::get('/period/{id}', [SessionsController::class, 'show'])
+    ->name('period_show');
 
-Route::get('/therapy/{id}', [TherapiesController::class, 'show'])
-->name('therapy_show');
-/***
- * SESIONES
- */
+    //terapias
+    Route::get('/createtherapy', [TherapiesController::class, 'create'])->name('therapies_create');
 
- Route::get('/createsession/{patient_id}', [SessionsController::class, 'create'])->name('sessions_create');
- Route::post('/createsession/{patient_id}', [SessionsController::class, 'store'])
-->name('sessions_create');
+    Route::post('/createtherapy', [TherapiesController::class, 'store'])
+    ->name('therapies_create');
+
+    Route::get('/therapy/{id}', [TherapiesController::class, 'show'])->name('therapy_show');
+
+    Route::get('/on_therapy/{id}', [TherapiesController::class, 'showPublished'])->name('therapy_see');
+
+
+    Route::get('/forum', [TherapiesController::class, 'indexPublishedTherapies'])->name('forum');
+    Route::get('/upload_therapy/{id}', [TherapiesController::class, 'upload'])->name('uploadther');
+    Route::get('/download_therapy/{id}', [TherapiesController::class, 'download'])->name('downloadther');
+    /***
+     * SESIONES
+     */
+
+    Route::get('/createsession/{patient_id}', [SessionsController::class, 'create'])->name('sessions_create');
+    Route::post('/createsession/{patient_id}', [SessionsController::class, 'store'])->name('sessions_create');
+
+        Route::get('/general', function () {
+            return view('general');
+        })->name('general');
+
 
 });
+
+
 /**
  * AUTHENTICATION
  */
@@ -200,11 +212,4 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('ho
     Route::get('/teststep', [TestController::class, 'store'])
     ->name('testsend');
 
-    Route::get('/general', function () {
-        return view('general');
-    })->name('general');
-
-    Route::get('/help', function () {
-        return view('help');
-    })->name('help');
 

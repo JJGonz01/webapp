@@ -23,19 +23,14 @@ class VerifyAndroidToken extends Middleware{
             '/finishExtra',
             '/getrules'
         ];
-        
-        $auth = [
-            '/login',
-            '/login?'
-        ];
 
         
-        if(!in_array($request -> path(), $guard)){ /*No es una ruta a la que haya que aplicar el middleware*/
+        if(!in_array($request -> path(), $guard)){ /*No es una ruta a la que haya que aplicar el middleware de petición android studio*/
             return $next($request);
         }
 
         if (!$token) {//modificar
-            return response()->json(['error' => 'Token no proporcionado'], 401);
+            return response()->json(['error' => 'Error al confirmar origen'], 401);
         }
 
         $secretKey = env('ANDROID_TOKEN_KEY', '');

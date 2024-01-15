@@ -11,7 +11,7 @@ function navbarStart() {
     }else if(window.location.pathname == "/therapies"){
         localStorage["navbar"] = "2";
         name = "Terapias";
-    }else if(window.location.pathname == "/help"){
+    }else if(window.location.pathname == "/forum"){
         localStorage["navbar"] = "3";
         name = "Ayuda";
     }else if(localStorage["navbar"] == "true" || localStorage["navbar"] == false){
