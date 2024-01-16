@@ -179,6 +179,7 @@ Route::group( ['middleware' => 'auth' ], function()
     Route::get('/forum', [TherapiesController::class, 'indexPublishedTherapies'])->name('forum');
     Route::get('/upload_therapy/{id}', [TherapiesController::class, 'upload'])->name('uploadther');
     Route::get('/download_therapy/{id}', [TherapiesController::class, 'download'])->name('downloadther');
+    Route::get('/remove_therapy/{id}', [TherapiesController::class, 'removeFromCloud'])->name('removether');
     /***
      * SESIONES
      */

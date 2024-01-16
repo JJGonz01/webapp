@@ -12,7 +12,7 @@
         <script src="{{asset('therapy_js/menus_terapia.js')}}"></script>
 
         <div class="user-welcome-box">
-        @if (session('success'))
+            @if (session('success'))
                 <h6 class="alert alert-success"> {{ session('success') }}</h6>
             @endif
             @if($errors->any())
@@ -22,9 +22,15 @@
             @if(auth()->user() !== null)
             <div class="user-welcome-box-container">
             <h4>{{$therapy-> name}}</h4>
+            @if($therapy->uploaded)
+            <form action="{{route('removether', ['id' => $therapy -> id], false, true)}}" method="GET">
+                    <button class="user-welcome-box-container-button" id="create-patient-button" >QUITAR TERAPIA DE LA RED</button>
+            </form>
+            @else
             <form action="{{route('uploadther', ['id' => $therapy -> id], false, true)}}" method="GET">
                     <button class="user-welcome-box-container-button" id="create-patient-button" >PUBLICAR TERAPIA</button>
             </form>
+            @endif
             </div>
             <div class="user-welcome-box-container">
                 <div class="home-welcome-box" style="margin-right:10px">
@@ -57,6 +63,8 @@
             </div>  
 
             <div id="app_option" style="display:none;" class="buttons-container">
+
+                
                 <form action="{{route('therapy_update', ['id' => $therapy -> id], false, true)}}" id = "editar_form" method = "GET">
                     <button style="background-color:#fff;" id="show_ther_edit_button">
                         Ir a editar terapia

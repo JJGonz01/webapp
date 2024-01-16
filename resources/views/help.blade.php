@@ -12,10 +12,14 @@
 <h4>Terapias publicadas</h4>
 <div class="user-welcome-box-container">
     <div class="home-welcome-box">
-        <button class="home-welcome-box-btn-selected" onclick = "setArticles(0)" id="btn_pom_info">PRUEBAS</button>
-        <button class="home-welcome-box-btn" onclick = "setArticles(1)" id="btn_app_info">POMODORO</button>
-        <button class="home-welcome-box-btn" onclick = "setArticles(2)" id="btn_nos_option">APLICACIÓN</button>
+        <button class="home-welcome-box-btn-selected" id="btn_pom_info" onclick="sortTable(0)">TODOS</button>
+        <button class="home-welcome-box-btn" id="btn_app_info" onclick="sortTable(1)">NOMBRE TERAPIA</button>
+        <button class="home-welcome-box-btn" id="btn_nos_option" onclick="sortTable(2)">AUTOR</button>
+                
     </div>
+
+    <button class="home-welcome-box-btn" id="btn_pom_info" onclick="filtrarPacientes('')">Limpiar Filtro</button>
+    <input class="home-welcome-box-input" id="filter-input" placeholder="Buscar"></input>
 </div>
 
    
@@ -61,6 +65,6 @@
         </div>
         
 
-   
-
+    <script src="{{asset('filter.js')}}"></script>
+    <script>startFilter()</script>
 @endsection

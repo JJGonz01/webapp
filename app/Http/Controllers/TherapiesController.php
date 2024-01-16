@@ -222,8 +222,19 @@ class TherapiesController extends Controller
 
         $periodo = SessionPeriod::where('therapy_id', $therapy->id)->first();
         return view('therapies.show_therapy',
-         ['therapy' => $therapy, 'period' => $periodo])->with('sucess', 'Terapia subida a la red con exito');
+         ['therapy' => $therapy, 'period' => $periodo])->with('success', 'Terapia subida a la red con exito');
     }
+
+    public function removeFromCloud(string $id){
+        $therapy = Therapy::find($id);
+        $therapy -> uploaded = false;
+        $therapy->save();
+
+        $periodo = SessionPeriod::where('therapy_id', $therapy->id)->first();
+        return view('therapies.show_therapy',
+         ['therapy' => $therapy, 'period' => $periodo])->with('success', 'Terapia eliminada de la red con exito');
+    }
+
 
     public function download(string $id){
         $therapy = Therapy::find($id);
@@ -251,7 +262,7 @@ class TherapiesController extends Controller
         
 
         return view('help',
-         ['therapies' => $terapias = Therapy::where('uploaded', true)->take(10)->get()])->with('sucess', 'Terapia descargada con exito');
+         ['therapies' => $terapias = Therapy::where('uploaded', true)->take(10)->get()])->with('success', 'Terapia descargada con exito');
     }
 
 

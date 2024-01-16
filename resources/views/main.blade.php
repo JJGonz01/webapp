@@ -69,7 +69,7 @@
                         <button id="nav_bar_info">
                             <!--span class="material-symbols-outlined">info</span-->
                             <div>
-                                <p id="navbar-4">Ayuda</p>
+                                <p id="navbar-4">Foro</p>
                             </div>
                         </button>
                     </form>

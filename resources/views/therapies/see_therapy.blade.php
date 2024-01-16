@@ -12,7 +12,7 @@
         <script src="{{asset('therapy_js/menus_terapia.js')}}"></script>
 
         <div class="user-welcome-box">
-        @if (session('success'))
+            @if (session('success'))
                 <h6 class="alert alert-success"> {{ session('success') }}</h6>
             @endif
             @if($errors->any())
@@ -41,6 +41,11 @@
         <input style="display:none;"  value="{{$period->durations}}" id="periods_therapy"></input>
         <input style="display:none;"  value="{{$therapy->rules}}" id="rules_therapy"></input>
 
+
+        <div id="app_info" style="display:none;">
+                
+        </div>  
+
         <div class = "options-items-container"  id="pom_info">
             
             <div id="output" class="text-therapies-info" style="padding-bottom:10px;">
@@ -54,10 +59,10 @@
                 
             </div>  
 
-            <div id="app_option" style="display:none;" class="buttons-container">
+        <div id="app_option" style="display:none;" class="buttons-container">
                 
             
-            </div>
+        </div>
 
 </div>
 

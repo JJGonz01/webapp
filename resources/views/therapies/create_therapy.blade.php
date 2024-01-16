@@ -40,6 +40,22 @@
     <h6 class="alert alert-danger">{{ implode('', $errors->all(':message')) }}</h6>
     @endif
     
+
+
+    <div class="user-welcome-box">
+            <div class="user-welcome-box-container">
+                <input type="text" id="name_therapy" name="name" class="name-therapy-input" placeholder="Introducir nombre de la terapia"></input>
+                <button class="user-welcome-box-container-button"  type="submit" id="save_therapy_btn">GUARDAR NUEVA TERAPIA</button>
+                
+            </div>
+            <div class="user-welcome-box-container">
+            <div class="home-welcome-box">
+                </div>
+            </div>
+    </div>
+
+
+
     <div class="therapy-creation-container">
             
                 
@@ -50,7 +66,7 @@
             </div>
             <button id="save_therapy_btn" type="submit" class="create-big-button">GUARDAR TERAPIA</button>
             
-        </div -->
+        
            <div class="header-selector">
                 <div style="margin-top:1%; margin-bottom:1%" class="row-text-button">
                     <input type="text" id="name_therapy" name="name" class="name-therapy-input" placeholder="Nombre de la terapia"></input>
@@ -58,6 +74,8 @@
                 </div>
                 
             </div>
+        </div -->
+
 
         <div class="flex-header-selector">
             <div class="header-selector-small">

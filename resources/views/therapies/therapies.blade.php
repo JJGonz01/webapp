@@ -36,7 +36,7 @@
 
         <div class = "options-items-container">
             
-            <div  class="options-items-container-inner">
+            <div class="options-items-container-inner">
                 @if(count($therapies)>0)
                 <table class="table-items-options">
                     <tr class ="top-index-container">
