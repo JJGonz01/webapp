@@ -7,14 +7,14 @@
 <meta charset="utf-8">
     <!--Nuevo-->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-     <link rel="stylesheet" href="https://pomodoroadhdapp.azurewebsites.net/styles/main.css">
-     <link rel="stylesheet" href="https://pomodoroadhdapp.azurewebsites.net/styles/CSS/navbar.css">
-     <link rel="stylesheet" href="https://pomodoroadhdapp.azurewebsites.net/styles/CSS/reglas.css">
-     <link rel="stylesheet" href="https://pomodoroadhdapp.azurewebsites.net/styles/CSS/items.css">
-     <link rel="stylesheet" href="https://pomodoroadhdapp.azurewebsites.net/styles/CSS/web-right-items.css">
-     <link rel="stylesheet" href="https://pomodoroadhdapp.azurewebsites.net/styles/CSS/create-menu.css">
-     <link rel="stylesheet" href="https://pomodoroadhdapp.azurewebsites.net/styles/CSS/therapy-create-menu.css">
-     <link rel="stylesheet" href="https://pomodoroadhdapp.azurewebsites.net/styles/CSS/edition-clock.css">
+     <link rel="stylesheet" href="{{asset('styles/main.css')}}">
+     <link rel="stylesheet" href="{{asset('styles/CSS/navbar.css')}}">
+     <link rel="stylesheet" href="{{asset('styles/CSS/reglas.css')}}">
+     <link rel="stylesheet" href="{{asset('styles/CSS/items.css')}}">
+     <link rel="stylesheet" href="{{asset('styles/CSS/web-right-items.css')}}">
+     <link rel="stylesheet" href="{{asset('styles/CSS/create-menu.css')}}">
+     <link rel="stylesheet" href="{{asset('styles/CSS/therapy-create-menu.css')}}">
+     <link rel="stylesheet" href="{{asset('styles/CSS/edition-clock.css')}}">
     <!--VIEJO-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"rel="stylesheet">
@@ -32,13 +32,12 @@
 </head>
 
 <body>
-    <script src="https://pomodoroadhdapp.azurewebsites.net/javascript/navbar.js"></script>
+    <script src="{{asset('javascript/navbar.js')}}"></script>
     <div class="navbar-web">
         <button class="navbar-menu-selector" onclick="navbarButton()">Menu</button>
         <div class="navbar-vertical" id="vertical_nv">
             
         <div class="general-navbar-vertical">
-            
                     <form id="form_crear_sesion"  action="{{route('general', [], false, true)}}" method="GET">
                         <button id="nav_bar_home">
                             <!--span class="material-symbols-outlined">home</span-->
@@ -66,11 +65,11 @@
                         </button>
                     </form>
 
-                    <form id="form_crear_sesion"  action="{{route('help', [], false, true)}}" method="GET">
+                    <form id="form_crear_sesion"  action="{{route('forum', [], false, true)}}" method="GET">
                         <button id="nav_bar_info">
                             <!--span class="material-symbols-outlined">info</span-->
                             <div>
-                                <p id="navbar-4">Ayuda</p>
+                                <p id="navbar-4">Foro</p>
                             </div>
                         </button>
                     </form>

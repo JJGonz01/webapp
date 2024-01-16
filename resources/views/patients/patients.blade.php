@@ -10,7 +10,7 @@
 <div class="general-items-container">
         
 <div class="user-welcome-box">
-    @if(auth()->user() !== null)
+    
     <div class="user-welcome-box-container">
         <h4>Pacientes</h4>
         <form action="{{route('patients_create', [], false, true)}}" method="GET">
@@ -27,9 +27,6 @@
         <button class="home-welcome-box-btn" id="btn_pom_info" onclick="filtrarPacientes('')">Limpiar Filtro</button>
         <input class="home-welcome-box-input" id="filter-input" placeholder="Buscar"></input>
     </div>
-    @else
-    <p>INICIA SESION PARA CONTINUAR</p>
-    @endif
 </div>
 
 <div class="options-items-container">
@@ -75,6 +72,6 @@
 
     
 </div>
-<script src="https://pomodoroadhdapp.azurewebsites.net/filter.js"></script>
+<script src="{{asset('filter.js')}}"></script>
 <script>startFilter()</script>
 @endsection

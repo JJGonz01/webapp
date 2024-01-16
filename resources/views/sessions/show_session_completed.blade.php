@@ -3,7 +3,7 @@
 @section('patients_section')
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!--para la grafica-->
 
-<script src="https://pomodoroadhdapp.azurewebsites.net/session/sessionCompleted.js"></script>  
+<script src="{{asset('session/sessionCompleted.js')}}"></script>  
 
 <div class="general-items-container">
     <input id = "bpm_val" value="{{$bpm_valores}}" style="display:none;"></input>
@@ -16,7 +16,7 @@
     <input style="display:none;" id = "move_medios" value = "{{$move_medios}}"></input>
     <div id="prueba"></div>
 
-    <script src="https://pomodoroadhdapp.azurewebsites.net/general_page.js"></script>
+    <script src="{{asset('general_page.js')}}"></script>
   
         <div class="user-welcome-box">
             

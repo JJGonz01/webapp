@@ -41,7 +41,10 @@ var addPointsInput;
 var rulesInput;
 var inputConjuntoPeriodo;
 
+var rules_page;
+
 function rulesStart() {
+  rules_page = 0;
   var periodosAnteriores = document.getElementById('periods_edit').value;
   mapaReglasPeriodo = {};
   var valorReglasAnteriores = document.getElementById('rules_edit').value;
@@ -391,7 +394,7 @@ function crearAccionFinalExtra(){
   ac4.setAttribute("name", "ac4");
 
   var botonEliminar = document.createElement("button");
-  botonEliminar.textContent = "X";
+  botonEliminar.textContent = "Eliminar accion extra";
   botonEliminar.className = "delete-button";
   botonEliminar.onclick = function() {
     var buttonCrear = document.getElementById("buttonAccion");
@@ -624,11 +627,13 @@ function guardarRegla(nombreAnterior){
   });
   
   if (duplicadoNombreRegla || !(nombreRegla).trim()) {
+    rule_creation_step(1);
     document.getElementById("errorCreandoRegla").textContent = "ERROR: El nombre de regla es invalido o ya existe";
+    document.getElementById("rule_name").style="border: 1px solid red"
     document.getElementById("errorCreandoRegla").style.display = "block";
     return;
   }
-  
+  document.getElementById("rule_name").style="border: 1px solid grey"
   document.getElementById("errorCreandoRegla").style.display = "none";
   closeRuleCreator();
   limpiarInputs();
@@ -809,7 +814,7 @@ function edicionReglaRellenarValores(reglaAEditar)
         var ac1 = divsAccion[i].querySelector("select[name='ac1']");
         var ac2 = divsAccion[i].querySelector("select[name='ac2']");
         var ac3 = divsAccion[i].querySelector("input[name='ac3']");
-        var ac4 = divsAccion[i].querySelector("input[name='ac4']");
+        var ac4 = divsAccion[i].querySelector("input[name='ac4']");rule_name
         ac1.value = acca.reloj;
         ac2.value = acca.sesion;
         ac3.value = acca.puntos;
@@ -823,6 +828,7 @@ function edicionReglaRellenarValores(reglaAEditar)
     else{
       var buttonCrear = document.getElementById("buttonAccion");
       buttonCrear.style.display = "block";
+      buttonCrear.style = "border: 2px solid red;"
     }
     document.getElementById('soloLanzarUnaVezReal').checked = (regla.lanzarUnaVez === "true");
   }
@@ -879,6 +885,9 @@ function deletRule(nombre){
 }
 
 function openRuleCreator(isNew){
+  setRuleOpenedContainer(true)
+  rule_creation_step(1);
+
   var btn = document.getElementById("open_rule_creator_ther_create");
   btn.style.display = "none";
   if(isNew == 0) {
@@ -896,6 +905,7 @@ function openRuleCreator(isNew){
 }
 
 function closeRuleCreator(){  
+  setRuleOpenedContainer(false)
   var btn = document.getElementById("open_rule_creator_ther_create");
   if(btn != null) btn.style.display = "block";
   var rc = document.getElementById("contenedor_creador_reglas");
@@ -907,7 +917,7 @@ function rule_creation_step(goto){
   var step_two = document.getElementById("rule_creation_step_two");
   var step_three = document.getElementById("rule_creation_step_three");
 
-
+  rules_page = goto;
   var button_one = document.getElementById("menu_reglas_btn_one");
   var button_two = document.getElementById("menu_reglas_btn_two");
   var button_three = document.getElementById("menu_reglas_btn_three");
@@ -933,7 +943,14 @@ function rule_creation_step(goto){
 }
 
 function openSessionCreator(isNew){
-
   var rc = document.getElementById("contenedor_creador_reglas");
   rc.style.display = "flex";
+}
+
+function getrules_page(){
+  return rules_page;
+}
+
+function setrulepage(n){
+  rules_page = n;
 }

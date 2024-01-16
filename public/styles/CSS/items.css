@@ -120,7 +120,7 @@
     background-color: var(--azul-cerrar-hover);
 }
 .delete-button:hover{
-    background-color:  var(--azul-cerrar-hover);
+    background-color:  #e0776e;
 }
 
 .patient-edit-button{

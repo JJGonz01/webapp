@@ -38,7 +38,7 @@ class TherapiesController extends Controller
     {
        $today = Carbon::now();
        echo $today->toDateTimeString();
-
+       
        //dd($request);
        $request -> validate([
            'name' => 'max:255|required',
@@ -64,6 +64,7 @@ class TherapiesController extends Controller
 
        $usuario = Auth::user();
 
+       $terapia-> author = $usuario-> name;
 
        //si no hay reglas paso un string vacio :)
        if(is_null($request->rules)) $rules = json_encode('empty');
@@ -117,6 +118,15 @@ class TherapiesController extends Controller
         return view('therapies.show_therapy',
          ['therapy' => $therapy, 'period' => $periodo]);
     }
+
+    public function showPublished(string $id)
+    {
+        $therapy = Therapy::find($id);
+        $periodo = SessionPeriod::where('therapy_id', $therapy->id)->first();
+        return view('therapies.see_therapy',
+         ['therapy' => $therapy, 'period' => $periodo]);
+    }
+
 
     public function edit(string $id)
     {
@@ -203,5 +213,61 @@ class TherapiesController extends Controller
          $therapy = Therapy::all();
          return redirect()->route('therapies_index',['therapies' => $therapy])->with('success','Terapia eliminada correctamente');
    
+    }
+
+    public function upload(string $id){
+        $therapy = Therapy::find($id);
+        $therapy -> uploaded = true;
+        $therapy->save();
+
+        $periodo = SessionPeriod::where('therapy_id', $therapy->id)->first();
+        return view('therapies.show_therapy',
+         ['therapy' => $therapy, 'period' => $periodo])->with('success', 'Terapia subida a la red con exito');
+    }
+
+    public function removeFromCloud(string $id){
+        $therapy = Therapy::find($id);
+        $therapy -> uploaded = false;
+        $therapy->save();
+
+        $periodo = SessionPeriod::where('therapy_id', $therapy->id)->first();
+        return view('therapies.show_therapy',
+         ['therapy' => $therapy, 'period' => $periodo])->with('success', 'Terapia eliminada de la red con exito');
+    }
+
+
+    public function download(string $id){
+        $therapy = Therapy::find($id);
+        $terapia = new Therapy;
+
+        if (Auth::check())
+            $usuario = Auth::user();
+        else
+            return view('layouts.app'); 
+
+        $terapia->name = $therapy->name;
+        $terapia->user_id = $therapy->user_id;
+        $terapia->rules = $therapy->rules;
+        $terapia -> author = $usuario->name;
+        $terapia -> user_id = $usuario->id;
+        $terapia -> uploaded = false;
+        
+        $periodo = SessionPeriod::where('therapy_id', $therapy->id)->first();
+        $terapia->save();
+        $session_period = new SessionPeriod;
+        $session_period-> durations = $periodo -> durations;
+        $session_period-> therapy_id = $terapia-> id;
+        $session_period->save();
+
+        
+
+        return view('help',
+         ['therapies' => $terapias = Therapy::where('uploaded', true)->take(10)->get()])->with('success', 'Terapia descargada con exito');
+    }
+
+
+    public function indexPublishedTherapies(Request $request){
+        $terapias = Therapy::where('uploaded', true)->take(10)->get();
+        return view('help', ['therapies' => $terapias]);
     }
 }

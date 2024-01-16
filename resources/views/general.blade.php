@@ -5,7 +5,7 @@
 <head><title>HOME</title></head>
 
 <div class="general-items-container">
-<script src="https://pomodoroadhdapp.azurewebsites.net/general_page.js"></script>
+<script src="{{asset('general_page.js')}}"></script>
   
         <div class="user-welcome-box">
             @if(auth()->user() !== null)
@@ -13,9 +13,9 @@
             <h4>General</h4>
             <div class="user-welcome-box-container">
                 <div class="home-welcome-box">
-                    <button class="home-welcome-box-btn-selected" onclick = "setArticles(0)" id="btn_pom_info">POMODORO</button>
-                    <button class="home-welcome-box-btn" onclick = "setArticles(1)" id="btn_app_info">NUESTRA APLICACIÓN</button>
-                    <button class="home-welcome-box-btn" onclick = "setArticles(2)" id="btn_nos_option">NOSOTROS</button>
+                    <button class="home-welcome-box-btn-selected" onclick = "setArticles(0)" id="btn_pom_info">PRUEBAS</button>
+                    <button class="home-welcome-box-btn" onclick = "setArticles(1)" id="btn_app_info">POMODORO</button>
+                    <button class="home-welcome-box-btn" onclick = "setArticles(2)" id="btn_nos_option">APLICACIÓN</button>
                 </div>
             </div>
             @else
@@ -25,6 +25,45 @@
 
 
     <div class= "create-basic-container-home" id="pom_info">
+    <div class="title-div-home">
+            <h1> Prueba para rendimiento de la web </h1>
+           
+        </div>
+        <div class="text-div-home"> <h4> ¿Qué se va a realizar en estas pruebas? </h4>
+            <p>
+                Durante estas pruebas, el usuario deberá realizar distintas tareas que suponen las principales funcionalidades de la página web. Esta plataforma, que
+                comunicara con el reloj, debe ser probada para verificar que estamos siguiendo los pasos correctos y comprobamos la información adecuada. Para ello,
+                queremos acercar distintas funcionalidades de monitorización y soporte al estudio a alumnos con trastorno por déficit de atención e hiperactividad.
+            </p>
+            <p>
+                Cuando acabe las tareas, rellene el siguiente <a href="https://forms.gle/vZvypwLjoNV8YfAP6">formulario</a>.
+            </p><h4> ¿En que consisten las tareas? </h4>
+            <p>
+                Las tareas a realizar consisten en cumplir el objetivo establecido, no hay limite de tiempo. El botón que encontrará abajo a la izquierda de su monitor le permitirá ir alternando entre
+                el menú en el que se detalla la tarea y la aplicación web. Una vez acabado el test, deberá darle al botón "HE TERMINADO LA TAREA" y automáticamente se le descargará un archivo. Una vez lo
+                descargue guardelo, y al acabar las tres tareas, envíelo al correo josejesus.gonzalez@uclm.es
+            </p>
+
+            <p>
+                Cualquier duda o problema para iniciar las tareas contacta con el grupo Louise. Recuerde descargar el archivo JSON que se lanza cada vez que se finaliza una tarea.
+            </p>
+            
+            <p></p><h4> Consejos </h4>
+            <p>
+                Crea pacientes en la pestaña pacientes, en la barra de tareas "Pacientes". Por cada usuario creado, se añadirá una id y una información adicional, si cree que se podría incluir
+                cualquier otra opción o configuración, escribanos sus comentarios.
+            </p>
+            <p>
+                Crea terapias en la pestaña terapias, en la barra de tareas "Terapias". Cada terapia tiene bloques de estudio, donde podrá editar un periodo de estudio y de descanso. Recuerde siempre guardar
+                cuando cree o edite un bloque.
+            </p>
+            <p></p>
+        </div>
+
+        
+    </div>
+
+    <div class= "create-basic-container-home" id="app_info" style="display:none;">
         <div class="title-div-home">
             <h1> La técnica pomodoro </h1>
             <h4> Productividad al hacer tareas</h4>
@@ -63,10 +102,11 @@
 
             <p></p>
         </div>
+        
     </div>
 
-    <div class= "create-basic-container-home" id="app_info" style="display:none;">
-        <div class="title-div-home">
+    <div class= "create-basic-container-home" id="app_option" style="display:none;">
+    <div class="title-div-home">
             <h1> Aplicación TDAH </h1>
             <h4> Organización y monitorización</h4>
         </div>
@@ -86,7 +126,7 @@
             </p>
 
             
-            <img src="https://pomodoroadhdapp.azurewebsites.net/images/graph_bloques.png" class="imageHome" alt="Grafico funcionamiento aplicacion" height="600">
+            <img src="{{asset('images/graph_bloques.png')}}" class="imageHome" alt="Grafico funcionamiento aplicacion" height="600">
             <span class="imageHomep">Figura 1: Esquema bloques de estudio</span></img>
             <p>
                 En cada bloque el terapeuta podrá ajustar distintas condiciones, a partir de el estado anímico de del joven, para que según como se encuentre pueda realizar distintas acciones, como mensajes de ánimo,
@@ -101,25 +141,12 @@
                 añadir tiempo extra, concluir el periodo o concluir el bloque entero.
             </p>
 
-            <img src="https://pomodoroadhdapp.azurewebsites.net/images/graph_reglas.png" class="imageHome" alt="Grafico funcionamiento aplicacion" height="600">
+            <img src="{{asset('images/graph_reglas.png')}}" class="imageHome" alt="Grafico funcionamiento aplicacion" height="600">
             <span class="imageHomep">Figura 2: Esquema reglas de la sesión</span></img>
             <p></p>
         </div>
 
-        
-    </div>
-
-    <div class= "create-basic-container-home" id="app_option" style="display:none;">
-        <div class="title-div-home">
-            <h1> Nosotros </h1>
-            <h4> Comunícate con nosotros</h4>
-        </div>
-        <div class="text-div-home">
-            <p>
-                Siga la tarea y realice los ejercicios, puede enviar sugerencias tras completar las tareas en <a href="https://forms.gle/vZvypwLjoNV8YfAP6">este formulario</a>
-            </p>
-        </div>
-
+            
         
     </div>
 </div>

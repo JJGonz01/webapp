@@ -15,7 +15,7 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                         @enderror
-                            <img src="https://pomodoroadhdapp.azurewebsites.net/images/tomatoclock.jpg" class="right-login-container-image"></img><h1>¡Hola de nuevo!</h1>
+                            <img src="{{asset('images/tomatoclock.jpg')}}" class="right-login-container-image"></img><h1>¡Hola de nuevo!</h1>
                         <div class="auth-input">
                             
                             

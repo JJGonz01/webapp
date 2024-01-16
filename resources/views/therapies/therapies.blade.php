@@ -8,7 +8,6 @@
 
 <div class="general-items-container">
 
-        <script></script>
         @if (session('success'))
             <h6 class="alert alert-success"> {{ session('success') }}</h6>
         @endif
@@ -17,7 +16,6 @@
         @enderror
 
         <div class="user-welcome-box">
-            @if(auth()->user() !== null)
             <div class="user-welcome-box-container">
                 <h4>Terapias</h4>
                 <form action = "{{route('therapies_create', [], false, true)}}" method = "GET">
@@ -34,14 +32,11 @@
                 <button class="home-welcome-box-btn" id="btn_pom_info" onclick="filtrarPacientes('')">Limpiar Filtro</button>
                 <input class="home-welcome-box-input" id="filter-input" placeholder="Buscar"></input>
             </div>
-            @else
-            <p> INICIA SESION PARA CONTINUAR </p>
-            @endif
         </div>
 
         <div class = "options-items-container">
             
-            <div  class="options-items-container-inner">
+            <div class="options-items-container-inner">
                 @if(count($therapies)>0)
                 <table class="table-items-options">
                     <tr class ="top-index-container">
@@ -86,6 +81,6 @@
         </div>
     
 </div> 
-<script src="https://pomodoroadhdapp.azurewebsites.net/filter.js"></script>
+<script src="{{asset('filter.js')}}"></script>
 <script>startFilter()</script>
 @endsection

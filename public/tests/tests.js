@@ -88,7 +88,6 @@ function getAllInputs() {
         inputElements.forEach(function(input) {
             if(input.id != "password"){
                 setInputListener(input)
-                console.log(input.id);
             }
         // outputDiv.textContent += input.id + ': ' + input.value + '\n';
         });
@@ -99,7 +98,6 @@ function setInputListener(inputField){
     var inputValue = inputField.value;
         inputField.addEventListener("blur", function() {
             inputValue = inputField.value;
-            console.log(inputValue);
             var date = new Date;
             var clickedTime = (""+date.getDate()+"-"+date.getMonth()+"-"+date.getHours()+"-"+date.getMinutes()+"-"+date.getSeconds()+"-"+date.getMilliseconds());
             sendJsonInfo(localStorage["testId"],clickedTime,getTimeDifference(clickedTime),inputField.id+"|"+inputValue, "input", null, null)
@@ -136,9 +134,7 @@ function setTestInfoTab(){
         var paragraph = document.createElement("p");
         paragraph.textContent = textToShow[i];
         task_test.appendChild(paragraph);
-        console.log(textToShow[i]);
     }
-    console.log(textToShow[0])
 }
 
 function startTask(){
@@ -180,7 +176,6 @@ function addFunctionToOnClick(button){
                 additionalFunction = "event.preventDefault(); printClickedId(this, '" + currentOnclick + "', null);";
             }
         
-        console.log(additionalFunction + "--"+button.id)
         var newOnclick = additionalFunction
         button.setAttribute('onclick', newOnclick); 
     } 
@@ -194,7 +189,7 @@ function showhidetext(){
     if(testText.style.display == "none"){
         testText.style.display ="block";
         localStorage["infoOpen"] = "true";
-        tesButtonShow.innerHTML = "-"
+        tesButtonShow.innerHTML = "X"
         if(localStorage["testId"] == "3"){
             endButton.innerHTML = "HACER DE NUEVO";
         }
@@ -204,7 +199,7 @@ function showhidetext(){
     }else{
         testText.style.display ="none";
         localStorage["infoOpen"] = "false";
-        tesButtonShow.innerHTML = "-"
+        tesButtonShow.innerHTML = "X"
     }
 }
 
@@ -225,8 +220,7 @@ function printClickedId(button, action, form){
        
         var date = new Date;
         var clickedTime = (""+date.getDate()+"-"+date.getMonth()+"-"+date.getHours()+"-"+date.getMinutes()+"-"+date.getSeconds()+"-"+date.getMilliseconds());
-        console.log(button.id);
-            var timeDifference;
+        var timeDifference;
         if(localStorage["teststart"]){
             timeDifference = getTimeDifference(clickedTime);
         }
@@ -238,10 +232,8 @@ function printClickedId(button, action, form){
 
 function endTask(){
 
-    console.log("hola");
     var intId = parseInt(localStorage["testId"])
     downloadJson();
-    console.log(intId+"id")
     intId += 1
     var stringId = intId.toString()
     localStorage["testId"] = stringId
@@ -258,7 +250,7 @@ function endTask(){
     }
     setTestInfo(stringId)
     const tesButtonShow = document.getElementById('task_start_button')
-    tesButtonShow.innerHTML = "-"
+    tesButtonShow.innerHTML = "X"
     setAsInNotStartedTask()
 }
 
@@ -271,7 +263,6 @@ function sendJsonInfo(testId, dateTime, differenceTime, actionId, type, nextFunc
         "differenceTime": differenceTime,
         "actionId": actionId
     };
-    console.log("Enviando: "+actionId)
     $.ajax({
         url: "/teststep",
         type: "GET",
@@ -285,13 +276,9 @@ function sendJsonInfo(testId, dateTime, differenceTime, actionId, type, nextFunc
                     eval(nextFunctionButton);
                     if(form != null)
                         form.submit();
-                    console.log("Data: " + data);
                 } catch (error) {
                     console.error("Error executing nextFunctionButton: " + error);
                 }
-            }
-            else{
-                console.log("Data: " + data);
             }
         },
         error: function(jqXHR, textStatus, errorThrown) {
@@ -312,7 +299,6 @@ function getTimeDifference(dateClick){
     for(var i = 1; i<6; i++){
         arrayDiferences += "-"+Math.abs(arrayTimeOriginal[i] - arrayTimeClicked[i]);
     }
-    console.log(arrayDiferences);
     return arrayDiferences;
 }
 

@@ -9,11 +9,11 @@
 
 
 <form id="form_crear_sesion" action="{{route('therapies_create',[], false, true)}}" method="POST">
-    <script src="https://pomodoroadhdapp.azurewebsites.net/therapy_js/period_creations.js"></script>
-    <script src="https://pomodoroadhdapp.azurewebsites.net/therapy_js/menus_terapia.js"></script>
-    <script src="https://pomodoroadhdapp.azurewebsites.net/therapy_js/rule.js"></script>
-    <script src="https://pomodoroadhdapp.azurewebsites.net/terapies_creator.js"></script>
-    <script src="https://pomodoroadhdapp.azurewebsites.net/therapy_js/period_creations.js"></script>
+    <script src="{{asset('therapy_js/period_creations.js')}}"></script>
+    <script src="{{asset('therapy_js/menus_terapia.js')}}"></script>
+    <script src="{{asset('therapy_js/rule.js')}}"></script>
+    <script src="{{asset('terapies_creator.js')}}"></script>
+    <script src="{{asset('therapy_js/period_creations.js')}}"></script>
 
     <!-- INPUTS FANTASMA PARA LOS DATOS-->
     <input name="rules_edit" id="rules_edit" value = "null" style="display: none;"/>
@@ -40,6 +40,22 @@
     <h6 class="alert alert-danger">{{ implode('', $errors->all(':message')) }}</h6>
     @endif
     
+
+
+    <div class="user-welcome-box">
+            <div class="user-welcome-box-container">
+                <input type="text" id="name_therapy" name="name" class="name-therapy-input" placeholder="Introducir nombre de la terapia"></input>
+                <button class="user-welcome-box-container-button"  type="submit" id="save_therapy_btn">GUARDAR NUEVA TERAPIA</button>
+                
+            </div>
+            <div class="user-welcome-box-container">
+            <div class="home-welcome-box">
+                </div>
+            </div>
+    </div>
+
+
+
     <div class="therapy-creation-container">
             
                 
@@ -50,7 +66,7 @@
             </div>
             <button id="save_therapy_btn" type="submit" class="create-big-button">GUARDAR TERAPIA</button>
             
-        </div -->
+        
            <div class="header-selector">
                 <div style="margin-top:1%; margin-bottom:1%" class="row-text-button">
                     <input type="text" id="name_therapy" name="name" class="name-therapy-input" placeholder="Nombre de la terapia"></input>
@@ -58,10 +74,10 @@
                 </div>
                 
             </div>
+        </div -->
+
 
         <div class="flex-header-selector">
-            
-
             <div class="header-selector-small">
                 <div class="row-text-button">
                     <p style="font-size:x-large;">Bloques de estudio</p>
@@ -105,17 +121,17 @@
                         <div class="therapy-input-row">
                             <div>
                                 <label for="t1">Estudio (Minutos)</label>
-                                <input id="t1" type="number" name="t1" class="form-control mb-3">
+                                <input id="t1" min="1" type="number" name="t1" class="form-control mb-3">
                             </div>
 
                             <div>
                                 <label for="descanso">Descanso (Minutos)</label>
-                                <input id="descanso" type="number" name="descanso" class="form-control mb-3">
+                                <input id="descanso" min="1" type="number" name="descanso" class="form-control mb-3">
                             </div>
 
                             <div>
                                 <label for="t2">Estudio (Minutos)</label>
-                                <input id="t2" type="number" name="t2" class="form-control mb-3">
+                                <input id="t2" min="1" type="number" name="t2" class="form-control mb-3">
                             </div>
 
                             <div>
@@ -128,12 +144,12 @@
                         <div class="therapy-input-row">
                             <div class="periodos">
                                 <label for="descanso_extra">Descanso (Minutos)</label>
-                                <input id="descanso_extra" min="0" type="number" name="descanso" class="form-control" rown="10">
+                                <input id="descanso_extra" min="1" type="number" name="descanso" class="form-control" rown="10">
                             </div>
                             
                             <div class="periodos">
                                 <label for="t1_extra">Estudio (Minutos)</label>
-                                <input id="t1_extra" type="number" name="t2" min="0" class="form-control" rown="10">
+                                <input id="t1_extra" type="number" name="t2" min="1" class="form-control" rown="10">
                             </div>
                             <button id="save_extra_period_ther_create" type="button" onclick="savePeriodExtra(this)" class="create-medium-button-save"> <span class="material-symbols-outlined">save</span></button>
                         </div>

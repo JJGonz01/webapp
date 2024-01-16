@@ -13,11 +13,15 @@ class TestController extends Controller
 {
      
     public function index(Request $request){
-        return  Testdata::all();
+        return Testdata::all();
     }
 
     public function endTask(){
 
+        if(!Auth::check()){
+            return false; 
+        }
+        
         $user = Auth::user();
         $userid = $user->id;
         $tests = Testdata::where('user_id', $userid)->get();
