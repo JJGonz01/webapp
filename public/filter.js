@@ -107,8 +107,6 @@ function setArticles(numberArt){
         btn3.classList.add("home-welcome-box-btn");
     }
     else if(numberArt == 1){
-        console.log("haosda")
-
         btn2.classList.remove("home-welcome-box-btn");
         btn1.classList.remove("home-welcome-box-btn-selected");
         btn3.classList.remove("home-welcome-box-btn-selected");
