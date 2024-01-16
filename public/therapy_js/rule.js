@@ -49,30 +49,22 @@ function rulesStart() {
   mapaReglasPeriodo = {};
   var valorReglasAnteriores = document.getElementById('rules_edit').value;
 
-  console.log("estoy funcionando nene");
 
   //si estoy en la ventana de editar
   if (valorReglasAnteriores != "null" && valorReglasAnteriores != "\"empty\"") {
-    console.log(valorReglasAnteriores);
+
     const reglasViejas = JSON.parse(valorReglasAnteriores);
-    console.log("reglas viejas"+reglasViejas[0]);
+
   
     reglasViejas.forEach((regla) => {
       var parsedRegla = JSON.parse(regla);
-      console.log(parsedRegla.nombreRegla);
-      console.log(parsedRegla.conjPeriodo);
-      console.log(parsedRegla.periodo);
   
       if (!mapaReglasPeriodo[parsedRegla.conjPeriodo]) {
         mapaReglasPeriodo[parsedRegla.conjPeriodo] = {};
       }
-  
       mapaReglasPeriodo[parsedRegla.conjPeriodo][parsedRegla.nombreRegla] = parsedRegla;
-  
       reglasNuevas.push(regla); // Agrega la cadena de texto en lugar de parsedRegla
       mostrarReglasRespectoPeriodo("Todos");
-      console.log("mapa"+mapaReglasPeriodo);
-      console.log("reglas nuevas"+reglasNuevas);
     });
   }
 
@@ -90,7 +82,6 @@ function rulesStart() {
     })
 
     irAPeriodo(-1);
-    console.log(periods);
   }
   
 
@@ -179,7 +170,6 @@ function actionToMake(){
 function addEventSiSeleccionoMasTiempoPoderPonerlo(){
   selectActionSesion.addEventListener('change', function() {
     var selectedValue = selectActionSesion.value;
-    console.log(selectedValue);
     if (selectedValue == "Añadir tiempo al periodo") {
       addExtraTimeInput.style.display = "block";
     }else{
@@ -192,7 +182,6 @@ function addEventSiSeleccionoMasTiempoPoderPonerlo(){
 function addEventSiSeleccionoSumarPuntosPoderPonerlo(){
   selectActionReloj.addEventListener('change', function() {
     var selectedValue = selectActionReloj.value;
-    console.log(selectedValue);
      if(selectedValue == "Suma puntos"){
       addPointsInput.style.display = "block";
     }else{
@@ -207,7 +196,6 @@ function addEventJuegoSumrMinutos(){
   var inputMinutos = document.getElementById("juegoTiempo");
      opcionesJuego.addEventListener('change', function() {
     var selectedValue = opcionesJuego.value;
-    console.log(selectedValue);
     if (selectedValue == "JuegoMinutos") {
       inputMinutos.style.display = "block";
     } else {
@@ -509,12 +497,6 @@ function guardarRegla(nombreAnterior){
   var momentoPeriodo = document.getElementById("selectMomentoPeriodo").value;
   var isEditing = document.getElementById("isEditing").value;
 
-  console.log("Nombre:", nombreRegla);
-  console.log("Conjunto p:", conjPeriodo);
-  console.log("Periodo:", periodo);
-  console.log("Momento p:", momentoPeriodo);
-  console.log("EDITING"+isEditing+"--"+ruleNameInput.value);
-
   //Ahora aqui es donde se comprueba si ESTA EDITANDO UNA REGLA-> SI LO ESTA LA ELIMINAMOS DEL ARRAY Y DEL HASHMAP
   if(isEditing != "0"){
     var indiceEliminar = -1;
@@ -607,15 +589,12 @@ function guardarRegla(nombreAnterior){
 
   
   if (duplicado) {
-    console.log("La regla ya existe en el array.");
     document.getElementById("errorCreandoRegla").textContent = "ERROR: Regla ya existe";
     document.getElementById("errorCreandoRegla").style.display = "block";
     return;
   }
 
   if(accionReloj == "Nada" && accionSesion=="Nada"){
-    console.log("Se necesita una accion.");
-
     document.getElementById("errorCreandoRegla").textContent = "ERROR: Define al menos una acción a realizar";
     document.getElementById("errorCreandoRegla").style.display = "block";
     return;
@@ -660,12 +639,7 @@ function guardarRegla(nombreAnterior){
       }
       
       rulesInput.value = JSON.stringify(reglasNuevas);
-      
-      console.log(reglaAuxiliar);
     }
-    
-    console.log(mapaReglasPeriodo);
-    console.log(reglasNuevas);
     mostrarReglasRespectoPeriodo("Todos");
   }else{
 
@@ -679,8 +653,6 @@ function guardarRegla(nombreAnterior){
     }
     rulesInput.value = JSON.stringify(reglasNuevas);
     mostrarReglasRespectoPeriodo(conjPeriodo);
-    console.log(mapaReglasPeriodo);
-    console.log(reglasNuevas);
   }
 
 }
@@ -696,7 +668,6 @@ function guardarRegla(nombreAnterior){
   const reglas = mapaReglasPeriodo[ConjuntoPeriodo];
   
   if(ConjuntoPeriodo == "Todos"){
-      console.log("¡Aqui no aparecen reglas!");
       return;
   }
 
@@ -731,7 +702,6 @@ function guardarRegla(nombreAnterior){
         boton.appendChild(label);
         boton.appendChild(value);
         boton.id = "btn-"+reglaObj["nombreRegla"];
-        console.log( ">>>>"+reglaObj["nombreRegla"]+"");
         boton.onclick = function() { 
                   edicionReglaRellenarValores(reglaObj["nombreRegla"]); //para que los inputs sean iguales q los de la regla
                   rule_creation_step(1);
@@ -774,8 +744,6 @@ function edicionReglaRellenarValores(reglaAEditar)
     var condiciones = JSON.parse(regla.condiciones);
     var divsCondicion = document.getElementsByName("condicionCrear");   
     var container = document.getElementById("appear-dissapearDiv");
-
-    console.log(condiciones)
     for (var i = 0; i < condiciones.length; i++) {
       createDiv();
     }
@@ -787,13 +755,11 @@ function edicionReglaRellenarValores(reglaAEditar)
         var selectValue = child.querySelector("select[name='sensorValue']");
         sensorSelect.value = condicion.sensor;
         selectValue.value = condicion.value;
-        console.log(child);
     }
 
     var acciones = JSON.parse(regla.acciones);
     document.getElementById("AccionSelect").value = acciones[0].reloj;
     document.getElementById("AccionSelectSesion").value = acciones[0].sesion;
-    console.log("ssss "+acciones[0].reloj)
     if(acciones[0].reloj == "Suma puntos")
       addPointsInput.style.display = "block";
     else
@@ -874,8 +840,7 @@ function deletRule(nombre){
     return regla.nombreRegla === nombre;
   });
   if (reglaEliminarid != -1) { //borrarla del array y del mapa para que no se muestre en la web
-    console.log("hoaslsda");
-    reglasNuevas.splice(reglaEliminarid, 1);    console.log("Borrado");
+    reglasNuevas.splice(reglaEliminarid, 1);
 
     rulesInput.value = JSON.stringify(reglasNuevas);
     delete mapaReglasPeriodo[regla.conjPeriodo][nombre]; 

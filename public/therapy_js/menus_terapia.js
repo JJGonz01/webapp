@@ -36,7 +36,6 @@ function changeContenedorVisible(contenedor){
 
 function openPopup(nombreRegla){
   const boton_crear_regla = document.getElementById("boton_guardar_regla"); //segun sea editar o no, el boton de guardar llamara al nombre de la regla o no
-  console.log("Hola");
   if(nombreRegla == null)
   {
     boton_crear_regla.onclick = function(){
@@ -58,7 +57,6 @@ function transformarAHTML() {
     var div = document.createElement("div");
     div.classList.add("flex-rule-row"); 
     var datos = document.getElementById("rules_therapy").value;
-    console.log(datos)
     datos = JSON.parse(datos)
     var outputDiv = document.getElementById("app_info");
     //var datos = JSON.parse(reglas);

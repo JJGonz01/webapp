@@ -1,5 +1,4 @@
 function showHideList(listON, listOFF) {
-    console.log("completed");
     const objOn = document.getElementById(listON);
     const objOff = document.getElementById(listOFF);
     

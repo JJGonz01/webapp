@@ -14,17 +14,13 @@ function editWindowTherapy(){
   var jsonString = texto_reglas_titulo.value;
   
   var cadenaJSON = JSON.stringify(jsonString);
-  console.log(cadenaJSON.substring(0, 5) + "  \"[\"[")
   if(cadenaJSON.substring(0, 5) == "\"[\\\"["){
     var cadenaSinBarras = cadenaJSON.replace(/\\/g, '');
     cadenaSinBarras = cadenaSinBarras.replace('/', '');
     var cadenaModificada = cadenaSinBarras.slice(3, -2);
     cadenaModificada = cadenaModificada.slice(0, -1);
-    console.log(cadenaJSON);
     texto_reglas_titulo.value = cadenaModificada;
-    
   }
-  console.log(jsonString);
   posicionadoEn = 0;
   numerosPeriodos = jsonString.length-1;
   showCreatedPeriods(false);
@@ -78,12 +74,10 @@ function saveTemporalPeriod(button) {
     descanso.style="border:1px solid #ced4da;"
     var boton_reglas_titulo = document.getElementById('open_rule_creator_ther_create');
     boton_reglas_titulo.style.display="block";
-    console.log(periods.length);
     var esNuevo = false;
     if(periods.length == posicionadoEn) esNuevo = true;
     periods[posicionadoEn] = period;
     errorMessage.style.display = "none";
-    console.log(periods);
     var periodoSelect = document.getElementById('selectConjPeriodo');
     periodoSelect.value = "1";
     t1.value = '';
@@ -230,13 +224,11 @@ function savePeriodExtra(button){
     descanso.style="border:1px solid #ced4da;"
     var boton_reglas_titulo = document.getElementById('open_rule_creator_ther_create');
     boton_reglas_titulo.style.display="block";
-    console.log(posicionadoEn);
     var esNuevo = false;
     if(periods.length == posicionadoEn) esNuevo = true;
     periods[posicionadoEn] = period;
     takeChangeWithoutResolving();
     errorMessage.style.display = "none";
-    console.log(periods);
     var periodoSelect = document.getElementById('selectConjPeriodo');
     periodoSelect.value = ""+periods.length;
     texto_reglas_titulo.innerHTML = "Regla para bloque";
@@ -259,7 +251,6 @@ function savePeriodExtra(button){
  * Cuando se presiona un boton, izq o derecha para moverse entre periodos
  */
 function cambiarPeriodo(direccion){
-  console.log("POSICIONADO EN "+posicionadoEn);
   var boolEsUltimo = true;
   var periodosPrincipal = document.getElementById('periodo_principal');
   var texto_periodo_nombre = document.getElementById('periodo_estancia');
@@ -351,7 +342,6 @@ function showmessage(isNew){
  * SI es un periodo ya creado, carga los valores correspondientes a cada cuadradito
  */
 function cargarValoresEnCuadraditos(){
-  console.log("LEEENGTH "+periods[posicionadoEn] +"<>"+posicionadoEn)
   if(posicionadoEn < periods.length){
     if(posicionadoEn <= 0){
       posicionadoEn = 0;
@@ -396,7 +386,7 @@ function irACrearNuevo(){
 }
 
 function setSelectedButton(sum){
-    var ul = document.getElementById("lista_periodo");console.log("saddas"+posicionadoEn)
+    var ul = document.getElementById("lista_periodo");
     var pos_en = (posicionadoEn-1) + sum;
     if (ul) {
         var buttons = ul.querySelectorAll("button"); 
@@ -441,15 +431,11 @@ function agregarListeners() {
 }
 
 function addChangeWithoutResolving(){
-  console.log("eing"+posicionadoEn)
   changed[posicionadoEn] = false;
-  console.log("hola" + checkChanges())
 }
 
 function takeChangeWithoutResolving(){
   changed[posicionadoEn] = true;
-  console.log("adios" + checkChanges())
-
 }
 
 window.addEventListener('keydown', function (e) {
@@ -461,7 +447,7 @@ window.addEventListener('keydown', function (e) {
 
     if(currentPath.includes("therapy")){
         if(rulesOpen){
-          console.log(getrules_page())
+          
           if(getrules_page() == 3)
             guardarRegla(null);
           else
@@ -473,7 +459,7 @@ window.addEventListener('keydown', function (e) {
             savePeriodExtra(this.document.getElementById("save_extra_period_ther_create"))
         }
       }else if(currentPath.includes("session")){
-        console.log(getrules_page())
+        
           if(getrules_page() == 3)
             this.document.getElementById("session_form").submit();
           else
@@ -490,11 +476,9 @@ let ultimaEjecucion = 0;
 function ejecutarFuncion() {
   const tiempoActual = Date.now();
   if (tiempoActual - ultimaEjecucion >= 100) {
-    console.log("La función se ejecutó.");
     ultimaEjecucion = tiempoActual;
     return true;
   } else {
-    console.log("Esperando...");
     return false;
   }
 }

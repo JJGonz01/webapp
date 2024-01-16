@@ -16,7 +16,6 @@ function selectTerapia(id){
     inputTerapiaId.value = id;
     var buttonstr = "button_"+id;
     setButtonAsSelected(buttonstr); 
-    //console.log("hola"+button_id)
 }
 
 function setButtonAsSelected(buttonid){
@@ -42,7 +41,6 @@ function setOpciones(){
 function listenerFecha(){
     document.getElementById('fechaHora').addEventListener('input', function(event) {
         var selectedDateTime = event.target.value;
-        console.log('Fecha y hora seleccionadas:', selectedDateTime);
         // Puedes realizar acciones adicionales aquí con la fecha y hora seleccionadas
       });
 }
@@ -101,7 +99,8 @@ function setOptionsInEdit(){
 
     var selinput = document.getElementById("selectModoJuego");
     var movementInput = document.getElementById("movementInput");
-    console.log(selectedInput.value);
+
+
     selinput.value = input.value;
 
     if(selectedInput.value == "0.4"){
@@ -128,7 +127,6 @@ function check(){
     var errors = document.getElementById("errors_display")
     var currentDate = new Date();
     var dateInput = new Date(document.getElementById("fechaHora").value);
-    console.log(dateInput.value)
 
     if(dateInput < currentDate ){
         document.getElementById("fechaHora").style = "border:1px solid red;";

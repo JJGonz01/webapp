@@ -34,8 +34,6 @@ function startShowTables() {
   numeroConjuntos = Object.keys(bpmValores).length;
   periodoMostrar = 1; //primero muestro el estudio
   putInfoRelevante();
-  console.log("a.."+bpmValores);
-  console.log("a.."+moveValores);
   setTabla(periodoMostrar);
   
 }
@@ -66,7 +64,6 @@ function moveThrowTables(dir){
     {
       document.getElementById('reglas_div').style="display:block;";
     }
-    console.log("periodo "+periodoMostrar)
 }
 
 function putInfoRelevante(){
@@ -156,7 +153,6 @@ function setTabla(periodo){
     var dictBPM = setTimeValueForPeriod(JSON.parse(bpmValores[periodo]));
     var etiquetasBpm = Object.keys(dictBPM);
     var valoresBpm = Object.values(dictBPM);
-    console.log("valores "+valoresBpm+", etiquetas "+etiquetasBpm);
     if(periodo != 0){
       var dictMove = setTimeValueForPeriod(JSON.parse(moveValores[periodo]));
       var etiquetasMove = Object.keys(dictMove);
@@ -166,7 +162,6 @@ function setTabla(periodo){
         etiquetasMove = etiquetasBpm; //si estamos en relajacion q sean estas las etiquetas
         valoresMove = [];
     }
-    console.log(".--......--------------------------");
     etiquetas = etiquetasBpm+etiquetasMove;
 
     if(periodoMostrar == 0)
@@ -302,7 +297,6 @@ function setTabla(periodo){
   }
 
     if(periodoMostrar != 0){
-      console.log(periodoMostrar);
       var dictReglas = setTimeValueForPeriodReglas(JSON.parse(Object.values(reglasValores)[periodoMostrar-1]));
       var etiquetasReglas = Object.keys(dictReglas);
       var valoresReglas = Object.values(dictReglas);
@@ -311,7 +305,6 @@ function setTabla(periodo){
       barrasReglasChart.update();
       return;
     }
-    console.log("hola "+dictReglas);
     //var etiquetasReglas = etiquetasReglasFunction(valoresReglas, Object.keys(arrayValoresBpm[conjuntoPeriodoMostrar][periodoMostrar]));
     var dataReglas = {
       labels: etiquetasReglas,
@@ -391,7 +384,7 @@ function setTimeValueForPeriodReglas(array_valores){
   stringIndexes = [];
   dictionary = {};
   var val, newval;
-  console.log(array_valores);
+  
 
   var tag = passSecondsToMinutes(parseInt(array_valores[0]["timestamp"]));
   var lastTag = passSecondsToMinutes(0);
@@ -446,7 +439,6 @@ function pasaraValoresBuenos(arrayReglas){
       contadorReglas[index] = 0;
     }
   }
-  console.log(contadorReglas);
   return contadorReglas;
 }
   
@@ -460,6 +452,5 @@ function etiquetasReglasFunction(valoresRegla, etiquetasRegla){
       indexValor += 40;
   }
   etiquetasRegla = etiquetaAuxRegla;
-  console.log(etiquetasRegla);
   return etiquetasRegla;
 }
