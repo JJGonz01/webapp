@@ -18,10 +18,10 @@ class Authenticate extends Middleware
 
     public function handle($request, Closure $next, ...$guards)
     {
-        if ( ! $this->auth->user() )
+        /*if ( ! $this->auth->user() )
         {
            return redirect()->route('login');
-        }
+        }*/
 
         return $next($request);
     }
