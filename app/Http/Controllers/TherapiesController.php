@@ -113,10 +113,28 @@ class TherapiesController extends Controller
 
     public function show(string $id)
     {
-        $therapy = Therapy::find($id);
-        $periodo = SessionPeriod::where('therapy_id', $therapy->id)->first();
-        return view('therapies.show_therapy',
-         ['therapy' => $therapy, 'period' => $periodo]);
+        if (Auth::check()) {
+            $usuario = Auth::user();
+            $therapy = Therapy::where('user_id', $usuario -> id)
+            -> where('id', $id)
+            -> get();
+
+            if($therapy)
+                $therapies = [];
+            else{
+                $therapy = Patient::where('user_id', $usuario -> id) -> get();
+                $periodo = SessionPeriod::where('therapy_id', $therapy->id)->first();
+                return view('therapies.show_therapy',
+                    ['therapy' => $therapy, 'period' => $periodo]);
+            }
+
+           
+            return view('therapies.therapies', ['therapies' => $therapies]);
+        }
+        else{
+            $therapies = [];
+            return view('therapies.therapies', ['therapies' => $therapies]);
+        }
     }
 
     public function showPublished(string $id)
