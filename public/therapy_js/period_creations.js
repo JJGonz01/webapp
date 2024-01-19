@@ -372,7 +372,6 @@ function cargarValoresEnCuadraditos(){
 }
 
 function irAPeriodo(periodo){
-   
     posicionadoEn = (periodo+1);
     showButtonFromCreatePeriod();
     openPeriodCreation();
@@ -472,7 +471,7 @@ function setRuleOpenedContainer(open){
   rulesOpen = open;
 }
 
-let ultimaEjecucion = 0;
+var ultimaEjecucion = 0;
 function ejecutarFuncion() {
   const tiempoActual = Date.now();
   if (tiempoActual - ultimaEjecucion >= 100) {

@@ -121,20 +121,6 @@ Route::group( ['middleware' => 'auth' ], function()
 
     Route::get('/sessionorder/getwatchresponse/{id}',[SessionsController::class, 'getSessionWatchResponseData'])->name('order_create'); ///el json pone la orden de nuevo a sero
 
-    Route::post('/session/response',[SessionsController::class, 'getSessionDataWatch'])->name('order_response'); //endpoint al que llama el reloj para poner su respuesta!
-
-    // El reloj llamará a este endpoint para recoger las horas y periodos de cada sesion que tenga que analizar
-    Route::get('/session/userdata/{id}',[SessionsController::class, 'getUserSessionList'])->name('session_getSessionList');
-
-    //el reloj recoge las reglas
-    Route::put('/getrules',[SessionsController::class, 'getSessionRules'])->name('session_getrules');
-
-    Route::put('/start',[SessionsController::class, 'startSession'])->name('start'); //rel reloj envia info de la sesion
-
-    Route::put('/finish',[SessionsController::class, 'sessionFinish'])->name('finish'); //rel reloj envia info de la sesion
-
-    Route::put('/finishExtra',[SessionsController::class, 'sessionFinish2'])->name('finish2'); //rel reloj envia info de la sesion
-
     //Reglas
 
     Route::get('/rulesForSession', [RuleController::class, 'show'])->name('rules_create');
@@ -193,6 +179,19 @@ Route::group( ['middleware' => 'auth' ], function()
 
 
 });
+    // El reloj llamará a este endpoint para recoger las horas y periodos de cada sesion que tenga que analizar
+    Route::get('/session/userdata/{id}',[SessionsController::class, 'getUserSessionList'])->name('session_getSessionList');
+
+    //el reloj recoge las reglas
+    Route::put('/getrules',[SessionsController::class, 'getSessionRules'])->name('session_getrules');
+
+    Route::put('/start',[SessionsController::class, 'startSession'])->name('start'); //rel reloj envia info de la sesion
+
+    Route::put('/finish',[SessionsController::class, 'sessionFinish'])->name('finish'); //rel reloj envia info de la sesion
+
+    Route::put('/finishExtra',[SessionsController::class, 'sessionFinish2'])->name('finish2'); //rel reloj envia info de la sesion
+    
+    Route::post('/session/response',[SessionsController::class, 'getSessionDataWatch'])->name('order_response'); //endpoint al que llama el reloj para poner su respuesta!
 
 
 /**

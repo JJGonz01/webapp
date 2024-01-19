@@ -55,10 +55,9 @@ function rulesStart() {
 
     const reglasViejas = JSON.parse(valorReglasAnteriores);
 
-  
     reglasViejas.forEach((regla) => {
       var parsedRegla = JSON.parse(regla);
-  
+
       if (!mapaReglasPeriodo[parsedRegla.conjPeriodo]) {
         mapaReglasPeriodo[parsedRegla.conjPeriodo] = {};
       }
