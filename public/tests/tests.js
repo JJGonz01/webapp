@@ -257,6 +257,33 @@ function endTask(){
     setAsInNotStartedTask()
 }
 
+function goToLastTask(){
+    
+    if(localStorage["testId"] == "0"){
+        return
+    }
+    var intId = parseInt(localStorage["testId"])
+    downloadJson();
+    intId -= 1
+    var stringId = intId.toString()
+    localStorage["testId"] = stringId
+    const endButton = document.getElementById('task-end-btn')
+    if(localStorage["testId"] == "0"){
+        setTestInfo(stringId)
+        endButton.innerHTML = "HACER DE NUEVO";
+        setTestInfoTab()
+        return;
+    }
+    else if (localStorage["testId"] == "5"){
+        localStorage["testId"] = 0;
+        endButton.innerHTML = "HE TERMINADO LA TAREA";
+    }
+    setTestInfo(stringId)
+    const tesButtonShow = document.getElementById('task_start_button')
+    tesButtonShow.innerHTML = "X"
+    setAsInNotStartedTask()
+}
+
 function sendJsonInfo(testId, dateTime, differenceTime, actionId, type, nextFunctionButton, form){
    
     var postData = {

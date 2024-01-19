@@ -138,7 +138,7 @@
    .left-login-container{
       display:block;
       flex: 1; 
-      background-image: url("webapp\public\images\class.jpg");
+      background-image: url("https://www.pomodoro.ovh/images/class.jpg");
       backdrop-filter: blur(15px);
       background-size:cover;
       border-top-left-radius: 6px;
@@ -341,7 +341,7 @@
       display:none;
       flex: 2; 
       
-      background-image: url("https://pomodoroadhdapp.azurewebsites.net/images/school.png");
+      background-image: url("https://www.pomodoro.ovh/images/school.png");
       backdrop-filter: blur(15px);
       background-size:auto;
       border-top-left-radius: 6px;
