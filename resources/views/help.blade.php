@@ -5,7 +5,7 @@
 <head><title>FORO</title></head>
 
 <div class="general-items-container">
-<script src="{{asset('general_page.js')}}"></script>
+<script src="https://www.pomodoro.ovh/general_page.js"></script>
   
 <div class="user-welcome-box">
 
@@ -65,6 +65,6 @@
         </div>
         
 
-    <script src="{{asset('filter.js')}}"></script>
+    <script src="https://www.pomodoro.ovh/filter.js"></script>
     <script>startFilter()</script>
 @endsection

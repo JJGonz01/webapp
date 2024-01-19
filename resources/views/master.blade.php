@@ -3,12 +3,12 @@
 <html>
 
 <head>
-        <link rel="stylesheet" href="{{asset('styles/CSS/tests.css')}}">
+        <link rel="stylesheet" href="https://www.pomodoro.ovh/styles/CSS/tests.css">
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 <body>
-    <script src="{{asset('tests/tests.js')}}">
+    <script src="https://www.pomodoro.ovh/tests/tests.js">
     </script>
     @if(null != (auth()->user()))
        <div id="no-task-container" style="display:none;" class="menu-master-container">

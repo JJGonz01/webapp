@@ -13,7 +13,7 @@
                 </div>
             @endif
         </div>
-        <img src="{{asset('images/tomatoclock.jpg')}}" class="right-login-container-image"></img>
+        <img src="https://www.pomodoro.ovh/images/tomatoclock.jpg" class="right-login-container-image"></img>
         <p id="navbarDropdown" class="nav-link dropdown-toggle">
             Usuario: {{  Auth::user()->name }}
         </p>

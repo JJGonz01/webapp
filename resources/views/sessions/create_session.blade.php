@@ -12,7 +12,7 @@
                 <div class="content-half-image" onclick="closeRuleCreator()"></div>
                 <div class="content-half">
                     <div>
-                    <script src="{{asset('sessionCreate.js')}}"></script>
+                    <script src="https://www.pomodoro.ovh/sessionCreate.js"></script>
                     <h6 style="display:none" id="errors_display" class="alert alert-danger"><h6>
                     <form id="session_form" action="{{route('sessions_create',  ['patient_id' => $patient -> id], false, true)}}" method="POST">
                         @if (session('success'))

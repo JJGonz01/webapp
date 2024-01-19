@@ -9,9 +9,9 @@
 
 <div class="general-items-container">
         
-        <script src="{{asset('session/sessionClassfication.js')}}"></script>
-        <script src="{{asset('therapy_js/period_creations.js')}}"></script>
-        <script src="{{asset('therapy_js/rule.js')}}"></script>
+        <script src="https://www.pomodoro.ovh/session/sessionClassfication.js"></script>
+        <script src="https://www.pomodoro.ovh/therapy_js/period_creations.js"></script>
+        <script src="https://www.pomodoro.ovh/therapy_js/rule.js"></script>
 
         <div class="user-welcome-box">
         @if (session('success'))

@@ -14,10 +14,10 @@
                     <div>
                     <form id="session_form" action="{{route('session_update',  ['id' => $session -> id], false, true)}}" method="POST">
                        
-                    <input id="valoresReloj" style="display:none;" value="{{$session->time_show}}">
+                    <input id="valoresReloj" style="display:none;" value="{{$sessscriion->time_show}}">
                     <input id="modoJuegoInput" style="display:none;" value="{{$session->modoJuego}}">
 
-                        <script src="{{asset('sessionCreate.js')}}"></script>
+                        <script src="https://www.pomodoro.ovh/sessionCreate.js"></script>
                         <button class="close-button" type="button" onclick="closeRuleCreator()">CERRAR</button> 
                            <div class="rule-creation-steps">
                                 
