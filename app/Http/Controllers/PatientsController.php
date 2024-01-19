@@ -100,9 +100,23 @@ class PatientsController extends Controller
 
       public function show($id)
       {
-          $patient = Patient::find($id);
-          $sessiones = $patient->session;
-          return view('patients.show_patient', ['patient' => $patient, 'sessions'=> $sessiones]);
+        if (Auth::check()) {
+            $usuario = Auth::user();
+            $patient = Patient::where('user_id', $usuario -> id)
+            -> where('id', $id)
+            -> get();
+
+            if($patient)
+                $patients = [];
+            else
+                $patients = Patient::where('user_id', $usuario -> id) -> get();
+
+            return view('patients.patients', ['patients' => $patients]);
+        }
+        else{
+            $patients = [];
+            return view('patients.patients', ['patients' => $patients]);
+        }
       }
      /**
      * UPDATE: Actualiza un paciente

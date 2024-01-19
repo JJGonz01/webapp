@@ -20,7 +20,7 @@ class SessionsController extends Controller
     
     public function index()
     {
-
+            
     }
 
     public function create(string $patient_id)
