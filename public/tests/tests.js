@@ -5,16 +5,16 @@ var jsonData
 var lasttask = "3";
 const testExplanationDictionary = {
     "0": "TAREA 1: Crea una terapia con nombre \"Terapia normal\" y que contenga dos bloques de estudio:"
-    + " \n (a) Bloque sin reglas de Estudio: 5 min; Descanso: 3 min; Estudio: 5 min"
+    + " \n (a) Bloque sin reglas de Estudio: 2 min; Descanso: 2 min; Estudio: 2 min"
     + " \n (b) Otro bloque, sin reglas, con duraciones Descanso: 3 min; Estudio: 5 min; sin reglas",
 
 
     "1": "TAREA 2: Crea una terapia de nombre \"Terapia reglas\" "
-    +"  \n con un bloque de Estudio: 5 minutos, Descanso: 3 minutos y Estudio:10 mininutos, donde haya una regla: "
+    +"  \n con un bloque de Estudio: 2 minutos, Descanso: 2 minutos y Estudio:2 mininutos, donde haya una regla: "
     +" \n LA REGLA: \"Regla B1\" que cumpla: "
     +"  \n (a)	Se ejecute en estudios y descansos."
     +"  \n (b)	Momento del periodo: entero."
-    +"  \n (c)	Compruebe si el movimiento es bajo."
+    +"  \n (c)	Compruebe si el movimiento es alto."
     +"  \n (d)	Acción en la reloj: Enviar un mensaje “Sigue así” "
     +"  \n (e)	Acción en el sesión: Que no haga NADA "
     +"  \n (f)  Añadir una acción extra para cuando vuelva a ocurrir esta situación."
@@ -24,13 +24,16 @@ const testExplanationDictionary = {
     
     "2": "TAREA 3: En la pestaña pacientes, crea un usuario que se llame \"Luis\" de apellidos \"Téllez\" "
     + " Una vez en el paciente, crea una sesión de estudio, dentro del paciente \"Luis Tellez\", tal que: "
-    + " \n  (a) Su fecha de comienzo: la fecha en la que se vaya a comprobar en el día de la prueba"
+    + " \n  (a) Su fecha de comienzo: la fecha en el día de hoy, y la hora en aproximadamente 5 minutos a la realización de esta prueba"
     + " \n (b) Con nuestra terapia \"Terapia reglas\" "
     + " \n (c) Sensibilidad del sensor BPM a 15"
-    + "\n (d) Sensibilidad de movimiento: alto "
-    + "\n (e) Que sume puntos cuando ambos sensores sean bajos.",
+    + "\n (d) Sensibilidad de movimiento: alto"
+    + "\n (e) Que sume puntos cuando ambos sensores sean bajos."
+    + "\n (e) Y la vista del reloj con todos los elementos añadidos",
 
-    "3": "TAREAS FINALIZADAS, ENVÍE LOS ARCHIVOS AL CORREO josejesus.gonzalez@uclm.es \n"+
+    "3": "TAREA 4: Ejecuta la sesión en el reloj, y tras su compleción, examina sus resultados en la pestaña de pacientes, en sesiones completadas ",
+
+    "4": "TAREAS FINALIZADAS, pruebe la sesión en su reloj, y al terminar, analice los datos. ENVÍE LOS ARCHIVOS AL CORREO josejesus.gonzalez@uclm.es \n"+
     "Si quiere repetir las tareas pulse \" HACER DE NUEVO \""
    
 }
@@ -238,13 +241,13 @@ function endTask(){
     var stringId = intId.toString()
     localStorage["testId"] = stringId
     const endButton = document.getElementById('task-end-btn')
-    if(localStorage["testId"] == "3"){
+    if(localStorage["testId"] == "4"){
         setTestInfo(stringId)
         endButton.innerHTML = "HACER DE NUEVO";
         setTestInfoTab()
         return;
     }
-    else if (localStorage["testId"] == "4"){
+    else if (localStorage["testId"] == "5"){
         localStorage["testId"] = 0;
         endButton.innerHTML = "HE TERMINADO LA TAREA";
     }
