@@ -26,7 +26,6 @@ class TestController extends Controller
         $userid = $user->id;
         $tests = Testdata::where('user_id', $userid)->get();
         $jsonData = json_encode($tests[0] ->actions);
-        dd($jsonData);
         $tempFolderPath = sys_get_temp_dir();
         $tests[0] ->actions_temp = '[]';
         $tests[0]->save();
