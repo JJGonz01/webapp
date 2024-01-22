@@ -169,7 +169,7 @@
                         </div>
 
                         <div class="reglas-container-right"  id="contenedor_creador_reglas" style="display:none;">
-                            <div class="content-half-image" onclick="closeRuleCreator()"></div>
+                            <div class="content-half-image"></div>
                             <div class="content-half">
                            
                                 <button class="close-button" type="button" onclick="closeRuleCreator()">CERRAR</button>
@@ -265,7 +265,7 @@
                                                 </div>
 
                                                 <div class="therapy-check-row-text" id="sumPuntDiv">
-                                                    <p for="puntosSum">Puntos a añadir (estrellas):</p>
+                                                    <p for="puntosSum">Puntos a añadir:</p>
                                                     <input type="number" id="puntosSum" />
                                                 </div>
                                             </div>

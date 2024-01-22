@@ -332,13 +332,13 @@ h6{
   }
   
   .therapy-check-row-text input{
-   width: 100px;
-   height:30px;
+    width: 80%;
+    height:30px;
   }
   
   .therapy-check-row input{
-  margin-right: 2%;
-  margin-top: 1%;
+    margin-right: 2%;
+    margin-top: 1%;
   }
   
   .therapy-check-row-text-top{

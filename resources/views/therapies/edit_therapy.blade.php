@@ -11,7 +11,7 @@
 
 <script src="https://www.pomodoro.ovh/therapy_js/period_creations.js"></script>
     <script src="https://www.pomodoro.ovh/therapy_js/menus_terapia.js"></script>
-    <script src="https://www.pomodoro.ovh/therapy_js/rule.js'"></script>
+    <script src="https://www.pomodoro.ovh/therapy_js/rule.js"></script>
     <script src="https://www.pomodoro.ovh/terapies_creator.js'"></script>
     <script src="https://www.pomodoro.ovh/therapy_js/period_creations.js"></script>
     <script src="https://www.pomodoro.ovh//javascript/unsaved.js"></script>
@@ -153,7 +153,7 @@
                         </div>
 
                         <div class="reglas-container-right"  id="contenedor_creador_reglas" style="display:none;">
-                            <div class="content-half-image" onclick="closeRuleCreator()"></div>
+                            <div class="content-half-image"></div>
                             <div class="content-half">
                            
                                 <button class="close-button" type="button" onclick="closeRuleCreator()">CERRAR</button>
@@ -249,7 +249,7 @@
                                                 </div>
 
                                                 <div class="therapy-check-row-text" id="sumPuntDiv">
-                                                    <p for="puntosSum">Puntos a añadir (estrellas):</p>
+                                                    <p for="puntosSum">Puntos a añadir:</p>
                                                     <input type="number" id="puntosSum" />
                                                 </div>
                                             </div>
@@ -289,7 +289,7 @@
             </div>
         </div>
     </div>
-        <script>rulesStart();editWindowTherapy();</script>
+        <script>rulesStart();editWindowTherapy()</script>
     </form>
     
     @endsection

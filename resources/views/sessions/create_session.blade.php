@@ -9,7 +9,7 @@
 
 
 <div class="reglas-container-right"  id="contenedor_creador_reglas" style="display:flex;">
-                <div class="content-half-image" onclick="closeRuleCreator();permitir_salida(true)"></div>
+                <div class="content-half-image"></div>
                 <div class="content-half">
                     <div>
                     <script src="https://www.pomodoro.ovh/sessionCreate.js"></script>
