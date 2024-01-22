@@ -117,15 +117,14 @@ class TherapiesController extends Controller
             $usuario = Auth::user();
             $therapy = Therapy::where('user_id', $usuario -> id)
             -> where('id', $id)
-            -> get();
+            -> first();
 
-            if($therapy)
-                $therapies = [];
+            if(!$therapy)
+                $therapies = Therapy::where('user_id', $usuario -> id);
             else{
-                $therapy = Patient::where('user_id', $usuario -> id) -> get();
                 $periodo = SessionPeriod::where('therapy_id', $therapy->id)->first();
                 return view('therapies.show_therapy',
-                    ['therapy' => $therapy, 'period' => $periodo]);
+                ['therapy' => $therapy, 'period' => $periodo]);
             }
 
            

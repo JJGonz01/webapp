@@ -9,11 +9,12 @@
 
 
 <form id="form_crear_sesion" action="{{route('therapies_create',[], false, true)}}" method="POST">
-    <script src="{{asset('therapy_js/period_creations.js')}}"></script>
-    <script src="{{asset('therapy_js/menus_terapia.js')}}"></script>
-    <script src="{{asset('therapy_js/rule.js')}}"></script>
-    <script src="{{asset('terapies_creator.js')}}"></script>
-    <script src="{{asset('therapy_js/period_creations.js')}}"></script>
+    <script src="https://www.pomodoro.ovh/therapy_js/period_creations.js"></script>
+    <script src="https://www.pomodoro.ovh/therapy_js/menus_terapia.js"></script>
+    <script src="https://www.pomodoro.ovh/therapy_js/rule.js"></script>
+    <script src="https://www.pomodoro.ovh/terapies_creator.js"></script>
+    <script src="https://www.pomodoro.ovh/therapy_js/period_creations.js"></script>
+    <script src="https://www.pomodoro.ovh/javascript/unsaved.js"></script>
 
     <!-- INPUTS FANTASMA PARA LOS DATOS-->
     <input name="rules_edit" id="rules_edit" value = "null" style="display: none;"/>
@@ -45,7 +46,7 @@
     <div class="user-welcome-box">
             <div class="user-welcome-box-container">
                 <input type="text" id="name_therapy" name="name" class="name-therapy-input" placeholder="Introducir nombre de la terapia"></input>
-                <button class="user-welcome-box-container-button"  type="submit" id="save_therapy_btn">GUARDAR NUEVA TERAPIA</button>
+                <button class="user-welcome-box-container-button" onclick="permitir_salida(true)" type="submit" id="save_therapy_btn">GUARDAR NUEVA TERAPIA</button>
                 
             </div>
             <div class="user-welcome-box-container">

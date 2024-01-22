@@ -9,7 +9,7 @@
 <div class= "general-items-container">
 
     <div>
-        <script src="{{asset('therapy_js/menus_terapia.js')}}"></script>
+        <script src="https://www.pomodoro.ovh/therapy_js/menus_terapia.js"></script>
 
         <div class="user-welcome-box">
             @if (session('success'))

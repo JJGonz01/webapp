@@ -25,26 +25,24 @@ class TestController extends Controller
         $user = Auth::user();
         $userid = $user->id;
         $tests = Testdata::where('user_id', $userid)->get();
-        $jsonData = json_encode($tests[0] ->actions_temp);
-        
-        $tempFolderPath = sys_get_temp_dir(); // Obtener el directorio temporal del servidor
+        $jsonData = json_encode($tests[0] ->actions);
+        dd($jsonData);
+        $tempFolderPath = sys_get_temp_dir();
         $tests[0] ->actions_temp = '[]';
         $tests[0]->save();
-        $filename = 'test.json';/// . uniqid() . '.json'; // Generar un nombre de archivo único
+        $filename = 'test.json';/// . uniqid() . '.json'; 
 
-        $file_path = $tempFolderPath . '/' . $filename; // Ruta completa hacia el archivo temporal
-
-         // Reemplaza 'yourData' con el valor JSON que deseas
+        $file_path = $tempFolderPath . '/' . $filename; 
 
         if (file_put_contents($file_path, $jsonData) !== false) {
             header('Content-Type: application/octet-stream');
             header('Content-Disposition: attachment; filename="test.json');// . basename($file_path) . '"');
             header('Content-Length: ' . filesize($file_path));
             readfile($file_path);
-            unlink($file_path); // Eliminar el archivo temporal después de la descarga
+            unlink($file_path); 
             exit;
         } else {
-            http_response_code(500); // Cambia a un código de error apropiado si es necesario
+            http_response_code(500); 
         }
     }
     /**
@@ -59,15 +57,19 @@ class TestController extends Controller
     
         $user = Auth::user();
         $userid = $user->id;
+
         $taskid = $request -> input("taskId");
         $type = $request -> input("type");
         $dateTime = $request -> input("dateTime");
         $differenceTime = $request -> input("differenceTime");
         $actionId = $request -> input("actionId");
+
         $tests = Testdata::where('user_id', $userid)->get();
+
         if (count($tests) > 0) {
             $test = $tests->first();
         }
+
         else{
             $test = new Testdata;
             $test->user_id = $userid;
@@ -101,7 +103,6 @@ class TestController extends Controller
         $jsonactions[$taskid] = array_merge($jsonactions[$taskid], $newItem);
         $jsonactions_temp[$taskid] = array_merge($jsonactions_temp[$taskid], $newItem);
         
-        // Codifica nuevamente el JSON
         $jsonactions_enc = json_encode($jsonactions);
         $jsonactions_enc_temp = json_encode($jsonactions_temp);
         
@@ -109,6 +110,7 @@ class TestController extends Controller
         $test->actions_temp = $jsonactions_enc_temp;
         
         $test->save();
+
         return $actionId;
     }
 }

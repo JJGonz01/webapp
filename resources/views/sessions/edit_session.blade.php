@@ -9,16 +9,17 @@
 
 
 <div class="reglas-container-right"  id="contenedor_creador_reglas" style="display:flex;">
-                <div class="content-half-image" onclick="closeRuleCreator()"></div>
+                <div class="content-half-image" onclick="closeRuleCreator();permitir_salida(true)"></div>
                 <div class="content-half">
                     <div>
                     <form id="session_form" action="{{route('session_update',  ['id' => $session -> id], false, true)}}" method="POST">
                        
-                    <input id="valoresReloj" style="display:none;" value="{{$sessscriion->time_show}}">
+                    <input id="valoresReloj" style="display:none;" value="{{$session->time_show}}">
                     <input id="modoJuegoInput" style="display:none;" value="{{$session->modoJuego}}">
-
+                        <script src="https://www.pomodoro.ovh/therapy_js/rule.js"></script>
                         <script src="https://www.pomodoro.ovh/sessionCreate.js"></script>
-                        <button class="close-button" type="button" onclick="closeRuleCreator()">CERRAR</button> 
+                        <script src="https://www.pomodoro.ovh/javascript/unsaved.js"></script>
+                        <button class="close-button" type="button" onclick="closeRuleCreator();permitir_salida(true)">CERRAR</button> 
                            <div class="rule-creation-steps">
                                 
                                 <div class="row-steps-container">
@@ -61,7 +62,7 @@
                                 </div>
 
                                 <div class="button-centered-container">
-                                        <button class="button_reglas_back" type="button" onclick="closeRuleCreator()" >Salir</button>
+                                        <button class="button_reglas_back" type="button" onclick="closeRuleCreator();permitir_salida(true)" >Salir</button>
                                         <button class="input-regla-container-button" id="add_action_rule_ther_create" onclick="rule_creation_step(2)" type="button">
                                             <span class="material-symbols-outlined">arrow_forward</span>
                                         </button>
@@ -144,7 +145,7 @@
 
                                     <div class="button-centered-container">
                                         <button class="button_reglas_back" type="button" onclick="rule_creation_step(2)" >Atrás</button>
-                                        <button class="input-regla-container-button" id="add_action_rule_ther_create">
+                                        <button class="input-regla-container-button" onclick = "check();permitir_salida()" id="add_action_rule_ther_create">
                                             Guardar sesión
                                         </button>
                                     </div>

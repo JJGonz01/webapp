@@ -165,6 +165,6 @@ function check(){
         return;
     }
     document.getElementById("porcentaje").style="border: 1px solid grey;"
-
+    permitir_salida(true);
     document.getElementById("session_form").submit();
 }

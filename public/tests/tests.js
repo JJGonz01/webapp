@@ -33,7 +33,9 @@ const testExplanationDictionary = {
 
     "3": "TAREA 4: Ejecuta la sesión en el reloj, y tras su compleción, examina sus resultados en la pestaña de pacientes, en sesiones completadas ",
 
-    "4": "TAREAS FINALIZADAS, pruebe la sesión en su reloj, y al terminar, analice los datos. ENVÍE LOS ARCHIVOS AL CORREO josejesus.gonzalez@uclm.es \n"+
+    "4": "TAREAS FINALIZADAS, pruebe la sesión en su reloj, y al terminar, analice los datos. Conteste a las preguntas del siguiente formulario para que podamos"
+    + "tener su opinión sobre la herramienta: https://forms.gle/dMuW5KMMkprgpnyq7 "
+    + "\n ENVÍE LOS ARCHIVOS AL CORREO josejesus.gonzalez@uclm.es \n"+
     "Si quiere repetir las tareas pulse \" HACER DE NUEVO \""
    
 }
@@ -49,7 +51,16 @@ window.onload = function() {
         localStorage["test_on"] = "true";
     }
 
-    if(window.location.pathname != "" && window.location.pathname != "/" && window.location.pathname != "/home"  && window.location.pathname != "home"){
+
+    if(localStorage["testId"] == "0")
+    {
+        document.getElementById('task_go_last').style = "display:none;";
+    }
+    else if(localStorage["testId"] == "4"){
+        const endButton = document.getElementById('task-end-btn').innerHTML = "HACER DE NUEVO";
+    }
+
+    if(window.location.pathname != "" && window.location.pathname != "/"){
         setAsInNotStartedTask();
         var date = new Date;
         var clickedTime = (""+date.getDate()+"-"+date.getMonth()+"-"+date.getHours()+"-"+date.getMinutes()+"-"+date.getSeconds()+"-"+date.getMilliseconds());
@@ -81,6 +92,8 @@ window.onload = function() {
             showhidetextBool(false)
         }
     }
+
+    
     getAllInputs()
 } 
 
@@ -167,7 +180,7 @@ function setTestInfo(testID){
 }
 
 function addFunctionToOnClick(button){
-    if(button.id != "task_start_button" && button.id != "iniciar-sesion-button" && !button.id.includes("button_bloque_") ){
+    if(button.id != "iniciar-sesion-button" && !button.id.includes("button_bloque_") ){
         var currentOnclick = button.getAttribute('onclick')
         var additionalFunction
         
@@ -236,19 +249,22 @@ function printClickedId(button, action, form){
 function endTask(){
 
     var intId = parseInt(localStorage["testId"])
-    downloadJson();
+    
+    document.getElementById('task_go_last').style="display:hidden;";
     intId += 1
     var stringId = intId.toString()
     localStorage["testId"] = stringId
     const endButton = document.getElementById('task-end-btn')
     if(localStorage["testId"] == "4"){
         setTestInfo(stringId)
+        downloadJson();
         endButton.innerHTML = "HACER DE NUEVO";
         setTestInfoTab()
         return;
     }
     else if (localStorage["testId"] == "5"){
         localStorage["testId"] = 0;
+        document.getElementById('task_go_last').style = "display:none;";
         endButton.innerHTML = "HE TERMINADO LA TAREA";
     }
     setTestInfo(stringId)
@@ -263,20 +279,19 @@ function goToLastTask(){
         return
     }
     var intId = parseInt(localStorage["testId"])
-    downloadJson();
     intId -= 1
+
+    if(intId == 0){
+        document.getElementById('task_go_last').style="display:none;";
+    }
     var stringId = intId.toString()
     localStorage["testId"] = stringId
     const endButton = document.getElementById('task-end-btn')
-    if(localStorage["testId"] == "0"){
+    if(localStorage["testId"] == "4"){
         setTestInfo(stringId)
-        endButton.innerHTML = "HACER DE NUEVO";
+        endButton.innerHTML = "HE TERMINADO LA TAREA";
         setTestInfoTab()
         return;
-    }
-    else if (localStorage["testId"] == "5"){
-        localStorage["testId"] = 0;
-        endButton.innerHTML = "HE TERMINADO LA TAREA";
     }
     setTestInfo(stringId)
     const tesButtonShow = document.getElementById('task_start_button')

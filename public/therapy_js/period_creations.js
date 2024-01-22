@@ -23,8 +23,8 @@ function editWindowTherapy(){
   }
   posicionadoEn = 0;
   numerosPeriodos = jsonString.length-1;
-  showCreatedPeriods(false);
-  irAPeriodo(0);
+  //showCreatedPeriods(false);
+  //irAPeriodo(0);
   closePeriodCreation();
 }
 

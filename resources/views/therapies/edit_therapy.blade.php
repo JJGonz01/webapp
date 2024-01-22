@@ -9,17 +9,17 @@
 
 <form id="form_crear_sesion" action="{{route('therapy_complete_update', ['id' => $therapy -> id],false, true)}}" method="POST">
 
-<script src="{{asset('therapy_js/period_creations.js')}}"></script>
-    <script src="{{asset('therapy_js/menus_terapia.js')}}"></script>
-    <script src="{{asset('therapy_js/rule.js')}}"></script>
-    <script src="{{asset('terapies_creator.js')}}"></script>
-    <script src="{{asset('therapy_js/period_creations.js')}}"></script>
-
+<script src="https://www.pomodoro.ovh/therapy_js/period_creations.js"></script>
+    <script src="https://www.pomodoro.ovh/therapy_js/menus_terapia.js"></script>
+    <script src="https://www.pomodoro.ovh/therapy_js/rule.js'"></script>
+    <script src="https://www.pomodoro.ovh/terapies_creator.js'"></script>
+    <script src="https://www.pomodoro.ovh/therapy_js/period_creations.js"></script>
+    <script src="https://www.pomodoro.ovh//javascript/unsaved.js"></script>
 
     <input name="rules_edit" id="rules_edit" value = "{{$therapy->rules}}" style="display: none;" />
             <input name="periods_edit" id="periods_edit" value = "{{$listaPer}}" style="display: none;" />
             
-            <script src="{{asset('terapies_creator.js')}}"></script>
+            <script src="https://www.pomodoro.ovh/terapies_creator.js"></script>
 
             <!-- INPUTS FANTASMA PARA LOS DATOS-->
             <input name="periods_edit" id="periods_edit" value = "null" style="display: none;" />
@@ -44,15 +44,21 @@
     <h6 class="alert alert-danger">{{ implode('', $errors->all(':message')) }}</h6>
     @endif
     
-    <div class="therapy-creation-container">
-        
-           <div class="header-selector">
-                <div style="margin-top:1%; margin-bottom:1%" class="row-text-button">
-                    <input type="text" id="name_therapy" value="{{$therapy->name}}" name="name" class="name-therapy-input" placeholder="Nombre de la terapia"></input>
-                    <button id="save_therapy_btn" type="submit" class="create-big-button"><span class="material-symbols-outlined">save</span></button>
-                </div>
+    <div class="user-welcome-box">
+            <div class="user-welcome-box-container">
+                <input type="text" id="name_therapy" name="name" class="name-therapy-input" placeholder="Introducir nombre de la terapia"></input>
+                <button class="user-welcome-box-container-button" onclick="permitir_salida(true)" type="submit" id="save_therapy_btn">GUARDAR NUEVA TERAPIA</button>
                 
             </div>
+            <div class="user-welcome-box-container">
+            <div class="home-welcome-box">
+                </div>
+            </div>
+    </div>
+
+
+
+    <div class="therapy-creation-container">
 
         <div class="flex-header-selector">
             
@@ -283,7 +289,7 @@
             </div>
         </div>
     </div>
-        <script>rulesStart();editWindowTherapy();irAPeriodo(0);</script>
+        <script>rulesStart();editWindowTherapy();</script>
     </form>
     
     @endsection

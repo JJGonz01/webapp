@@ -81,6 +81,6 @@
         </div>
     
 </div> 
-<script src="{{asset('filter.js')}}"></script>
+<script src="https://www.pomodoro.ovh/filter.js"></script>
 <script>startFilter()</script>
 @endsection

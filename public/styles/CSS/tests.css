@@ -50,7 +50,30 @@
     width:100%;
 }
 
+.test-top-menu{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+}
 
+.go-back-button{
+    border-radius: 100px; 
+    background-color: #dfdfdf;
+    color:rgb(0, 0, 0);
+    background-size: cover;
+    margin: 5px 0;
+    border:0;
+    padding-inline: 11px;
+    margin-left:0%;
+    margin-bottom:10px;
+    font-weight: bold;
+    font-size: x-large;
+}
+
+.go-back-button:hover{
+    background-color: #f4b14e;
+    color: white;
+}
 .start-button:hover{
     background-color: #d87373;
     color: white;
@@ -84,7 +107,7 @@
         margin: 5px 0;
         border:0;
         padding-inline: 11px;
-        margin-left:95%;
+        margin-left:0%;
         margin-bottom:10px;
         font-weight: bold;
         font-size: x-large;

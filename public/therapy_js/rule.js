@@ -57,13 +57,13 @@ function rulesStart() {
 
     reglasViejas.forEach((regla) => {
       var parsedRegla = JSON.parse(regla);
-
       if (!mapaReglasPeriodo[parsedRegla.conjPeriodo]) {
         mapaReglasPeriodo[parsedRegla.conjPeriodo] = {};
       }
       mapaReglasPeriodo[parsedRegla.conjPeriodo][parsedRegla.nombreRegla] = parsedRegla;
       reglasNuevas.push(regla); // Agrega la cadena de texto en lugar de parsedRegla
-      mostrarReglasRespectoPeriodo("Todos");
+      mostrarReglasRespectoPeriodo(0);
+      
     });
   }
 
@@ -113,6 +113,13 @@ function rulesStart() {
   //cuando carhue la pagina que el checkbox sea false
   var checkbox = document.getElementById("soloLanzarUnaVez");
   checkbox.checked = false;
+
+}
+
+function setReglasEdit(){
+  if(valorReglasAnteriores != "null" && valorReglasAnteriores != "\"empty\""){
+    irAPeriodo(0);
+  }
 }
 
 
@@ -869,11 +876,16 @@ function openRuleCreator(isNew){
 }
 
 function closeRuleCreator(){  
+  console.log("sghdiagskgaskhdghsagjdagsjgdagdgjsghadg")
   setRuleOpenedContainer(false)
   var btn = document.getElementById("open_rule_creator_ther_create");
   if(btn != null) btn.style.display = "block";
   var rc = document.getElementById("contenedor_creador_reglas");
   rc.style.display = "none";
+  if(window.location.pathname.includes("session")){
+    console.log("hosmkaldh")
+    permitir_salida(false)
+  }
 }
 
 function rule_creation_step(goto){

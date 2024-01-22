@@ -7,6 +7,7 @@ use App\Models\patient;
 use App\Models\user;
 use App\Models\Physiological;
 use App\Models\Behavior;
+use App\Models\Session;
 
 class PatientsController extends Controller
 {
@@ -106,10 +107,12 @@ class PatientsController extends Controller
             -> where('id', $id)
             -> get();
 
-            if($patient)
-                $patients = [];
-            else
+            if(!$patient)
                 $patients = Patient::where('user_id', $usuario -> id) -> get();
+            else{
+                $sessions = Session::where('patient_id', $patient[0]->id) -> get();
+                return view('patients.show_patient', ['patient' => $patient[0], 'sessions' => $sessions]);
+            }
 
             return view('patients.patients', ['patients' => $patients]);
         }
@@ -124,8 +127,7 @@ class PatientsController extends Controller
 
      public function showFormUpdate($id)
      {
-        $patient = Patient::find($id);
-        return view('patients.edit_patient', ['patient' => $patient]);
+        return;
      }
 
      public function update(Request $request, $id)

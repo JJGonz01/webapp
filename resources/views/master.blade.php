@@ -14,9 +14,11 @@
        <div id="no-task-container" style="display:none;" class="menu-master-container">
                
                <div  class="menu-container">
-                   <button id="task_start_button" onclick = "startTask()" class="start-button">X</button>
-                   <div>
-
+                    <div class="test-top-menu">
+                        <button id="task_start_button" onclick = "startTask()" class="start-button">X</button>
+                        <button id="task_go_last" onclick = "goToLastTask()" class="go-back-button">VOLVER A TAREA ANTERIOR</button>
+                    </div>
+                    <div>
                        <h1 class="test-container-task" style="color:black;" id="task_test"></h1> 
                        <h3 id="h3-final">
                            Realice la tarea, y cuando crea que esté completa (o se vea atascado) pulse "ACABAR TAREA" y DESCARGUE el archivo, cuando acabe

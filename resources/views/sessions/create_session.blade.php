@@ -9,10 +9,13 @@
 
 
 <div class="reglas-container-right"  id="contenedor_creador_reglas" style="display:flex;">
-                <div class="content-half-image" onclick="closeRuleCreator()"></div>
+                <div class="content-half-image" onclick="closeRuleCreator();permitir_salida(true)"></div>
                 <div class="content-half">
                     <div>
                     <script src="https://www.pomodoro.ovh/sessionCreate.js"></script>
+                    <script src="https://www.pomodoro.ovh/therapy_js/rule.js"></script>
+
+                    <script src="https://www.pomodoro.ovh/javascript/unsaved.js"></script>
                     <h6 style="display:none" id="errors_display" class="alert alert-danger"><h6>
                     <form id="session_form" action="{{route('sessions_create',  ['patient_id' => $patient -> id], false, true)}}" method="POST">
                         @if (session('success'))
@@ -23,7 +26,7 @@
                         @endif
                                         
                         
-                           <button class="close-button" type="button" onclick="closeRuleCreator()">CERRAR</button> 
+                           <button class="close-button" type="button" onclick="closeRuleCreator();permitir_salida(true)">CERRAR</button> 
                            <div class="rule-creation-steps">
                                 
                                 <div class="row-steps-container">
@@ -61,7 +64,7 @@
                                         @endforeach
                                         @else
                                             <p class="step-font"> CREA UNA TERAPIA PARA PODER CREAR LA SESIÓN</p>
-                                            <a onclick="printClickedId(this)" class= "edit-button" href = "{{route('therapies_create', [], false, true)}}">CREAR TERAPIA</a>
+                                            <a onclick="printClickedId(this)" class= "task-end-btn" href = "{{route('therapies_create', [], false, true)}}">CREAR TERAPIA</a>
                                         @endif
                                 </div>
 
