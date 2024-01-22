@@ -150,7 +150,7 @@ function setTestInfoTab(){
         if(textToShow[i].includes("https")){
             var paragraph = document.createElement("a");
             paragraph.href = textToShow[i]
-            paragraph.textContent = formulario;
+            paragraph.textContent = "formulario";
             task_test.appendChild(paragraph);
         }
         else{
