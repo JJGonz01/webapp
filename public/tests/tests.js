@@ -150,7 +150,7 @@ function setTestInfoTab(){
         if(textToShow[i].includes("https")){
             var paragraph = document.createElement("a");
             paragraph.href = textToShow[i]
-            paragraph.textContent = "formulario";
+            paragraph.textContent = "Pulsa aquí para ir al formulario";
             task_test.appendChild(paragraph);
         }
         else{
@@ -214,7 +214,7 @@ function showhidetext(){
         testText.style.display ="block";
         localStorage["infoOpen"] = "true";
         tesButtonShow.innerHTML = "X"
-        if(localStorage["testId"] == "3"){
+        if(localStorage["testId"] == "4"){
             endButton.innerHTML = "HACER DE NUEVO";
         }
         else{
