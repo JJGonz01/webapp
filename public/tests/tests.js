@@ -147,7 +147,7 @@ function setTestInfoTab(){
     textToShow = textToShow.split("\n");
     task_test.innerHTML = "";
     for(let i = 0; i<textToShow.length; i++){
-        if(textToShow.includes("https")){
+        if(textToShow[i].includes("https")){
             var paragraph = document.createElement("a");
             paragraph.href = textToShow[i]
             paragraph.textContent = formulario;
