@@ -34,7 +34,7 @@ const testExplanationDictionary = {
     "3": "TAREA 4: Ejecuta la sesión en el reloj, y tras su compleción, examina sus resultados en la pestaña de pacientes, en sesiones completadas ",
 
     "4": "TAREAS FINALIZADAS, pruebe la sesión en su reloj, y al terminar, analice los datos. Conteste a las preguntas del siguiente formulario para que podamos"
-    + "tener su opinión sobre la herramienta:\n https://forms.gle/naPYFrPVsJ8V2quQ8\n"
+    + " tener su opinión sobre la herramienta:\n https://forms.gle/naPYFrPVsJ8V2quQ8\n"
     + "\n ENVÍE LOS ARCHIVOS AL CORREO josejesus.gonzalez@uclm.es \n"+
     "Si quiere repetir las tareas pulse \" HACER DE NUEVO \""
    
