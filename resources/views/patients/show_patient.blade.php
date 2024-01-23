@@ -52,7 +52,6 @@
                     @if(count($sessions)>0)
                     <table class="table-items-options">
                         <tr class ="top-index-container">
-                            <th>ID</th> 
                             <th>Fecha inicio</th> 
                             <th>Editar</th> 
                             <th>Borrar</th>
@@ -62,7 +61,6 @@
                                 @foreach($sessions as $ses)
                                 @if($ses->completed == false)
                                 <tr> <!--class="all-patient-button" href = "{{route('patient_show', ['id' => $patient -> id])}}"-->
-                                    <td>{{$ses -> id}}  </td>
                                     <td>{{$ses -> date_start}} </td>
                                     <td> <form action = "{{route('session_edit', ['id' => $ses -> id], false, true)}}" method="GET"> <button class="edit-button" id="session-show-button">Editar</button> </form> </td>
                                     <td> 
