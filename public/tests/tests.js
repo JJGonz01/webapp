@@ -23,7 +23,7 @@ const testExplanationDictionary = {
 
     
     "2": "TAREA 3: En la pestaña pacientes, crea un usuario que se llame \"Luis\" de apellidos \"Téllez\" "
-    + " Una vez en el paciente, crea una sesión de estudio, dentro del paciente \"Luis Tellez\", tal que: "
+    + " Una vez creado el paciente, entra en su pestaña y crea una sesión de estudio, tal que: "
     + " \n  (a) Su fecha de comienzo: la fecha en el día de hoy, y la hora en aproximadamente 1 minuto a la realización de esta prueba"
     + " \n (b) Con nuestra terapia \"Terapia reglas\" "
     + " \n (c) Sensibilidad del sensor BPM a 15"
