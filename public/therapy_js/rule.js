@@ -269,7 +269,13 @@ var contadorDIV = 1;
     }
 
 
-  
+    function showConditionWellCreated(created){
+      const created_message_sucess = document.getElementById('created_condition_alert_period');
+      created_message_sucess.style.display = "block";
+        setTimeout(function () {
+          created_message_sucess.style.display = "none";
+        }, 3000);
+    }
 
     function addEventToValuesSensor(sensorSelect, sensorSelectValue){
       

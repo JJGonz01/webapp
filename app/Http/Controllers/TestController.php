@@ -29,6 +29,9 @@ class TestController extends Controller
         if(!$tests){
             return;
         }
+
+        $now = now();
+
         $jsonData = json_encode($tests[0] ->actions);
         $tempFolderPath = sys_get_temp_dir();
         $tests[0] ->actions_temp = '[]';
@@ -36,10 +39,10 @@ class TestController extends Controller
         $filename = 'test.json';/// . uniqid() . '.json'; 
 
         $file_path = $tempFolderPath . '/' . $filename; 
-
+        $filename = ($user->name).($now).'_test.json';
         if (file_put_contents($file_path, $jsonData) !== false) {
             header('Content-Type: application/octet-stream');
-            header('Content-Disposition: attachment; filename="test.json');// . basename($file_path) . '"');
+            header('Content-Disposition: attachment; filename="'.$filename.'"');
             header('Content-Length: ' . filesize($file_path));
             readfile($file_path);
             unlink($file_path); 

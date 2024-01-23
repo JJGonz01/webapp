@@ -11,7 +11,9 @@
 <form id="form_crear_sesion" action="{{route('therapies_create',[], false, true)}}" method="POST">
     <script src="https://www.pomodoro.ovh/therapy_js/period_creations.js"></script>
     <script src="https://www.pomodoro.ovh/therapy_js/menus_terapia.js"></script>
+
     <script src="https://www.pomodoro.ovh/therapy_js/rule.js"></script>
+
     <script src="https://www.pomodoro.ovh/terapies_creator.js"></script>
     <script src="https://www.pomodoro.ovh/therapy_js/period_creations.js"></script>
     <script src="https://www.pomodoro.ovh/javascript/unsaved.js"></script>
@@ -121,17 +123,17 @@
                     <div id="periodo_principal">
                         <div class="therapy-input-row">
                             <div>
-                                <label for="t1">Estudio (Minutos)</label>
+                                <label for="t1">Periodo Estudio (Minutos)</label>
                                 <input id="t1" min="1" type="number" name="t1" class="form-control mb-3">
                             </div>
 
                             <div>
-                                <label for="descanso">Descanso (Minutos)</label>
+                                <label for="descanso">Periodo Descanso (Minutos)</label>
                                 <input id="descanso" min="1" type="number" name="descanso" class="form-control mb-3">
                             </div>
 
                             <div>
-                                <label for="t2">Estudio (Minutos)</label>
+                                <label for="t2">Periodo Estudio (Minutos)</label>
                                 <input id="t2" min="1" type="number" name="t2" class="form-control mb-3">
                             </div>
 
@@ -144,12 +146,12 @@
                     <div style="display:none;" id="periodo_secundario">
                         <div class="therapy-input-row">
                             <div class="periodos">
-                                <label for="descanso_extra">Descanso (Minutos)</label>
+                                <label for="descanso_extra">Periodo Descanso (Minutos)</label>
                                 <input id="descanso_extra" min="1" type="number" name="descanso" class="form-control" rown="10">
                             </div>
                             
                             <div class="periodos">
-                                <label for="t1_extra">Estudio (Minutos)</label>
+                                <label for="t1_extra">Periodo Estudio (Minutos)</label>
                                 <input id="t1_extra" type="number" name="t2" min="1" class="form-control" rown="10">
                             </div>
                             <button id="save_extra_period_ther_create" type="button" onclick="savePeriodExtra(this)" class="create-medium-button-save"> <span class="material-symbols-outlined">save</span></button>
@@ -183,8 +185,9 @@
                                         </div>
 
                                         <div class="row-steps-item">
-                                            <button type="button" id="menu_reglas_btn_two" class="button-popup-reglas" onclick="rule_creation_step(2)">2</button>
-                                            <p>Condiciones</p>
+                                       
+                                        <button type="button" id="menu_reglas_btn_two" class="button-popup-reglas" onclick="rule_creation_step(2)">2</button>
+                                        <p>Condiciones</p>
                                         </div>
 
                                         <div class="row-steps-item">
@@ -203,11 +206,11 @@
                                     </div> 
                             
                                     <div>
-                                        <label for="selectPeriodo">Periodo</label>
+                                        <label for="selectPeriodo">Periodo Periodo de comprobación</label>
                                         <select id="selectPeriodo"></select>
                                     </div> 
                                     <div>
-                                        <label for="selectMomentoPeriodo">Momento Periodo</label>
+                                        <label for="selectMomentoPeriodo">Momento de comprobación en el periodo</label>
                                         <select id="selectMomentoPeriodo"></select>
                                     </div> 
 
@@ -237,8 +240,12 @@
                                     
                                     
                                 <div class="input-regla-container" id = "rule_creation_step_two" style="display:none;">
-                                    <div class="two-divs-row-container">
-                                    <button id="add_action_rule_ther_create" onclick="createDiv()" class="button_reglas_action"  type="button">Añadir condición</button>
+                                        <h6 style="display:none;" class="alert alert-success mb-0.1" id="created_condition_alert_period">
+                                            Condición creada correctamente
+                                        </h6>
+                                        <div class="two-divs-row-container">
+                                    
+                                    <button id="add_action_rule_ther_create" onclick="createDiv();showConditionWellCreated(true)" class="button_reglas_action"  type="button">Añadir condición</button>
                                     
                                     </div>
                                     <div class="elements-conditions" id="appear-dissapearDiv"> </div>
