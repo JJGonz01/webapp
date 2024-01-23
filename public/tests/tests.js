@@ -51,15 +51,20 @@ window.onload = function() {
     if(!localStorage["test_on"]){ //No se ha comenzado a hacer tests
         localStorage["testId"] = "0";
         localStorage["test_on"] = "true";
+        localStorage["test_user"] = "true";
     }
 
-
+    //if(localStorage["test_user"] != )
+    
     if(localStorage["testId"] == "0")
     {
         document.getElementById('task_go_last').style = "display:none;";
+        endButton.innerHTML = "HE TERMINADO LA TAREA";
     }
     else if(localStorage["testId"] == "4"){
         const endButton = document.getElementById('task-end-btn').innerHTML = "HACER DE NUEVO";
+    }else{
+        endButton.innerHTML = "HE TERMINADO LA TAREA";
     }
 
     if(window.location.pathname != "" && window.location.pathname != "/"){
@@ -99,6 +104,7 @@ window.onload = function() {
     getAllInputs()
 } 
 
+ 
 function getAllInputs() {
     
     if(localStorage["teststart"]){
@@ -217,7 +223,8 @@ function showhidetext(){
         localStorage["infoOpen"] = "true";
         tesButtonShow.innerHTML = "X"
         if(localStorage["testId"] == "4"){
-            endButton.style="display:none";
+            //endButton.style="display:none";
+            endButton.innerHTML = "HACER DE NUEVO LAS TAREAS";
         }
         else{
             endButton.style="display:block";
@@ -269,7 +276,8 @@ function endTask(){
     if(localStorage["testId"] == "4"){
         setTestInfo(stringId)
         downloadJson();
-        endButton.style = "display:none;"
+        endButton.innerHTML = "HACER DE NUEVO LAS TAREAS";
+        //endButton.style = "display:none;"
         setTestInfoTab()
         return;
     }
@@ -287,6 +295,7 @@ function endTask(){
 function goToLastTask(){
     
     if(localStorage["testId"] == "0"){
+        endButton.innerHTML = "HE TERMINADO LA TAREA";
         return
     }
     var intId = parseInt(localStorage["testId"])
@@ -301,6 +310,7 @@ function goToLastTask(){
     if(localStorage["testId"] == "3"){
         setTestInfo(stringId)
         endButton.style="display:block";
+        endButton.innerHTML = "HE TERMINADO LA TAREA";
         setTestInfoTab()
         return;
     }
