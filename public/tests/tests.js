@@ -319,6 +319,7 @@ function goToLastTask(){
         setTestInfo(stringId);
         endButton.innerHTML = "HE TERMINADO LA TAREA";
         setTestInfoTab();
+        endButton.style = "display:block;"
         return;
     }
     endButton.style = "display:block;"
