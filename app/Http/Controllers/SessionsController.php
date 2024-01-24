@@ -54,19 +54,19 @@ class SessionsController extends Controller
         
         switch($request->movement){
             case "Muy Bajo":
-                $session-> movement = 0.4; 
+                $session-> movement = 2; 
                 break;
             case "Bajo":
-                $session-> movement = 0.6; 
+                $session-> movement = 1.5; 
                 break;
             case "Medio":
                 $session-> movement = 0.9;
                 break;
             case "Alto":
-                $session-> movement = 1.5;
+                $session-> movement = 0.6;
                 break;
             case "Muy Alto":
-                $session-> movement = 2; 
+                $session-> movement = 0.4; 
                 break;
         }
         $arrayPalabras = $request->opcion;
