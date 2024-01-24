@@ -69,7 +69,7 @@ window.onload = function() {
         document.getElementById('task-end-btn').innerHTML = "HE TERMINADO LA TAREA";
     }
 
-    if(window.location.pathname != "" && window.location.pathname != "/"){
+    if(window.location.pathname != "" && window.location.pathname != "/" && window.location.pathname != "/?"){
         setAsInNotStartedTask();
         var date = new Date;
         var clickedTime = (""+date.getDate()+"-"+date.getMonth()+"-"+date.getHours()+"-"+date.getMinutes()+"-"+date.getSeconds()+"-"+date.getMilliseconds());
@@ -81,7 +81,6 @@ window.onload = function() {
         document.getElementById('task_go_last').style = "display:none;";
         document.getElementById('task-end-btn').style="display:block;";
         document.getElementById('task-end-btn').innerHTML = "HE TERMINADO LA TAREA";
-        return;
     }
 
     for(var i = 0; i<=5; i++){
