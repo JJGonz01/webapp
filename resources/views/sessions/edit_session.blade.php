@@ -81,11 +81,11 @@
                                             <div class="inputs-session">
                                                     <label for="movement">Sensibilidad (%) movimiento</label>
                                                     <select name ="movement" id="movementInput">
-                                                        <option value="Muy Bajo"> Muy Bajo (0.4)</option>
-                                                        <option value="Bajo"> Bajo (0.6)</option>
+                                                        <option value="Muy Bajo"> Muy Bajo (2)</option>
+                                                        <option value="Bajo"> Bajo (1.5)</option>
                                                         <option value="Medio"> Medio (0.9)</option>
-                                                        <option value="Alto"> Alto (1.5)</option>
-                                                        <option value="Muy Alto"> Muy Alto (2)</option>
+                                                        <option value="Alto"> Alto (0.6)</option>
+                                                        <option value="Muy Alto"> Muy Alto (0.4)</option>
                                                     </select>
                                             </div>
                                             <div class="inputs-session">
