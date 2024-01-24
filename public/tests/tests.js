@@ -59,12 +59,14 @@ window.onload = function() {
     if(localStorage["testId"] == "0")
     {
         document.getElementById('task_go_last').style = "display:none;";
-        endButton.innerHTML = "HE TERMINADO LA TAREA";
+        document.getElementById('task-end-btn').style="display:block;";
+        document.getElementById('task-end-btn').innerHTML = "HE TERMINADO LA TAREA";
     }
     else if(localStorage["testId"] == "4"){
-        const endButton = document.getElementById('task-end-btn').innerHTML = "HACER DE NUEVO";
+        document.getElementById('task-end-btn').style="display:none;";
     }else{
-        endButton.innerHTML = "HE TERMINADO LA TAREA";
+        document.getElementById('task-end-btn').style="display:block;";
+        document.getElementById('task-end-btn').innerHTML = "HE TERMINADO LA TAREA";
     }
 
     if(window.location.pathname != "" && window.location.pathname != "/"){
@@ -75,6 +77,10 @@ window.onload = function() {
         sendJsonInfo(localStorage["testId"], clickedTime, timeDifference, windowpath ,"url", null, null);
     }
     else{
+        localStorage["testId"] == "0";
+        document.getElementById('task_go_last').style = "display:none;";
+        document.getElementById('task-end-btn').style="display:block;";
+        document.getElementById('task-end-btn').innerHTML = "HE TERMINADO LA TAREA";
         return;
     }
 
@@ -223,8 +229,8 @@ function showhidetext(){
         localStorage["infoOpen"] = "true";
         tesButtonShow.innerHTML = "X"
         if(localStorage["testId"] == "4"){
-            //endButton.style="display:none";
-            endButton.innerHTML = "HACER DE NUEVO LAS TAREAS";
+            endButton.style="display:none";
+            //endButton.innerHTML = "HACER DE NUEVO LAS TAREAS";
         }
         else{
             endButton.style="display:block";
@@ -276,13 +282,14 @@ function endTask(){
     if(localStorage["testId"] == "4"){
         setTestInfo(stringId)
         downloadJson();
-        endButton.innerHTML = "HACER DE NUEVO LAS TAREAS";
-        //endButton.style = "display:none;"
+        //endButton.innerHTML = "HACER DE NUEVO LAS TAREAS";
+        endButton.style = "display:none;"
         setTestInfoTab()
         return;
     }
     else if (localStorage["testId"] == "5"){
         localStorage["testId"] = 0;
+        endButton.style = "display:block;"
         document.getElementById('task_go_last').style = "display:none;";
         endButton.innerHTML = "HE TERMINADO LA TAREA";
     }
@@ -295,11 +302,12 @@ function endTask(){
 function goToLastTask(){
     
     if(localStorage["testId"] == "0"){
+        
         endButton.innerHTML = "HE TERMINADO LA TAREA";
         return
     }
-    var intId = parseInt(localStorage["testId"])
-    intId -= 1
+    var intId = parseInt(localStorage["testId"]);
+    intId -= 1;
 
     if(intId == 0){
         document.getElementById('task_go_last').style="display:none;";
@@ -308,12 +316,12 @@ function goToLastTask(){
     localStorage["testId"] = stringId
     const endButton = document.getElementById('task-end-btn')
     if(localStorage["testId"] == "3"){
-        setTestInfo(stringId)
-        endButton.style="display:block";
+        setTestInfo(stringId);
         endButton.innerHTML = "HE TERMINADO LA TAREA";
-        setTestInfoTab()
+        setTestInfoTab();
         return;
     }
+    endButton.style = "display:block;"
     setTestInfo(stringId)
     const tesButtonShow = document.getElementById('task_start_button')
     tesButtonShow.innerHTML = "X"
