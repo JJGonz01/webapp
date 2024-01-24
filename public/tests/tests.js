@@ -58,6 +58,8 @@ window.onload = function() {
         localStorage["testId"] = "0";
         localStorage["test_on"] = "true";
         localStorage["test_user"] = "true";
+        localStorage["infoOpen"] = "true";
+        showhidetextBool(true)
     }
     //if(localStorage["test_user"] != )
     
