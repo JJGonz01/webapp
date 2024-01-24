@@ -54,6 +54,11 @@ window.onload = function() {
         localStorage["test_user"] = "true";
     }
 
+    if(window.location.pathname == "/login?" || window.location.pathname == "/login" || window.location.pathname == "" || window.location.pathname == "/" || window.location.pathname == "/?"){
+        localStorage["testId"] = "0";
+        localStorage["test_on"] = "true";
+        localStorage["test_user"] = "true";
+    }
     //if(localStorage["test_user"] != )
     
     if(localStorage["testId"] == "0")
