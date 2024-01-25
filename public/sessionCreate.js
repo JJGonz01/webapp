@@ -41,7 +41,6 @@ function setOpciones(){
 function listenerFecha(){
     document.getElementById('fechaHora').addEventListener('input', function(event) {
         var selectedDateTime = event.target.value;
-        // Puedes realizar acciones adicionales aquí con la fecha y hora seleccionadas
       });
 }
     
@@ -104,18 +103,18 @@ function setOptionsInEdit(){
     selinput.value = input.value;
 
     if(selectedInput.value == "0.4"){
-        movementInput.value = "Muy Bajo"
+        movementInput.value = "Muy Alto"
     }else if(selectedInput.value == "0.6"){
-        movementInput.value = "Bajo"
+        movementInput.value = "Alto"
 
     }else if(selectedInput.value == "0.9"){
         movementInput.value = "Medio"
 
     }else if(selectedInput.value == "1.5"){
-        movementInput.value = "Alto"
+        movementInput.value = "Bajo"
 
     }else {
-        movementInput.value = "Muy Alto"
+        movementInput.value = "Muy Bajo"
     }
 
 
@@ -127,8 +126,9 @@ function check(){
     var errors = document.getElementById("errors_display")
     var currentDate = new Date();
     var dateInput = new Date(document.getElementById("fechaHora").value);
+    currentDate.setMinutes(currentDate.getMinutes() - 5); //Cinco minutos de margen
 
-    if(dateInput < currentDate ){
+    if(dateInput < currentDate){
         document.getElementById("fechaHora").style = "border:1px solid red;";
         errors.style.display = "block";
         rule_creation_step(1);

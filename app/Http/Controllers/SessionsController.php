@@ -36,10 +36,13 @@ class SessionsController extends Controller
     {
     
         $today = Carbon::now();
+        $today = now();
+        $fiveMinutesBefore = $today->subMinutes(5)->format('Y-m-d\TH:i');
+
         echo $today->toDateTimeString();
         //dd($request);
         $request -> validate([
-            'date_start' =>'required|unique:sessions|date_format:Y-m-d\TH:i|after_or_equal:' . $today,
+            'date_start' =>'required|unique:sessions|date_format:Y-m-d\TH:i|after_or_equal:' . $fiveMinutesBefore,
             'description' => 'max:255',
             'therapy_id' => 'required | max:255',           
             'movement' => 'required',
