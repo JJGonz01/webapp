@@ -85,6 +85,7 @@
     .navbar-vertical p{
         display: block;
         padding:8px;
+        font-size: large;
         border-radius: 10px;
         border: 2px solid white;
     }
