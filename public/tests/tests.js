@@ -22,19 +22,23 @@ const testExplanationDictionary = {
  	+"  \n (h)  En esta segunda acción, en acciones de sesión, que acabe el periodo.",
 
     
-    "2": "TAREA 3: En la pestaña pacientes, crea un usuario que se llame \"Luis\" de apellidos \"Téllez\" "
-    + " Una vez creado el paciente, entra en su pestaña y crea una sesión de estudio, tal que: "
+    "2": "TAREA 3: En la pestaña pacientes, gestionaremos nuestros pacientes y asignar una sesión."
+    +" Antes de gestionar, crea un usuario que se llame \"Noelia\" de apellidos \"Téllez\" "
+    + " Una vez creado el paciente, entra en la pestaña del paciente \"Louis\" \"Gonzalez\", y crea una sesión de estudio, tal que: "
     + " \n  (a) Su fecha de comienzo: la fecha en el día de hoy, y la hora en aproximadamente 1 minuto a la realización de esta prueba"
-    + " \n (b) Con nuestra terapia \"Terapia reglas\" "
+    + " \n (b) Seleccionar la terapia llamada \"Terapia LOUISE \" "
     + " \n (c) Sensibilidad del sensor BPM a 15"
     + "\n (d) Sensibilidad de movimiento: alto"
     + "\n (e) Que sume puntos cuando ambos sensores sean bajos."
-    + "\n (e) Y la vista del reloj con todos los elementos añadidos",
+    + "\n (e) Y la vista del reloj con todos los elementos añadidos"
+    + "\n (f) Pulsar crear sesión. ",
 
     "3": "TAREA 4: Ejecuta la sesión en el reloj, y tras su compleción, examina sus resultados en la pestaña de pacientes:"+
-    "\n (a) Creada la sesión, ejecuta la sesión en el reloj en sesiones completadas "+
-    "\n (b) Una vez completada la sesión, entra en la pestaña pacientes "+
-    "\n (c) Observa los resultados de la sesión ",
+    "\n (a) Abre la aplicación en el reloj, e introduce la id del paciente del cual has creado la sesión"+
+    "\n (b) Espera a que se ejecute la sesión a la hora indicada, sigue los pasos y pulsa los botones en el reloj para avanzar por la sesión "+
+    "\n (b) Cuando se complete el segundo estudio, pulsar el botón azul de finalizar, y volver a la plataforma web"+
+    "\n (c) Recargar la pestaña alumno, y pulsar \"sesiones completadas\" "+
+    "\n (c) Observar los resultados de la sesión que aparece ",
 
     "4": "TAREAS FINALIZADAS."
     +"\n (a) Conteste a las preguntas del siguiente formulario para que podamos"
