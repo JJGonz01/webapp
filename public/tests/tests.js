@@ -24,7 +24,8 @@ const testExplanationDictionary = {
     
     "2": "TAREA 3: En la pestaña pacientes, gestionaremos nuestros pacientes y asignaremos una sesión."
     +" \n Antes de gestionar, crea un usuario que se llame \"Noelia\" de apellidos \"Téllez\" "
-    + " \n Una vez creado el paciente, entra en la pestaña del otro paciente llamado <strong> \"Louis\" \"Gonzalez\" </strong>, y crea una sesión de estudio, tal que: "
+    + " \n Una vez creado el paciente, entra en la pestaña del otro paciente llamado \"Louis\" \"Gonzalez\" "
+    +" \n En el paciente \"Louis\" \"Gonzalez\" crearemos una sesión de estudio, tal que: "
     + " \n  (a) Su fecha de comienzo: la fecha en el día de hoy, y la hora en aproximadamente 1 minuto a la realización de esta prueba"
     + " \n (b) Seleccionar la terapia llamada \"Terapia LOUISE \" "
     + " \n (c) Sensibilidad del sensor BPM a 15"
