@@ -26,6 +26,10 @@ Route::get('/login', function () {
     return view('layouts.app');
 })->name('main');
 
+Route::get('/pacoguiness', function () {
+    return view('welcome');
+})->name('paco');
+
 Route::post('/userlogin', [authentication::class, 'login'])
 ->name('userlogin');
 
