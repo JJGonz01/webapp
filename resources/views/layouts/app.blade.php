@@ -6,8 +6,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- CSRF Token -->
+<!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>USUARIO</title>
@@ -15,19 +14,19 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
-
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
     <!-- CSS -->
-    <link rel="stylesheet" href="https://www.pomodoro.ovh/styles/CSS/auth.css">
-    <link rel="stylesheet" href="https://www.pomodoro.ovh/styles/CSS/items.css">
+    <link rel="stylesheet" href="{{asset('/css/auth/auth.css')}}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
 
-    <!-- Scripts -->
-    <script src="https://www.pomodoro.ovh/resources/js/app.js"></script>
-
+    
 
 </head>
 <body>
 
-    <div id="app" class="auth-general-container" style="z-index:20;">
+    <div id="app">
             <div>
                 
                 <div id="navbarSupportedContent">
@@ -43,25 +42,40 @@
 
                            
                         @else
-                            <div class="right-login-container" style="margin-top:1%; color: grey;">
-                                
-                                <div class="button-column" onclick="printClickedId(this)" id="ir-app-button" aria-labelledby="navbarDropdown">
-                                    <form action="{{ route('main', [], false, true) }}" method="GET">
-                                        <button class="login-create-button" id="go_to_app">
-                                            {{ __('Ir a la aplicación') }}
-                                        </button>
-                                    </form>
-                                    <div>
-                                        
+                        <div class="container-logo">
+                            <img id="img-logo" src="{{asset('/images/logorm.png')}}">
+                        </div>
+                        <div class="container-login">
+                            <div class="container-change-login">
+
+                                <h1>Mi perfil</h1>
+                                @if (session('status'))
+                                    <div class="alert alert-success" role="alert">
+                                        {{ session('status') }}
                                     </div>
-                                    <form id="logout-form" action="{{ route('logout', [], false, true) }}" method="POST" class="d-none">
-                                        @csrf
-                                        <button id="cerrar-session-button" class="close-create-button" href="{{ route('main',[],false, true) }}">
-                                            {{ __('Cerrar sesión') }}
-                                        </button>
-                                    </form>
-                                </div>
+                                @endif
+
+                                <p id="navbarDropdown">
+                                    Usuario: {{  Auth::user()->name }}
+                                </p>
+                                <p>
+                                    Correo: {{  Auth::user()->email }}
+                                </p>
                             </div>
+                                
+                            <form action="{{ route('main', [], false, true) }}" method="GET">
+                                <button class="btn btn-primary btn-block" style="border-radius:15px;" id="go_to_app">
+                                    {{ __('Ir a la aplicación') }}
+                                </button>
+                            </form>
+                        
+                            <form id="logout-form" action="{{ route('logout', [], false, true) }}" method="POST">
+                                @csrf
+                                <button id="cerrar-session-button" class="btn btn-primary btn-block" style="border-radius:15px;margin-top:20px;" href="{{ route('main',[],false, true) }}">
+                                    {{ __('Cerrar sesión') }}
+                                </button>
+                            </form>
+                        </div>
                         @endguest 
                     </div>
                 </div>
