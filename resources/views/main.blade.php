@@ -11,6 +11,7 @@
 </head>
 
 <body>
+<button type="button" class="btn btn-primary d-md-none fixed-top w-100" style="margin-bottom:10px">Nuevo Botón</button>
     <div class="container-fluid">
         <div class="row">
             <nav class="col-md-2 d-none d-md-block bg-light navbar">
