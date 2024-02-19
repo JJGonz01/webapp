@@ -5,21 +5,134 @@
 @section('patients_section')
 <head>
     <title>EDITAR | {{$patient->name}}</title>
+    <link rel="stylesheet" href="{{asset('/css/dashboards/patients/patient-menu.css')}}">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 
-<div class="general-items-container">
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal Title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Modal content goes here...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <!-- Additional buttons can be added here -->
+      </div>
+    </div>
+  </div>
+</div>
+
+@if (session('success'))
+    <h6 class="alert alert-success"> {{ session('success') }}</h6>
+@endif
+@if($errors->any())
+    <h6 class="alert alert-danger">{{ implode('', $errors->all(':message')) }}</h6>
+@endif
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-2 container-patient-slim">
+            <div class="row align-items-center container-fluid">
+                <div class="col-md-5">
+                    <img id="profile-image" src="{{asset('images/perfil.png')}}"></img>
+                </div>
+                <div class="col-md-7">
+                    <h5 class="text-center">{{$patient-> surname}}, {{$patient-> name}}</h5>
+                </div>
+            </div>
+
+            <div class="container-content-patient">
+                <p class="text-title-two">Comentario</p>
+                <p>{{$patient->description}}</p>
+            </div>
+
+            <div class="container-content-patient">
+                <p class="text-title-two">Detalles</p>
+                <div class="content-subtitle">
+                    <p class="text-subtitle">Tags</p>
+                    <p>TBD</p>
+                </div>
+                <div class="content-subtitle">
+                    <p class="text-subtitle">Número de contacto</p>
+                    <p>222 22 22 22 </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-10">
+            <div class="container-fluid container-patient-slim">
+                <div class="container-padding">
+                    <div class="row container-margin-bottom">
+                        <div class="col-md-11">
+                            <p class="text-title-one">Cronograma</p>
+                        </div>
+
+                        <div class="col-md-1">
+                            <div class="row" id="btn-add-session">
+                                <form action="{{route('sessions_create', ['patient_id' => $patient -> id], false, true)}}" method="GET">
+                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" class="button-add"><span class="fa-regular fa-plus"> Añadir</span></button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row container-calendar-row">
+                                <button class="col-mg-12"><span id="monday">21</span><span>Lun</span></button>
+                                <button class="col-mg-12"><span id="tuesday">22</span><span>Mar</span></button>
+                                <button class="col-mg-12"><span id="wendsday">23</span><span>Mie</span></button>
+                                <button class="col-mg-12"><span id="thrusday">24</span><span>Jue</span></button>
+                                <button class="col-mg-12"><span id="friday">25</span><span>Vie</span></button>
+                                <button class="col-mg-12"><span id="saturday">26</span><span>Sab</span></button>
+                                <button class="col-mg-12"><span id="sunday">27</span><span>Dom</span></button>
+                    </div>
+                        
+                    <div class="container-sesiones">
+                        <p class="text-title-two">Sesiones programadas</p>
+                        <div>
+                            <table class="table">
+                                <tr class ="top-index-container">
+                                    <th scope="col"><input type="checkbox" value="-1" id="checkbox1"></th> 
+                                    <th scope="col">Título</th> 
+                                    <th scope="col">Fecha inicio</th> 
+                                    <th scope="col">Acciones</th>
+                                </tr>
+
+                                @foreach($sessions->take(5) as $ses)
+                                @if($ses->completed == false)
+                                <tr>
+                                    <td scope="row"><input type="checkbox" value="{{$ses->id}}" id="checkbox1"></td>
+                                    <td scope="row">TBD</td>
+                                    <td>{{$ses -> date_start}} </td>
+                                    <td> <form action = "{{route('session_edit', ['id' => $ses -> id], false, true)}}" method="GET"> <button class="edit-button" id="session-show-button">Editar</button> </form> </td>
+                                </tr> 
+                                @endif
+                                @endforeach
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- div class="general-items-container">
         
         <script src="https://www.pomodoro.ovh/session/sessionClassfication.js"></script>
         <script src="https://www.pomodoro.ovh/therapy_js/period_creations.js"></script>
         <script src="https://www.pomodoro.ovh/therapy_js/rule.js"></script>
 
         <div class="user-welcome-box">
-        @if (session('success'))
-                <h6 class="alert alert-success"> {{ session('success') }}</h6>
-            @endif
-            @if($errors->any())
-                <h6 class="alert alert-danger">{{ implode('', $errors->all(':message')) }}</h6>
-            @endif
+        
 
             @if(auth()->user() !== null)
             <div class="user-welcome-box-container">
@@ -60,7 +173,7 @@
                             
                                 @foreach($sessions as $ses)
                                 @if($ses->completed == false)
-                                <tr> <!--class="all-patient-button" href = "{{route('patient_show', ['id' => $patient -> id])}}"-->
+                                <tr> class="all-patient-button" href = "{{route('patient_show', ['id' => $patient -> id])}}">
                                     <td>{{$ses -> date_start}} </td>
                                     <td> <form action = "{{route('session_edit', ['id' => $ses -> id], false, true)}}" method="GET"> <button class="edit-button" id="session-show-button">Editar</button> </form> </td>
                                     <td> 
@@ -108,7 +221,7 @@
                         <div class="table-items-options-overflow">
                             @foreach($sessions as $ses)
                             @if($ses->completed == true)
-                            <tr> <!--class="all-patient-button" href = "{{route('patient_show', ['id' => $patient -> id])}}"-->
+                            <tr> class="all-patient-button" href = "{{route('patient_show', ['id' => $patient -> id])}}"
                                 <td>{{$ses -> id}}  </td>
                                 <td>{{$ses -> date_start}} </td>
                                 <td> <form action = "{{route('session_show', ['id' => $ses -> id], false, true)}}" method="GET"> <button class="edit-button" id="session-show-button">Ver</button> </form> </td>
@@ -161,7 +274,7 @@
                     </form>        
                 <div>
                 
-                     
+                      
                     <form action="{{route('patient_destroy', [$patient->id], false, true)}}" id = "eliminar_form" method = "POST">
                         <div>
                             @method('DELETE')
@@ -193,8 +306,5 @@
 
         
         
-</div>
-
-<script src="https://www.pomodoro.ovh/filter.js"></script>
-<script>startFilter()</script>
+                        </div-->
 @endsection

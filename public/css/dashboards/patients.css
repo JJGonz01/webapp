@@ -1,6 +1,60 @@
 .container-general-patients{
-    border: 0.3px solid grey;
-    background-color: rgb(254, 221, 185, 0.5);
-    width:100%;
+    border: 0.3px solid rgb(206, 206, 206);
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.5);
+    width:95%;
+    margin-left: auto;
+    margin-right: auto;
     height: max-content;
+}
+
+.container-inputs-top{
+    align-items: center;
+    text-align: center;
+    
+}
+
+.container-inputs-top button{
+    border: 0.3px solid grey;
+    background-color: aliceblue;
+    margin-inline-end: 10px;
+    border-radius: 10px;
+    padding:7px 8px;
+    width: fit-content;
+}
+
+.container-inputs-top span{
+    font-family: 'Poppins','FontAwesome', sans-serif !important;
+}
+
+.container-input-span{
+    border: 0.3px solid grey;
+    border-radius: 10px;
+    background-color: rgb(255, 255, 255);
+    margin: 1%;
+    margin-left: 2%;
+    padding:7px 8px;
+    padding-left: 10px;
+    width: min-content;
+    height: min-content;
+    text-align: left;
+}
+
+.container-input-span input{
+    border:0;
+    background-color: var(--color-tranparente);
+   
+}
+
+.container-input-span input:active,
+.container-input-span input:focus{
+   outline: none;
+   border: 0;
+   background-color: var(--color-transparente); 
+}
+
+.container-filter-align-end{
+    right: 0;
+    text-align: right;
+    align-items: right;
 }

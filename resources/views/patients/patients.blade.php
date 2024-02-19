@@ -5,78 +5,61 @@
 <head>
     <title>PACIENTES</title>
     <link rel="stylesheet" href="{{asset('/css/dashboards/patients.css')}}">
-
+    <script src="{{asset('/JS/dashboards/patients.js')}}"></script>
 </head>
-<div class="container container-general-patients">
-    <div class="">
 
-    </div>
-</div>
-<div class="general-items-container">
-        
-<div class="user-welcome-box">
+<div class="container-general-patients">
     
-    <div class="user-welcome-box-container">
-        <h4>Pacientes</h4>
-        <form action="{{route('patients_create', [], false, true)}}" method="GET">
-            <button class="user-welcome-box-container-button" id="create-patient-button">AÑADIR PACIENTE</button>
-        </form>
-    </div>
-    <div class="user-welcome-box-container">
-        <div class="home-welcome-box">
-            <button class="home-welcome-box-btn-selected" id="btn_pom_info" onclick="sortTable(0)">TODOS</button>
-            <button class="home-welcome-box-btn" id="btn_app_info" onclick="sortTable(1)">NOMBRE</button>
-            <button class="home-welcome-box-btn" id="btn_nos_option" onclick="sortTable(2)">APELLIDOS</button>
-            
+    <form action="{{route('patients_create', [], false, true)}}" method="GET">
+        <div class="row container-inputs-top">
+                <div class="col-md-3 container-input-span">
+                    <span style="font-family: Arial, FontAwesome; padding-right: 4px;">&#xf002;</span>
+                    <input placeholder="Buscar paciente"></input>
+                </div>
+                <!-- Espaciador -->
+                <div class="col-md-7"></div>
+                 
+                
+                <div class="col-text-end d-flex flex-row container-filter-align-end">
+                    <button type="button"><span class="fa-regular fa-filter"> Filtrar</span></button>
+                    <button type="submit"><span class="fa-regular fa-plus"> Añadir</span></button>
+                </div>
+                
         </div>
-        <button class="home-welcome-box-btn" id="btn_pom_info" onclick="filtrarPacientes('')">Limpiar Filtro</button>
-        <input class="home-welcome-box-input" id="filter-input" placeholder="Buscar"></input>
-    </div>
-</div>
+    </form>
 
-<div class="options-items-container">
-    @if (session('success'))
-    <h6 class="alert alert-success">{{ session('success') }}</h6>
-    @endif
-    @error('name')
-    <h6 class="alert alert-danger">{{ $message }}</h6>
-    @enderror
-    <div class="options-items-container-inner">
-        @if(count($patients)>0)
-        <table class="table-items-options">
+    <div class="table-responsive text-center">
+        <table class="table">
             <tr class="top-index-container">
-                <th>ID</th>
-                <th>NOMBRE</th>
-                <th>APELLIDOS</th>
-                <th>ACCEDER</th>
+                <th scope="col"><input type="checkbox" value="-1" id="checkbox1"></th>
+                <th scope="col">NOMBRE</th>
+                <th scope="col">TAGS</th>
+                <th scope="col">Próxima sesión</th>
+                <th scope="col">ACCIONES</th>
             </tr>
             <div id="patient-list" class="table-items-options-overflow">
-                @foreach ($patients as $patient)
+                @foreach ($patients->take(10) as $patient)
                 <tr>
-                    <td>{{$patient->id}}</td>
-                    <td>{{$patient->name}}</td>
-                    <td>{{$patient->surname}}</td>
+                    <td scope="row"><input type="checkbox" value="{{$patient->id}}" id="checkbox1"></td>
+                    <td>{{$patient->surname}}, {{$patient->name}}</td>
+                    <td>TBD</td>
+                    <td>TBD</td>
                     <td>
-                        <form action="{{route('patient_show', [$patient->id], false, true)}}" method="GET">
-                            <div>
-                                <button id="go_to_patient_btn" type="submit" class="edit-button">
-                                    Acceder
-                                </button>
-                            </div>
-                        </form>
+                        <select class="form-select" onchange="patientSelect({{$patient->id}},this.value)">
+                            <option value="" hidden disabled selected>Acciones</option>
+                            <option value="e">Acceder</option>
+                            <option value="b">Eliminar</option>
+                        </select>
+                        <form id="e{{$patient->id}}" action="{{route('patient_show', [$patient->id], false, true)}}" method="GET"></form>
+                        <form id="b-{{$patient->id}}" action="{{route('sessions_create', ['patient_id' => $patient -> id], false, true)}}" method="GET"></form>
                     </td>
+
                 </tr>
                 @endforeach
             </div>
         </table>
-        @else
-        <h1 style="color: #0E456; font.weight: bold;">No hay pacientes añadidos</h1>
-        @endif
     </div>
 </div>
 
-    
-</div>
-<script src="https://www.pomodoro.ovh/filter.js"></script>
-<script>startFilter()</script>
+
 @endsection

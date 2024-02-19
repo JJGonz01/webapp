@@ -80,7 +80,7 @@ span{
    border: 0;
    font-weight: 400;
    font-style: normal;
-   background-color: rgba(0, 0, 0, 0); 
+   background-color: var(--color-transparente); 
    width:80%;
 }
 
@@ -90,6 +90,6 @@ span{
 
 .button-no-border{
     border:0;
-    background-color: rgba(0, 0, 0, 0);
+    background-color: var(--color-transparente); 
     color: var(--color-botones);
 }

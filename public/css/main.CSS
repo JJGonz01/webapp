@@ -2,6 +2,7 @@
 
 :root {
     --color-botones: #007bff;
+    --color-tranparente: rgba(0,0,0,0);
     --ancho-borde: 2px;
     --familia-fuente-poppins: 'Poppins', sans-serif !important;
   }
