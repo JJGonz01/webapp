@@ -4,9 +4,14 @@
 
 <head>
     <title>PACIENTES</title>
+    <link rel="stylesheet" href="{{asset('/css/dashboards/patients.css')}}">
+
 </head>
+<div class="container container-general-patients">
+    <div class="">
 
-
+    </div>
+</div>
 <div class="general-items-container">
         
 <div class="user-welcome-box">

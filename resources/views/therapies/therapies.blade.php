@@ -6,6 +6,7 @@
     <title>TERAPIAS</title>
 </head>
 
+
 <div class="general-items-container">
 
         @if (session('success'))

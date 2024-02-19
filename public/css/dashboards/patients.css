@@ -1,0 +1,6 @@
+.container-general-patients{
+    border: 0.3px solid grey;
+    background-color: rgb(254, 221, 185, 0.5);
+    width:100%;
+    height: max-content;
+}

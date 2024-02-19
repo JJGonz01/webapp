@@ -2,10 +2,12 @@
 
 @section('patients_section') 
 
-<head><title>HOME</title></head>
+<head>
+    <title>HOME</title>
+    <script src="{{asset('general_page.js')}}"></script>
+</head>
 
 <div class="general-items-container">
-<script src="https://www.pomodoro.ovh/general_page.js"></script>
   
         <div class="user-welcome-box">
             @if(auth()->user() !== null)
