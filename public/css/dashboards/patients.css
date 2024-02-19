@@ -32,7 +32,7 @@
     border-radius: 10px;
     background-color: rgb(255, 255, 255);
     margin: 1%;
-    margin-left: 2%;
+    margin-left: 4%;
     padding:7px 8px;
     padding-left: 10px;
     width: min-content;
@@ -56,5 +56,6 @@
 .container-filter-align-end{
     right: 0;
     text-align: right;
-    align-items: right;
+    align-items: end;
+    justify-content: end;
 }

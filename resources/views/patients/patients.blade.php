@@ -12,15 +12,11 @@
     
     <form action="{{route('patients_create', [], false, true)}}" method="GET">
         <div class="row container-inputs-top">
-                <div class="col-md-3 container-input-span">
+                <div class="col-md-4 container-input-span">
                     <span style="font-family: Arial, FontAwesome; padding-right: 4px;">&#xf002;</span>
                     <input placeholder="Buscar paciente"></input>
                 </div>
-                <!-- Espaciador -->
-                <div class="col-md-7"></div>
-                 
-                
-                <div class="col-text-end d-flex flex-row container-filter-align-end">
+                <div class="col-md-7 d-flex flex-row container-filter-align-end">
                     <button type="button"><span class="fa-regular fa-filter"> Filtrar</span></button>
                     <button type="submit"><span class="fa-regular fa-plus"> Añadir</span></button>
                 </div>

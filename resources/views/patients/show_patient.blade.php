@@ -9,6 +9,8 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
 </head>
 
 <!-- Modal -->
@@ -73,14 +75,14 @@
             <div class="container-fluid container-patient-slim">
                 <div class="container-padding">
                     <div class="row container-margin-bottom">
-                        <div class="col-md-11">
+                        <div class="col-md-10">
                             <p class="text-title-one">Cronograma</p>
                         </div>
 
-                        <div class="col-md-1">
+                        <div class="col-md-2">
                             <div class="row" id="btn-add-session">
                                 <form action="{{route('sessions_create', ['patient_id' => $patient -> id], false, true)}}" method="GET">
-                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" class="button-add"><span class="fa-regular fa-plus"> Añadir</span></button>
+                                    <button class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" class="button-add"><span class="fa-regular fa-plus"> Añadir</span></button>
                                 </form>
                             </div>
                         </div>

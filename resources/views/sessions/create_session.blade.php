@@ -8,38 +8,258 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <link rel="stylesheet" href="{{asset('/css/dashboards/patients/create-session.css')}}">
+    <link rel="stylesheet" href="{{asset('/css/dashboards/patients.css')}}">
 </head>
 
+<!-- Popup -->
+<div id="popup" class="popup">
+    <div class="popup-content">
+        <h2>Crear Sesión para {{$patient->name}}</h2>
+        <div class="row">
+            <div class="col-md-3 container-session-inputs">
+                <div style="margin-left:5px" class="row container-session-gamification">
+                        <span>&#xf2db;</span>
+                        <p>Datos de la sesión</p> <p class="text-description"></p>
+                </div>
+                <div class="form-row">
+                    <div class="col-md-7" id="fecha-div">
+                        <input class=" form-control" placeholder="Fecha y hora de la sesión" type="date" id="fecha" name="date_start"></input>
+                    </div>
+                    <div class="col-md-5" id="hora-div">
+                        <input class="form-control" placeholder="Fecha y hora de la sesión" type="time" id="hora" name="time_start"></input>
+                    </div>
+                </div>
+                <input class="form-control" placeholder="Nombre"></input>
+                <textarea class="form-control" rows="3" placeholder="Descripción"></textarea>
 
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-  Open Modal
-</button>
+                <div style="margin-left:5px" class="row container-session-gamification">
+                        <span>&#xf073;</span>
+                        <p>Repetir sesión</p> <p class="text-description"></p>
+                        <span data-toggle="tooltip" data-html="true" 
+                                title="Puede elegir si esta sesión de estudio ocurre todas las semanas, o todos los meses (una vez al mes)"
+                                style="margin-left:10px; font-size:large" >&#xf059;</span>
+                </div>
 
-<!-- Modal -->
-<div class="modal top-popup-modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal Title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        Modal content goes here...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <!-- Additional buttons can be added here -->
-      </div>
+                <div class="checkbox-session">
+                    <div class="col-md-1" id="fecha-div">
+                        <input class="form-check-input form-check-input-sm" placeholder="Fecha y hora de la sesión" type="checkbox" id="fecha" name="date_start"></input>
+                    </div>
+                    <div class="col-md-10" id="hora-div">
+                        <p> No repetir</p>
+                    </div>
+                </div>
+
+                <div class="checkbox-session">
+                    <div class="col-md-1" id="fecha-div">
+                        <input class="form-check-input form-check-input-sm" placeholder="Fecha y hora de la sesión" type="checkbox" id="fecha" name="date_start"></input>
+                    </div>
+                    <div class="col-md-10" id="hora-div">
+                        <p> Repetir cada semana</p>
+                    </div>
+                </div>
+
+                <div class="checkbox-session">
+                    <div class="col-md-1" id="fecha-div">
+                        <input class="form-check-input form-check-input-sm" placeholder="Fecha y hora de la sesión" type="checkbox" id="fecha" name="date_start"></input>
+                    </div>
+                    <div class="col-md-10" id="hora-div">
+                        <p> Repetir cada mes</p>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-9">
+                <div class="row container-session-gamification">
+                        <span>&#xf02d;</span>
+                        <p>Plan de estudio</p> <p class="text-description"></p>
+                        <span data-toggle="tooltip" data-html="true" 
+                                title="Define la duración de los distintos periodos de descanso y estudio, además de condiciones
+                                basadas en los periodos y valor de los sensores. Cree o seleccione uno de su colección."
+                                style="margin-left:10px; font-size:large">&#xf059;</span>
+                </div>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">
+                            <span id="inputGroup-sizing-sm">Seleccionar plan de estudio</span>
+                        </div>
+                    </div>
+                    <input type="text" class="form-control" aria-label="Text input with checkbox" readonly>
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">
+                            <span id="inputGroup-sizing-sm">X</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row container-session-gamification">
+                        <span>&#xf2db;</span>
+                        <p>Sensores:</p> <p class="text-description">Sensibilidad de los sensores</p>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="input-group mb-4">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">
+                                    <span >&#xf21e;</span>
+                                </div>
+                            </div>
+                            <input type="number" placeholder="Sensibilidad Pulsaciones (0-100)" class="form-control" id="numberInput" min="0" max="100"></input>
+                            <span data-toggle="tooltip" data-html="true" 
+                                title="Al iniciar la sesión, se reproducirá un periodo de relajación 
+                                durante el cual se obtiene un valor que determina el punto de transición entre los niveles bajo y alto. 
+                                A este valor se le añade un porcentaje, lo que resulta en un nuevo límite que define la separación entre los niveles bajo y alto."
+                                style="margin-left:10px; font-size:large">&#xf059;</span>
+                        </div>    
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="input-group mb-4">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <span>&#xf256;</span>
+                                    </div>
+                                </div>
+                                <input type="number" placeholder="Mágnitud del movimiento (0-10)" class="form-control" id="numberInput" min="0" max="10"></input>
+                                <span data-toggle="tooltip" data-html="true" 
+                                title=" Marcará cuánta magnitud tiene que tener un movimiento del dispositivo para que se entienda como alto. Cuanto más bajo, más susceptible a movimientos será el sensor
+                                para determinar que hay mucho o poco movimiento"
+                                style="margin-left:10px; font-size:large" >&#xf059;</span>
+                        </div>                     
+                    </div>
+                </div>
+
+                <div class="container-session-gamification">
+                    <div class="row">
+                        <span>&#xf11b;</span>
+                        <p>Gamificación:</p> <p class="text-description">Cuando se suman puntos</p>
+                        <span data-toggle="tooltip" data-html="true" 
+                                title="Durante la sesión el niño irá ganando puntos, a modo de incentivo, según lo definido en el plan de estudio y lo que seleccione
+                                en esta sección (Puede seleccionar VARIAS OPCIONES)."
+                                style="margin-left:10px; font-size:large" >&#xf059;</span>
+                    </div>
+                    <div class="row container-selection-button">
+                        <button>Pulsación Baja</button>
+                        <button>Movimiento Bajo</button>
+                        <button>Cada periodo completado</button>
+                    </div>
+                </div>
+
+                <div class="container-session-gamification">
+                    <div class="row">
+                        <span>&#xf017;</span>
+                        <p>Reloj:</p> <p class="text-description">Como se verá la sesión en el reloj</p>
+                        <span data-toggle="tooltip" data-html="true" 
+                                title="Que aparecerá en la pantalla del reloj durante la sesión de estudio."
+                                style="margin-left:10px; font-size:large" >&#xf059;</span>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3 container-clock">
+                            <div class="circulos">
+                                <div class="circulo text-col">
+                                        <p id="reloj-hora">10:10</p>
+                                        <p id="reloj-periodo">Estudia</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-9 container-clock-options">
+                            <div class="container-session-gamification">
+                                <div class="row">
+                                    <span>&#xf110;</span>
+                                    <p>Barra Temporizador:</p> <p class="text-description">Barra que muestra el tiempo que falta/lleva</p>
+                                </div>
+                                <div class="row container-selection-button">
+                                    <button>En aumento (t.lleva)</button>
+                                    <button>En decremento (t.falta)</button>
+                                    <button>Sin temporizador</button>
+                                </div>
+                            </div>
+
+                            <div class="container-session-gamification">
+                                <div class="row">
+                                    <span>&#xf0e2;</span>
+                                    <p>Cuenta atrás:</p> <p class="text-description">Texto que muestra una cuenta atrás o la hora</p>
+                                </div>
+                                <div class="row container-selection-button">
+                                    <button>Mostrar hora</button>
+                                    <button>Mostrar cuenta atrás</button>
+                                    <button>Mostrar tiempo que lleva</button>
+                                    <button>No mostrar nada</button>
+                                </div>
+                            </div>
+                            
+
+                            <div class="container-session-gamification">
+                                <div class="row">
+                                    <span>&#xf031;</span>
+                                    <p>Texto Periodo:</p> <p class="text-description">Texto que indica si esta en estudio o descanso</p>
+                                </div>
+                                <div class="row container-selection-button">
+                                    <button>Mostrar en todos los periodos</button>
+                                    <button>Mostrar solo en estudio</button>
+                                    <button>Mostrar solo en descanso</button>
+                                    <button>No mostrar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Botón para cerrar el popup -->
+        <div class="float-end">
+            <button class="btn btn-primary" onclick="closePopup()">Guardar</button>
+            <button class="btn btn-danger" onclick="closePopup()">Cancelar</button>
+        </div>
     </div>
-  </div>
 </div>
 
+<div id="popup-on" class="popup">
+    <div class="popup-content">
+        <h2>Selecciona plan de estudio</h2>
+        <script>
+           $(function () {
+                $('[data-toggle="tooltip"]').tooltip()}) 
+        </script>
+        <div class="row container-inputs-top">
+                <div class="col-md-4 container-input-span">
+                    <span style="font-family: Arial, FontAwesome; padding-right: 4px;">&#xf002;</span>
+                    <input placeholder="Buscar plan de estudio"></input>
+                </div>
+                <div class="col-md-7 d-flex flex-row container-filter-align-end">
+                    <button type="button"><span class="fa-regular fa-filter"> Filtrar</span></button>
+                    <button type="submit"><span class="fa-regular fa-plus"> Añadir</span></button>
+                </div>   
+        </div>
 
-
-<div class="reglas-container-right"  id="contenedor_creador_reglas" style="display:flex;">
+        <div class="table-responsive text-center">
+            <table class="table">
+                <tr class="top-index-container">
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Duración</th>
+                    <th scope="col">Reglas</th>
+                    <th scope="col">Selección</th>
+                </tr>
+                <div id="patient-list" class="table-items-options-overflow">
+                    @foreach($therapies->take(5) as $ter)
+                    <tr>
+                        <td>{{$ther->name}}</td>
+                        <td>TBD</td>
+                        <td>TBD</td>
+                        <td scope="row"><input type="checkbox" value="{{$patient->id}}" id="checkbox1"></td>
+                    </tr>
+                    @endforeach
+                </div>
+            </table>
+        </div>
+    </div>
+</div>
+<!-- div class="reglas-container-right"  id="contenedor_creador_reglas" style="display:flex;">
                 <div class="content-half-image"></div>
                 <div class="content-half">
                     <div>
@@ -191,6 +411,5 @@
                     </form> 
                     </div>                        
             </div>
-        </div>
-        <script>setOpciones();</script>
+        </div -->
 @endsection
