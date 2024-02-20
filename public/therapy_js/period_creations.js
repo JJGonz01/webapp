@@ -5,9 +5,6 @@ var posicionadoEn = 0;
 var periodContainerOpen = false;
 var rulesOpen = false;
 
-
-
-
 function editWindowTherapy(){
 
   const texto_reglas_titulo = document.getElementById('input_period');

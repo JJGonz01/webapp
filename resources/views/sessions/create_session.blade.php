@@ -219,7 +219,7 @@
     </div>
 </div>
 
-<div id="popup-on" class="popup">
+<div id="popup-on" class="popup" style="display:hidden;">
     <div class="popup-content">
         <h2>Selecciona plan de estudio</h2>
         <script>
