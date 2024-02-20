@@ -30,11 +30,23 @@
             <p>Imagen</p>
             <img id="profile-image" src="{{asset('images/perfil.png')}}"></img>
 
+            <div class="input-group mb-2 patient-title">
+                <span>&#xf21e;</span>
+                <div style="">Nombre</div>
+            </div>
             <input placeholder = "Nombre del paciente" type="text" name = "name" id = "name" class = "form-control">
 
+            <div class="input-group mb-2 patient-title">
+                <span>&#xf21e;</span>
+                <div>Apellidos</div>
+            </div>
             <input type="text" placeholder = "Apellidos" name = "surname" id = "surname" class = "form-control">
-
-            <textarea type="text" placeholder = "Comentario/Descripción" name = "description" id="commentary" class = "form-control" rown="10"></textarea>
+            
+            <div class="input-group mb-2 patient-title">
+                <span>&#xf21e;</span>
+                <div>Comentario sobre el paciente</div>
+            </div>
+            <textarea style="margin-bottom:10px;" type="text" placeholder = "Comentario/Descripción" name = "description" id="commentary" class = "form-control" rown="10"></textarea>
             <button id="go_to_patient_create" type="submit"> CREAR PACIENTE </button>
         </form>
     </div>

@@ -23,46 +23,52 @@
         <div class="row container-condition-creator">
             
             <div class="col-md-4">
-                <div class="input-group mb-4 container-inputs">
-                    <span>&#xf02d;</span>
-                    <p style="margin-left:10px;">Datos de la condición</p> <p class="text-description"></p>
+                <div class="input-group mb-2">
+                    <span>&#xf21e;</span>
+                    <p style="margin-left:10px; font-weight: bolder;">Datos de la condición</p>
                     <span data-toggle="tooltip" data-html="true" 
-                    title="Información principal de la condición"
+                    title="Establece los valores que tienen que cumplirse para que se ejecuten las acciones"
                     style="margin-left:10px; font-size:large" >&#xf059;</span>
                 </div>
                 
                 <input placeholder ="Nombre de la condición" class="form-control"></input>
                 <textarea placeholder ="Comentario" class="form-control"></textarea>
+
+                <div class="input-group mb-2">
+                    <span>&#xf21e;</span>
+                    <p style="margin-left:10px; font-weight: bolder;">Numero de ejecuciones</p>
+                    <span data-toggle="tooltip" data-html="true" 
+                    title="Establece los valores que tienen que cumplirse para que se ejecuten las acciones"
+                    style="margin-left:10px; font-size:large" >&#xf059;</span>
+                </div>
+
                 <div class="input-group">
                         
                         <div class="input-group-prepend">
-                            <button>Ejecutar una unica vez en el periodo</button>
-                            <button>Ejecutar todas las veces necesarias</button>
+                            <button>Una única vez</button>
+                            <button>Siempre que se cumpla</button>
                         </div>
-                        
-                        <span data-toggle="tooltip" data-html="true" 
-                        title="Una condición puede lanzarse todas las veces que se cumpla, o solo una unica vez, cuando se cumplan
-                        sus condiciones, y luego no volver a comprobarse"
-                        style="margin-left:10px; font-size:large" >&#xf059;</span>
                 </div>
 
                 <div class="input-group input-group-conditions">
-                        
+                        <div class="input-group mb-2">
+                            <span>&#xf21e;</span>
+                            <p style="margin-left:10px; font-weight: bolder;">Periodos de comprobación</p>
+                            <span data-toggle="tooltip" data-html="true" 
+                            title="Establece los valores que tienen que cumplirse para que se ejecuten las acciones"
+                            style="margin-left:10px; font-size:large" >&#xf059;</span>
+                        </div>
                         <div class="input-group-prepend">
                             <button>Estudio</button>
                             <button>Descanso</button>
                         </div>
-                        
-                        <span data-toggle="tooltip" data-html="true" 
-                        title="Elegir en que periodo se va a comprobar y ejecutar dicha regla"
-                        style="margin-left:10px; font-size:large" >&#xf059;</span>
                 </div>
             </div>
 
             <div class="col-md-4">
-                <div class="input-group mb-4 container-inputs">
-                    <span>&#xf02d;</span>
-                    <p style="margin-left:10px;">Condiciones</p> <p class="text-description"></p>
+                <div class="input-group mb-2">
+                    <span>&#xf21e;</span>
+                    <p style="margin-left:10px; font-weight: bolder;">Condiciones</p>
                     <span data-toggle="tooltip" data-html="true" 
                     title="Establece los valores que tienen que cumplirse para que se ejecuten las acciones"
                     style="margin-left:10px; font-size:large" >&#xf059;</span>
@@ -71,165 +77,247 @@
                 <div class="container-condition-inner" id="main-div">
                     <div class="row rule-block">
                             <div class="col-md-12">
-                            <div class="input-group mb-2">
-                                <span>&#xf21e;</span>
-                                <p style="margin-left:10px;">Sensor de pulsaciones</p> <p class="text-description"></p>
-                                <span data-toggle="tooltip" data-html="true" 
-                                title="Establece los valores que tienen que cumplirse para que se ejecuten las acciones"
-                                style="margin-left:10px; font-size:large" >&#xf059;</span>
-                            </div>
-                            
-                                <p>Momento del periodo</p> <p class="text-description">Dentro de un </p>
-                                <div class="input-group">
-                                        <div class="input-group-prepend">
-                                            <button>Todo el periodo</button>
-                                            <button>Primera mitad</button>
-                                            <button>Segunda mitad</button>
-                                            <button>Primer tercio</button>
-                                            <button>Segundo tercio</button>
-                                            <button>Último tercio</button>
-                                        </div> 
+                                <div class="input-group mb-2">
+                                    <input class="rule-block-checkbox" type="checkbox"></input>
+                                    <span>&#xf21e;</span>
+                                    <p style="margin-left:10px; font-weight: bolder;">Momento de comprobación</p>
+                                    <span data-toggle="tooltip" data-html="true" 
+                                    title="Establece los valores que tienen que cumplirse para que se ejecuten las acciones"
+                                    style="margin-left:10px; font-size:large" >&#xf059;</span>
+                                </div>
+                                <div class="row">
+                                    <p class="col-md-3">Valor del sensor</p>
+                                    <div class="col-md-6" class="input-group-prepend">
+                                        <select class="form-control input-group">
+                                            <option>Todo el periodo</option>
+                                            <option>1ª mitad</option>
+                                            <option>2º mitad</option>
+                                            <option>1º tercio</option>
+                                            <option>2º tercio</option>
+                                            <option>Ult. tercio</option>
+                                        </select>
+                                    </div>
+                                    <span class="col-md-2" data-toggle="tooltip" data-html="true" 
+                                            title="Una condición puede lanzarse todas las veces que se cumpla, o solo una unica vez, cuando se cumplan
+                                            sus condiciones, y luego no volver a comprobarse"
+                                            style="margin-left:10px; font-size:large" >&#xf059;</span>
                                 </div>
                             </div>
                     </div>
                 </div>
 
                 <div class="container-condition-inner" id="main-div">
-                    <div class="row rule-block">
+                    <div class="row rule-block container-buttons">
                             
-                            <div class="col-md-12">
-
-                                <div class="input-group mb-2">
-                                    <span>&#xf21e;</span>
-                                    <p style="margin-left:10px;">Sensor de pulsaciones</p> <p class="text-description"></p>
-                                    <span data-toggle="tooltip" data-html="true" 
-                                    title="Establece los valores que tienen que cumplirse para que se ejecuten las acciones"
-                                    style="margin-left:10px; font-size:large" >&#xf059;</span>
-                                </div>
-                                <div class="input-group">
-                        
-                                        <div class="input-group-prepend">
-                                            <p>Valor del sensor</p>
-                                            <select class="form-control">
-                                                <option>Ninguno</option>
-                                                <option>Alto</option>
-                                                <option>Bajo</option>
-                                            </select>
-                                        </div>
-                                        
+                        <div class="col-md-12">
+                                    <div class="input-group mb-2">
+                                        <input class="rule-block-checkbox" type="checkbox"></input>
+                                        <span>&#xf21e;</span>
+                                        <p style="margin-left:10px; font-weight: bolder;">Sensor de pulsacion</p>
                                         <span data-toggle="tooltip" data-html="true" 
-                                        title="Una condición puede lanzarse todas las veces que se cumpla, o solo una unica vez, cuando se cumplan
-                                        sus condiciones, y luego no volver a comprobarse"
+                                        title="Establece los valores que tienen que cumplirse para que se ejecuten las acciones"
                                         style="margin-left:10px; font-size:large" >&#xf059;</span>
-                                        
-                                        <div class="input-group-prepend container-condition-sensor">
-                                        <p>Tendencia del sensor</p>
-                                            <select class="form-control">
-                                                <option>Ninguno</option>
-                                                <option>Aumentando</option>
-                                                <option>Disminuyendo</option>
-                                            </select>
-                                        </div>
-                                        
-                                        <span data-toggle="tooltip" data-html="true" 
-                                        title="Una condición puede lanzarse todas las veces que se cumpla, o solo una unica vez, cuando se cumplan
-                                        sus condiciones, y luego no volver a comprobarse"
-                                        style="margin-left:10px; font-size:large" >&#xf059;</span>
+                                    </div>
+                                    
+                                    <div class="span-subsection">Valor del sensores</div>
 
-                                </div>
-                            </div>
+                                    <div class="row">
+                                        <div class="col-md-6" class="input-group-prepend">
+                                            
+                                            <div class="input-group-prepend">
+                                            <button class="button-selected">Ninguno</button>
+                                                <button class="button-canceled">Alto</button>
+                                                <button class="button-canceled">Bajo</button>
+                                                <span class="col-md-2" data-toggle="tooltip" data-html="true" 
+                                                title="Una condición puede lanzarse todas las veces que se cumpla, o solo una unica vez, cuando se cumplan
+                                                sus condiciones, y luego no volver a comprobarse"
+                                                style="margin-left:10px; font-size:large" >&#xf059;</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="span-subsection">Tendencia del sensores</div>
+                                    <div class="row">
+                                        
+                                        <div class="col-md-6" class="input-group-prepend">
+                                            
+                                            <div class="input-group-prepend">
+                                                <button class="button-selected">Ninguno</button>
+                                                <button class="button-canceled">Aumentando</button>
+                                                <button class="button-canceled">Disminuyendo</button>
+                                                <span class="col-md-2" data-toggle="tooltip" data-html="true" 
+                                                title="Una condición puede lanzarse todas las veces que se cumpla, o solo una unica vez, cuando se cumplan
+                                                sus condiciones, y luego no volver a comprobarse"
+                                                style="margin-left:10px; font-size:large" >&#xf059;</span>
+                                            </div>
+                                        </div>
+                                       
+                                    </div>
+                        </div>
                     </div>
                 </div>
 
                 <div class="container-condition-inner" id="main-div">
                     
-                    <div class="row rule-block">
-                            
-                            <div class="col-md-12">
-                            <div class="input-group mb-2">
+                    <div class="row rule-block  container-deselected">
+                        <div class="col-md-12">
+                                <div class="input-group mb-2">
+                                    <input class="rule-block-checkbox" type="checkbox"></input>
                                     <span>&#xf21e;</span>
-                                    <p style="margin-left:10px;">Sensor de pulsaciones</p> <p class="text-description"></p>
+                                    <p style="margin-left:10px; font-weight: bolder;">Sensor de movimiento</p>
                                     <span data-toggle="tooltip" data-html="true" 
                                     title="Establece los valores que tienen que cumplirse para que se ejecuten las acciones"
                                     style="margin-left:10px; font-size:large" >&#xf059;</span>
-                            </div>
-                                <div class="input-group">
-                        
-                                        <div class="input-group-prepend">
-                                            <p>Valor del sensor</p>
-                                            <select class="form-control">
-                                                <option>Ninguno</option>
-                                                <option>Alto</option>
-                                                <option>Bajo</option>
-                                            </select>
-                                        </div>
-                                        
-                                        <span data-toggle="tooltip" data-html="true" 
-                                        title="Una condición puede lanzarse todas las veces que se cumpla, o solo una unica vez, cuando se cumplan
-                                        sus condiciones, y luego no volver a comprobarse"
-                                        style="margin-left:10px; font-size:large" >&#xf059;</span>
-                                        
-                                        <div class="input-group-prepend container-condition-sensor">
-                                        <p>Tendencia del sensor</p>
-                                            <select class="form-control">
-                                                <option>Ninguno</option>
-                                                <option>Aumentando</option>
-                                                <option>Disminuyendo</option>
-                                            </select>
-                                        </div>
-                                        
-                                        <span data-toggle="tooltip" data-html="true" 
-                                        title="Una condición puede lanzarse todas las veces que se cumpla, o solo una unica vez, cuando se cumplan
-                                        sus condiciones, y luego no volver a comprobarse"
-                                        style="margin-left:10px; font-size:large" >&#xf059;</span>
-
                                 </div>
-                            </div>
+                                <div>
+                                    <div class="span-subsection">Valor del sensor</div>
+
+                                    <div class="row">
+                                        <div class="col-md-6" class="input-group-prepend">
+                                            
+                                            <div class="input-group-prepend">
+                                            <button class="button-canceled" disabled>Ninguno</button>
+                                                <button class="button-canceled" disabled>Alto</button>
+                                                <button class="button-canceled" disabled>Bajo</button>
+                                                <span class="col-md-2" data-toggle="tooltip" data-html="true" 
+                                                title="Una condición puede lanzarse todas las veces que se cumpla, o solo una unica vez, cuando se cumplan
+                                                sus condiciones, y luego no volver a comprobarse"
+                                                style="margin-left:10px; font-size:large" >&#xf059;</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="span-subsection">Tendencia del sensor</div>
+                                    <div class="row">
+                                        
+                                        <div class="col-md-6" class="input-group-prepend">
+                                            
+                                            <div class="input-group-prepend">
+                                                <button class="button-canceled" disabled>Ninguno</button>
+                                                <button class="button-canceled" disabled>Aumentando</button>
+                                                <button class="button-canceled" disabled>Disminuyendo</button>
+                                                <span class="col-md-2" data-toggle="tooltip" data-html="true" 
+                                                title="Una condición puede lanzarse todas las veces que se cumpla, o solo una unica vez, cuando se cumplan
+                                                sus condiciones, y luego no volver a comprobarse"
+                                                style="margin-left:10px; font-size:large" >&#xf059;</span>
+                                            </div>
+                                        </div>
+                                       
+                                    </div>
+                                </div>
+                        </div>
                     </div>
                 </div>
             </div>
 
             <div class="col-md-4">
-                <div class="input-group mb-4 container-inputs">
-                    <span>&#xf02d;</span>
-                    <p style="margin-left:10px;">Acciones</p> <p class="text-description"></p>
+                <div class="input-group mb-2">
+                    <span>&#xf21e;</span>
+                    <p style="margin-left:10px; font-weight: bolder;">Acciones</p>
                     <span data-toggle="tooltip" data-html="true" 
-                    title="Que acciones realizará el reloj al cumplirse las acciones"
+                    title="Establece los valores que tienen que cumplirse para que se ejecuten las acciones"
                     style="margin-left:10px; font-size:large" >&#xf059;</span>
                 </div>
                 <div class="container-condition-inner" id="main-div">
                     <div class="row rule-block">
-                            <div class="col-md-1" id="button-move">
-                                <span>&#xf21e;</span>
-                            </div>
-                            <div class="col-md-6">
-                                <p>Accion</p>
-                                <p>Descripción</p>
-                            </div>
-                            <div class="col-md-4 container-align-end">
-                                <button id="button-edit"><span>&#xf304;</span></button>
-                                <button id="button-delete"><span>&#xf1f8;</span></button>
-                            </div>
-                    </div>
+                                <div class="col-md-12">
+                                    <div class="input-group mb-2">
+                                        <span>&#xf21e;</span>
+                                        <p style="margin-left:10px; font-weight: bolder;">Acción principal</p>
+                                        <span data-toggle="tooltip" data-html="true" 
+                                        title="Establece los valores que tienen que cumplirse para que se ejecuten las acciones"
+                                        style="margin-left:10px; font-size:large" >&#xf059;</span>
+                                    </div>
+                                    <div class="row">
+                                        <p class="col-md-3">Valor del sensor</p>
+                                        <div class="col-md-6" class="input-group-prepend">
+                                            <select class="form-control input-group">
+                                                <option>Nada</option>
+                                                <option>1ª mitad</option>
+                                                <option>2º mitad</option>
+                                                <option>1º tercio</option>
+                                                <option>2º tercio</option>
+                                                <option>Ult. tercio</option>
+                                            </select>
+                                        </div>
+                                        <span class="col-md-2" data-toggle="tooltip" data-html="true" 
+                                                title="Una condición puede lanzarse todas las veces que se cumpla, o solo una unica vez, cuando se cumplan
+                                                sus condiciones, y luego no volver a comprobarse"
+                                                style="margin-left:10px; font-size:large" >&#xf059;</span>
+                                    </div>
 
-                    <div class="row rule-block">
-                            <div class="col-md-1" id="button-move">
-                                <span>&#xf21e;</span>
-                            </div>
-                            <div class="col-md-6">
-                                <p>Accion</p>
-                                <p>Descripción</p>
-                            </div>
-                            <div class="col-md-4 container-align-end">
-                                <button id="button-edit"><span>&#xf304;</span></button>
-                                <button id="button-delete"><span>&#xf1f8;</span></button>
-                            </div>
-                    </div>
+                                    <div class="row">
+                                        <p class="col-md-3">Valor del sensor</p>
+                                        <div class="col-md-6" class="input-group-prepend">
+                                            <select class="form-control input-group">
+                                                <option>Nada</option>
+                                                <option>1ª mitad</option>
+                                                <option>2º mitad</option>
+                                                <option>1º tercio</option>
+                                                <option>2º tercio</option>
+                                                <option>Ult. tercio</option>
+                                            </select>
+                                        </div>
+                                        <span class="col-md-2" data-toggle="tooltip" data-html="true" 
+                                                title="Una condición puede lanzarse todas las veces que se cumpla, o solo una unica vez, cuando se cumplan
+                                                sus condiciones, y luego no volver a comprobarse"
+                                                style="margin-left:10px; font-size:large" >&#xf059;</span>
+                                    </div>
+                                </div>
+                        </div>
+
+                        <div class="row rule-block container-deselected">
+                                <div class="col-md-12">
+                                    <div class="input-group mb-2">
+                                        <input class="rule-block-checkbox" type="checkbox"></input>
+                                        <span>&#xf21e;</span>
+                                        <p style="margin-left:10px; font-weight: bolder;">Acción posterior</p>
+                                        <span data-toggle="tooltip" data-html="true" 
+                                        title="Establece los valores que tienen que cumplirse para que se ejecuten las acciones"
+                                        style="margin-left:10px; font-size:large" >&#xf059;</span>
+                                    </div>
+                                    <div class="row">
+                                        <p class="col-md-3">Acción en el reloj</p>
+                                        <div class="col-md-6" class="input-group-prepend">
+                                            <select class="form-control input-group">
+                                                <option>Nada</option>
+                                                <option>1ª mitad</option>
+                                                <option>2º mitad</option>
+                                                <option>1º tercio</option>
+                                                <option>2º tercio</option>
+                                                <option>Ult. tercio</option>
+                                            </select>
+                                        </div>
+                                        <span class="col-md-2" data-toggle="tooltip" data-html="true" 
+                                                title="Una condición puede lanzarse todas las veces que se cumpla, o solo una unica vez, cuando se cumplan
+                                                sus condiciones, y luego no volver a comprobarse"
+                                                style="margin-left:10px; font-size:large" >&#xf059;</span>
+                                    </div>
+
+                                    <div class="row">
+                                        <p class="col-md-3">Acción en la sesión</p>
+                                        <div class="col-md-6" class="input-group-prepend">
+                                            <select class="form-control input-group">
+                                                <option>Nada</option>
+                                                <option>1ª mitad</option>
+                                                <option>2º mitad</option>
+                                                <option>1º tercio</option>
+                                                <option>2º tercio</option>
+                                                <option>Ult. tercio</option>
+                                            </select>
+                                        </div>
+                                        <span class="col-md-2" data-toggle="tooltip" data-html="true" 
+                                                title="Una condición puede lanzarse todas las veces que se cumpla, o solo una unica vez, cuando se cumplan
+                                                sus condiciones, y luego no volver a comprobarse"
+                                                style="margin-left:10px; font-size:large" >&#xf059;</span>
+                                    </div>
+                                </div>
+                        </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+</div> 
 
 <div class="row">
     <div class="col-md-5">

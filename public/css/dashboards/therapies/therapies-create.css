@@ -2,7 +2,7 @@
 span{
     font-family: 'Poppins','FontAwesome', sans-serif !important;
 }
-
+  
 .container-inputs{
     padding-left: 5%;
 }
@@ -120,7 +120,7 @@ span{
 .popup-content {
     position: absolute;
     top: 50%;
-    width:90%;
+    width:95%;
     height:auto;
     left: 50%;
     border-radius: 20px;
@@ -154,13 +154,60 @@ span{
 .container-condition button{
     margin-right: 10px;
     border: 0;
-    border-radius: 10px;
+    border-radius: 20px;
 }
 
 .container-condition-inner{
     padding-right: 2%;
+    font-size: small;
 }
 
 .input-group-conditions{
     margin-top: 15px;
+}
+
+.input-group-buttons{
+    text-align: left;
+}
+
+
+.input-group-buttons{
+    text-align: left;
+}
+
+.container-buttons button{
+    width:60%;
+}
+
+.button-selected{
+    background-color: rgb(90, 177, 215);
+}
+
+.button-canceled{
+    background-color: rgb(113, 113, 113);
+}
+
+.rule-block-checkbox{
+    margin-right: 15px;
+}
+
+.span-subsection{
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.container-deselected{
+    background-color: rgba(173, 173, 173, 0.84);
+}
+
+.container-deselected select{
+    background-color: rgba(173, 173, 173, 0.84);
+}
+
+.container-deselected p{
+    color:black;    
+}
+
+.container-deselected div{
+    color:grey;    
 }
