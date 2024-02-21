@@ -183,10 +183,6 @@ span{
     background-color: rgb(90, 177, 215);
 }
 
-.button-canceled{
-    background-color: rgb(113, 113, 113);
-}
-
 .rule-block-checkbox{
     margin-right: 15px;
 }
@@ -196,18 +192,30 @@ span{
     margin-top: 10px;
 }
 
+.container-selected{
+    color:black;
+    background-color: rgba(255, 255, 255, 0.84);
+}
+
+
+.container-selected button{
+    color:black;  
+    background-color: rgba(173, 173, 173, 0.84);
+
+}
+
 .container-deselected{
     background-color: rgba(173, 173, 173, 0.84);
 }
-
-.container-deselected select{
-    background-color: rgba(173, 173, 173, 0.84);
-}
-
 .container-deselected p{
     color:black;    
 }
 
 .container-deselected div{
     color:grey;    
+}
+
+.container-deselected button{
+    color:rgb(91, 91, 91);    
+    background-color: rgba(173, 173, 173, 0.84);
 }

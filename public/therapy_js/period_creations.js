@@ -25,9 +25,6 @@ function editWindowTherapy(){
   closePeriodCreation();
 }
 
-/**
- * Esto crea el periodo principal
- */
 function saveTemporalPeriod(button) {
   const texto_reglas_titulo = document.getElementById('texto_regla_periodo');
   var boton_primer_periodo = document.getElementById('save_first_period_ther_create');
