@@ -13,6 +13,7 @@
 
     <link rel="stylesheet" href="{{asset('/css/dashboards/patients/create-session.css')}}">
     <link rel="stylesheet" href="{{asset('/css/dashboards/patients.css')}}">
+    <link rel="stylesheet" href="{{asset('/css/draws/clock.css')}}">
 </head>
 
 <!-- Popup -->
