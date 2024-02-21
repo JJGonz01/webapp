@@ -192,10 +192,6 @@ span{
     border-radius: 20px;
 }
 
-.container-condition-inner{
-    padding-right: 2%;
-    font-size: small;
-}
 
 .input-group-conditions{
     margin-top: 15px;
@@ -221,7 +217,6 @@ span{
 .button-disabled{
     background-color: rgb(236, 236, 236);
     color:rgb(133, 133, 133);
-    width:100%;
 }
 
 
@@ -248,7 +243,7 @@ span{
 
 
 .container-selected button{
-    width:100%;
+    
 }
 
 .container-deselected{
@@ -281,6 +276,48 @@ span{
 }
 
 .container-deselected button{  
-    width:100%;
     background-color: rgba(173, 173, 173, 0.84);
+}
+
+.button-open-selection{
+    border-radius: 2px !important;
+    border-radius: 1px solid grey !important;
+    background-color: rgb(177, 177, 177);
+}
+
+#button-open-selection{
+    border-radius: 2px !important;
+    border-radius: 1px solid grey !important;
+    background-color: rgb(177, 177, 177);
+}
+
+@media (max-width: 1900px) {
+    .container-condition-inner{
+        padding-right: 2%;
+        font-size: small;
+    }
+    .container-condition button{
+        font-size: small;
+    }
+    .popup h2{
+        display: none;
+    }
+}
+
+@media (min-width: 1900px) {
+    .container-condition p{
+        font-size: medium;
+    }
+    .container-condition-inner{
+        padding-right: 2%;
+        font-size: medium;
+    }
+
+    .container-condition button{
+        font-size: small;
+    }
+
+    .popup h2{
+        display: block;
+    }
 }

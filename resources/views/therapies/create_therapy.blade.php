@@ -21,7 +21,7 @@
 </head> 
 
 
-<div id="popup-on-on" class="popup-on-on">
+<div id="popup-on-on" class="popup-on-on" style="display:none;">
     <div class="popup-on-content-on container-condition">
         <h2>Crear mensaje</h2>
 
@@ -134,7 +134,7 @@
     
 </div>
 
-<div id="popup-on" class="popup-on">
+<div id="popup-on" class="popup-on" style="display:none;">
     <div class="popup-on-content container-condition">
         <h2>Elige mensaje</h2>
         <div class="row">
@@ -274,6 +274,10 @@
                             </select>
                         </div>
                     </div>
+                    <div class="float-end" style="margin-top:30%;">
+                        <button class="btn btn-primary" onclick="closePopup()">Guardar</button>
+                        <button class="btn btn-danger" onclick="closePopup()">Cancelar</button>
+                    </div>
             </div>
 
             <div class="col-md-4">
@@ -410,58 +414,71 @@
                                     title="Establece los valores que tienen que cumplirse para que se ejecuten las acciones"
                                     style="margin-left:10px; font-size:large" >&#xf059;</span>
                                 </div>
+
+                                <div class="title-subsection">
+                                        <i style="margin-left:10px; font-weight: bolder;">Lanzar mensaje</i>
+                                        <span class="col-md-2" data-toggle="tooltip" data-html="true" 
+                                            title="Una condición puede lanzarse todas las veces que se cumpla, o solo una unica vez, cuando se cumplan
+                                            sus condiciones, y luego no volver a comprobarse"
+                                            style="margin-left:10px; font-size:large" >&#xf059;</span>
+                                </div>                              
+
+                                <div style="margin-bottom:-10px;" class="row">
+                                    <div class="col-md-3">
+                                        <button class="button-open-selection">Seleccionar mensaje</button>
+                                    </div>
+                                    <p class="col-md-8">Sin mensaje seleccionado</p>
+                                </div>
+
+                                <div class="title-subsection">
+                                        <i style="margin-left:10px; font-weight: bolder;">Valor del sensor</i>
+                                        <span class="col-md-2" data-toggle="tooltip" data-html="true" 
+                                            title="Una condición puede lanzarse todas las veces que se cumpla, o solo una unica vez, cuando se cumplan
+                                            sus condiciones, y luego no volver a comprobarse"
+                                            style="margin-left:10px; font-size:large" >&#xf059;</span>
+                                </div>                              
+
                                 <div class="row">
                                     
-                                    <p class="col-md-3">Lanzar Mensaje</p>
-                                    <div class="col-md-6 mb-2" class="input-group-prepend">
-                                        <div class="input-group mb-3">
-                                            <div class="input-group-prepend">
-                                                <div class="input-group-text">
-                                                    <span id="inputGroup-sizing-sm">Seleccionar</span>
-                                                </div>
-                                            </div>
-                                            <input type="text" class="form-control" aria-label="Text input with checkbox" readonly>
+                                    <div class="col-md-12" class="input-group-prepend">
+                                        
+                                        <div class="input-group-prepend">
+                                            <button class="button-selected">Nada</button>
+                                            <button class="button-canceled">Concluir periodo</button>
+                                            <button class="button-canceled">Concluir sesión</button>
+                                            
                                         </div>
                                     </div>
-                                    <span class="col-md-2" data-toggle="tooltip" data-html="true" 
-                                            title="Una condición puede lanzarse todas las veces que se cumpla, o solo una unica vez, cuando se cumplan
-                                            sus condiciones, y luego no volver a comprobarse"
-                                            style="margin-left:10px; font-size:large" >&#xf059;</span>
+                                    
                                 </div>
 
-                                <div class="row">
-                                    <p class="col-md-3">Concluir periodo/sesión</p>
-                                    <div class="col-md-6 mb-3" class="input-group-prepend">
-                                        <button class="button-selected">Nada</button>
-                                        <button class="button-canceled">Concluir periodo</button>
-                                        <button class="button-canceled">Concluir sesión</button>
-                                    </div>
-                                    <span class="col-md-2" data-toggle="tooltip" data-html="true" 
+                                <div class="row title-subsection">
+                                    <div class="col-md-6 row">
+                                        <i class="col-md-8" style="margin-left:10px; font-weight: bolder;">Sumar/restar puntos</i>
+                                        <span class="col-md-1" data-toggle="tooltip" data-html="true" 
                                             title="Una condición puede lanzarse todas las veces que se cumpla, o solo una unica vez, cuando se cumplan
                                             sus condiciones, y luego no volver a comprobarse"
                                             style="margin-left:10px; font-size:large" >&#xf059;</span>
-                                </div>
+                                     </div>        
+                                     
+                                     <div class="col-md-6 row">
+                                        <i class="col-md-8" style="margin-left:10px; font-weight: bolder;">Añadir/Reducir duración</i>
+                                        <span class="col-md-1" data-toggle="tooltip" data-html="true" 
+                                            title="Una condición puede lanzarse todas las veces que se cumpla, o solo una unica vez, cuando se cumplan
+                                            sus condiciones, y luego no volver a comprobarse"
+                                            style="margin-left:10px; font-size:large" >&#xf059;</span>
+                                     </div>  
+                                </div>                              
 
                                 <div class="row">
-                                    <p class="col-md-3">Sumar o restar puntos</p>
-                                    <div class="col-md-6" class="input-group-prepend">
-                                        <input class="form-control-sm"></input>
+                                    
+                                    <div class="col-md-5 input-group-prepend">
+                                        <input class="form-control form-control-sm"></input>
                                     </div>
-                                    <span class="col-md-2" data-toggle="tooltip" data-html="true" 
-                                            title="Una condición puede lanzarse todas las veces que se cumpla, o solo una unica vez, cuando se cumplan
-                                            sus condiciones, y luego no volver a comprobarse"
-                                            style="margin-left:10px; font-size:large" >&#xf059;</span>
-                                </div>
-
-                                <div class="row">
-                                    <p class="col-md-3">Modificar duración</p>
-                                    <div class="col-md-6" class="input-group-prepend">
-                                        <input class="form-control-sm" placeholder=""></input>
+                                    
+                                    <div class="col-md-5 input-group-prepend">
+                                        <input class="form-control form-control-sm"></input>
                                     </div>
-                                    <span class="col-md-2" data-toggle="tooltip" data-html="true" 
-                                            title="Una condición puede lanzarse todas las veces que se cumpla, o solo una unica vez, cuando se cumplan
-                                            sus condiciones, y luego no volver a comprobarse"
-                                            style="margin-left:10px; font-size:large" >&#xf059;</span>
                                 </div>
                             </div>
                         </div>
@@ -476,68 +493,77 @@
                                         title="Establece los valores que tienen que cumplirse para que se ejecuten las acciones"
                                         style="margin-left:10px; font-size:large" >&#xf059;</span>
                                     </div>
+                                    <div class="title-subsection">
+                                        <i style="margin-left:10px; font-weight: bolder;">Lanzar mensaje</i>
+                                        <span class="col-md-2" data-toggle="tooltip" data-html="true" 
+                                            title="Una condición puede lanzarse todas las veces que se cumpla, o solo una unica vez, cuando se cumplan
+                                            sus condiciones, y luego no volver a comprobarse"
+                                            style="margin-left:10px; font-size:large" >&#xf059;</span>
+                                    </div>                              
+
+                                    <div style="margin-bottom:-10px;" class="row">
+                                        <div class="col-md-4">
+                                            <button id="button-open-selection" class="button-open-selection">Seleccionar mensaje</button>
+                                        </div>
+                                        <p class="col-md-7">Sin mensaje seleccionado</p>
+                                    </div>
+
+                                    <div class="title-subsection">
+                                            <i style="margin-left:10px; font-weight: bolder;">Valor del sensor</i>
+                                            <span class="col-md-2" data-toggle="tooltip" data-html="true" 
+                                                title="Una condición puede lanzarse todas las veces que se cumpla, o solo una unica vez, cuando se cumplan
+                                                sus condiciones, y luego no volver a comprobarse"
+                                                style="margin-left:10px; font-size:large" >&#xf059;</span>
+                                    </div>                              
+
                                     <div class="row">
-                                        <p class="col-md-3">Lanzar mensaje</p>
-                                        <div class="col-md-6 mb-2" class="input-group-prepend">
-                                            <div class="input-group mb-3">
-                                                <div class="input-group-prepend">
-                                                    <div class="input-group-text">
-                                                        <span id="inputGroup-sizing-sm">Seleccionar</span>
-                                                    </div>
-                                                </div>
-                                                <input type="text" class="form-control" aria-label="Text input with checkbox" readonly>
+                                        
+                                        <div class="col-md-12" class="input-group-prepend">
+                                            
+                                            <div class="input-group-prepend">
+                                                <button class="button-selected">Nada</button>
+                                                <button class="button-canceled">Concluir periodo</button>
+                                                <button class="button-canceled">Concluir sesión</button>
+                                                
                                             </div>
                                         </div>
-                                        <span class="col-md-2" data-toggle="tooltip" data-html="true" 
+                                        
+                                    </div>
+
+                                    <div class="row title-subsection">
+                                        <div class="col-md-6 row">
+                                            <i class="col-md-8" style="margin-left:10px; font-weight: bolder;">Sumar/restar puntos</i>
+                                            <span class="col-md-1" data-toggle="tooltip" data-html="true" 
                                                 title="Una condición puede lanzarse todas las veces que se cumpla, o solo una unica vez, cuando se cumplan
                                                 sus condiciones, y luego no volver a comprobarse"
                                                 style="margin-left:10px; font-size:large" >&#xf059;</span>
-                                    </div>
-
-                                    <div class="row" >
-                                        <p class="col-md-3">Concluir periodo/sesión</p>
-                                        <div class="col-md-6 mb-3" class="input-group-prepend">
-                                            <button style="width:auto;"  class="button-disabled" disabled>Nada</button>
-                                            <button style="width:auto;" class="button-disabled" disabled>Concluir periodo</button>
-                                            <button style="width:auto;" class="button-disabled" disabled>Concluir sesión</button>
-                                        </div>
-                                        <span class="col-md-2" data-toggle="tooltip" data-html="true" 
+                                        </div>        
+                                        
+                                        <div class="col-md-6 row">
+                                            <i class="col-md-8" style="margin-left:10px; font-weight: bolder;">Añadir/Reducir duración</i>
+                                            <span class="col-md-1" data-toggle="tooltip" data-html="true" 
                                                 title="Una condición puede lanzarse todas las veces que se cumpla, o solo una unica vez, cuando se cumplan
                                                 sus condiciones, y luego no volver a comprobarse"
                                                 style="margin-left:10px; font-size:large" >&#xf059;</span>
-                                    </div>
-
+                                        </div>  
+                                    </div>                              
 
                                     <div class="row">
-                                        <p class="col-md-3">Sumar o restar puntos</p>
-                                        <div class="col-md-6" class="input-group-prepend">
-                                            <input class="form-control-sm" disabled></input>
+                                        
+                                        <div class="col-md-5 input-group-prepend">
+                                            <input class="form-control form-control-sm"></input>
                                         </div>
-                                        <span class="col-md-2" data-toggle="tooltip" data-html="true" 
-                                                title="Una condición puede lanzarse todas las veces que se cumpla, o solo una unica vez, cuando se cumplan
-                                                sus condiciones, y luego no volver a comprobarse"
-                                                style="margin-left:10px; font-size:large" >&#xf059;</span>
-                                    </div>
-
-                                    <div class="row">
-                                        <p class="col-md-3">Modificar duración</p>
-                                        <div class="col-md-6" class="input-group-prepend">
-                                            <input class="form-control-sm" disabled></input>
+                                        
+                                        <div class="col-md-5 input-group-prepend">
+                                            <input class="form-control form-control-sm"></input>
                                         </div>
-                                        <span class="col-md-2" data-toggle="tooltip" data-html="true" 
-                                                title="Una condición puede lanzarse todas las veces que se cumpla, o solo una unica vez, cuando se cumplan
-                                                sus condiciones, y luego no volver a comprobarse"
-                                                style="margin-left:10px; font-size:large" >&#xf059;</span>
                                     </div>
                                 </div>
                         </div>
                 </div>
             </div>
         </div>
-        <div class="float-end">
-            <button class="btn btn-primary" onclick="closePopup()">Guardar</button>
-            <button class="btn btn-danger" onclick="closePopup()">Cancelar</button>
-        </div>
+        
     </div>
 </div> 
 
