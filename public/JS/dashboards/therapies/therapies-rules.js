@@ -88,7 +88,10 @@ function selectCheckOptions(checkid){
     
     for(var i = 0; i < buttons.length; i++) {
         buttons[i].disabled = false;
-        buttons[i].className = "button-canceled";
+        if(buttons[i].value == 1)
+            buttons[i].className = "button-selected";
+        else
+            buttons[i].className = "button-canceled";
     }
 
     

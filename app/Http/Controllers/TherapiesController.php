@@ -39,18 +39,13 @@ class TherapiesController extends Controller
        $today = Carbon::now();
        echo $today->toDateTimeString();
        
-       //dd($request);
        $request -> validate([
            'name' => 'max:255|required',
-           'periods' => [ //ESto es para solucionar el bug de crear terapias sin periodos
+           'description' => 'max:255',
+           'periods' => [
                 'required',
                 'array',
-                'min:1',
-                function ($attribute, $value, $fail) {
-                    if (is_null($value[0])) {
-                        $fail('Ncesitas crear al menos un periodo');
-                    }
-                }
+                'min:1'
             ],
            'rules' => '', 
            'juegoPuntos' => 'min:1'
@@ -65,23 +60,22 @@ class TherapiesController extends Controller
        $usuario = Auth::user();
 
        $terapia-> author = $usuario-> name;
+       $terapia-> description = $request-> description;
 
        //si no hay reglas paso un string vacio :)
        if(is_null($request->rules)) $rules = json_encode('empty');
        else $rules = $request->rules;
-    
        $terapia->user_id = $usuario->id;
        $terapia->rules = $rules;
        $terapia->save(); 
 
        $array_per_raw = $request->input('periods'); //array con un elemento (con todos los elementos)
 
-       //dd($array_per_raw);
+      
        if (!empty($array_per_raw) && !is_null($array_per_raw) && !is_null($array_per_raw[0])) {
            $array_per = json_decode($array_per_raw[0], true);
 
            $periods_array = [];
-
            $period = [
                'duration_t1' => $array_per[0]['duration_t1'],
                'duration_t2' => $array_per[0]['duration_t2'],
@@ -101,14 +95,15 @@ class TherapiesController extends Controller
            }
            $json_aray = json_encode($periods_array);
 
-           //dd($periods_array);
+           dd($periods_array);
            $session_period = new SessionPeriod;
            $session_period-> durations = $json_aray;
            $session_period-> therapy_id = $terapia->id;
            $session_period->save();
        }
        
-       return redirect()->route('therapy_show', ['id'=> $terapia->id])->with('success','Terapia creada correctamente');
+        return redirect()->route('therapy_show', ['id'=> $terapia->id])->with('success','Terapia creada correctamente');
+       //return redirect()->route('therapy_show', ['id'=> $terapia->id])->with('success','Terapia creada correctamente');
     }
 
     public function show(string $id)

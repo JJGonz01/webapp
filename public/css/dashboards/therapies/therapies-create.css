@@ -302,11 +302,20 @@ span{
     .popup h2{
         display: none;
     }
+    .title-subsection{
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
 }
 
 @media (min-width: 1900px) {
     .container-condition p{
         font-size: medium;
+    }
+
+    .title-subsection{
+        margin-top: 20px;
+        margin-bottom: 10px;
     }
     .container-condition-inner{
         padding-right: 2%;
@@ -314,7 +323,7 @@ span{
     }
 
     .container-condition button{
-        font-size: small;
+        font-size: medium;
     }
 
     .popup h2{

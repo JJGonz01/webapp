@@ -98,3 +98,7 @@
     color:white;
     z-index: 10;
   }
+
+  .clock-message{
+    margin-top:20px;
+  }

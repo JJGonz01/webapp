@@ -8,6 +8,7 @@ use App\Http\Controllers\SessionsDataController;
 use App\Http\Controllers\SessionPeriodsController;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\RuleController;
+use App\Http\Controllers\Clock_messageController;
 use App\Http\Controllers\IndividualRuleController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\authentication;
@@ -177,7 +178,10 @@ Route::group( ['middleware' => 'auth' ], function()
             return view('general');
         })->name('general');
 
-
+    Route::get('/messages/index', [Clock_messageController::class, 'indexall'])
+    ->name('messages-index');
+    Route::post('/messages/create', [Clock_messageController::class, 'store'])
+    ->name('messages-create');
 });
     // El reloj llamará a este endpoint para recoger las horas y periodos de cada sesion que tenga que analizar
     Route::get('/session/userdata/{id}',[SessionsController::class, 'getUserSessionList'])->name('session_getSessionList');
