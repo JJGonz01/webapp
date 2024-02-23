@@ -33,10 +33,10 @@
                 <div>
                     <div class="circulos container-clock">
                         <div class="text-col container-text-message">
-                                <p class="text-title">¡Vamos a estudiar!</p>
-                                <div class="row text-row">
-                                    <img class="text-image-container" src="/images/hijo.png"></img>
-                                    <p class="col-7 text-message-container">¡A por el estudio!</p>
+                                <p style="text-align:center;"  id="title-clock-create" class="text-title">¡Vamos a estudiar!</p>
+                                <div style="padding-left:20px;"  class="row text-row">
+                                    <img class="col-5" src="/images/hijo.png"></img>
+                                    <p id="subtitle-clock-create" class="col-6 text-message-container">¡A por el estudio!</p>
                                 </div>
                         </div>
                     </div>
@@ -82,7 +82,7 @@
                             title="Establece los valores que tienen que cumplirse para que se ejecuten las acciones"
                             style="margin-left:10px; font-size:large" >&#xf059;</span>
                         </div>
-                        <input class="form-control"></input>
+                        <input id="input-message-name" class="form-control"></input>
                 </div>
 
                 <div style="margin-bottom:30px;" class="input-group input-group-conditions">
@@ -107,7 +107,7 @@
                             title="Establece los valores que tienen que cumplirse para que se ejecuten las acciones"
                             style="margin-left:10px; font-size:large" >&#xf059;</span>
                         </div>
-                        <input class="form-control"></input>
+                        <input id="input-message-title"  class="form-control"></input>
                 </div>
 
                 <div class="input-group input-group-conditions">
@@ -118,7 +118,7 @@
                             title="Establece los valores que tienen que cumplirse para que se ejecuten las acciones"
                             style="margin-left:10px; font-size:large" >&#xf059;</span>
                         </div>
-                        <input class="form-control"></input>
+                        <input id="input-message-subtitle" class="form-control"></input>
                 </div>
 
                 <div class="row">
@@ -130,7 +130,7 @@
                                 title="Establece los valores que tienen que cumplirse para que se ejecuten las acciones"
                                 style="margin-left:10px; font-size:large" >&#xf059;</span>
                             </div>
-                            <input class="form-control"></input>
+                            <input id="input-btn1"  class="form-control"></input>
                     </div>
 
                     <div class="col-5 input-group input-group-conditions">
@@ -141,14 +141,14 @@
                             title="Establece los valores que tienen que cumplirse para que se ejecuten las acciones"
                             style="margin-left:10px; font-size:large" >&#xf059;</span>
                         </div>
-                        <input class="form-control"></input>
+                        <input id="input-btn2" class="form-control"></input>
                     </div>
                 </div>
                 
             </div>
         </div>
         <div class="float-end clock-message">
-            <button class="btn btn-primary" onclick="createMessage()">Seleccionar</button>
+            <button class="btn btn-primary" onclick="callCreateMessage(true)">Crear</button>
             <button class="btn btn-danger" onclick="cancelCreateMessage()">Cancelar</button>
         </div>
     </div>
@@ -179,10 +179,10 @@
                 <div class="col-md-3 container-clock">
                     <div class="circulos">
                         <div class="text-col container-text-message">
-                                <p class="text-title">¡Vamos a estudiar!</p>
-                                <div class="row text-row">
-                                    <img class="text-image-container" src="/images/hijo.png"></img>
-                                    <p class="col-7 text-message-container">¡A por el estudio!</p>
+                                <p style="text-align:center;"  id="title-clock-select" class="text-title">¡Vamos a estudiar!</p>
+                                <div style="padding-left:20px;"  class="row text-row">
+                                    <img class="col-5" src="/images/hijo.png"></img>
+                                    <p id="subtitle-clock-select" class="col-6 text-message-container">¡A por el estudio!</p>
                                 </div>
                         </div>
                     </div>
@@ -190,34 +190,15 @@
             </div>
 
             <div class="col-md-9" class="table-responsive text-center">
-                <table class="table">
+                <table class="table" id="messages-list" >
                     <tr class="top-index-container">
                         <th scope="col">Seleccionar</th>
                         <th scope="col">Nombre</th>
                         <th scope="col">Mensaje</th>
                         <th scope="col">Botón</th>
                     </tr>
-                    <div id="messages-list" class="table-items-options-overflow">
-                        <tr>
-                            <td scope="col"><input type="checkbox"></input></td>
-                            <td>Estudia</td>
-                            <td>"Vamos a estudiar"</td>
-                            <td>No</td>
-                        </tr>
-
-                        <tr>
-                            <td scope="col"><input type="checkbox"></input></td>
-                            <td>Tranquilo</td>
-                            <td>"Tranquilo"</td>
-                            <td>1</td>
-                        </tr>
-
-                        <tr>
-                            <td scope="col"><input type="checkbox"></input></td>
-                            <td>Ánimo</td>
-                            <td>"A por ellos"</td>
-                            <td>1</td>
-                        </tr>
+                    <div class="table-items-options-overflow">
+                        
                     </div>
                 </table>
             </div>
@@ -256,9 +237,10 @@
 
                 <div class="input-group">
                         
-                        <div class="input-group-prepend">                            
-                            <button value="1" class="button-selected" id="variasveces-c" onclick="selectTimesComprobation(this, 'unavez-c')">Siempre que se cumpla</button>
-                            <button value="0" id="unavez-c" onclick="selectTimesComprobation(this, 'variasveces-c')">Una única vez</button>
+                        <div class="input-group-prepend">
+                            <input value="Siempre que se cumpla" id="repetition-condition"></input>                           
+                            <button value="1" class="button-selected" id="variasveces-c" name="Siempre" onclick="selectTimesComprobation(this, 'unavez-c','repetition-condition')">Siempre que se cumpla</button>
+                            <button value="0" id="unavez-c"  name="Una" onclick="selectTimesComprobation(this, 'variasveces-c', 'repetition-condition')">Una única vez</button>
                         </div>
                 </div>
 
@@ -285,7 +267,7 @@
                             style="margin-left:10px; font-size:large" >&#xf059;</span>
                         </div>
                         <div class="input-group-prepend">
-                            <select class="form-control input-group">
+                            <select class="form-control input-group" id="input-moment-period">
                                 <option>Todo el periodo</option>
                                 <option>1ª mitad</option>
                                 <option>2º mitad</option>
@@ -296,8 +278,8 @@
                         </div>
                     </div>
                     <div class="float-end" style="margin-top:30%;">
-                        <button class="btn btn-primary" onclick="closePopup()">Guardar</button>
-                        <button class="btn btn-danger" onclick="closeRulesPopUp()">Cancelar</button>
+                        <button class="btn btn-primary" onclick="saveNewRule()">Guardar</button>
+                        <button class="btn btn-danger" onclick="saveRule()">Cancelar</button>
                     </div>
             </div>
 
@@ -330,8 +312,9 @@
                             <div class="row" id="ch-heart-value-div">
                                 <div class="col-md-6 title-options" class="input-group-prepend">
                                     <div class="input-group-prepend">
-                                        <button id="heart-value-high" onclick="conditions(this, 'heart-value-low')" class="button-disabled" disabled>Alto</button>
-                                        <button id="heart-value-low" onclick="conditions(this, 'heart-value-high')" class="button-disabled" disabled>Bajo</button>
+                                        <input id="heart-val-input" style="display:none;"></input>
+                                        <button id="heart-value-high" name="Alto" value=1 onclick="conditions(this, 'heart-value-low', 'heart-val-input')" class="button-disabled" disabled>Alto</button>
+                                        <button id="heart-value-low" name="Bajo" value=0 onclick="conditions(this, 'heart-value-high', 'heart-val-input')" class="button-disabled" disabled>Bajo</button>
                                         <span class="col-md-2" data-toggle="tooltip" data-html="true" 
                                         title="Una condición puede lanzarse todas las veces que se cumpla, o solo una unica vez, cuando se cumplan
                                         sus condiciones, y luego no volver a comprobarse"
@@ -348,8 +331,9 @@
                             <div class="row" id="ch-heart-tendency-div">
                                 <div class="col-md-6" class="input-group-prepend">
                                     <div class="input-group-prepend">
-                                        <button id="heart-tend-high" onclick="conditions(this, 'heart-tend-low')" class="button-disabled" disabled>Aumentando</button>
-                                        <button id="heart-tend-low" onclick="conditions(this, 'heart-tend-high')" class="button-disabled" disabled>Disminuyendo</button>
+                                        <input id="heart-tend-input" style="display:none;"></input>
+                                        <button id="heart-tend-high" name="Aumentando" onclick="conditions(this, 'heart-tend-low', 'heart-tend-input')" class="button-disabled" disabled>Aumentando</button>
+                                        <button id="heart-tend-low" name="Disminuyendo" onclick="conditions(this, 'heart-tend-high', 'heart-tend-input')" class="button-disabled" disabled>Disminuyendo</button>
                                         <span class="col-md-2" data-toggle="tooltip" data-html="true" 
                                         title="Una condición puede lanzarse todas las veces que se cumpla, o solo una unica vez, cuando se cumplan
                                         sus condiciones, y luego no volver a comprobarse"
@@ -381,8 +365,9 @@
                                     <div class="row" id="ch-move-value-div">
                                         <div class="col-md-6 title-options" class="input-group-prepend">
                                             <div class="input-group-prepend">
-                                                <button id="move-val-high" onclick="conditions(this, 'move-val-low')" class="button-disabled" disabled>Alto</button>
-                                                <button id="move-val-low" onclick="conditions(this, 'move-val-high')" class="button-disabled" disabled>Bajo</button>
+                                                <input id="move-val-input" style="display:none;"></input>
+                                                <button id="move-val-high" name="Alto" value="Alto" onclick="conditions(this, 'move-val-low', 'move-val-input')" class="button-disabled" disabled>Alto</button>
+                                                <button id="move-val-low" name="Bajo" onclick="conditions(this, 'move-val-high', 'move-val-input')" class="button-disabled" disabled>Bajo</button>
                                                 <span class="col-md-2" data-toggle="tooltip" data-html="true" 
                                                 title="Una condición puede lanzarse todas las veces que se cumpla, o solo una unica vez, cuando se cumplan
                                                 sus condiciones, y luego no volver a comprobarse"
@@ -401,8 +386,9 @@
                                         <div class="col-md-6" class="input-group-prepend">
                                             
                                             <div class="input-group-prepend">
-                                                <button id="move-tend-high" onclick="conditions(this, 'move-tend-low')"  class="button-disabled" disabled>Aumentando</button>
-                                                <button id="move-tend-low" onclick="conditions(this, 'move-tend-high')"  class="button-disabled" disabled>Disminuyendo</button>
+                                               <input id="move-tend-input" style="display:none;"></input>
+                                                <button id="move-tend-high" name="Aumentando" onclick="conditions(this, 'move-tend-low','move-tend-input')"  class="button-disabled" disabled>Aumentando</button>
+                                                <button id="move-tend-low" name="Disminuyendo" onclick="conditions(this, 'move-tend-high','move-tend-input')"  class="button-disabled" disabled>Disminuyendo</button>
                                                 <span class="col-md-2" data-toggle="tooltip" data-html="true" 
                                                 title="Una condición puede lanzarse todas las veces que se cumpla, o solo una unica vez, cuando se cumplan
                                                 sus condiciones, y luego no volver a comprobarse"
@@ -446,9 +432,10 @@
 
                                 <div style="margin-bottom:-10px;" class="row">
                                     <div class="col-md-3">
-                                        <button onclick ="openMessagesPopUp(true)" class="button-open-selection">Seleccionar mensaje</button>
+                                        <button onclick ="getMessages(true)" class="button-open-selection">Seleccionar mensaje</button>
                                     </div>
-                                    <p class="col-md-8">Sin mensaje seleccionado</p>
+                                    <input style="display:none;" id="message-primary"></input>
+                                    <p class="col-md-8" id="p-message-primary-selected">Sin mensaje seleccionado</p>
                                 </div>
 
                                 <div class="title-subsection">
@@ -464,10 +451,10 @@
                                     <div class="col-md-12" class="input-group-prepend">
                                         
                                         <div class="input-group-prepend" id="div-session-action-main">
-                                            <button  value = 1 onclick="actionOptions('div-session-action-main', this)" class="button-selected">Nada</button>
-                                            <button  value = 0 onclick="actionOptions('div-session-action-main', this)" class="button-canceled">Concluir periodo</button>
-                                            <button  value = 0 onclick="actionOptions('div-session-action-main', this)" class="button-canceled">Concluir sesión</button>
-                                            
+                                            <input id="accion-sesion-primary" value = "Nada" style="display:none;"></input>
+                                            <button name="nada" value = 1 onclick="actionOptions('div-session-action-main', this)" class="button-selected">Nada</button>
+                                            <button name="Concluir periodo" value = 0 onclick="actionOptions('div-session-action-main', this)" class="button-canceled">Concluir periodo</button>
+                                            <button name="Concluir sesion" value = 0 onclick="actionOptions('div-session-action-main', this)" class="button-canceled">Concluir sesión</button>
                                         </div>
                                     </div>
                                     
@@ -494,11 +481,11 @@
                                 <div class="row">
                                     
                                     <div class="col-md-5 input-group-prepend">
-                                        <input class="form-control form-control-sm"></input>
+                                        <input id="input-points-primary" class="form-control form-control-sm"></input>
                                     </div>
                                     
                                     <div class="col-md-5 input-group-prepend">
-                                        <input class="form-control form-control-sm"></input>
+                                        <input id="input-time-primary" class="form-control form-control-sm"></input>
                                     </div>
                                 </div>
                             </div>
@@ -524,9 +511,10 @@
 
                                     <div style="margin-bottom:-10px;" class="row">
                                         <div class="col-md-4">
-                                            <button id="button-open-selection" onclick ="openMessagesPopUp(false)" class="button-open-selection">Seleccionar mensaje</button>
+                                            <button disabled onclick ="getMessages(false)" class="button-open-selection">Seleccionar mensaje</button>
                                         </div>
-                                        <p class="col-md-7">Sin mensaje seleccionado</p>
+                                        <input id="input-time-primary" style="display:none;" id="message-secondary"></input>
+                                        <p id="p-message-secondary-selected" class="col-md-7">Sin mensaje seleccionado</p>
                                     </div>
 
                                     <div class="title-subsection">
@@ -542,9 +530,10 @@
                                         <div class="col-md-12" class="input-group-prepend">
                                             
                                             <div class="input-group-prepend" id="div-session-action-sec">
-                                                <button value = 1 onclick="actionOptions('div-session-action-sec', this)" class="button-selected">Nada</button>
-                                                <button value = 0 onclick="actionOptions('div-session-action-sec', this)" class="button-canceled">Concluir periodo</button>
-                                                <button value = 0 onclick="actionOptions('div-session-action-sec', this)" class="button-canceled">Concluir sesión</button>
+                                                <input id="accion-sesion-secondary" value = "Nada" style="display:none;"></input>
+                                                <button disabled name="Nada" value = 1 onclick="actionOptions('div-session-action-sec', this)" class="button-disabled">Nada</button>
+                                                <button disabled name ="Concluir periodo" value = 0 onclick="actionOptions('div-session-action-sec', this)" class="button-disabled">Concluir periodo</button>
+                                                <button disabled name ="Concluir sesion" value = 0 onclick="actionOptions('div-session-action-sec', this)" class="button-disabled">Concluir sesión</button>
                                                 
                                             </div>
                                         </div>
@@ -572,11 +561,11 @@
                                     <div class="row">
                                         
                                         <div class="col-md-5 input-group-prepend">
-                                            <input class="form-control form-control-sm"></input>
+                                            <input id="input-points-secondary" class="form-control form-control-sm"></input>
                                         </div>
                                         
                                         <div class="col-md-5 input-group-prepend">
-                                            <input class="form-control form-control-sm"></input>
+                                            <input id="input-time-secondary" class="form-control form-control-sm"></input>
                                         </div>
                                     </div>
                                 </div>
@@ -603,7 +592,7 @@
                             <span>&#xf5b7;</span>
                         </div>
                     </div>
-                    <input placeholder="Nombre del plan de estudio" name="name" class="form-control"></input>
+                    <input placeholder="Nombre del plan de estudio" id="rule-name" class="form-control"></input>
             </div>
             
             <div class="input-group mb-4 container-inputs">
@@ -613,7 +602,7 @@
                             <span>&#xf573;</span>
                         </div>
                     </div>
-                    <textarea class="form-control" rows="3" name="description" placeholder="Descripción"></textarea>
+                    <textarea class="form-control" rows="3" id="rule-description" placeholder="Descripción"></textarea>
             </div> 
         </div>
         <div class="col-md-6">
@@ -715,7 +704,6 @@
         <div class="float-end" style="margin-top:3%;">
             <button type="button" class="btn btn-primary" onclick="saveAndSend();">Guardar</button>
             <button type="button" class="btn btn-danger" onclick="closePopup()">Cancelar</button>
-            <button type="button" class="btn btn-danger" onclick="moveWithCursor(this)">Cancelar</button>
         </div>
     </div>
 </form>

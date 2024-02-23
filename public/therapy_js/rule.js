@@ -8,7 +8,7 @@ var optionSensorValues = {
     sensorMove: ["Bajo", "Alto", "Aumentando", "Disminuyendo"],
     sensorSound: ["Bajo", "Medio", "Alto"]
     };
-
+ 
 var accionesPosiblesReloj = [
   "Preguntar \" ¿Estas estudiando? \"",
   "Preguntar \" ¿Sigues ahi? \"",
@@ -130,30 +130,24 @@ function showOptionsForCondition() {
     periodoSelect.innerHTML = '';
     selectMomentoPeriodo.innerHTML = '';
 
-       //Para momento del periodo
-     for (var i = 0; i < 6; i++) {
-        var option = document.createElement('option');
-        option.value = momentoPeriodo[i];
-        option.text = momentoPeriodo[i];
-        selectMomentoPeriodo.appendChild(option);
-      }
- //Para valores del periodo: estudio, descanso y si es todos: estudio2
-    for (var i = 0; i < 3; i++) {
-        var option = document.createElement('option');
-          option.value = optionPeriodo[i];
-          option.text = optionPeriodo[i];
-          periodoSelect.appendChild(option);   
-      }
-      /*if(selectConjPeriodo.value == "Todos"|| selectConjPeriodo.value == "1"){
-        var option = document.createElement('option');
-        option.value = "Estudio_2";
-        option.text = "Estudio_2";
-        periodoSelect.appendChild(option);
-      }*/
-
+    //Para momento del periodo
+    for (var i = 0; i < 6; i++) {
+      var option = document.createElement('option');
+      option.value = momentoPeriodo[i];
+      option.text = momentoPeriodo[i];
+      selectMomentoPeriodo.appendChild(option);
+    }
   
+    //Para valores del periodo: estudio, descanso y si es todos: estudio2
+    for (var i = 0; i < 3; i++) {
+      var option = document.createElement('option');
+        option.value = optionPeriodo[i];
+        option.text = optionPeriodo[i];
+        periodoSelect.appendChild(option);   
+    }
+
   }
-//ACCIONES (EN LA REGLA: THEN)
+
 function actionToMake(){
   selectActionReloj.innerHTML = '';
   selectActionSesion.innerHTML = '';
@@ -504,7 +498,7 @@ function guardarRegla(nombreAnterior){
 
   var ruleNameInput = document.getElementById("rule_name");
   var nombreRegla = document.getElementById("rule_name").value;
-  var conjPeriodo = document.getElementById("selectConjPeriodo").value;
+  var conjPeriodo = document.getElementById("selectConjPeriodo").value; //BLOQUES
   var periodo = document.getElementById("selectPeriodo").value;
   var momentoPeriodo = document.getElementById("selectMomentoPeriodo").value;
   var isEditing = document.getElementById("isEditing").value;

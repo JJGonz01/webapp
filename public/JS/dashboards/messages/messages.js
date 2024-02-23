@@ -2,15 +2,15 @@ const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute
 
 function createMessage(name, title, subtitle, button_one, button_two, type, image){
     const request = {
-        name: 'John',
-        title: 'John',
-        subtitle: 'John',
-        button_one: 'John',
-        button_two: 'John',
-        type: 1,
-        image: 1,
+        name: name,
+        title: title,
+        subtitle: subtitle,
+        button_one: button_one,
+        button_two: button_two,
+        type: type,
+        image: image,
     };
-    
+    console.log(request);
     fetch('/messages/create', {
         method: 'POST',
         headers: {
@@ -33,7 +33,7 @@ function createMessage(name, title, subtitle, button_one, button_two, type, imag
     });
 }
 
-function getMessages(){
+function getMessages(primary){
     
     fetch('/messages/index', {
         method: 'GET',
@@ -50,7 +50,7 @@ function getMessages(){
     })
     .then(request => {
         console.log('Response from server:', request);
-        callGetIndexedMessage(request);
+        openMessagesPopUp(primary, request)
     })
     .catch(error => {
         console.error('There was an error with the request:', error);
