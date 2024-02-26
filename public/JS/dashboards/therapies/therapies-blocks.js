@@ -1,6 +1,7 @@
 var periods =  [];
-var changed = {};
-var numerosPeriodos = 1;
+var containersDiv = {};
+var numerosPeriodos = 0;
+var idContainers = 1;
 var periodContainerOpen = false; 
 var rulesOpen = false;
 
@@ -21,7 +22,7 @@ function editWindowTherapy(){
 
 function addBlock(){
     numerosPeriodos += 1;
-
+    idContainers += 1;
     var mainDiv = document.getElementById("main-div");
     
 
@@ -29,6 +30,8 @@ function addBlock(){
     newDiv.className = 'row container-block';
     newDiv.id = "c"+numerosPeriodos;
     let id = "c"+numerosPeriodos;
+    let blocknid = numerosPeriodos;
+    let rulesid = numerosPeriodos;
 
         var buttonMove = document.createElement("button");
         buttonMove.className = "col-md-1";
@@ -67,16 +70,21 @@ function addBlock(){
 
         var buttonDiv = document.createElement("div");
         buttonDiv.className = 'col-md-2 container-align-end';
+        buttonDiv.id = "button-condition-"+blocknid;
 
             var buttonEdit = document.createElement("button");
-            buttonEdit.id = "button-edit";
+            buttonEdit.id = "button-edit-"+rulesid;
+            buttonEdit.type = "button";
             buttonEdit.innerHTML = "<span>&#xf304;</span>";
-
+            buttonEdit.onclick = function() {
+                showRulesInContainer(rulesid);
+            };
             var buttonDelete = document.createElement("button");
-            buttonDelete.id="button-delete";
+            buttonDelete.id="button-delete-"+blocknid;
+            buttonDelete.type = "button";
             buttonDelete.innerHTML="<span>&#xf1f8;</span>";
             buttonDelete.onclick = function() {
-                deleteBlock(id);
+                deleteBlock(id, blocknid);
             };
 
             buttonDiv.appendChild(buttonEdit);
@@ -85,18 +93,45 @@ function addBlock(){
         newDiv.appendChild(buttonDiv);
 
     mainDiv.appendChild(newDiv);
+    containersDiv[blocknid] = mainDiv;
 }
 
-function deleteBlock(idDiv){
+function deleteBlock(idDiv, blockid){
     numerosPeriodos -= 1;
-    document.getElementById(idDiv).remove();
+    if(numerosPeriodos == 0){
+        delete containersDiv[blockid];
+        deleteRulesOfBlock(blockid);
+        document.getElementById("c"+(1)).remove();
+        return;
+    }
+
+    for(var i = blockid; i<containersDiv.length; i++){
+        var number = i;
+        console.log(number);
+            containersDiv[number].id = "c"+(number-1);
+            let buttonedit = containersDiv[number].getElementById("button-edit-"+(number));
+            let buttondelete = containersDiv[number].getElementById("button-delete-"+(number));
+            buttonedit.onclick = function(){  
+                showRulesInContainer(number-1);
+            };
+
+            buttondelete.onclick = function(){  
+                deleteBlock("c"+(number-1), (number-1));
+            };
+    } 
+
+    delete containersDiv[blockid];
+    document.getElementById("c"+(numerosPeriodos+1)).remove();
+    deleteRulesOfBlock(blockid);
+    
+
 }
 
 function saveMainBlock(){
     var t1 = document.getElementById('mb_t1');
     var t2 = document.getElementById('mb_t2');
     var rest = document.getElementById('mb_rest');
-
+    mapaReglas[1] = {};
     const period = {
         duration_t1: t1.value,
         duration_t2: t2.value,
@@ -110,6 +145,7 @@ function saveAllPeriods(){
     periods = [];
     var mainPeriod = saveMainBlock();
     periods[0] = mainPeriod;
+    mapaReglas[i] = {};
     if(numerosPeriodos > 1){
         for(var i = 2; i<numerosPeriodos+1; i++){
             let id = "c"+numerosPeriodos;
@@ -119,7 +155,6 @@ function saveAllPeriods(){
                 duration_t1: valt1,
                 duration_rest: rest
             };
-
             periods[i-1] = period;
         }
     }
@@ -128,8 +163,10 @@ function saveAllPeriods(){
 function saveAndSend(){
    var form = document.getElementById("form_crear_therapy");
    var period_input = document.getElementById("input_period");
+   var rule_input = document.getElementById("rule_period");
    saveAllPeriods();
-   period_input.value=  JSON.stringify(periods);
+   period_input.value = JSON.stringify(periods);
+   rule_input.value = JSON.stringify(saveRulesAndSend());
    console.log(period_input.value);
    form.submit();
 }

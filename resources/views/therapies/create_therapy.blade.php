@@ -23,7 +23,6 @@
     <link rel="stylesheet" href="{{asset('/css/draws/clock.css')}}">
 </head> 
 
-<button onclick="getMessages()">asdad</button>
 <div id="popup-on-on" class="popup-on-on" style="display:none;">
     <div class="popup-on-content-on container-condition">
         <h2>Crear mensaje</h2>
@@ -238,7 +237,7 @@
                 <div class="input-group">
                         
                         <div class="input-group-prepend">
-                            <input value="Siempre que se cumpla" id="repetition-condition"></input>                           
+                            <input value="Siempre que se cumpla" id="repetition-condition" style="display:none;"></input>                           
                             <button value="1" class="button-selected" id="variasveces-c" name="Siempre" onclick="selectTimesComprobation(this, 'unavez-c','repetition-condition')">Siempre que se cumpla</button>
                             <button value="0" id="unavez-c"  name="Una" onclick="selectTimesComprobation(this, 'variasveces-c', 'repetition-condition')">Una única vez</button>
                         </div>
@@ -279,7 +278,7 @@
                     </div>
                     <div class="float-end" style="margin-top:30%;">
                         <button class="btn btn-primary" onclick="saveNewRule()">Guardar</button>
-                        <button class="btn btn-danger" onclick="saveRule()">Cancelar</button>
+                        <button class="btn btn-danger" onclick="closeRulesPopUp()">Cancelar</button>
                     </div>
             </div>
 
@@ -580,6 +579,7 @@
 <form id="form_crear_therapy" action="{{route('therapies_create')}}" method="POST">
     @csrf
     <input name="periods[]" id="input_period" style="display: none;"/>
+    <input name="periods[]" id="rule_period" style="display: none;"/>
     <div class="row">
         <div class="col-md-5">
             <div class="input-group mb-4 container-inputs">
@@ -592,7 +592,7 @@
                             <span>&#xf5b7;</span>
                         </div>
                     </div>
-                    <input placeholder="Nombre del plan de estudio" id="rule-name" class="form-control"></input>
+                    <input placeholder="Nombre del plan de estudio" id="therapy-name" class="form-control"></input>
             </div>
             
             <div class="input-group mb-4 container-inputs">
@@ -602,7 +602,7 @@
                             <span>&#xf573;</span>
                         </div>
                     </div>
-                    <textarea class="form-control" rows="3" id="rule-description" placeholder="Descripción"></textarea>
+                    <textarea class="form-control" rows="3" id="therapy-description" placeholder="Descripción"></textarea>
             </div> 
         </div>
         <div class="col-md-6">
@@ -668,7 +668,7 @@
                         <input class="col-4 form-control" id="mb_t2" placeholder="Estudio (min)"></input>
                     </div>
                     <div class="col-md-2 container-align-end">
-                        <button type="button" id="button-edit"><span>&#xf304;</span></button>
+                        <button type="button" id="button-edit-0" onclick="showRulesInContainer(0)"><span>&#xf304;</span></button>
                     </div>
                 </div>
             </div>
@@ -677,7 +677,7 @@
         <div class="col-md-4 container-conditions">
             <div class="input-group-prepend d-flex">
                 <div class="row mr-auto container-padding">
-                    <h2 >Condiciones del bloque</h2>
+                    <h2 id="conditions-title">Condiciones del bloque 0</h2>
                     <span data-toggle="tooltip" data-html="true" 
                             title="Aqui se definen las distintas condiciones y acciones que tendrá el bloque"
                             style="margin-left:10px; font-size:large" >&#xf059;</span>
@@ -685,20 +685,8 @@
 
                 <button type="button" class="ml-auto" onclick="openRulesPopUp()">Añadir</button>
             </div>
-            <div class="container-inner-periods" id="main-div" style="display:none;">
-                <div class="row rule-block">
-                        <div class="col-md-1" id="button-move">
-                            <span>&#xf21e;</span>
-                        </div>
-                        <div class="col-md-6">
-                            <p>Nombre de la condición</p>
-                            <p>Descripción</p>
-                        </div>
-                        <div class="col-md-4 container-align-end">
-                            <button type="button" id="button-edit"><span>&#xf304;</span></button>
-                            <button type="button" id="button-delete"><span>&#xf1f8;</span></button>
-                        </div>
-                </div>
+            <div class="container-inner-periods" id="condition-div">
+                
             </div>
         </div>
         <div class="float-end" style="margin-top:3%;">

@@ -80,7 +80,7 @@ span{
     margin:10px;
 }
 
-.container-conditions #button-edit{
+.container-conditions [id^=button-edit]{
 
     width:30%;
     border:1px solid rgb(1, 150, 138);
@@ -88,7 +88,7 @@ span{
     background-color: var(--color-transparente);
 }
 
-.container-conditions #button-delete{
+.container-conditions [id^=button-delete]{
     
     width:30%;
     border:1px solid rgb(150, 1, 1);

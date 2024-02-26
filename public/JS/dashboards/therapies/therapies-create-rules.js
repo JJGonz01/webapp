@@ -6,11 +6,6 @@ function closeRulesPopUp(){
     document.getElementById("popup").style="display:none;";
 }
 
-function saveRule(){
-    var ruleName = document.getElementById("condition-name").value;
-    var ruleDesc = document.getElementById("condition-description").value;
-}
-
 function selectTimesComprobation(button, otherid, inputid){
     var other = document.getElementById(otherid);
     if(button.value == 0){
