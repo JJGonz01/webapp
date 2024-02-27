@@ -14,8 +14,10 @@ return new class extends Migration
         Schema::create('sessions', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->string('name');
             $table->string('description')->nullable();
-            $table->dateTime('date_start');
+            $table->date('date_start');
+            $table->time('time_start');
             $table->boolean('completed')->default(false); 
             $table->boolean('running')->default(false);
             $table->json('data_collected')->nullable();
@@ -23,11 +25,13 @@ return new class extends Migration
 
             $table->float('bpm_lim')->default(0);
             $table->float('move_lim')->default(0);
-            $table->string('time_show')->default("mostrarNada");
+            $table->string('barcronometer')->default('increase');
+            $table->string('textcronometer')->default('time');
+            $table->string('textperiod')->default('all');
 
             $table->integer('percentage')->default(8);
             $table->float('movement')->default(0.6);
-            $table->string('modoJuego')->default(0);
+            $table->string('gamification')->default('all');
 
             $table->unsignedBigInteger('therapy_id');
             $table->foreign('therapy_id')->references('id')->on('therapies')->onDelete('cascade');

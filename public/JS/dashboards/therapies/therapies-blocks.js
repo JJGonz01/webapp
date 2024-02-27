@@ -31,7 +31,7 @@ function addBlock(){
     newDiv.id = "c"+numerosPeriodos;
     let id = "c"+numerosPeriodos;
     let blocknid = numerosPeriodos;
-    let rulesid = numerosPeriodos;
+    let rulesid = numerosPeriodos; 
 
         var buttonMove = document.createElement("button");
         buttonMove.className = "col-md-1";
@@ -145,8 +145,7 @@ function saveAllPeriods(){
     periods = [];
     var mainPeriod = saveMainBlock();
     periods[0] = mainPeriod;
-    mapaReglas[i] = {};
-    if(numerosPeriodos > 1){
+    if(numerosPeriodos > 0){
         for(var i = 2; i<numerosPeriodos+1; i++){
             let id = "c"+numerosPeriodos;
             let valt1 = document.getElementById(id+"-t1").value;
@@ -170,4 +169,3 @@ function saveAndSend(){
    console.log(period_input.value);
    form.submit();
 }
- 

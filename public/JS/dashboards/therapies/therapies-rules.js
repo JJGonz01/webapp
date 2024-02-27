@@ -291,14 +291,13 @@ function deleteRulesOfBlock(blockNumber){
 
 function saveRulesAndSend(){
     
-
-    let length = numerosPeriodos;
     for(var i = 0; i<=numerosPeriodos;i++){
         let numberi = i;
-        for(var i = 0; i<=Object.keys(mapaReglas[numberi+1]).length;i++){
-            let key = Object.keys(mapaReglas[numberi+1]);
-            mapaReglas[i] = mapaReglas[number+1];
-            rules.push(JSON.stringify(mapaReglas[numberi][key]));
+        if(mapaReglas[numberi]) {
+            for(var i = 0; i<=Object.keys(mapaReglas[numberi]).length;i++){
+                let key = Object.keys(mapaReglas[numberi]);
+                rules.push(JSON.stringify(mapaReglas[numberi][key]));
+            }
         }
     }
     console.log(rules);

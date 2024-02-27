@@ -22,7 +22,12 @@
     <link rel="stylesheet" href="{{asset('/css/dashboards/patients.css')}}">
     <link rel="stylesheet" href="{{asset('/css/draws/clock.css')}}">
 </head> 
-
+@if (session('success'))
+    <h6 class="alert alert-success"> {{ session('success') }}</h6>
+    @endif
+    @if($errors->any())
+    <h6 class="alert alert-danger">{{ implode('', $errors->all(':message')) }}</h6>
+    @endif
 <div id="popup-on-on" class="popup-on-on" style="display:none;">
     <div class="popup-on-content-on container-condition">
         <h2>Crear mensaje</h2>
@@ -579,7 +584,7 @@
 <form id="form_crear_therapy" action="{{route('therapies_create')}}" method="POST">
     @csrf
     <input name="periods[]" id="input_period" style="display: none;"/>
-    <input name="periods[]" id="rule_period" style="display: none;"/>
+    <input name="rules" id="rule_period" style="display: none;"/>
     <div class="row">
         <div class="col-md-5">
             <div class="input-group mb-4 container-inputs">
@@ -592,7 +597,7 @@
                             <span>&#xf5b7;</span>
                         </div>
                     </div>
-                    <input placeholder="Nombre del plan de estudio" id="therapy-name" class="form-control"></input>
+                    <input placeholder="Nombre del plan de estudio" name = "name" id="therapy-name" class="form-control"></input>
             </div>
             
             <div class="input-group mb-4 container-inputs">
@@ -602,7 +607,7 @@
                             <span>&#xf573;</span>
                         </div>
                     </div>
-                    <textarea class="form-control" rows="3" id="therapy-description" placeholder="Descripción"></textarea>
+                    <textarea class="form-control" name="description" rows="3" id="therapy-description" placeholder="Descripción"></textarea>
             </div> 
         </div>
         <div class="col-md-6">

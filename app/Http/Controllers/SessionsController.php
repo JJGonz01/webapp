@@ -12,9 +12,9 @@ use App\Models\SessionData;
 use App\Models\patient;
 use App\Models\Regla;
 use App\Models\FuzzyData;
+use Illuminate\Validation\Rule;
 use Carbon\Carbon; //Para cargar las fechas
-
-
+use Illuminate\Support\Facades\Validator;
 class SessionsController extends Controller
 {
     
@@ -34,7 +34,6 @@ class SessionsController extends Controller
 
     public function store(Request $request, string $patient_id)
     {
-    
         $today = Carbon::now();
         $today = now();
         $fiveMinutesBefore = $today->subMinutes(5)->format('Y-m-d\TH:i');
@@ -42,61 +41,54 @@ class SessionsController extends Controller
         echo $today->toDateTimeString();
         //dd($request);
         $request -> validate([
-            'date_start' =>'required|unique:sessions|date_format:Y-m-d\TH:i|after_or_equal:' . $fiveMinutesBefore,
+            'name' => 'required|min:1',
             'description' => 'max:255',
-            'therapy_id' => 'required | max:255',           
+            'session_repeat'=> 'required',
+            'date_start' =>[
+                'required',
+                'date_format:Y-m-d',
+                Rule::unique('sessions')->where(function($query) use ($request){
+                    return $query->where('date_start', ($request->date_start))
+                    ->where('time_start', ($request->time_start));
+                }),
+                'after_or_equal:today'
+            ],
+            'time_start' =>[
+                'required',
+                'date_format:H:i',
+                function ($attribute, $value, $fail) use ($request){
+                    $dateTime = $request->date_start . ' ' . $value;
+                    if(strtotime($dateTime) <= time()){
+                        $fail('The ' . $attribute . ' must be greater than the current time.');                    
+                    }
+                }
+            ],
+            'therapy_id' => 'required',           
             'movement' => 'required',
-            'porcentaje' => 'required|numeric|between:1,100',
-            'modoJuego' => 'max:255',
-            'opcion'=>'',
-            'barraFalta'=>'',
-            'tiempoFalta' => ''
+            'bpm' => 'required|numeric|between:1,100',
+            'gamification' => 'required',
+            'timer_clock'=>'',
+            'hour_clock'=>'',
+            'text_clock' => ''
         ]);
 
         $session = new Session;
-        
-        switch($request->movement){
-            case "Muy Bajo":
-                $session-> movement = 2; 
-                break;
-            case "Bajo":
-                $session-> movement = 1.5; 
-                break;
-            case "Medio":
-                $session-> movement = 0.9;
-                break;
-            case "Alto":
-                $session-> movement = 0.6;
-                break;
-            case "Muy Alto":
-                $session-> movement = 0.4; 
-                break;
-        }
-        $arrayPalabras = $request->opcion;
-        $progreso = is_array($request->opcion) && array_search("Barra", $arrayPalabras) !== false ? true : false;
-        $minuto = is_array($request->opcion) && array_search("Reloj", $arrayPalabras) !== false ? true : false;
-        $nombre = is_array($request->opcion) && array_search("Nombre", $arrayPalabras) !== false ? true : false;
-        
-        $session-> percentage = $request-> porcentaje;
-        
-        $relojView = array(
-            'barraFalta' => $request -> barraFalta,
-            'pantalla' => $request -> tiempoFalta,
-            'barra' => $progreso,
-            'minuto' => $minuto,
-            'periodo'=> $nombre
-        );
-
-
-        $relojViewJson = json_encode($relojView);
-        $session-> time_show = $relojViewJson;
+        $session-> name = $request-> name;
         $session-> description = $request-> description;
-        $session-> modoJuego = $request-> modoJuego;
+        $session-> movement = $request->movement;
+        $session-> percentage = $request->bpm;
+
         $session -> date_start = $request -> date_start;
-        $session -> description = $request-> description;
+        $session -> time_start = $request -> time_start;
+        $session -> barcronometer = $request -> timer_clock;
+        $session -> textcronometer = $request -> hour_clock;
+        $session -> textperiod = $request -> text_clock;
+        
+        $session-> gamification = $request-> gamification;
         $session -> therapy_id = $request -> therapy_id;
         $session -> patient_id = $patient_id;
         $session -> save();    
+
         $patient = patient::find($patient_id);
         $patient->session()->save($session);
 
@@ -104,7 +96,7 @@ class SessionsController extends Controller
         $session_res->session_id = $session->id;
         $session_res->save();
 
-        return redirect()->route('patient_show', ['id'=> $patient_id])->with('success','Sesion creado correctamente');
+        return redirect()->route('patient_show', ['id'=> $patient_id])->with('success','Sesion creada correctamente');
     }
 
     public function show($id)
@@ -315,8 +307,11 @@ class SessionsController extends Controller
         return redirect()->route('patient_show', ['id' => $patient_id])->with('success','Sesión eliminada correctamente');;
         
     }
+
+
      /**
-      * EL reloj llama para coger el calendario de sesiones del paciente!
+      * RELOJ
+      * 
       * HAY QUE PASAR LA id DEL ALUMNO
       */
      public function getUserSessionList(Request $request, $id){
@@ -330,25 +325,26 @@ class SessionsController extends Controller
 
         $sesiones = $patient->session;
         $sesiones_noCompletadas = [];
-    
-        if($sesiones->isEmpty()){ //aqui es que no hay sesiones programadas :I
-           
-         }
-    
-      $listaSesionesAlumno = array();
+        $today = Carbon::now();
+        $listaSesionesAlumno = array();
 
-      foreach($sesiones as $sesion){
-            if($sesion -> completed == false){
-                $terapia = Therapy::where('id', $sesion->therapy_id)->get();
-                $periodo = SessionPeriod::where('therapy_id', $sesion->therapy_id)->first();
-                $listaSesionesPeriods = []; //añado los periodos junto a la fecha por la que empieza
-                $listaSesionesPeriods[] = $sesion->date_start;
-                $listaSesionesPeriods[] = $periodo->durations;
-                $listaSesionesAlumno[] = $listaSesionesPeriods;
-                $listaEnviar = json_encode($listaSesionesPeriods);
+        foreach($sesiones as $sesion){
+                if($sesion -> completed == false && $session -> date_time == $today){ 
+                    $fiveMinutesBefore = $today->subMinutes(5)->format('Y-m-d\TH:i');
+                    $datetimestr = $sesion->date_start . ' ' . $sesion->time_start;
+                    $datetime = Carbon::parse($datetimestr)->format('Y-m-d H:i');
+                    if($datetime >= $fiveMinutesBefore){
+                        $terapia = Therapy::where('id', $sesion->therapy_id)->get();
+                        $periodo = SessionPeriod::where('therapy_id', $sesion->therapy_id)->first();
+                        $listaSesionesPeriods = []; //añado los periodos junto a la fecha por la que empieza
+                        $listaSesionesPeriods[] = $sesion->id;
+                        $listaSesionesPeriods[] = $datetime;
+                        $listaSesionesPeriods[] = $periodo->durations;
+                        $listaSesionesAlumno[] = $listaSesionesPeriods;
+                        $listaEnviar = json_encode($listaSesionesPeriods);
+                    }
+                }
             }
-        }
-
         return response()->json([
             'response' => $listaSesionesAlumno
         ]);
@@ -367,7 +363,7 @@ class SessionsController extends Controller
 
         $date = Carbon::parse($dateString);
         
-        $formattedDate = $date->format('Y-m-d H:i:s');
+        $formattedDate = $date->format('Y-m-d H:i');
         
         $session = Session::where('date_start', $formattedDate)->get();
         $sessionResult = SessionResult::where('session_id', $session[0]->id)->get();
@@ -406,7 +402,7 @@ class SessionsController extends Controller
 
         $date = Carbon::parse($dateString);
         
-        $formattedDate = $date->format('Y-m-d H:i:s');
+        $formattedDate = $date->format('Y-m-d H:i');
         $results = Session::where('date_start', $formattedDate)->get();
         
 
@@ -443,7 +439,7 @@ class SessionsController extends Controller
 
         $date = Carbon::parse($dateString);
         
-        $formattedDate = $date->format('Y-m-d H:i:s');
+        $formattedDate = $date->format('Y-m-d H:i');
         
         // Realiza la consulta en la base de datos
         $results = Session::where('date_start', $formattedDate)->get();
@@ -483,34 +479,33 @@ class SessionsController extends Controller
      */
     public function getSessionRules(Request $request){
         
-        $dateString = $request->input('date');
-        $date = Carbon::parse($dateString);
-            
-        $formattedDate = $date->format('Y-m-d H:i:s');
-            
-        $session = Session::where('date_start', $formattedDate)->get();
+        $sessionId = $request->input('sessionid');
+        $session = Session::find($id);
+
         if(empty($session[0])){
             return response()->json([
-                'reglas' => "none",
+                'rules' => "none",
                 'move' => "none",
                 'bpm' => "none",
-                'modoJuego' => "none",
-                'tiempoFalta' => "none"
+                'gamification' => "none",
+                'clockscreen' => "none"
             ]);
         }
-        $terapia = Therapy::where('id', $session[0]->therapy_id)->first();
-        
+        $terapia = Therapy::find('id', $session->therapy_id);
+        /*$session -> barcronometer = $request -> timer_clock;
+        $session -> textcronometer = $request -> hour_clock;
+        $session -> textperiod = $request -> text_clock;*/
         if(json_decode($terapia->rules) == "empty")
             return response()->json([
                 'reglas' => "empty",
-                'move' => $session[0]-> movement,
-                'bpm' => $session[0]-> percentage,
-                'modoJuego' => $session[0]->modoJuego,
-                'pantalla' =>json_decode($session[0]->time_show)->pantalla,
-                'barra' =>json_decode($session[0]->time_show)->barra,
-                'minuto' =>json_decode($session[0]->time_show)->minuto,
-                'periodo' =>json_decode($session[0]->time_show)->periodo,
-                'barraFalta' => json_decode($session[0]->time_show)->barraFalta
+                'move' => $session-> movement,
+                'bpm' => $session-> bpm,
+                'modoJuego' => $session->modoJuego,
+                'pantalla' =>json_decode($session->time_show)->pantalla,
+                'barra' =>json_decode($session->time_show)->barra,
+                'minuto' =>json_decode($session->time_show)->minuto,
+                'periodo' =>json_decode($session->time_show)->periodo,
+                'barraFalta' => json_decode($session->time_show)->barraFalta
         ]);
         else
             return response()->json([

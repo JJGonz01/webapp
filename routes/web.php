@@ -172,7 +172,7 @@ Route::group( ['middleware' => 'auth' ], function()
      */
 
     Route::get('/createsession/{patient_id}', [SessionsController::class, 'create'])->name('sessions_create');
-    Route::post('/createsession/{patient_id}', [SessionsController::class, 'store'])->name('sessions_create');
+    Route::post('/createsession/{patient_id}', [SessionsController::class, 'store'])->name('sessions_create_post');
 
         Route::get('/general', function () {
             return view('general');

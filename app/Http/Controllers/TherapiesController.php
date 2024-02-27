@@ -65,6 +65,7 @@ class TherapiesController extends Controller
        //si no hay reglas paso un string vacio :)
        if(is_null($request->rules)) $rules = json_encode('empty');
        else $rules = $request->rules;
+
        $terapia->user_id = $usuario->id;
        $terapia->rules = $rules;
        $terapia->save(); 
@@ -94,14 +95,11 @@ class TherapiesController extends Controller
                array_push($periods_array, $period);
            }
            $json_aray = json_encode($periods_array);
-
-           dd($periods_array);
            $session_period = new SessionPeriod;
            $session_period-> durations = $json_aray;
            $session_period-> therapy_id = $terapia->id;
            $session_period->save();
-       }
-       
+        }
         return redirect()->route('therapy_show', ['id'=> $terapia->id])->with('success','Terapia creada correctamente');
        //return redirect()->route('therapy_show', ['id'=> $terapia->id])->with('success','Terapia creada correctamente');
     }
