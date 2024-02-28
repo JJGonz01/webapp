@@ -484,40 +484,42 @@ class SessionsController extends Controller
 
         if(empty($session[0])){
             return response()->json([
-                'rules' => "none",
-                'move' => "none",
-                'bpm' => "none",
-                'gamification' => "none",
-                'clockscreen' => "none"
+                'reglas' => 'none',
+                'movement' => 'none',
+                'bpm' => 'none',
+                'gamification' => 'none',
+                'barcronometer' =>'none',
+                'textcronometer' =>'none',
+                'textperiod' =>'none'
             ]);
         }
         $terapia = Therapy::find('id', $session->therapy_id);
-        /*$session -> barcronometer = $request -> timer_clock;
-        $session -> textcronometer = $request -> hour_clock;
-        $session -> textperiod = $request -> text_clock;*/
+
+        /*
+            $session -> barcronometer = $request -> timer_clock;
+            $session -> textcronometer = $request -> hour_clock;
+            $session -> textperiod = $request -> text_clock;
+        */
+
         if(json_decode($terapia->rules) == "empty")
             return response()->json([
                 'reglas' => "empty",
-                'move' => $session-> movement,
+                'movement' => $session-> movement,
                 'bpm' => $session-> bpm,
-                'modoJuego' => $session->modoJuego,
-                'pantalla' =>json_decode($session->time_show)->pantalla,
-                'barra' =>json_decode($session->time_show)->barra,
-                'minuto' =>json_decode($session->time_show)->minuto,
-                'periodo' =>json_decode($session->time_show)->periodo,
-                'barraFalta' => json_decode($session->time_show)->barraFalta
-        ]);
+                'gamification' => $session -> gamification,
+                'barcronometer' => $session -> barcronometer,
+                'textcronometer' => $session -> textcronometer,
+                'textperiod' => $session -> textperiod
+            ]);
         else
             return response()->json([
                 'reglas' => $terapia->rules,
-                'move' => $session[0]-> movement,
-                'bpm' => $session[0] -> percentage,
-                'modoJuego' => $session[0] ->modoJuego,
-                'pantalla' =>json_decode($session[0]->time_show)->pantalla,
-                'barra' =>json_decode($session[0]->time_show)->barra,
-                'minuto' =>json_decode($session[0]->time_show)->minuto,
-                'periodo' =>json_decode($session[0]->time_show)->periodo,
-                'barraFalta' => json_decode($session[0]->time_show)->barraFalta
+                'movement' => $session-> movement,
+                'bpm' => $session-> bpm,
+                'gamification' => $session -> gamification,
+                'barcronometer' => $session -> barcronometer,
+                'textcronometer' => $session -> textcronometer,
+                'textperiod' => $session -> textperiod
             ]); 
 
     }
