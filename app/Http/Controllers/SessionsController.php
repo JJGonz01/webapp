@@ -15,14 +15,9 @@ use App\Models\FuzzyData;
 use Illuminate\Validation\Rule;
 use Carbon\Carbon; //Para cargar las fechas
 use Illuminate\Support\Facades\Validator;
+
 class SessionsController extends Controller
 {
-    
-    public function index()
-    {
-            
-    }
-
     public function create(string $patient_id)
     {
         $patient = patient::find($patient_id);
@@ -356,40 +351,27 @@ class SessionsController extends Controller
      */
     public function startSession(Request $request)
     {
-        $dateString = $request->input('date');
-        $bpm_lim = $request->input('bpm_lim');
-        $move_lim = $request->input('mov_lim');
-        //$dateString = '2023-05-26T00:10:54.917328Z';
+        $sessionId = $request->input('sessionId');
+        $bpm_lim = $request->input('bpm_thres');
+        $move_lim = $request->input('mov_thres');
 
-        $date = Carbon::parse($dateString);
-        
-        $formattedDate = $date->format('Y-m-d H:i');
-        
-        $session = Session::where('date_start', $formattedDate)->get();
-        $sessionResult = SessionResult::where('session_id', $session[0]->id)->get();
+        $session = Session::find($sessionId);
+        $sessionResult = SessionResult::where('session_id', $session->id)->get();
         //$terapia = Therapy::where('id', $session->therapy_id)->get();
-
         if(!$session->isEmpty()){
-        $session[0]->running = true; //puesto que es la unica
-        $session[0]->bpm_lim = $bpm_lim; 
-        $session[0]->move_lim = $move_lim; 
-
-        //$sessionResult[0] -> listaReglasIniciales = $terapia -> rules; 
-
-        $session[0]->save();
-
+            $session->running = true; //puesto que es la unica
+            $session->bpm_lim = $bpm_lim; 
+            $session->move_lim = $move_lim; 
+            //$sessionResult[0] -> listaReglasIniciales = $terapia -> rules; 
+            $session->save();
             return response()->json([
-                'response' => $session[0]
+                'response' => $session->id
             ]);
-         }
-
+        }
          return response()->json([
-            'response' => $date
+            'response' =>  "session-empty",
         ]);
-
     }
-
-
     /**
      * A traves de la fecha el controlador termina la sesion
      * HAY QUE PASARLE LA FECHA
@@ -397,38 +379,30 @@ class SessionsController extends Controller
 
     public function sessionFinish(Request $request){
 
-        $dateString = $request->input('date');
-        //$dateString = '2023-05-26T00:10:54.917328Z';
-
-        $date = Carbon::parse($dateString);
-        
-        $formattedDate = $date->format('Y-m-d H:i');
-        $results = Session::where('date_start', $formattedDate)->get();
-        
-
+        $sessionId = $request->input('sessionId');
+        $session = Session::find($sessionId);
+        $sessionResult = SessionResult::where('session_id', $session->id)->get(0);
 
         if(!$results->isEmpty()){
 
-            $valores_bpm = json_encode($request->input('bpm_valores'));
-            $valores_move = json_encode($request->input('move_valores'));
-            $session_results = SessionResult::where('session_id', $results[0]->id)->get(); //cogemos el objeto de resultados para rellenarle los valores
-            
+            $valores_bpm = json_encode($request->input('bpm_values'));
+            $valores_move = json_encode($request->input('move_values'));
 
-            $session_results[0] -> bpm_valores = $valores_bpm;
-            $session_results[0] -> move_valores = $valores_move;
-            $session_results[0] -> save();
+            $session_results -> bpm_valores = $valores_bpm;
+            $session_results -> move_valores = $valores_move;
+            $session_results -> save();
 
-            $results[0]->running = false; 
-            $results[0]->completed = true; 
-            $results[0]->save();
+            $results -> running = false; 
+            $results -> completed = true; 
+            $results -> save();
 
             return response()->json([
-                'response' => "funciono!"
+                'response' => $session->id
             ]);
         }
 
          return response()->json([
-            'response' => $session_results[0]
+            'response' => $session_results
         ]);
     }
 
@@ -445,12 +419,12 @@ class SessionsController extends Controller
         $results = Session::where('date_start', $formattedDate)->get();
 
         if(!$results->isEmpty()){
-            $reglas = json_encode($request->input('reglas'));
-            $valores_bpm_medios = json_encode($request->input('bpm_medios'));
-            $valores_move_medios = json_encode($request->input('move_medios'));
-            $puntosObtenidos = json_encode($request->input('puntos'));
+            $reglas = json_encode($request->input('rules'));
+            $valores_bpm_medios = json_encode($request->input('bpm_avg'));
+            $valores_move_medios = json_encode($request->input('move_avg'));
+            $puntosObtenidos = json_encode($request->input('points'));
 
-            $limite_bpm = $request->input('limite_bpm');
+            $limite_bpm = $request->input('bpm_limit');
             
             $session_results = SessionResult::where('session_id', $results[0]->id)->get(); //cogemos el objeto de resultados para rellenarle los valores
             $session_results[0] -> rules = $reglas;

@@ -13,6 +13,8 @@ class Clock_messageController extends Controller
         if (Auth::check()) {
             $usuario = Auth::user();
             $messages = clock_message::where('user_id', $usuario -> id) -> get();
+
+            
             return view('therapies.therapies', ['therapies' => $messages]);
         }
         else{

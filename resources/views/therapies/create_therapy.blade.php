@@ -242,9 +242,9 @@
                 <div class="input-group">
                         
                         <div class="input-group-prepend">
-                            <input value="Siempre que se cumpla" id="repetition-condition" style="display:none;"></input>                           
-                            <button value="1" class="button-selected" id="variasveces-c" name="Siempre" onclick="selectTimesComprobation(this, 'unavez-c','repetition-condition')">Siempre que se cumpla</button>
-                            <button value="0" id="unavez-c"  name="Una" onclick="selectTimesComprobation(this, 'variasveces-c', 'repetition-condition')">Una única vez</button>
+                            <input value="always" id="repetition-condition" style="display:none;"></input>                           
+                            <button value="1" class="button-selected" id="variasveces-c" name="always" onclick="selectTimesComprobation(this, 'unavez-c','repetition-condition')">Siempre que se cumpla</button>
+                            <button value="0" id="unavez-c"  name="one" onclick="selectTimesComprobation(this, 'variasveces-c', 'repetition-condition')">Una única vez</button>
                         </div>
                 </div>
 
@@ -272,12 +272,12 @@
                         </div>
                         <div class="input-group-prepend">
                             <select class="form-control input-group" id="input-moment-period">
-                                <option>Todo el periodo</option>
-                                <option>1ª mitad</option>
-                                <option>2º mitad</option>
-                                <option>1º tercio</option>
-                                <option>2º tercio</option>
-                                <option>Ult. tercio</option>
+                                <option value="all">Todo el periodo</option>
+                                <option value="first_half">1ª mitad</option>
+                                <option value="second_half">2º mitad</option>
+                                <option value="first_third">1º tercio</option>
+                                <option value="second_third">2º tercio</option>
+                                <option value="last_third">Ult. tercio</option>
                             </select>
                         </div>
                     </div>
@@ -317,8 +317,8 @@
                                 <div class="col-md-6 title-options" class="input-group-prepend">
                                     <div class="input-group-prepend">
                                         <input id="heart-val-input" style="display:none;"></input>
-                                        <button id="heart-value-high" name="Alto" value=1 onclick="conditions(this, 'heart-value-low', 'heart-val-input')" class="button-disabled" disabled>Alto</button>
-                                        <button id="heart-value-low" name="Bajo" value=0 onclick="conditions(this, 'heart-value-high', 'heart-val-input')" class="button-disabled" disabled>Bajo</button>
+                                        <button id="heart-value-high" name="high" value=1 onclick="conditions(this, 'heart-value-low', 'heart-val-input')" class="button-disabled" disabled>Alto</button>
+                                        <button id="heart-value-low" name="low" value=0 onclick="conditions(this, 'heart-value-high', 'heart-val-input')" class="button-disabled" disabled>Bajo</button>
                                         <span class="col-md-2" data-toggle="tooltip" data-html="true" 
                                         title="Una condición puede lanzarse todas las veces que se cumpla, o solo una unica vez, cuando se cumplan
                                         sus condiciones, y luego no volver a comprobarse"
@@ -336,8 +336,8 @@
                                 <div class="col-md-6" class="input-group-prepend">
                                     <div class="input-group-prepend">
                                         <input id="heart-tend-input" style="display:none;"></input>
-                                        <button id="heart-tend-high" name="Aumentando" onclick="conditions(this, 'heart-tend-low', 'heart-tend-input')" class="button-disabled" disabled>Aumentando</button>
-                                        <button id="heart-tend-low" name="Disminuyendo" onclick="conditions(this, 'heart-tend-high', 'heart-tend-input')" class="button-disabled" disabled>Disminuyendo</button>
+                                        <button id="heart-tend-high" name="increasing" onclick="conditions(this, 'heart-tend-low', 'heart-tend-input')" class="button-disabled" disabled>Aumentando</button>
+                                        <button id="heart-tend-low" name="decreasing" onclick="conditions(this, 'heart-tend-high', 'heart-tend-input')" class="button-disabled" disabled>Disminuyendo</button>
                                         <span class="col-md-2" data-toggle="tooltip" data-html="true" 
                                         title="Una condición puede lanzarse todas las veces que se cumpla, o solo una unica vez, cuando se cumplan
                                         sus condiciones, y luego no volver a comprobarse"
@@ -370,8 +370,8 @@
                                         <div class="col-md-6 title-options" class="input-group-prepend">
                                             <div class="input-group-prepend">
                                                 <input id="move-val-input" style="display:none;"></input>
-                                                <button id="move-val-high" name="Alto" value="Alto" onclick="conditions(this, 'move-val-low', 'move-val-input')" class="button-disabled" disabled>Alto</button>
-                                                <button id="move-val-low" name="Bajo" onclick="conditions(this, 'move-val-high', 'move-val-input')" class="button-disabled" disabled>Bajo</button>
+                                                <button id="move-val-high" name="high" onclick="conditions(this, 'move-val-low', 'move-val-input')" class="button-disabled" disabled>Alto</button>
+                                                <button id="move-val-low" name="low" onclick="conditions(this, 'move-val-high', 'move-val-input')" class="button-disabled" disabled>Bajo</button>
                                                 <span class="col-md-2" data-toggle="tooltip" data-html="true" 
                                                 title="Una condición puede lanzarse todas las veces que se cumpla, o solo una unica vez, cuando se cumplan
                                                 sus condiciones, y luego no volver a comprobarse"
@@ -391,8 +391,8 @@
                                             
                                             <div class="input-group-prepend">
                                                <input id="move-tend-input" style="display:none;"></input>
-                                                <button id="move-tend-high" name="Aumentando" onclick="conditions(this, 'move-tend-low','move-tend-input')"  class="button-disabled" disabled>Aumentando</button>
-                                                <button id="move-tend-low" name="Disminuyendo" onclick="conditions(this, 'move-tend-high','move-tend-input')"  class="button-disabled" disabled>Disminuyendo</button>
+                                                <button id="move-tend-high" name="increasing" onclick="conditions(this, 'move-tend-low','move-tend-input')"  class="button-disabled" disabled>Aumentando</button>
+                                                <button id="move-tend-low" name="decreasing" onclick="conditions(this, 'move-tend-high','move-tend-input')"  class="button-disabled" disabled>Disminuyendo</button>
                                                 <span class="col-md-2" data-toggle="tooltip" data-html="true" 
                                                 title="Una condición puede lanzarse todas las veces que se cumpla, o solo una unica vez, cuando se cumplan
                                                 sus condiciones, y luego no volver a comprobarse"
@@ -455,10 +455,10 @@
                                     <div class="col-md-12" class="input-group-prepend">
                                         
                                         <div class="input-group-prepend" id="div-session-action-main">
-                                            <input id="accion-sesion-primary" value = "Nada" style="display:none;"></input>
-                                            <button name="nada" value = 1 onclick="actionOptions('div-session-action-main', this)" class="button-selected">Nada</button>
-                                            <button name="Concluir periodo" value = 0 onclick="actionOptions('div-session-action-main', this)" class="button-canceled">Concluir periodo</button>
-                                            <button name="Concluir sesion" value = 0 onclick="actionOptions('div-session-action-main', this)" class="button-canceled">Concluir sesión</button>
+                                            <input id="accion-sesion-primary" value = "none" style="display:none;"></input>
+                                            <button name="none" value = 1 onclick="actionOptions('div-session-action-main', this)" class="button-selected">Nada</button>
+                                            <button name="end_period" value = 0 onclick="actionOptions('div-session-action-main', this)" class="button-canceled">Concluir periodo</button>
+                                            <button name="end_session" value = 0 onclick="actionOptions('div-session-action-main', this)" class="button-canceled">Concluir sesión</button>
                                         </div>
                                     </div>
                                     
@@ -534,10 +534,10 @@
                                         <div class="col-md-12" class="input-group-prepend">
                                             
                                             <div class="input-group-prepend" id="div-session-action-sec">
-                                                <input id="accion-sesion-secondary" value = "Nada" style="display:none;"></input>
-                                                <button disabled name="Nada" value = 1 onclick="actionOptions('div-session-action-sec', this)" class="button-disabled">Nada</button>
-                                                <button disabled name ="Concluir periodo" value = 0 onclick="actionOptions('div-session-action-sec', this)" class="button-disabled">Concluir periodo</button>
-                                                <button disabled name ="Concluir sesion" value = 0 onclick="actionOptions('div-session-action-sec', this)" class="button-disabled">Concluir sesión</button>
+                                                <input id="accion-sesion-secondary" value = "none" style="display:none;"></input>
+                                                <button disabled name="none" value = 1 onclick="actionOptions('div-session-action-sec', this)" class="button-disabled">Nada</button>
+                                                <button disabled name ="end_period" value = 0 onclick="actionOptions('div-session-action-sec', this)" class="button-disabled">Concluir periodo</button>
+                                                <button disabled name ="end_session" value = 0 onclick="actionOptions('div-session-action-sec', this)" class="button-disabled">Concluir sesión</button>
                                                 
                                             </div>
                                         </div>

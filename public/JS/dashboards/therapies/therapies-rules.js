@@ -108,6 +108,7 @@ function saveNewRule(){
     var name = document.getElementById("condition-name").value;
     var desc = document.getElementById("condition-description").value;
     var repetition = document.getElementById("repetition-condition").value;
+    var comprobation = document.getElementById("input-moment-period").value;
 
     var block = currentBlock; 
     var periodo;
@@ -117,18 +118,18 @@ function saveNewRule(){
 
     if(estd == 1 && rest == 1)
     {
-        periodo = "Cualquiera";
+        periodo = "all";
     }
     else if(estd == 1 && rest == 0)
     {
-        periodo = "Estudio";
+        periodo = "study";
     }
     else if(estd == 0 && rest == 1)
     {
-        periodo = "Descanso";
+        periodo = "rest";
     }
     else{
-        periodo = "Cualquiera";
+        periodo = "all";
         console.log("ERROR NO HAY NINGUNO SELECCIONADO");
         //return; TODO
     }
@@ -141,14 +142,14 @@ function saveNewRule(){
             
         if(document.getElementById("ch-heart-value").checked){
             var condicionVal = {};
-            condicionVal.sensor = "Sensor BPM";
+            condicionVal.sensor = "sensor_bpm";
             condicionVal.value = document.getElementById("heart-val-input").value;
             condiciones.push(condicionVal);
         }
 
         if(document.getElementById("ch-heart-tendency").checked){
             var condicionTen = {};
-            condicionTen.sensor = "Sensor BPM";
+            condicionTen.sensor = "sensor_bpm";
             condicionTen.value = document.getElementById("heart-tend-input").value;
             condiciones.push(condicionTen);
         }
@@ -157,14 +158,14 @@ function saveNewRule(){
     if(document.getElementById("checkbox-condition-movement").checked){
         if(document.getElementById("ch-move-value").checked){
             var condicionValMove = {};
-            condicionValMove.sensor = "Sensor Magnitud Movimiento";
+            condicionValMove.sensor = "sensor_movement";
             condicionValMove.value = document.getElementById("move-val-input").value;
             condiciones.push(condicionValMove);
         }
 
         if(document.getElementById("ch-move-tendency").checked){
             var condicionTenMov = {};
-            condicionTenMov.sensor = "Sensor Magnitud Movimiento";
+            condicionTenMov.sensor = "sensor_movement";
             condicionTenMov.value = document.getElementById("move-tend-input").value;
             condiciones.push(condicionTenMov);
         }
@@ -173,26 +174,27 @@ function saveNewRule(){
     var acciones = [];
 
     accionPrincipal = {};
-    accionPrincipal.accionReloj = document.getElementById("message-primary").value;
-    accionPrincipal.accionSesion = document.getElementById("accion-sesion-primary").value;
-    accionPrincipal.puntosExtra = document.getElementById("input-points-primary").value;
-    accionPrincipal.tiempoExtra = document.getElementById("input-time-primary").value;
+    accionPrincipal.message = document.getElementById("message-primary").value;
+    accionPrincipal.session = document.getElementById("accion-sesion-primary").value;
+    accionPrincipal.extra_points = document.getElementById("input-points-primary").value;
+    accionPrincipal.extra_time = document.getElementById("input-time-primary").value;
     acciones.push(accionPrincipal);
+
     if(document.getElementById("input-time-primary").checked){
         accionSecundaria = {};
-        accionSecundaria.accionReloj = document.getElementById("message-secondary").value;
-        accionSecundaria.accionSesion = document.getElementById("accion-sesion-secondary").value;
+        accionSecundaria.message = document.getElementById("message-secondary").value;
+        accionSecundaria.session = document.getElementById("accion-sesion-secondary").value;
         let valsecpunt = document.getElementById("input-points-secondary").value;
         let valsectime =  document.getElementById("input-time-secondary").value; 
         if(typeof valsecpunt != "number"){
-            accionSecundaria.puntosExtra = 0;
+            accionSecundaria.extra_points = 0;
         }else{
-            accionSecundaria.puntosExtra = valsecpunt;
+            accionSecundaria.extra_points = valsecpunt;
         }
         if(typeof valsectime != "number"){
-            accionSecundaria.tiempoExtra = 0;
+            accionSecundaria.extra_time = 0;
         }else{
-            accionSecundaria.tiempoExtra = valsectime;
+            accionSecundaria.extra_time = valsectime;
         }
         acciones.push(accionSecundaria);
     }
@@ -202,9 +204,10 @@ function saveNewRule(){
         description: desc,
         block: block,
         period: periodo,
+        comprobation: comprobation,
         repetition: repetition,
-        condicions: JSON.stringify(condiciones),
-        accions:JSON.stringify(acciones)
+        conditions: JSON.stringify(condiciones),
+        actions:JSON.stringify(acciones)
     };
     
 
@@ -220,7 +223,7 @@ function saveNewRule(){
     else{
         mapaReglas[block][name] = ruleObject;
     }
-
+    console.log(ruleObject);
     showRule(ruleObject);
     document.getElementById("popup").style="display:none;";
 }

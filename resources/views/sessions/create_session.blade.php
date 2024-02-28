@@ -167,7 +167,7 @@
                             <input style="display:none;" name="gamification" value="bpm" style="display:none;" id="gamification-input"></input>
                             <button class="button-selected" type="button" value="bpm" onclick="selectOption(this, 'button-game','gamification-input')" name="button-game">Pulsación Baja</button>
                             <button class="button-canceled" type="button" value="move" onclick="selectOption(this,  'button-game','gamification-input')" name="button-game">Movimiento Bajo</button>
-                            <button class="button-canceled" type="button" value="all" onclick="selectOption(this,  'button-game','gamification-input')" name="button-game">Cada periodo completado</button>
+                            <button class="button-canceled" type="button" value="all" onclick="selectOption(this,  'button-game','gamification-input')" name="button-game">Ambos bajo</button>
                         </div>
                     </div>
 

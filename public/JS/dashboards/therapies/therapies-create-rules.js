@@ -110,7 +110,7 @@ async function callGetIndexedMessage(messages, primary){
             let tdcheckbox = document.createElement("td");
                 let checkbox = document.createElement("input");
                 checkbox.type="checkbox";
-                checkbox.value=messages[Object.keys(messages)[i]]["id"];
+                checkbox.value=messages[Object.keys(messages)[i]];
                 checkbox.name = Object.keys(messages)[i];
                 tdcheckbox.appendChild(checkbox);
 
@@ -143,7 +143,7 @@ function checkEventListenerCheckbox(table, messages, primary){
             console.log("p-message-"+p+"-selected");
             document.getElementById("title-clock-select").innerHTML = messages[checkbox.name]["title"];
             document.getElementById("subtitle-clock-select").innerHTML = messages[checkbox.name]["subtitle"];
-            document.getElementById("message-"+p).value= messages[checkbox.name]["id"];
+            document.getElementById("message-"+p).value= JSON.stringify(messages[checkbox.name]);
             document.getElementById("p-message-"+p+"-selected").innerHTML= "Mensaje seleccionado: "+ messages[checkbox.name]["name"];
 
             checkboxes.forEach(function(otherCheckbox) {
