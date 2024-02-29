@@ -172,7 +172,6 @@ function saveNewRule(){
     }
 
     var acciones = [];
-
     accionPrincipal = {};
     accionPrincipal.message = document.getElementById("message-primary").value;
     accionPrincipal.session = document.getElementById("accion-sesion-primary").value;

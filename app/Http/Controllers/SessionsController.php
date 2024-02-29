@@ -82,6 +82,7 @@ class SessionsController extends Controller
         $session-> gamification = $request-> gamification;
         $session -> therapy_id = $request -> therapy_id;
         $session -> patient_id = $patient_id;
+        $session -> completed = false;
         $session -> save();    
 
         $patient = patient::find($patient_id);
@@ -312,6 +313,7 @@ class SessionsController extends Controller
      public function getUserSessionList(Request $request, $id){
         
         $patient = Patient::find($id);
+
         if(is_null($patient) || is_null($patient->session)){
             return response()->json([
                 'response' => "vacio"
@@ -324,8 +326,8 @@ class SessionsController extends Controller
         $listaSesionesAlumno = array();
 
         foreach($sesiones as $sesion){
-                if($sesion -> completed == false && $session -> date_time == $today){ 
-                    $fiveMinutesBefore = $today->subMinutes(5)->format('Y-m-d\TH:i');
+                if($sesion -> completed == false){
+                    $fiveMinutesBefore = $today->subMinutes(5)->format('Y-m-d H:i');
                     $datetimestr = $sesion->date_start . ' ' . $sesion->time_start;
                     $datetime = Carbon::parse($datetimestr)->format('Y-m-d H:i');
                     if($datetime >= $fiveMinutesBefore){
@@ -454,9 +456,9 @@ class SessionsController extends Controller
     public function getSessionRules(Request $request){
         
         $sessionId = $request->input('sessionid');
-        $session = Session::find($id);
+        $session = Session::find($sessionId);
 
-        if(empty($session[0])){
+        if(empty($session)){
             return response()->json([
                 'reglas' => 'none',
                 'movement' => 'none',
@@ -467,14 +469,13 @@ class SessionsController extends Controller
                 'textperiod' =>'none'
             ]);
         }
-        $terapia = Therapy::find('id', $session->therapy_id);
-
+        $terapiaId = $session -> therapy_id;
+        $terapia = Therapy::find($terapiaId);
         /*
             $session -> barcronometer = $request -> timer_clock;
             $session -> textcronometer = $request -> hour_clock;
             $session -> textperiod = $request -> text_clock;
         */
-
         if(json_decode($terapia->rules) == "empty")
             return response()->json([
                 'reglas' => "empty",
