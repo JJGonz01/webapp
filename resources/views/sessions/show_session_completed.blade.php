@@ -3,7 +3,7 @@
 @section('patients_section')
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!--para la grafica-->
 
-<script src="https://www.pomodoro.ovh/session/sessionCompleted.js"></script>  
+<script src="{{asset('/session/sessionCompleted.js')}}"></script>  
 
 <div class="general-items-container">
     <input id = "bpm_val" value="{{$bpm_valores}}" style="display:none;"></input>

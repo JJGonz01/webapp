@@ -5,10 +5,14 @@
 @section('patients_section')
 <head>
     <title>EDITAR | {{$patient->name}}</title>
-    <link rel="stylesheet" href="{{asset('/css/dashboards/patients/patient-menu.css')}}">
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="{{asset('/JS/dashboards/patients/calendar.js')}}"></script>
+    
+    <link rel="stylesheet" href="{{asset('/css/dashboards/patients/patient-menu.css')}}">
+    <link rel="stylesheet" href="{{asset('/css/dashboards/patients/calendar.css')}}">
+
 
 
 </head>
@@ -67,8 +71,8 @@
                             </div>
                         </div>
                     </div>
-
-                    <div class="row container-calendar-row">
+                    <div class="calendar" id="calendar"></div>
+                    <div style="display:none;" class="row container-calendar-row">
                                 <button class="col-mg-12"><span id="monday">21</span><span>Lun</span></button>
                                 <button class="col-mg-12"><span id="tuesday">22</span><span>Mar</span></button>
                                 <button class="col-mg-12"><span id="wendsday">23</span><span>Mie</span></button>
@@ -87,15 +91,17 @@
                                     <th scope="col">Título</th> 
                                     <th scope="col">Fecha inicio</th> 
                                     <th scope="col">Acciones</th>
+                                    <th scope="col">Acciones</th>
                                 </tr>
 
-                                @foreach($sessions->take(5) as $ses)
-                                @if($ses->completed == false)
+                                @foreach($sessions->take(15) as $ses)
+                                @if($ses->completed == true)
                                 <tr>
                                     <td scope="row"><input type="checkbox" value="{{$ses->id}}" id="checkbox1"></td>
-                                    <td scope="row">TBD</td>
-                                    <td>{{$ses -> date_start}} </td>
+                                    <td scope="row">{{$ses -> name}}</td>
+                                    <td>{{$ses -> date_start}} {{$ses -> time_start}}</td>
                                     <td> <form action = "{{route('session_edit', ['id' => $ses -> id], false, true)}}" method="GET"> <button class="edit-button" id="session-show-button">Editar</button> </form> </td>
+                                    <td> <form action = "{{route('session_show', ['id' => $ses -> id], false, true)}}" method="GET"> <button class="edit-button" id="session-show-button">Ver</button> </form> </td>
                                 </tr> 
                                 @endif
                                 @endforeach

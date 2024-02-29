@@ -360,7 +360,7 @@ class SessionsController extends Controller
         $session = Session::find($sessionId);
         $sessionResult = SessionResult::where('session_id', $session->id)->get();
         //$terapia = Therapy::where('id', $session->therapy_id)->get();
-        if(!$session->isEmpty()){
+        if($session!=null){
             $session->running = true; //puesto que es la unica
             $session->bpm_lim = $bpm_lim; 
             $session->move_lim = $move_lim; 
@@ -383,20 +383,20 @@ class SessionsController extends Controller
 
         $sessionId = $request->input('sessionId');
         $session = Session::find($sessionId);
-        $sessionResult = SessionResult::where('session_id', $session->id)->get(0);
+        $session_results = SessionResult::where('session_id', $session->id)->get();
 
-        if(!$results->isEmpty()){
+        if($session!=null){
 
             $valores_bpm = json_encode($request->input('bpm_values'));
             $valores_move = json_encode($request->input('move_values'));
 
-            $session_results -> bpm_valores = $valores_bpm;
-            $session_results -> move_valores = $valores_move;
-            $session_results -> save();
+            $session_results[0] -> bpm_valores = $valores_bpm;
+            $session_results[0] -> move_valores = $valores_move;
+            $session_results[0] -> save();
 
-            $results -> running = false; 
-            $results -> completed = true; 
-            $results -> save();
+            $session -> running = false; 
+            $session -> completed = true; 
+            $session -> save();
 
             return response()->json([
                 'response' => $session->id
@@ -404,49 +404,38 @@ class SessionsController extends Controller
         }
 
          return response()->json([
-            'response' => $session_results
+            'response' => $sessionId
         ]);
     }
 
     public function sessionFinish2(Request $request){
 
-        $dateString = $request->input('date');
-        //$dateString = '2023-05-26T00:10:54.917328Z';
 
-        $date = Carbon::parse($dateString);
-        
-        $formattedDate = $date->format('Y-m-d H:i');
-        
-        // Realiza la consulta en la base de datos
-        $results = Session::where('date_start', $formattedDate)->get();
+        $sessionId = $request->input('sessionId');
+        $session = Session::find($sessionId);
 
-        if(!$results->isEmpty()){
+        if($session!=null){
             $reglas = json_encode($request->input('rules'));
             $valores_bpm_medios = json_encode($request->input('bpm_avg'));
             $valores_move_medios = json_encode($request->input('move_avg'));
             $puntosObtenidos = json_encode($request->input('points'));
-
             $limite_bpm = $request->input('bpm_limit');
-            
-            $session_results = SessionResult::where('session_id', $results[0]->id)->get(); //cogemos el objeto de resultados para rellenarle los valores
+            $session_results = SessionResult::where('session_id', $sessionId)->get(); //cogemos el objeto de resultados para rellenarle los valores
             $session_results[0] -> rules = $reglas;
             $session_results[0] -> bpm_medios = $valores_bpm_medios;
             $session_results[0] -> move_medios = $valores_move_medios;
             $session_results[0] -> bpm_limite = $limite_bpm; //el valor q separa alto de bajo
             $session_results[0] -> puntosObtenidos = $puntosObtenidos; //el valor q separa alto de bajo
             $session_results[0] -> save();
-
-            $results[0]->running = false; 
-            $results[0]->completed = true; 
-            $results[0]->save();
-
+            $session->running = false; 
+            $session->completed = true; 
+            $session->save();
             return response()->json([
-                'response' => "funciono2!"
+                'response' => $session->id
             ]);
          }
-
          return response()->json([
-            'response' => $date
+            'response' => $sessionId
         ]);
     }
 
@@ -460,7 +449,7 @@ class SessionsController extends Controller
 
         if(empty($session)){
             return response()->json([
-                'reglas' => 'none',
+                'rules' => 'none',
                 'movement' => 'none',
                 'bpm' => 'none',
                 'gamification' => 'none',
@@ -478,9 +467,9 @@ class SessionsController extends Controller
         */
         if(json_decode($terapia->rules) == "empty")
             return response()->json([
-                'reglas' => "empty",
+                'rules' => "empty",
                 'movement' => $session-> movement,
-                'bpm' => $session-> bpm,
+                'bpm' => $session-> percentage,
                 'gamification' => $session -> gamification,
                 'barcronometer' => $session -> barcronometer,
                 'textcronometer' => $session -> textcronometer,
@@ -488,9 +477,9 @@ class SessionsController extends Controller
             ]);
         else
             return response()->json([
-                'reglas' => $terapia->rules,
+                'rules' => $terapia->rules,
                 'movement' => $session-> movement,
-                'bpm' => $session-> bpm,
+                'bpm' => $session-> percentage,
                 'gamification' => $session -> gamification,
                 'barcronometer' => $session -> barcronometer,
                 'textcronometer' => $session -> textcronometer,
