@@ -22,13 +22,11 @@ class PatientsController extends Controller
             return view('patients.patients', ['patients' => $patients]);
         }
         else{
-
             $patients = [];
             return view('patients.patients', ['patients' => $patients]);
         }
         //Para recordar que esto va asi $parameters = Parameter::all();
     }
-
      /**
      * STORE: Guarda un paciente
      */
@@ -43,7 +41,7 @@ class PatientsController extends Controller
             'physiologicals' => 'array',
             'behaviors' => 'array'
         ]);
-
+ 
         if(!Auth::check()){
             return view('layouts.app'); 
         }
@@ -60,23 +58,19 @@ class PatientsController extends Controller
 
         $array_phy = $request->input('physiologicals');
         $array_beh = $request->input('behaviors');
-
         
+        //Me llega un string del json con los valores y cojo los valores de cada sitio
         if (!empty($array_beh) && !is_null($array_beh) && !is_null($array_beh[0])) {
             foreach ($array_beh as $beh_indv) {
                 $behavior = new Behavior;
-                
-                //Me llega un string del json con los valores y cojo los valores de cada sitio
                 $array_behv = json_decode($beh_indv, true);
-               
-
                 $behavior-> type = $array_behv[0]['type'];
                 $behavior-> description = $array_behv[0]['description'];
                 $behavior-> patient_id = $patient->id;
                 $behavior->save();
             }
         }
-        
+
         if (!empty($array_phy) && !is_null($array_phy) && !is_null($array_phy[0])) {
             foreach ($array_phy as $phy_indv) {
                 $physiological = new Physiological;
@@ -104,16 +98,14 @@ class PatientsController extends Controller
         if (Auth::check()) {
             $usuario = Auth::user();
             $patient = Patient::where('user_id', $usuario -> id)
-            -> where('id', $id)
-            -> get();
-
+                -> where('id', $id)
+                -> get();
             if(!$patient)
                 $patients = Patient::where('user_id', $usuario -> id) -> get();
             else{
                 $sessions = Session::where('patient_id', $patient[0]->id) -> get();
                 return view('patients.show_patient', ['patient' => $patient[0], 'sessions' => $sessions]);
             }
-
             return view('patients.patients', ['patients' => $patients]);
         }
         else{
@@ -124,14 +116,13 @@ class PatientsController extends Controller
      /**
      * UPDATE: Actualiza un paciente
      */
-
      public function showFormUpdate($id)
      {
         return;
      }
 
      public function update(Request $request, $id)
-    {
+     {
         $patient = Patient::find($id);
         $request -> validate([
             'name' => 'required|min:1', //Al menos una letra para el nombre

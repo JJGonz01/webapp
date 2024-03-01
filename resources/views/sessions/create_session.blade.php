@@ -12,6 +12,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <script src="{{asset('/JS/dashboards/patients/create-session.js')}}"></script>
 
+    <meta  name="date" id="date-start" content="{{ $date_start }}"></meta>
     <link rel="stylesheet" href="{{asset('/css/dashboards/patients/create-session.css')}}">
     <link rel="stylesheet" href="{{asset('/css/dashboards/patients.css')}}">
     <link rel="stylesheet" href="{{asset('/css/draws/clock.css')}}">

@@ -1,5 +1,8 @@
 window.onload = function(){
     selectOneRepeat();
+
+    if(document.getElementById("date-start").content != "none");
+        document.getElementById("fecha").value = document.getElementById("date-start").content;
 }
 
 function closePopup(){

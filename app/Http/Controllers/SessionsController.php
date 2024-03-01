@@ -23,8 +23,17 @@ class SessionsController extends Controller
         $patient = patient::find($patient_id);
         $usuario = Auth::user();
         $therapiesList = Therapy::where('user_id',$usuario -> id)->get();
+        $sessiones = Session::where('patient_id',$usuario -> id)->get();
+        return view('sessions.create_session',  ['patient' => $patient, 'therapies' => $therapiesList, 'sessions'=> $sessiones, 'date_start' => "none"]);
+    }
+
+    public function createWithDate(string $patient_id, string $date_start)
+    {
+        $patient = patient::find($patient_id);
+        $usuario = Auth::user();
+        $therapiesList = Therapy::where('user_id',$usuario -> id)->get();
         $sessiones = $patient->session;
-        return view('sessions.create_session',  ['patient' => $patient, 'therapies' => $therapiesList, 'sessions'=> $sessiones]);
+        return view('sessions.create_session',  ['patient' => $patient, 'therapies' => $therapiesList, 'date_start' => $date_start, 'sessions'=> $sessiones]);
     }
 
     public function store(Request $request, string $patient_id)

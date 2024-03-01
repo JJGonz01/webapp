@@ -1,36 +1,45 @@
-#calendar {
+  #calendar {
     font-family: Arial, sans-serif;
   }
-  
   #calendar table {
     width: 100%;
     border-collapse: collapse;
   }
-  
   #calendar th,
   #calendar td {
     padding: 10px;
     border: 1px solid #ccc;
     text-align: end;
   }
-
   #calendar b {
     color:black;
   }
-  
   #calendar p {
     color:black;
   }
   
   #calendar th {
     background-color: #f2f2f2;
+  }  
+  #calendar td {
+    background-color: #ffffff;
+    height: 130px;
+    vertical-align:top;
   }
-
   #calendar button {
     background-color: rgba(145, 145, 145, 0.463);
     border: 0.5px solid grey;
     border-radius: 10px;
   }
-  .row-day-calendar{
-
+  .button-session{
+    width: 100%;
+    text-align: left;
+    background-color:rgb(221, 221, 221);
+    border-radius: 2px;
+    padding-left: 10px;
+  }
+  .button-session:hover{
+    text-align: left;
+    background-color:rgb(185, 185, 185);
+    padding-left: 10px;
   }

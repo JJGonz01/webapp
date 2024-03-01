@@ -172,6 +172,7 @@ Route::group( ['middleware' => 'auth' ], function()
      */
 
     Route::get('/createsession/{patient_id}', [SessionsController::class, 'create'])->name('sessions_create');
+    Route::get('/createsessiondated/{patient_id}/{date_start}', [SessionsController::class, 'createWithDate'])->name('sessions_create_withdate');
     Route::post('/createsession/{patient_id}', [SessionsController::class, 'store'])->name('sessions_create_post');
 
         Route::get('/general', function () {

@@ -9,14 +9,11 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="{{asset('/JS/dashboards/patients/calendar.js')}}"></script>
-    
+    <meta  name="sessions" id="sessions-value" content="{{ $sessions }}"></meta>
+    <meta  name="patients" id="patient-value" content="{{ $patient -> id }}"></meta>
     <link rel="stylesheet" href="{{asset('/css/dashboards/patients/patient-menu.css')}}">
     <link rel="stylesheet" href="{{asset('/css/dashboards/patients/calendar.css')}}">
-
-
-
 </head>
-
 
 @if (session('success'))
     <h6 class="alert alert-success"> {{ session('success') }}</h6>
@@ -73,13 +70,13 @@
                     </div>
                     <div class="calendar" id="calendar"></div>
                     <div style="display:none;" class="row container-calendar-row">
-                                <button class="col-mg-12"><span id="monday">21</span><span>Lun</span></button>
-                                <button class="col-mg-12"><span id="tuesday">22</span><span>Mar</span></button>
-                                <button class="col-mg-12"><span id="wendsday">23</span><span>Mie</span></button>
-                                <button class="col-mg-12"><span id="thrusday">24</span><span>Jue</span></button>
-                                <button class="col-mg-12"><span id="friday">25</span><span>Vie</span></button>
-                                <button class="col-mg-12"><span id="saturday">26</span><span>Sab</span></button>
-                                <button class="col-mg-12"><span id="sunday">27</span><span>Dom</span></button>
+                        <button class="col-mg-12"><span id="monday">21</span><span>Lun</span></button>
+                        <button class="col-mg-12"><span id="tuesday">22</span><span>Mar</span></button>
+                        <button class="col-mg-12"><span id="wendsday">23</span><span>Mie</span></button>
+                        <button class="col-mg-12"><span id="thrusday">24</span><span>Jue</span></button>
+                        <button class="col-mg-12"><span id="friday">25</span><span>Vie</span></button>
+                        <button class="col-mg-12"><span id="saturday">26</span><span>Sab</span></button>
+                        <button class="col-mg-12"><span id="sunday">27</span><span>Dom</span></button>
                     </div>
                         
                     <div class="container-sesiones">
