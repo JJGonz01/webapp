@@ -32,7 +32,24 @@ span{
     background-color: #fff;
     padding: 20px;
 }
-
+.rounded-image{
+    border-radius: 100%;
+    width: 50%;
+    height: auto;
+    margin: 7px;
+    margin-left: 1px;
+}
+.image-container{
+    border-radius: 10px;
+    border: 1px solid grey;
+    text-align: center;
+    align-items: center;
+    align-content: center;
+}
+.container-objective-type{
+    padding: 20px;
+    height: min-content;
+}
 .checkbox-session{
     text-align: left;
 }

@@ -2,6 +2,8 @@
     border: 0.3px solid grey;
     border-radius: 10px;
     padding-top: 25px;
+    padding:10px;
+    margin-top: 5px;
 }
 
 .container-padding{
@@ -11,9 +13,6 @@
 
 .container-margin-bottom{
     margin-bottom:2%;
-}
-.container-patient-slim h5{
-    text-align: center;
 }
 
 .container-content-patient{
@@ -102,7 +101,11 @@
     text-align: center;
 }
 
-
+.button-select-event{
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 2%;
+}
 #profile-image{
     border-radius: 100%;
     width: 100%;

@@ -7,6 +7,7 @@ use App\Models\patient;
 use App\Models\user;
 use App\Models\Physiological;
 use App\Models\Behavior;
+use App\Models\Therapy;
 use App\Models\Session;
 
 class PatientsController extends Controller
@@ -87,6 +88,15 @@ class PatientsController extends Controller
        
         return redirect()->route('patients_index')->with('success','Paciente creado correctamente');
 
+     }
+
+     public function createObjective(string $patient_id)
+     {
+         $patient = patient::find($patient_id);
+         $usuario = Auth::user();
+         $therapiesList = Therapy::where('user_id',$usuario -> id)->get();
+         $sessiones = Session::where('patient_id',$usuario -> id)->get();
+         return view('patients.objectives.create_objective',  ['patient' => $patient, 'therapies' => $therapiesList, 'sessions'=> $sessiones, 'date_start' => "none"]);
      }
 
      /**
