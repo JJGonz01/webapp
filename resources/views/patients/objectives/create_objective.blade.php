@@ -11,6 +11,7 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <script src="{{asset('/JS/dashboards/patients/create-session.js')}}"></script>
+    <script src="{{asset('/JS/dashboards/patients/objectives/objectives.js')}}"></script>
 
     <meta  name="date" id="date-start" content="{{ $date_start }}"></meta>
     <link rel="stylesheet" href="{{asset('/css/dashboards/patients/create-session.css')}}">
@@ -39,7 +40,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-12 container-session-inputs">
+                <div class="col-md-12 container-session-inputs" id="container-objective-one">
                     <div class="form-row">
                         <div class="col-md-4 container-objective-type">
                             <button type="button" class="image-container">
@@ -55,28 +56,16 @@
                         </div>
                         <div class="col-md-4 container-objective-type">
                             <button type="button" class="image-container">
-                            <img class="rounded-image" src="{{asset('images/perfil.png')}}"></img>
+                            <img class="rounded-image" src="{{asset('images/schoolmedal.jpg')}}"></img>
                             <p>Objetivo escolar</p>
                             </button>
                         </div>
                     </div>
-                    <div style="margin-left:5px" class="row container-session-gamification">
-                            <span>&#xf2db;</span>
-                            <p>Fecha en la que comienza</p> <p class="text-description"></p>
-                    </div>
-                    <div class="form-row">
-                        <div class="col-md-7" id="fecha-div">
-                            
-                            <input class=" form-control" placeholder="Fecha y hora de la sesión" type="date" id="fecha" name="date_start"></input>
-                        </div>
-                        <div class="col-md-5" id="hora-div">
-                            <input class="form-control" placeholder="Fecha y hora de la sesión" type="time" id="hora" name="time_start"></input>
-                        </div>
-                    </div>
+                    
 
                     <div style="margin-left:5px" class="row container-session-gamification">
                             <span>&#xf2db;</span>
-                            <p>Fecha en la que termina</p> <p class="text-description"></p>
+                            <p>Fecha del objetivo</p> <p class="text-description"></p>
                     </div>
                     <div class="form-row">
                         <div class="col-md-7" id="fecha-div">
@@ -91,15 +80,32 @@
                     <input name="name" class="form-control" placeholder="Nombre del objetivo"></input>
                     <textarea name="description" class="form-control" rows="3" placeholder="Descripción"></textarea>
 
+                    <div class="float-end">
+                        <button type="button" onclick="gotonextstep()" class="btn btn-primary">Siguiente</button>
+                        <button type="button" class="btn btn-danger" onclick="closePopup()">Cancelar</button>
+                    </div>
+                </div>
 
+                <div class="col-md-12 container-session-inputs" id="container-objective-two" style="display:none;">
+                    <button type="button" class="btn btn-primary" onclick="createMilestone()">Crear Hito</button>
+                    <div class="milestones-container-list" id="milestones-list">
+                        <div class="row milestone-container">
+                            <h1 class="col-md-2">1</h1>
+                            <div  class="col-md-4 milestone-container-div"><input class="form-control " placeholder="Nombre del hito"></input></div>
+                            <div  class="col-md-4 milestone-container-div"><input class="form-control " placeholder="Comentario del hito"></input></div>
+                        </div>
+
+                    </div>
+                    
+                    <div class="float-end">
+                        <button type="submit" class="btn btn-primary">Guardar</button>
+                        <button type="button" class="btn btn-danger" onclick="gotolaststep()">Ir a paso anterior</button>
+                    </div>
                 </div>
                 
             </div>
             <!-- Botón para cerrar el popup -->
-            <div class="float-end">
-                <button type="submit" class="btn btn-primary">Guardar</button>
-                <button type="button" class="btn btn-danger" onclick="closePopup()">Cancelar</button>
-            </div>
+            
         </div>
     </div>
 </form>

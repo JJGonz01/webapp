@@ -6,6 +6,7 @@ body{
 
 .navbar{
     height:100vh;
+    position: fixed !important;
 }
 
 #img-logo{

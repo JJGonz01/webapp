@@ -11,19 +11,18 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('clock_messages', function (Blueprint $table) {
+        Schema::create('patientevents', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
             $table->string('name');
             $table->string('type');
             $table->string('description');
-
-            $table->date('date_start');
-            $table->time('time_start');
-
+            
             $table->date('date_end');
             $table->time('time_end');
             
+            $table->json('steps');
+
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
 

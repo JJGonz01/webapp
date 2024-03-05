@@ -9,6 +9,7 @@ use App\Models\Physiological;
 use App\Models\Behavior;
 use App\Models\Therapy;
 use App\Models\Session;
+use App\Models\patientevent;
 
 class PatientsController extends Controller
 {
@@ -85,9 +86,7 @@ class PatientsController extends Controller
             }
         }
         
-       
         return redirect()->route('patients_index')->with('success','Paciente creado correctamente');
-
      }
 
      public function createObjective(string $patient_id)
@@ -97,6 +96,43 @@ class PatientsController extends Controller
          $therapiesList = Therapy::where('user_id',$usuario -> id)->get();
          $sessiones = Session::where('patient_id',$usuario -> id)->get();
          return view('patients.objectives.create_objective',  ['patient' => $patient, 'therapies' => $therapiesList, 'sessions'=> $sessiones, 'date_start' => "none"]);
+     }
+
+     public function storeObjective(Request $request)
+     {
+        $request -> validate([
+            'name' => 'required|min:1|max:10',
+            'description' => 'min:1',
+            'type' => 'required',
+            'date_end' => 'required',
+            'time_end' => 'required',
+            'steps' => 'required|array',
+            'patientid' => 'required'
+        ]);   
+
+        if (Auth::check()) {
+            $usuario = Auth::user();
+            $objective = new patientevent;
+
+            $objective->name = $request -> name;
+            $objective->type = $request -> type;
+            $objective->description = $request -> description;
+
+            $objective->date_end = $request -> date_end;
+            $objective->time_end = $request -> time_end;
+            
+            $objective->steps = $request -> steps;
+
+            $objective->user_id = $usuario->id;
+
+            $objective->patient_id = $request->patientid;
+
+            $objective -> save();
+        }
+        else{
+            $patients = [];
+            return view('patients.patients', ['patients' => $patients]);
+        }
      }
 
      /**

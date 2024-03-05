@@ -31,9 +31,26 @@
                 <button onclick="closePopUpEvent()" class="text-end col-md-1">X</button>
         </div>
 
-        <button onclick="sendFormSession('create-session-form')" class="button-select-event">Sesión de estudio</button>
-        <button onclick="sendFormSession('create-objetive-form')" class="button-select-event">Evento</button>
-        <button onclick="sendFormSession('create-objetive-form')" class="button-select-event">Objetivo</button>
+        <div class="form-row">
+                <div class="col-md-4 container-objective-type">
+                    <button  onclick="sendFormSession('create-session-form')" type="button" class="image-container">
+                    <img class="rounded-image" src="{{asset('images/clockpom.jpg')}}"></img>
+                    <p>Crear sesión de estudio</p>
+                    </button>
+                </div>
+                <div class="col-md-4 container-objective-type">
+                    <button  onclick="sendFormSession('create-objetive-form')" type="button" class="image-container">
+                    <img class="rounded-image" src="{{asset('images/goaltarget.jpg')}}"></img>
+                    <p>Crear Objetivo de paciente</p>
+                    </button>
+                </div>
+                <div class="col-md-4 container-objective-type">
+                    <button  onclick="sendFormSession('create-objetive-form')" type="button" class="image-container">
+                    <img class="rounded-image" src="{{asset('images/eventcalendar.jpg')}}"></img>
+                    <p>Crear evento</p>
+                    </button>
+                </div>
+            </div>
     </div>
 </div>
 <div class="container-fluid">

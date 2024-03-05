@@ -17,8 +17,8 @@
 <button type="button" class="btn btn-primary d-md-none fixed-top w-100" style="margin-bottom:10px">Nuevo Botón</button>
     <div class="container-fluid">
         <div class="row">
-            <nav class="col-md-2 d-none d-md-block bg-light navbar">
-                <div class="sidebar-sticky">
+            <nav class="sidebar-sticky col-md-2 d-none d-md-block bg-light navbar">
+                <div>
                     <div>
                         <img id="img-logo" src="{{asset('/images/logorm.png')}}">
                         <button class="button-no-border" style="font-family: Arial, FontAwesome;">&#xf013;</button>
@@ -37,18 +37,18 @@
                             <a class="nav-link" href="/therapies">Planes de estudio</a>
                         </li>
 
+                        <li class="nav-item">
+                        <form id="form_crear_sesion" action="{{route('home', [], false, true)}}" method="GET">
+                            <button id="nav_bar_info">
+                                <div>
+                                    <p id="navbar-4">Perfil</p>
+                                </div>
+                            </button>
+                        </form>
+                        </li>
+
                     </ul>
                 </div>
-                
-            <div class="fixed-bottom p-3">
-                <form id="form_crear_sesion" action="{{route('home', [], false, true)}}" method="GET">
-                    <button id="nav_bar_info">
-                        <div>
-                            <p id="navbar-4">Perfil</p>
-                        </div>
-                    </button>
-                </form>
-            </div>
             </nav>
             
             <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
