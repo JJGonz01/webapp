@@ -5,13 +5,14 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Session;
-use App\Models\SessionResult;
+use App\Models\SessionResult; 
 use App\Models\Therapy;
 use App\Models\SessionPeriod;
 use App\Models\SessionData;
 use App\Models\patient;
 use App\Models\Regla;
 use App\Models\FuzzyData;
+use App\Models\patientevent;
 use Illuminate\Validation\Rule;
 use Carbon\Carbon; //Para cargar las fechas
 use Illuminate\Support\Facades\Validator;
@@ -23,8 +24,9 @@ class SessionsController extends Controller
         $patient = patient::find($patient_id);
         $usuario = Auth::user();
         $therapiesList = Therapy::where('user_id',$usuario -> id)->get();
-        $sessiones = Session::where('patient_id',$usuario -> id)->get();
-        return view('sessions.create_session',  ['patient' => $patient, 'therapies' => $therapiesList, 'sessions'=> $sessiones, 'date_start' => "none"]);
+        $sessiones = Session::where('patient_id',$patient -> id)->get();
+        $objectives = patientevent::where('patient_id', $patient->id) -> get();
+        return view('sessions.create_session',  ['patient' => $patient, 'therapies' => $therapiesList, 'sessions'=> $sessiones, 'objectives' =>$objectives, 'date_start' => "none"]);
     }
 
     public function createWithDate(string $patient_id, string $date_start)
@@ -33,7 +35,8 @@ class SessionsController extends Controller
         $usuario = Auth::user();
         $therapiesList = Therapy::where('user_id',$usuario -> id)->get();
         $sessiones = $patient->session;
-        return view('sessions.create_session',  ['patient' => $patient, 'therapies' => $therapiesList, 'date_start' => $date_start, 'sessions'=> $sessiones]);
+        $objectives = patientevent::where('patient_id', $patient->id) -> get();
+        return view('sessions.create_session',  ['patient' => $patient, 'therapies' => $therapiesList, 'date_start' => $date_start,'objectives' =>$objectives, 'sessions'=> $sessiones]);
     }
 
     public function store(Request $request, string $patient_id)

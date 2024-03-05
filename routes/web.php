@@ -172,6 +172,8 @@ Route::group( ['middleware' => 'auth' ], function()
      */
 
     Route::get('/createobjective/{patient_id}', [PatientsController::class, 'createObjective'])->name('objetives_create');
+    Route::post('/createobjective/{patient_id}', [PatientsController::class, 'storeObjective'])->name('objetives_create');
+    
     Route::get('/createsession/{patient_id}', [SessionsController::class, 'create'])->name('sessions_create');
     Route::get('/createsessiondated/{patient_id}/{date_start}', [SessionsController::class, 'createWithDate'])->name('sessions_create_withdate');
     Route::post('/createsession/{patient_id}', [SessionsController::class, 'store'])->name('sessions_create_post');

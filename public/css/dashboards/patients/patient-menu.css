@@ -114,3 +114,24 @@
     margin-left: 1px;
 }
 
+.rounded-image-objective{
+    border-radius: 50%; /* Cambiado a 50% para un círculo perfecto */
+    width: 50%; /* Ancho del 50% del contenedor */
+    height: auto; /* Altura ajustada automáticamente para mantener la proporción */
+    margin: 7px;
+    margin-left: 1px;
+}
+.image-container-objective{
+    border-radius: 30px;
+    border: 1px solid grey;
+    text-align: center;
+    align-items: center;
+    align-content: center;
+    width:100%;
+    height:auto;
+    margin-top: 20px;
+}
+
+.p-milestone{
+    margin-left:10px;
+}

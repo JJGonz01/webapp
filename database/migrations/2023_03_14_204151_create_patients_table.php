@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('surname');
+            $table->integer('points')->default(0);
             $table->string('description')->nullable();
             $table->dateTime('last_mod')->nullable();
             $table->unsignedBigInteger('user_id');

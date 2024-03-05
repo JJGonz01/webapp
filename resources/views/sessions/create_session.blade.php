@@ -13,6 +13,7 @@
     <script src="{{asset('/JS/dashboards/patients/create-session.js')}}"></script>
 
     <meta  name="date" id="date-start" content="{{ $date_start }}"></meta>
+    <meta  name="date" id="objectives" content="{{ $objectives }}"></meta>
     <link rel="stylesheet" href="{{asset('/css/dashboards/patients/create-session.css')}}">
     <link rel="stylesheet" href="{{asset('/css/dashboards/patients.css')}}">
     <link rel="stylesheet" href="{{asset('/css/draws/clock.css')}}">
@@ -54,7 +55,31 @@
                     </div>
                     <input name="name" class="form-control" placeholder="Nombre"></input>
                     <textarea name="description" class="form-control" rows="3" placeholder="Descripción"></textarea>
-
+                    <div style="margin-left:5px" class="row container-session-gamification">
+                            <span>&#xf073;</span>
+                            <p>Seleccionar objetivo e hito</p> <p class="text-description"></p>
+                            <span data-toggle="tooltip" data-html="true" 
+                                    title="Cual es el objetivo de esta sesión y que hito de este va a querer cumplir, no es necesario asignar una, pero puede motivar al paciente. 
+                                    El reloj enviará un mensaje recordando el objetivo al avisar a los 5 minutos antes de empezar y al finalizar"
+                                    style="margin-left:10px; font-size:large" >&#xf059;</span>
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">
+                                <span onclick="openObjectivesPopup()" id="inputGroup-sizing-sm">Seleccionar hito</span>
+                            </div>
+                        </div>
+                        <input id="objective-input" name="objetive_id" style="display:none;"></input>
+                        <input id="milestone-input" name="milestone" style="display:none;"></input>
+                        <input id="objective-name" type="text" class="form-control" aria-label="Text input with checkbox" readonly>
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">
+                                <span id="inputGroup-sizing-sm">X</span>
+                            </div>
+                        </div>
+                    </div>
+ 
+                
                     <div style="margin-left:5px" class="row container-session-gamification">
                             <span>&#xf073;</span>
                             <p>Repetir sesión</p> <p class="text-description"></p>
@@ -291,6 +316,88 @@
         </div>
     </div>
 </div>
+
+
+<div id="popup-objectives" class="popup" style="display:none;">
+    <div class="popup-content">
+        <div class="row">
+            <div class="col">
+                <h2>Selecciona hito y objetivo</h2>
+            </div>
+            <div class="col text-end align-button-right">
+                <button class="button-closed" onclick="closeObjectivesPopup()">X</button>
+            </div>
+        </div>
+        <script>
+           $(function () {
+                $('[data-toggle="tooltip"]').tooltip()}) 
+        </script> 
+        <div class="row container-inputs-top">
+                <div class="col-md-4 container-input-span">
+                    <span style="font-family: Arial, FontAwesome; padding-right: 4px;">&#xf002;</span>
+                    <input placeholder="Buscar plan de estudio"></input>
+                </div>
+                <div class="col-md-7 d-flex flex-row container-filter-align-end">
+                    <button type="button"><span class="fa-regular fa-filter">Filtrar</span></button>
+                </div>   
+        </div>
+
+        <div class="table-responsive text-center">
+            <table class="table">
+                <tr class="top-index-container">
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Tipo</th>
+                    <th scope="col">Fecha</th>
+                    <th scope="col">Selección</th>
+                </tr>
+                <div id="patient-list" class="table-items-options-overflow">
+                    @foreach($objectives->take(5) as $obj)
+                    <tr>
+                        <td>{{$obj->name}}</td>
+                        <td>TBD</td>
+                        <td>TBD</td>
+                        <td scope="row"><button class="btn btn-primary" type="checkbox" onclick="openMileStonesPopUp('{{$obj->id}}')">SELECCIONAR</td>
+                    </tr>
+                    @endforeach
+                </div>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+<div id="popup-objectives-milestones" class="popup-on" style="display:none;">
+    <div class="popup-content">
+        <div class="row">
+            <div class="col">
+                <h2>Selecciona HITO del objetivo</h2>
+            </div>
+            <div class="col text-end align-button-right">
+                <button class="button-closed" onclick=" closeMileStonePopup()">X</button>
+            </div>
+        </div>
+        <script>
+           $(function () {
+                $('[data-toggle="tooltip"]').tooltip()}) 
+        </script> 
+        <div class="row container-inputs-top">
+                <div class="col-md-4 container-input-span">
+                    <span style="font-family: Arial, FontAwesome; padding-right: 4px;">&#xf002;</span>
+                    <input placeholder="Buscar plan de estudio"></input>
+                </div>
+                <div class="col-md-7 d-flex flex-row container-filter-align-end">
+                    <button type="button"><span class="fa-regular fa-filter">Filtrar</span></button>
+                </div>   
+        </div>
+
+        <div class="table-responsive text-center">
+            <table class="table" id="table-milestones">
+                
+            </table>
+        </div>
+    </div>
+</div>
+
 <!-- div class="reglas-container-right"  id="contenedor_creador_reglas" style="display:flex;">
                 <div class="content-half-image"></div>
                 <div class="content-half">

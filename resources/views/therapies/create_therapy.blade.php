@@ -97,10 +97,11 @@
                             title="Establece los valores que tienen que cumplirse para que se ejecuten las acciones"
                             style="margin-left:10px; font-size:large" >&#xf059;</span>
                         </div>
-                        <div class="input-group-prepend">
-                            <button class="button-selected">Sin botón</button>
-                            <button>Un botón</button>
-                            <button>Dos botones</button>
+                        <div class="input-group-prepend" id="message-type-container">
+                            <input id="message-type-input" value=0 style="display:none;"></input>
+                            <button onclick="messageSelect('message-type-container',this,0)" class="button-selected">Sin botón</button>
+                            <button onclick="messageSelect('message-type-container',this,1)" class="button-canceled">Un botón</button>
+                            <button onclick="messageSelect('message-type-container',this,2)" class="button-canceled">Dos botones</button>
                         </div>
                 </div>
                 <div class="input-group input-group-conditions">

@@ -94,22 +94,24 @@ class PatientsController extends Controller
          $patient = patient::find($patient_id);
          $usuario = Auth::user();
          $therapiesList = Therapy::where('user_id',$usuario -> id)->get();
-         $sessiones = Session::where('patient_id',$usuario -> id)->get();
-         return view('patients.objectives.create_objective',  ['patient' => $patient, 'therapies' => $therapiesList, 'sessions'=> $sessiones, 'date_start' => "none"]);
+         $sessiones = Session::where('patient_id',$patient -> id)->get();
+         $objectives = patientevent::where('patient_id', $patient->id) -> get();
+
+         return view('patients.objectives.create_objective',  ['patient' => $patient, 'therapies' => $therapiesList, 'sessions'=> $sessiones, 'objectives' => $objectives, 'date_start' => "none"]);
      }
 
-     public function storeObjective(Request $request)
+     public function storeObjective(Request $request,string $patient_id)
      {
         $request -> validate([
-            'name' => 'required|min:1|max:10',
-            'description' => 'min:1',
+            'name' => 'required|min:1|max:20',
+            'description' => 'max:255',
             'type' => 'required',
             'date_end' => 'required',
             'time_end' => 'required',
-            'steps' => 'required|array',
-            'patientid' => 'required'
+            'steps' => [
+                'required'
+            ],
         ]);   
-
         if (Auth::check()) {
             $usuario = Auth::user();
             $objective = new patientevent;
@@ -125,9 +127,17 @@ class PatientsController extends Controller
 
             $objective->user_id = $usuario->id;
 
-            $objective->patient_id = $request->patientid;
+            $objective->patient_id = $patient_id;
 
             $objective -> save();
+
+            $patient = Patient::where('user_id', $usuario -> id)
+                -> where('id', $patient_id)
+                -> get();
+
+            $sessions = Session::where('patient_id', $patient[0]->id) -> get();
+            $objectives = patientevent::where('patient_id', $patient[0]->id) -> get();
+            return view('patients.show_patient', ['patient' => $patient[0], 'sessions' => $sessions, 'objectives' => $objectives]);
         }
         else{
             $patients = [];
@@ -150,7 +160,8 @@ class PatientsController extends Controller
                 $patients = Patient::where('user_id', $usuario -> id) -> get();
             else{
                 $sessions = Session::where('patient_id', $patient[0]->id) -> get();
-                return view('patients.show_patient', ['patient' => $patient[0], 'sessions' => $sessions]);
+                $objectives = patientevent::where('patient_id', $patient[0]->id) -> get();
+                return view('patients.show_patient', ['patient' => $patient[0], 'sessions' => $sessions, 'objectives' => $objectives]);
             }
             return view('patients.patients', ['patients' => $patients]);
         }

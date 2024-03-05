@@ -84,11 +84,20 @@ function cancelCreateMessage(){
     document.getElementById("popup-on-on").style="display:none;";
 }
 
+
+function messageSelect(divId,button,type){
+    var buttons = document.getElementById(divId).getElementsByTagName("Button");
+    for(var i = 0; i<buttons.length; i++){
+        buttons[i].className = "button-canceled";
+    }
+    button.className = "button-selected";
+    document.getElementById("message-type-input").value = type;
+}
 function callCreateMessage(primary){
     var name =  document.getElementById("input-message-name").value;
     var title =  document.getElementById("input-message-title").value;
     var subtitle =  document.getElementById("input-message-subtitle").value;
-    var type =  1;//document.getElementById("messages-list");
+    var type =  document.getElementById("message-type-input").value;
     var image =  0; //document.getElementById("messages-list");
     var btnone =  document.getElementById("input-btn1").value;
     var btntwo =  document.getElementById("input-btn2").value;

@@ -21,7 +21,7 @@
 
 </div>
 <!-- Popup -->
-<form id="session_form" action="{{route('sessions_create_post',  ['patient_id' => $patient -> id], false, true)}}" method="POST">
+<form id="objective_form" action="{{route('objetives_create',  ['patient_id' => $patient -> id], false, true)}}" method="POST">
     @csrf    
 <div id="popup" class="popup">
         @if (session('success'))
@@ -41,21 +41,22 @@
             </div>
             <div class="row">
                 <div class="col-md-12 container-session-inputs" id="container-objective-one">
-                    <div class="form-row">
+                    <input style="display:none;" name="type" id="objective-type-input" value="study"></input>
+                    <div class="form-row" id="type-selection-container">
                         <div class="col-md-4 container-objective-type">
-                            <button type="button" class="image-container">
+                            <button onclick = "selectType('objective-type-input', this, 'type-selection-container')" type="button" class="image-container" value="study">
                             <img class="rounded-image" src="{{asset('images/bookmedal.jpg')}}"></img>
                             <p>Objetivo de estudio</p>
                             </button>
                         </div>
                         <div class="col-md-4 container-objective-type">
-                            <button type="button" class="image-container">
+                            <button onclick = "selectType('objective-type-input', this, 'type-selection-container')"  type="button" class="image-container" value="personal">
                             <img class="rounded-image" src="{{asset('images/personalmedal.jpg')}}"></img>
                             <p>Objetivo personal</p>
                             </button>
                         </div>
                         <div class="col-md-4 container-objective-type">
-                            <button type="button" class="image-container">
+                            <button onclick = "selectType('objective-type-input', this, 'type-selection-container')"  type="button" class="image-container" value="scholastic">
                             <img class="rounded-image" src="{{asset('images/schoolmedal.jpg')}}"></img>
                             <p>Objetivo escolar</p>
                             </button>
@@ -69,11 +70,10 @@
                     </div>
                     <div class="form-row">
                         <div class="col-md-7" id="fecha-div">
-                            
-                            <input class=" form-control" placeholder="Fecha y hora de la sesión" type="date" id="fecha" name="date_start"></input>
+                            <input class=" form-control" placeholder="Fecha y hora de la sesión" type="date" id="fecha" name="date_end"></input>
                         </div>
                         <div class="col-md-5" id="hora-div">
-                            <input class="form-control" placeholder="Fecha y hora de la sesión" type="time" id="hora" name="time_start"></input>
+                            <input class="form-control" placeholder="Fecha y hora de la sesión" type="time" id="hora" name="time_end"></input>
                         </div>
                     </div>
 
@@ -87,18 +87,19 @@
                 </div>
 
                 <div class="col-md-12 container-session-inputs" id="container-objective-two" style="display:none;">
+                    <input style="display:none;" id="steps-input" name="steps" value="steps"></input>
                     <button type="button" class="btn btn-primary" onclick="createMilestone()">Crear Hito</button>
                     <div class="milestones-container-list" id="milestones-list">
                         <div class="row milestone-container">
                             <h1 class="col-md-2">1</h1>
-                            <div  class="col-md-4 milestone-container-div"><input class="form-control " placeholder="Nombre del hito"></input></div>
-                            <div  class="col-md-4 milestone-container-div"><input class="form-control " placeholder="Comentario del hito"></input></div>
+                            <div  class="col-md-4 milestone-container-div"><input class="form-control" name="stepname" placeholder="Nombre del hito"></input></div>
+                            <div  class="col-md-4 milestone-container-div"><input class="form-control" name="stepcoment" placeholder="Comentario del hito"></input></div>
                         </div>
 
                     </div>
                     
                     <div class="float-end">
-                        <button type="submit" class="btn btn-primary">Guardar</button>
+                        <button type="button" onclick = "saveAndSendObjective()" class="btn btn-primary">Guardar</button>
                         <button type="button" class="btn btn-danger" onclick="gotolaststep()">Ir a paso anterior</button>
                     </div>
                 </div>
@@ -109,52 +110,6 @@
         </div>
     </div>
 </form>
-<div id="popup-on" class="popup" style="display:none;">
-    <div class="popup-content">
-        <div class="row">
-            <div class="col">
-                <h2>Selecciona plan de estudio</h2>
-            </div>
-            <div class="col text-end align-button-right">
-                <button class="button-closed" onclick="closeTherapyPopup()">X</button>
-            </div>
-        </div>
-        <script>
-           $(function () {
-                $('[data-toggle="tooltip"]').tooltip()}) 
-        </script> 
-        <div class="row container-inputs-top">
-                <div class="col-md-4 container-input-span">
-                    <span style="font-family: Arial, FontAwesome; padding-right: 4px;">&#xf002;</span>
-                    <input placeholder="Buscar plan de estudio"></input>
-                </div>
-                <div class="col-md-7 d-flex flex-row container-filter-align-end">
-                    <button type="button"><span class="fa-regular fa-filter">Filtrar</span></button>
-                </div>   
-        </div>
-
-        <div class="table-responsive text-center">
-            <table class="table">
-                <tr class="top-index-container">
-                    <th scope="col">Nombre</th>
-                    <th scope="col">Duración</th>
-                    <th scope="col">Reglas</th>
-                    <th scope="col">Selección</th>
-                </tr>
-                <div id="patient-list" class="table-items-options-overflow">
-                    @foreach($therapies->take(5) as $ther)
-                    <tr>
-                        <td>{{$ther->name}}</td>
-                        <td>TBD</td>
-                        <td>TBD</td>
-                        <td scope="row"><button class="btn btn-primary" type="checkbox" onclick="selectTherapy( '{{$ther->id}}', '{{$ther->name}}' )">SELECCIONAR</td>
-                    </tr>
-                    @endforeach
-                </div>
-            </table>
-        </div>
-    </div>
-</div>
 <!-- div class="reglas-container-right"  id="contenedor_creador_reglas" style="display:flex;">
                 <div class="content-half-image"></div>
                 <div class="content-half">

@@ -28,6 +28,8 @@ return new class extends Migration
             $table->string('barcronometer')->default('increase');
             $table->string('textcronometer')->default('time');
             $table->string('textperiod')->default('all');
+            $table->string('milestone')->default('none');
+            $table->string('objectiveid')->nullable();
 
             $table->integer('percentage')->default(8);
             $table->float('movement')->default(0.6);
