@@ -111,7 +111,7 @@
   }
   .container-clock-options{
     font-size: small;
-    background-color: white;
+    background:var(--color-primary-white);
   }
   .container-text-message{
     color:white;

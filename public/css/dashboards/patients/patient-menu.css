@@ -118,8 +118,8 @@
 }
 
 .rounded-image-objective{
-    border-radius: 50%; /* Cambiado a 50% para un círculo perfecto */
-    width: 50%; /* Ancho del 50% del contenedor */
+    border-radius: 60%; /* Cambiado a 50% para un círculo perfecto */
+    width: 60%; /* Ancho del 50% del contenedor */
     height: auto; /* Altura ajustada automáticamente para mantener la proporción */
     margin: 7px;
     margin-left: 1px;
@@ -131,8 +131,28 @@
     text-align: center;
     align-items: center;
     align-content: center;
-    width:70%;
+    width:70% !important;
     height:300px;
+}
+
+.image-container-objective-w100{
+    border-radius: 30px;
+    border:0;
+    background-color: var(--color-primary-brown);
+    text-align: center;
+    align-items: center;
+    align-content: center;
+    width:100% !important;
+    height:300px;
+}
+
+.image-container-objective-w100:hover{
+    border-radius: 30px;
+    border:0;
+    background-color: var(--color-primary-hover-brown);
+    text-align: center;
+    align-items: center;
+    align-content: center;
 }
 
 .image-container-objective:hover{
@@ -142,8 +162,6 @@
     text-align: center;
     align-items: center;
     align-content: center;
-    width:70%;
-    height:300px;
 }
 
 .p-milestone{
@@ -165,10 +183,9 @@
     background-color: var(--color-transparente);
     border:0;
     font-size: larger;
-    width: 50%;
-    height: auto;
+    width: 40px;
+    height: 40px;
 }
-
 
 .button-close:hover{
     background-color: var(--color-primary-red);
@@ -177,3 +194,16 @@
     border-radius: 100%;
 }
 
+.button-objective-next-step{
+    background-color: var(--color-primary-light-blue);
+    border-radius: 10px;
+    border:0;
+    padding:8px;
+}
+
+.button-objective-cancel-step{
+    background-color: var(--color-primary-red);
+    border-radius: 10px;
+    border:0;
+    padding:8px;
+}

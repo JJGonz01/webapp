@@ -19,7 +19,7 @@ function createMilestone(){
     div1.id = "";
 
         var input1 = document.createElement("input");
-        input1.className = "form-control";
+        input1.className = "input-session form-control";
         input1.name = "stepname";
         input1.placeholder = "Nombre del hito";
         input1.id = "";
@@ -30,7 +30,7 @@ function createMilestone(){
     div2.id = "";
 
         var input2 = document.createElement("input");
-        input2.className = "form-control";
+        input2.className = " input-session form-control";
         input2.placeholder = "Comentario del hito";
         input2.name = "stepcoment";
         input2.id = "";
@@ -45,8 +45,9 @@ function createMilestone(){
         input3.onclick = function(){
             deleteMilestone(msid+"-ms");
         };
-        input3.innerHTML = "ELIMINAR";
+        input3.innerHTML = "X";
         input3.id = "";
+        input3.className = "calendar-button-add";
         div3.appendChild(input3);
 
     div.appendChild(h1);

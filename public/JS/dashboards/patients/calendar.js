@@ -45,14 +45,14 @@ function renderCalendar(year, month, sessions, patientId){
 
     var calendarHTML = `
     <div class="row">
-      <div class="col-md-1 button-end-container">
+      <div class="col-md-2 button-end-container">
         <div class="row button-container-change-month">
           <button class="button-change-month"  onclick="changeMonth(-1, ${month}, ${year});"><</button>
           <button class="button-change-month"  onclick="changeMonth(+1, ${month}, ${year});">></button>
         </div>
       </div>
       <h2 class="col-md-8">${monthNames[month]} ${year}</h2>
-      <div class="col-md-3 button-end-container">
+      <div class="col-md-2 button-end-container">
         <button onclick="openPopUpCreateEvent();" class="calendar-button-add">Añadir</button>
       </div>
     </div>
@@ -61,7 +61,7 @@ function renderCalendar(year, month, sessions, patientId){
         <tr>
           <th>Lunes</th>
           <th>Martes</th>
-          <th>Miercoles</th>
+          <th>Miercoles</th> 
           <th>Jueves</th>
           <th>Viernes</th>
           <th>Sábado</th>

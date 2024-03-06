@@ -92,7 +92,7 @@ function openMileStonesPopUp(objectiveID){
         mtd1.innerHTML = "Nombre";
 
         let mtd2 = document.createElement("td");
-        mtd2.innerHTML = "Duración";
+        mtd2.innerHTML = "Descripción";
 
         let mtd3 = document.createElement("td");
         mtd3.innerHTML = "Seleccion";
@@ -111,7 +111,7 @@ function openMileStonesPopUp(objectiveID){
         td2.innerHTML = "TBD";
         let td3 = document.createElement("td");
             let btn = document.createElement("btn");
-            btn.className = "btn btn-primary";
+            btn.className = "button-objective-next-step";
             btn.onclick = function(){
                 selectObjectiveAndMilestone(objectiveID, objectives[objectiveID-1]["name"], step["name"]);
             }
@@ -130,7 +130,7 @@ function openMileStonesPopUp(objectiveID){
 function selectObjectiveAndMilestone(objid,objname, milestone){
     document.getElementById("objective-input").value = objid;
     document.getElementById("milestone-input").value = milestone;
-    document.getElementById("objective-name").value = objname;
+    document.getElementById("objective-name").value = objname + ": "+ milestone;
     closeObjectiveMileStonePopup();
 }
 function closeMileStonePopup(){
@@ -140,4 +140,10 @@ function closeMileStonePopup(){
 function closeObjectiveMileStonePopup(){
     document.getElementById("popup-objectives-milestones").style="display:none;"
     document.getElementById("popup-objectives").style="display:none;"
+}
+
+function removeObjectiveSelected(){
+    document.getElementById("objective-input").value = "";
+    document.getElementById("milestone-input").value = "";
+    document.getElementById("objective-name").value = "";
 }

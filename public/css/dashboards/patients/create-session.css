@@ -112,36 +112,19 @@ span{
 }
 
 .button-selected{
-    background-color: rgb(90, 177, 215);
+    background-color: var(--color-primary-light-blue);
 }
 
 .button-disabled{
-    background-color: rgb(236, 236, 236);
+    background-color: var(--color-secondary-grey);
     color:rgb(133, 133, 133);
 }
 .button-canceled{
-    background-color: rgba(173, 173, 173, 0.84);
+    background-color: var(--color-button-terciary-grey);
     color:black;
 }
 
 .align-button-right{
     align-items: end;
     text-align: end;
-}
-
-.button-closed{
-    color:black;
-    font-size: x-large;
-    background-color: var(--color-transparente);
-    border:0;
-    font-weight: bold;
-    transition: transform 0.2s ease-in-out;
-}
-
-.button-closed:hover{
-    color:black;
-    border-radius: 10px;
-    background-color: rgba(187, 0, 0, 0.5);
-    border:0;
-    transform:scale(1.1);
 }

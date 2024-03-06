@@ -47,7 +47,7 @@
                 <div>Comentario sobre el paciente</div>
             </div>
             <textarea style="margin-bottom:10px;" type="text" placeholder = "Comentario/Descripción" name = "description" id="commentary" class = "form-control" rown="10"></textarea>
-            <button id="go_to_patient_create" type="submit"> CREAR PACIENTE </button>
+            <button id="go_to_patient_create" class="button-save-patient" type="submit"> CREAR PACIENTE </button>
         </form>
     </div>
 </div>

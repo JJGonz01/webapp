@@ -24,20 +24,20 @@
   .button-change-month{
     background-color: var(--color-primary-brown);
     border:0;
-    width:30%;
+    width:25px;
     border-radius: 100%;
     font-size: larger;
-    height: auto;
+    height: 25px;
     margin-left: 10px;
   }
 
   .button-add-session-month{
     background-color: var(--color-button-terciary-blue);
     border:0;
-    width:30%;
+    width:25px;
     border-radius: 100%;
     font-size: larger;
-    height: auto;
+    height: 25px;
     margin-left: 10px;
   }
 

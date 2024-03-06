@@ -203,7 +203,7 @@
                         <th scope="col">Botón</th>
                     </tr>
                     <div class="table-items-options-overflow">
-                        
+                         
                     </div>
                 </table>
             </div>
@@ -586,118 +586,122 @@
     @csrf
     <input name="periods[]" id="input_period" style="display: none;"/>
     <input name="rules" id="rule_period" style="display: none;"/>
-    <div class="row">
-        <div class="col-md-5">
-            <div class="input-group mb-4 container-inputs">
-                <span>&#xf02d;</span>
-                <p style="margin-left:10px;">Datos del plan de estudio</p> <p class="text-description"></p>
-            </div>
-            <div class="input-group mb-4 container-inputs">
-                    <div class="input-group-prepend">
-                        <div class="input-group-text">
-                            <span>&#xf5b7;</span>
+    <div class="container-main">
+        <div class="row container-therapy">
+            <div class="col-md-5">
+                <div class="input-group mb-4 container-inputs">
+                    <span>&#xf02d;</span>
+                    <p style="margin-left:10px;">Datos del plan de estudio</p> <p class="text-description"></p>
+                </div>
+                <div class="input-group mb-4 container-inputs">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text span-container">
+                                <span>&#xf5b7;</span>
+                            </div>
                         </div>
-                    </div>
-                    <input placeholder="Nombre del plan de estudio" name = "name" id="therapy-name" class="form-control"></input>
+                        <input placeholder="Nombre del plan de estudio" name = "name" id="therapy-name" class="form-control"></input>
+                </div>
+                
+                <div class="input-group mb-4 container-inputs">
+                        
+                        <div class="input-group-prepend">
+                            <div class="input-group-text span-container">
+                                <span>&#xf573;</span>
+                            </div>
+                        </div>
+                        <textarea class="form-control" name="description" rows="3" id="therapy-description" placeholder="Descripción"></textarea>
+                </div> 
+            </div>
+            <div class="col-md-6">
+                <div class="input-group mb-4 container-inputs">
+                    <span>&#xf004;</span>
+                    <p style="margin-left:10px;">Sesión de relajación:</p> <p class="text-description">Periodo de relajación que ocurrirá al principio de la sesión</p>
+                </div>
+                <div class="input-group mb-4 container-inputs">
+                        
+                        <div class="input-group-prepend">
+                            <div class="input-group-text span-container">
+                                <span>&#xf031;</span>
+                            </div>
+                        </div>
+                        <input maxlength="14" placeholder="Relajación" class="form-control"></input>
+                        <span data-toggle="tooltip" data-html="true" 
+                        title="Texto que aparecerá en la pantalla durante la relajación, puede ser vacío y no aparecerá nada"
+                        style="margin-left:10px; font-size:large" >&#xf059;</span>
+                </div>
+
+                <div class="input-group mb-4 container-inputs">
+                        <div class="input-group-prepend ">
+                            <div class="input-group-text span-container">
+                                <span>&#xf025;</span>
+                            </div>
+                        </div>
+                        <select placeholder="Relajación" class="form-control">
+                            <option>Audio Mindfullness (6 minutos) - guiainfantil</option>
+                            <option disabled>(Deshabilitado) **Subir audio (A futuro)**</option>
+                        </select>
+                        <span data-toggle="tooltip" data-html="true" 
+                        title="Audio que sonará durante el periodo de relajación, debería contener ejercicios de respiración, musculares, etc..."
+                        style="margin-left:10px; font-size:large" >&#xf059;</span>
+                </div>
             </div>
             
-            <div class="input-group mb-4 container-inputs">
-                    
-                    <div class="input-group-prepend">
-                        <div class="input-group-text">
-                            <span>&#xf573;</span>
-                        </div>
-                    </div>
-                    <textarea class="form-control" name="description" rows="3" id="therapy-description" placeholder="Descripción"></textarea>
-            </div> 
         </div>
-        <div class="col-md-6">
-            <div class="input-group mb-4 container-inputs">
-                <span>&#xf004;</span>
-                <p style="margin-left:10px;">Sesión de relajación:</p> <p class="text-description">Periodo de relajación que ocurrirá al principio de la sesión</p>
-            </div>
-            <div class="input-group mb-4 container-inputs">
-                    
-                    <div class="input-group-prepend">
-                        <div class="input-group-text">
-                            <span>&#xf031;</span>
-                        </div>
-                    </div>
-                    <input maxlength="14" placeholder="Relajación" class="form-control"></input>
-                    <span data-toggle="tooltip" data-html="true" 
-                    title="Texto que aparecerá en la pantalla durante la relajación, puede ser vacío y no aparecerá nada"
-                    style="margin-left:10px; font-size:large" >&#xf059;</span>
-            </div>
-
-            <div class="input-group mb-4 container-inputs">
-                    <div class="input-group-prepend">
-                        <div class="input-group-text">
-                            <span>&#xf025;</span>
-                        </div>
-                    </div>
-                    <select placeholder="Relajación" class="form-control">
-                        <option>Audio Mindfullness (6 minutos) - guiainfantil</option>
-                        <option disabled>(Deshabilitado) **Subir audio (A futuro)**</option>
-                    </select>
-                    <span data-toggle="tooltip" data-html="true" 
-                    title="Audio que sonará durante el periodo de relajación, debería contener ejercicios de respiración, musculares, etc..."
-                    style="margin-left:10px; font-size:large" >&#xf059;</span>
-            </div>
-        </div>
-        
     </div>
 
-    <div class="row">
-        <div class="col-md-7 h-100 container-periods">
-            <div class="input-group-prepend d-flex">
-                <div class="row mr-auto container-padding">
-                    <h2 >Bloques de estudio</h2>
-                    <span data-toggle="tooltip" data-html="true" 
-                            title="Un bloque es un conjunto de periodos, compuesto por un periodo de descanso y su posterior estudio, para que todo periodo de estudio venga
-                            acompañado de su correspondiente descanso."
-                            style="margin-left:10px; font-size:large" >&#xf059;</span>
-                </div>
-
-                <button type="button" class="ml-auto" onclick="addBlock()">Añadir</button>
-            </div>
-
-            <div class="container-inner-periods" id="main-div">
-                <div class="row container-block">
-                    <div class="col-md-1" id="button-move">
+    <div class="container-main">
+        <div class="row container-therapy">
+            <div class="col-md-7 h-100 container-periods">
+                <div class="input-group-prepend d-flex">
+                    <div class="row mr-auto container-padding">
+                        <h2 >Bloques de estudio</h2>
                         <span data-toggle="tooltip" data-html="true" 
-                            title="Este es el bloque principal, siempre se va a ejecutar, no puede eliminarse (pinned)"
-                            style="font-size:large">&#xf08d;</span>
+                                title="Un bloque es un conjunto de periodos, compuesto por un periodo de descanso y su posterior estudio, para que todo periodo de estudio venga
+                                acompañado de su correspondiente descanso."
+                                style="margin-left:10px; font-size:large" >&#xf059;</span>
                     </div>
-                    <div class="col-md-8 container-align-end">
-                        <input class="col-4 form-control" id="mb_t1" placeholder="Estudio (min)"></input>
-                        <input class="col-4 form-control" id="mb_rest" placeholder="Descanso (min)"></input>
-                        <input class="col-4 form-control" id="mb_t2" placeholder="Estudio (min)"></input>
-                    </div>
-                    <div class="col-md-2 container-align-end">
-                        <button type="button" id="button-edit-0" onclick="showRulesInContainer(0)"><span>&#xf304;</span></button>
+
+                    <button type="button"  class="button-save" onclick="addBlock()">Añadir</button>
+                </div>
+
+                <div class="container-inner-periods" id="main-div">
+                    <div class="row container-block">
+                        <div class="col-md-1" id="button-move">
+                            <span data-toggle="tooltip" data-html="true" 
+                                title="Este es el bloque principal, siempre se va a ejecutar, no puede eliminarse (pinned)"
+                                style="font-size:large">&#xf08d;</span>
+                        </div>
+                        <div class="col-md-8 container-align-end">
+                            <input class="col-4 form-control" id="mb_t1" placeholder="Estudio (min)"></input>
+                            <input class="col-4 form-control" id="mb_rest" placeholder="Descanso (min)"></input>
+                            <input class="col-4 form-control" id="mb_t2" placeholder="Estudio (min)"></input>
+                        </div>
+                        <div class="col-md-2 container-align-end">
+                            <button type="button" id="button-edit-0" class="button-select-period" onclick="showRulesInContainer(0)"><span>&#xf304;</span></button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div class="col-md-4 container-conditions">
-            <div class="input-group-prepend d-flex">
-                <div class="row mr-auto container-padding">
-                    <h2 id="conditions-title">Condiciones del bloque 0</h2>
-                    <span data-toggle="tooltip" data-html="true" 
-                            title="Aqui se definen las distintas condiciones y acciones que tendrá el bloque"
-                            style="margin-left:10px; font-size:large" >&#xf059;</span>
+            <div class="col-md-4 container-conditions">
+                <div class="input-group-prepend d-flex">
+                    <div class="row mr-auto container-padding">
+                        <h2 id="conditions-title">Condiciones del bloque 0</h2>
+                        <span data-toggle="tooltip" data-html="true" 
+                                title="Aqui se definen las distintas condiciones y acciones que tendrá el bloque"
+                                style="margin-left:10px; font-size:large" >&#xf059;</span>
+                    </div>
+
+                    <button type="button"  class="button-save" onclick="openRulesPopUp()">Añadir</button>
                 </div>
-
-                <button type="button" class="ml-auto" onclick="openRulesPopUp()">Añadir</button>
+                <div class="container-inner-periods" id="condition-div">
+                    
+                </div>
             </div>
-            <div class="container-inner-periods" id="condition-div">
-                
+            <div class="float-end" style="margin-top:3%;">
+                <button type="button" class="button-save" onclick="saveAndSend();">Guardar</button>
+                <button type="button" class="button-cancel" onclick="closePopup()">Cancelar</button>
             </div>
-        </div>
-        <div class="float-end" style="margin-top:3%;">
-            <button type="button" class="btn btn-primary" onclick="saveAndSend();">Guardar</button>
-            <button type="button" class="btn btn-danger" onclick="closePopup()">Cancelar</button>
         </div>
     </div>
 </form>

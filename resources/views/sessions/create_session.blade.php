@@ -30,7 +30,7 @@
         @if($errors->any())
             <h6 class="alert alert-danger">{{ implode('', $errors->all(':message')) }}</h6>
         @endif
-        <div class="popup-content">
+        <div class="popup-content popup-width-80">
             <div class="row">
                 <div class="col">
                     <h2>Crear Sesión para {{$patient->name}}</h2>
@@ -76,7 +76,7 @@
                         <input id="objective-name" type="text" class="form-control input-session " aria-label="Text input with checkbox" readonly>
                         <div class="input-group-prepend">
                             <div class="input-group-text  container-icons">
-                                <span id="inputGroup-sizing-sm">X</span>
+                                <span id="inputGroup-sizing-sm" onclick="removeObjectiveSelected()">X</span>
                             </div>
                         </div>
                     </div>
@@ -266,14 +266,14 @@
             </div>
             <!-- Botón para cerrar el popup -->
             <div class="float-end">
-                <button type="submit" class="btn btn-primary">Guardar</button>
-                <button type="button" class="btn btn-danger" onclick="closePopup()">Cancelar</button>
+                <button type="submit" class="button-objective-next-step">Guardar</button>
+                <button type="button" class="button-objective-cancel-step" onclick="closePopup()">Cancelar</button>
             </div>
         </div>
     </div>
 </form>
 <div id="popup-on" class="popup" style="display:none;">
-    <div class="popup-content">
+    <div class="popup-content popup-width-50">
         <div class="row">
             <div class="col">
                 <h2>Selecciona plan de estudio</h2>
@@ -312,7 +312,7 @@
                         <td>{{$ther->name}}</td>
                         <td>TBD</td>
                         <td>TBD</td>
-                        <td scope="row"><button class="btn btn-primary" type="checkbox" onclick="selectTherapy( '{{$ther->id}}', '{{$ther->name}}' )">SELECCIONAR</td>
+                        <td scope="row"><button class="button-objective-next-step" type="checkbox" onclick="selectTherapy( '{{$ther->id}}', '{{$ther->name}}' )">SELECCIONAR</td>
                     </tr>
                     @endforeach
                 </div>
@@ -323,7 +323,7 @@
 
 
 <div id="popup-objectives" class="popup" style="display:none;">
-    <div class="popup-content">
+    <div class="popup-content popup-width-50">
         <div class="row">
             <div class="col">
                 <h2>Selecciona hito y objetivo</h2>
@@ -362,7 +362,7 @@
                         <td>{{$obj->name}}</td>
                         <td>TBD</td>
                         <td>TBD</td>
-                        <td scope="row"><button class="btn btn-primary" type="checkbox" onclick="openMileStonesPopUp('{{$obj->id}}')">SELECCIONAR</td>
+                        <td scope="row"><button class="button-objective-next-step" type="checkbox" onclick="openMileStonesPopUp('{{$obj->id}}')">SELECCIONAR</td>
                     </tr>
                     @endforeach
                 </div>
@@ -373,7 +373,7 @@
 
 
 <div id="popup-objectives-milestones" class="popup-on" style="display:none;">
-    <div class="popup-content">
+    <div class="popup-content popup-width-50">
         <div class="row">
             <div class="col">
                 <h2>Selecciona HITO del objetivo</h2>

@@ -2,9 +2,56 @@
 span{
     font-family: 'Poppins','FontAwesome', sans-serif !important;
 }
-  
+
+input{
+    background-color: var(--color-primary-white) !important;
+}
+
+textarea{
+    background-color: var(--color-primary-white) !important;
+}
+
+select{
+    background-color: var(--color-primary-white) !important;
+}
+
+.button-select-period{
+    background-color: var(--color-primary-light-blue) !important;
+    border: 0px !important;
+    border-radius: 10px !important;
+    width:50px !important;
+}
+
+.span-container{
+    background-color: var(--color-primary-brown) !important;
+}
+.container-main{
+    padding-left:3%;
+    padding-right:3%;
+    padding-bottom: 1%;
+}
+.container-therapy{
+    background-color: var(--color-secondary-grey) !important;
+    border-radius:20px;
+    padding: 2%;
+
+}
 .container-inputs{
     padding-left: 5%;
+}
+
+.button-save{
+    padding:8px;
+    border-radius: 10px;
+    border:0;
+    background-color: var(--color-primary-light-blue);
+}
+
+.button-cancel{
+    padding:8px;
+    border:0;
+    border-radius: 10px;
+    background-color: var(--color-primary-red);
 }
 
 .text-description{
@@ -31,7 +78,7 @@ span{
 }
 
 .container-block input{
-    border:1px solid rgb(203, 203, 203);
+    background-color: var(--color-primary-white) !important;
 }
 
 .container-block #button-move{
@@ -40,7 +87,6 @@ span{
 }
 
 .container-block #button-edit{
-
     width:30%;
     border:1px solid rgb(1, 150, 138);
     border-radius: 10px;
@@ -279,6 +325,7 @@ span{
     background-color: rgba(173, 173, 173, 0.84);
 }
 
+
 .button-open-selection{
     border-radius: 2px !important;
     border-radius: 1px solid grey !important;
@@ -330,3 +377,4 @@ span{
         display: block;
     }
 }
+

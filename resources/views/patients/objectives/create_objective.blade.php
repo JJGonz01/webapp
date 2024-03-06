@@ -30,13 +30,15 @@
         @if($errors->any())
             <h6 class="alert alert-danger">{{ implode('', $errors->all(':message')) }}</h6>
         @endif
-        <div class="popup-content">
+        <div class="popup-content popup-width-50">
             <div class="row">
                 <div class="col">
                     <h2>Crear Objetivo para {{$patient->name}}</h2>
                 </div>
                 <div class="col text-end align-button-right">
-                    <button type="button" class="button-closed" onclick="closePopup()">X</button>
+                    <button type="button" class="button-close" onclick="closePopup()">                        
+                      <span>&#xf00d;</span>
+                    </button>
                 </div>
             </div>
             <div class="row">
@@ -44,19 +46,19 @@
                     <input style="display:none;" name="type" id="objective-type-input" value="study"></input>
                     <div class="form-row" id="type-selection-container">
                         <div class="col-md-4 container-objective-type">
-                            <button onclick = "selectType('objective-type-input', this, 'type-selection-container')" type="button" class="image-container" value="study">
+                            <button onclick = "selectType('objective-type-input', this, 'type-selection-container')" type="button" class="image-container-objective-w100" value="study">
                             <img class="rounded-image" src="{{asset('images/bookmedal.jpg')}}"></img>
                             <p>Objetivo de estudio</p>
                             </button>
                         </div>
                         <div class="col-md-4 container-objective-type">
-                            <button onclick = "selectType('objective-type-input', this, 'type-selection-container')"  type="button" class="image-container" value="personal">
+                            <button onclick = "selectType('objective-type-input', this, 'type-selection-container')"  type="button" class="image-container-objective-w100" value="personal">
                             <img class="rounded-image" src="{{asset('images/personalmedal.jpg')}}"></img>
                             <p>Objetivo personal</p>
                             </button>
                         </div>
                         <div class="col-md-4 container-objective-type">
-                            <button onclick = "selectType('objective-type-input', this, 'type-selection-container')"  type="button" class="image-container" value="scholastic">
+                            <button onclick = "selectType('objective-type-input', this, 'type-selection-container')"  type="button" class="image-container-objective-w100" value="scholastic">
                             <img class="rounded-image" src="{{asset('images/schoolmedal.jpg')}}"></img>
                             <p>Objetivo escolar</p>
                             </button>
@@ -70,37 +72,37 @@
                     </div>
                     <div class="form-row">
                         <div class="col-md-7" id="fecha-div">
-                            <input class=" form-control" placeholder="Fecha y hora de la sesión" type="date" id="fecha" name="date_end"></input>
+                            <input class="input-session form-control" placeholder="Fecha y hora de la sesión" type="date" id="fecha" name="date_end"></input>
                         </div>
                         <div class="col-md-5" id="hora-div">
-                            <input class="form-control" placeholder="Fecha y hora de la sesión" type="time" id="hora" name="time_end"></input>
+                            <input class="input-session form-control" placeholder="Fecha y hora de la sesión" type="time" id="hora" name="time_end"></input>
                         </div>
                     </div>
 
-                    <input name="name" class="form-control" placeholder="Nombre del objetivo"></input>
+                    <input name="name" class="input-session form-control" placeholder="Nombre del objetivo"></input>
                     <textarea name="description" class="form-control" rows="3" placeholder="Descripción"></textarea>
 
                     <div class="float-end">
-                        <button type="button" onclick="gotonextstep()" class="btn btn-primary">Siguiente</button>
-                        <button type="button" class="btn btn-danger" onclick="closePopup()">Cancelar</button>
+                        <button type="button" onclick="gotonextstep()" class="button-objective-next-step">Siguiente</button>
+                        <button type="button" class="button-objective-cancel-step" onclick="closePopup()">Cancelar</button>
                     </div>
                 </div>
 
                 <div class="col-md-12 container-session-inputs" id="container-objective-two" style="display:none;">
                     <input style="display:none;" id="steps-input" name="steps" value="steps"></input>
-                    <button type="button" class="btn btn-primary" onclick="createMilestone()">Crear Hito</button>
+                    <button type="button" class="button-objective-next-step" onclick="createMilestone()">Crear Hito</button>
                     <div class="milestones-container-list" id="milestones-list">
                         <div class="row milestone-container">
                             <h1 class="col-md-2">1</h1>
-                            <div  class="col-md-4 milestone-container-div"><input class="form-control" name="stepname" placeholder="Nombre del hito"></input></div>
-                            <div  class="col-md-4 milestone-container-div"><input class="form-control" name="stepcoment" placeholder="Comentario del hito"></input></div>
+                            <div  class="col-md-4 milestone-container-div"><input class="input-session form-control" name="stepname" placeholder="Nombre del hito"></input></div>
+                            <div  class="col-md-4 milestone-container-div"><input class="input-session form-control" name="stepcoment" placeholder="Comentario del hito"></input></div>
                         </div>
 
                     </div>
                     
                     <div class="float-end">
-                        <button type="button" onclick = "saveAndSendObjective()" class="btn btn-primary">Guardar</button>
-                        <button type="button" class="btn btn-danger" onclick="gotolaststep()">Ir a paso anterior</button>
+                        <button type="button" onclick = "saveAndSendObjective()" class="button-objective-next-step">Guardar</button>
+                        <button type="button" class="button-objective-cancel-step" onclick="gotolaststep()">Ir a paso anterior</button>
                     </div>
                 </div>
                 

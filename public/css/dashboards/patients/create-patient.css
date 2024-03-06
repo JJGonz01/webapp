@@ -18,6 +18,19 @@
     z-index: 60;
 }
 
+
+.popup-width-30{
+    width: 30%;
+}
+
+.popup-width-50{
+    width: 50%;
+}
+
+.popup-width-80{
+    width: 80%;
+}
+
 span{
     font-family: 'Poppins','FontAwesome', sans-serif !important;
 }
@@ -63,4 +76,11 @@ span{
         text-align: center;
     justify-content: center; 
     align-items: center;
+}
+
+.button-save-patient{
+    background-color: var(--color-primary-light-blue);
+    border:0;
+    padding:15px;
+    border-radius: 10px;
 }

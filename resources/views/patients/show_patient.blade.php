@@ -37,19 +37,19 @@
         </div>
 
         <div class="flex-container-options">
-                <div>
-                    <button  onclick="sendFormSession('create-session-form')" type="button" class="image-container-objective">
-                    <img class="rounded-image-objective" src="{{asset('images/clockpom.jpg')}}"></img>
-                    <p>Crear sesión de estudio</p>
-                    </button>
-                </div>
-                <div>
-                    <button onclick="sendFormSession('create-objetive-form')" type="button" class="image-container-objective">
-                    <img class="rounded-image-objective" src="{{asset('images/goaltarget.jpg')}}"></img>
-                    <p>Crear Objetivo de paciente</p>
-                    </button>
-                </div>
+            <div>
+                <button  onclick="sendFormSession('create-session-form')" type="button" class="image-container-objective">
+                <img class="rounded-image-objective" src="{{asset('images/clockpom.jpg')}}"></img>
+                <p>Crear sesión de estudio</p>
+                </button>
             </div>
+            <div>
+                <button onclick="sendFormSession('create-objetive-form')" type="button" class="image-container-objective">
+                <img class="rounded-image-objective" src="{{asset('images/goaltarget.jpg')}}"></img>
+                <p>Crear Objetivo de paciente</p>
+                </button>
+            </div>
+        </div>
     </div>
 </div>
 <div class="container-fluid">
@@ -63,7 +63,7 @@
                     
                 </div>
             </div>
-        </div>
+        </div> 
         <div class="container-padding">
                 <button onclick="changeviewpatient(0)">Calendario</button>
                 <button onclick="changeviewpatient(1)">Objetivos</button>
