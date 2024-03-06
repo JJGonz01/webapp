@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Protest+Riot&display=swap');
 
 body{
-    background-image: url('/images/auth_bg.webp');
+    background-image: url('/images/auth_bg2.jpeg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat; 
@@ -14,17 +14,31 @@ body{
 
 h1{
     margin-bottom: 120px;
+    color:var(--color-primary-black);
 }
 span{
-    color:grey;
+    color:var(--color-primary-grey);
 }
 #span-text{
-    color:grey;
+    color:var(--color-primary-grey);
     font-weight: bold;
     font-style:italic;
 }
+label{
+    color:var(--color-primary-grey);
+    font-size: large;
+}
 
+a{
+    color:var(--color-primary-light-blue) !important;
+    font-size: large;
+}
 
+.button-no-border{
+    border:0;
+    color:var(--color-primary-light-blue) !important;
+    font-size: large; 
+}
 #img-logo{
     text-align: center;
 }
@@ -33,7 +47,7 @@ span{
     text-align: center;
 }
 .container-login{
-    background-color: rgb(253, 247, 239);
+    background-color: var(--color-primary-white);
     position: absolute;
     top: 50%;
     left: 50%;
@@ -43,7 +57,6 @@ span{
     width:100%;
     border: 1px 0 grey;
     border-radius: 10px;
-
     padding-top: 3%;
     padding-bottom: 5%;
     padding-left:1%;
@@ -66,7 +79,7 @@ span{
 .container-input{
     width:100%;
    
-    border: 1px solid grey;
+    border: 1px solid var(--color-primary-grey);
     border-radius: 10px;
     padding-top:10px;
     padding-left: 20px;
@@ -88,8 +101,8 @@ span{
     outline: none;
 }
 
-.button-no-border{
-    border:0;
-    background-color: var(--color-transparente); 
-    color: var(--color-botones);
+
+.btn-login{
+    background-color: var(--color-primary-blue) !important;
+    color:white !important;
 }

@@ -44,7 +44,7 @@
             <div class="form-group">
               <div class="form-check">
                 <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-                <label class="form-check-label" for="remember" style="color: rgb(84, 82, 82); font-size: large;">
+                <label class="form-check-label" for="remember">
                   {{ __('Recordarme') }}
                 </label>
               </div>
@@ -58,7 +58,7 @@
             </div>
 
             <div>
-              <button id="iniciar-sesion-button" type="submit" name="iniciar_sesion" class="btn btn-primary btn-block" style="border-radius:15px;">
+              <button id="iniciar-sesion-button" type="submit" name="iniciar_sesion" class="btn btn-login btn-block" style="border-radius:15px;">
                 {{ __('Iniciar Sesión') }}
               </button>
             </div>

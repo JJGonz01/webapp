@@ -4,7 +4,7 @@ var selectedMonth;
 var selectedYear;
 
 document.addEventListener("DOMContentLoaded", function () {
-    const currentDate = new Date();
+    const currentDate = new Date(); 
     const currentYear = currentDate.getFullYear();
     const currentMonth = currentDate.getMonth();
     const patientId = document.getElementById("patient-value").content;
@@ -45,10 +45,16 @@ function renderCalendar(year, month, sessions, patientId){
 
     var calendarHTML = `
     <div class="row">
-      <button onclick="changeMonth(-1, ${month}, ${year});"><</button>
-      <button onclick="changeMonth(+1, ${month}, ${year});">></button>
-      <h2>${monthNames[month]} ${year}</h2>
-      <button onclick="openPopUpCreateEvent();">Añadir</button>
+      <div class="col-md-1 button-end-container">
+        <div class="row button-container-change-month">
+          <button class="button-change-month"  onclick="changeMonth(-1, ${month}, ${year});"><</button>
+          <button class="button-change-month"  onclick="changeMonth(+1, ${month}, ${year});">></button>
+        </div>
+      </div>
+      <h2 class="col-md-8">${monthNames[month]} ${year}</h2>
+      <div class="col-md-3 button-end-container">
+        <button onclick="openPopUpCreateEvent();" class="calendar-button-add">Añadir</button>
+      </div>
     </div>
     <table id="calendar">
       <thead>
@@ -78,10 +84,12 @@ function renderCalendar(year, month, sessions, patientId){
                                 <div class="row row-day-calendar">
                                     <div class="col-md-6 text-left">                                     
                                       <form action="/createsessiondated/${patientId}/${createSessionOnDate(year, month, day)}" method="GET">
-                                        <button type="submit">+</button>                                    
+                                        <button class="button-add-session-month" type="submit">+</button>                                    
                                       </form>
                                     </div>
-                                    <p class="col-md-5 text-right" id="p-${day}">${day}</p>
+                                    <div class="col-md-5 text-end">   
+                                      <p id="p-${day}">${day}</p>
+                                    </div>
                                 </div>
                                 
                                 ${getSessionName(sessions, year, month, day, 0, patientId)}
@@ -113,7 +121,7 @@ function showCurrentDay(month,year){
   var cMonth = currentDate.getMonth();
   var cYear = currentDate.getFullYear();
   if(month == cMonth && year == cYear){
-        document.getElementById(`p-${day}`).className = "col-md-5 text-right p-current-day";
+        document.getElementById(`p-${day}`).className = " p-current-day";
   }
 }
 

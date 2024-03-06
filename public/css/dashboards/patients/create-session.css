@@ -17,21 +17,22 @@
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 60;
 }
+.input-session{
+    background-color: var(--color-secondary-brown) !important;
+    color:var(--color-primary-grey) !important;
+}
 
+textarea{
+    background-color: var(--color-secondary-brown) !important;
+}
 span{
     font-family: 'Poppins','FontAwesome', sans-serif !important;
 }
-.popup-content {
-    position: absolute;
-    top: 50%;
-    width:90%;
-    height:auto;
-    left: 50%;
-    border-radius: 20px;
-    transform: translate(-50%, -50%);
-    background-color: #fff;
-    padding: 20px;
+
+.container-icons{
+    background-color: var(--color-primary-brown) !important;
 }
+
 .rounded-image{
     border-radius: 100%;
     width: 50%;

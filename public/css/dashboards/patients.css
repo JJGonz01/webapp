@@ -1,8 +1,8 @@
 .container-general-patients{
-    border: 0.3px solid rgb(206, 206, 206);
     border-radius: 10px;
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: var(--color-secondary-grey);
     width:95%;
+    padding:20px;
     margin-left: auto;
     margin-right: auto;
     height: max-content;
@@ -13,13 +13,32 @@
     text-align: center;
     
 }
+.selection-checkbox{
+    border:1px solid var(--color-secondary-grey);
+    background-color: var(--color-secondary-brown);
+    border-radius: 10px;
+}
+
+.container-select{
+    border:0;
+    border-radius: 15px;
+    background-color: var(--color-secondary-brown);
+    padding:7px;
+}
+.container-select option{
+    border:0;
+    border-radius: 25px;
+    background-color: var(--color-secondary-white);
+    padding:7px;
+}
 
 .container-inputs-top button{
     border: 0.3px solid grey;
-    background-color: aliceblue;
+    background-color: var(--color-primary-dark-blue);
     margin-inline-end: 10px;
     border-radius: 10px;
     padding:7px 8px;
+    color:white;
     width: fit-content;
 }
 
@@ -27,10 +46,13 @@
     font-family: 'Poppins','FontAwesome', sans-serif !important;
 }
 
+.table-patients{
+    padding-left: 3%;
+    padding-right: 3%;
+}
 .container-input-span{
-    border: 0.3px solid grey;
     border-radius: 10px;
-    background-color: rgb(255, 255, 255);
+    background-color: var(--color-secondary-brown);
     margin: 1%;
     margin-left: 4%;
     padding:7px 8px;

@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="{{asset('/css/draws/clock.css')}}">
 </head>
 
-</div>
+</div> 
 <!-- Popup -->
 <form id="session_form" action="{{route('sessions_create_post',  ['patient_id' => $patient -> id], false, true)}}" method="POST">
     @csrf    
@@ -35,8 +35,10 @@
                 <div class="col">
                     <h2>Crear Sesión para {{$patient->name}}</h2>
                 </div>
-                <div class="col text-end align-button-right">
-                    <button type="button" class="button-closed" onclick="closePopup()">X</button>
+                <div class="col-md-1 button-close-container">
+                    <button onclick="closePopup()" type="button" class="button-close">
+                        <span>&#xf00d;</span>
+                    </button>
                 </div>
             </div>
             <div class="row">
@@ -47,13 +49,13 @@
                     </div>
                     <div class="form-row">
                         <div class="col-md-7" id="fecha-div">
-                            <input class=" form-control" placeholder="Fecha y hora de la sesión" type="date" id="fecha" name="date_start"></input>
+                            <input class="input-session form-control" placeholder="Fecha y hora de la sesión" type="date" id="fecha" name="date_start"></input>
                         </div>
                         <div class="col-md-5" id="hora-div">
-                            <input class="form-control" placeholder="Fecha y hora de la sesión" type="time" id="hora" name="time_start"></input>
+                            <input class="input-session form-control" placeholder="Fecha y hora de la sesión" type="time" id="hora" name="time_start"></input>
                         </div>
                     </div>
-                    <input name="name" class="form-control" placeholder="Nombre"></input>
+                    <input name="name" class="input-session  form-control" placeholder="Nombre"></input>
                     <textarea name="description" class="form-control" rows="3" placeholder="Descripción"></textarea>
                     <div style="margin-left:5px" class="row container-session-gamification">
                             <span>&#xf073;</span>
@@ -65,15 +67,15 @@
                     </div>
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
-                            <div class="input-group-text">
+                            <div class="input-group-text container-icons">
                                 <span onclick="openObjectivesPopup()" id="inputGroup-sizing-sm">Seleccionar hito</span>
                             </div>
                         </div>
                         <input id="objective-input" name="objetive_id" style="display:none;"></input>
                         <input id="milestone-input" name="milestone" style="display:none;"></input>
-                        <input id="objective-name" type="text" class="form-control" aria-label="Text input with checkbox" readonly>
+                        <input id="objective-name" type="text" class="form-control input-session " aria-label="Text input with checkbox" readonly>
                         <div class="input-group-prepend">
-                            <div class="input-group-text">
+                            <div class="input-group-text  container-icons">
                                 <span id="inputGroup-sizing-sm">X</span>
                             </div>
                         </div>
@@ -93,7 +95,7 @@
                             <p> No repetir</p>
                         </div>
                         <div class="col-md-2" id="check-div">
-                            <input class="form-check-input-sm" checked=true value="unique" type="checkbox" id="fecha" name="checkbox_repeat"></input>
+                            <input class="input-session form-check-input-sm" checked=true value="unique" type="checkbox" id="fecha" name="checkbox_repeat"></input>
                         </div>
                     </div>
 
@@ -103,7 +105,7 @@
                             <p> Repetir cada semana</p>
                         </div>
                         <div class="col-md-2" id="check-div">
-                            <input class="form-check-input-sm" value="weekly" type="checkbox" id="fecha" name="checkbox_repeat"></input>
+                            <input class="input-session  form-check-input-sm" value="weekly" type="checkbox" id="fecha" name="checkbox_repeat"></input>
                         </div>
                     </div>
 
@@ -129,14 +131,14 @@
                     </div>
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
-                            <div class="input-group-text">
+                            <div class="input-group-text  container-icons">
                                 <span onclick="openTherapyPopup()" id="inputGroup-sizing-sm">Seleccionar plan de estudio</span>
                             </div>
                         </div>
                         <input id="therapy-input" name="therapy_id" style="display:none;"></input>
-                        <input id="therapy-name" type="text" class="form-control" aria-label="Text input with checkbox" readonly>
+                        <input id="therapy-name" type="text" class="form-control input-session " aria-label="Text input with checkbox" readonly>
                         <div class="input-group-prepend">
-                            <div class="input-group-text">
+                            <div class="input-group-text  container-icons">
                                 <span id="inputGroup-sizing-sm">X</span>
                             </div>
                         </div>
@@ -151,11 +153,11 @@
                         <div class="col-md-6">
                             <div class="input-group mb-4">
                                 <div class="input-group-prepend">
-                                    <div class="input-group-text">
+                                    <div class="input-group-text  container-icons">
                                         <span >&#xf21e;</span>
                                     </div>
                                 </div>
-                                <input name="bpm" type="number" placeholder="Sensibilidad Pulsaciones (0-100)" class="form-control" id="numberInput" min="0" max="100"></input>
+                                <input name="bpm" type="number" placeholder="Sensibilidad Pulsaciones (0-100)" class="input-session form-control" id="numberInput" min="0" max="100"></input>
                                 <span data-toggle="tooltip" data-html="true" 
                                     title="Al iniciar la sesión, se reproducirá un periodo de relajación 
                                     durante el cual se obtiene un valor que determina el punto de transición entre los niveles bajo y alto. 
@@ -167,11 +169,11 @@
                         <div class="col-md-6">
                             <div class="input-group mb-4">
                                     <div class="input-group-prepend">
-                                        <div class="input-group-text">
+                                        <div class="input-group-text container-icons">
                                             <span>&#xf256;</span>
                                         </div>
                                     </div>
-                                    <input name="movement" type="number" placeholder="Mágnitud del movimiento (0-10)" class="form-control" id="numberInput" min="0" max="10"></input>
+                                    <input name="movement" type="number" placeholder="Mágnitud del movimiento (0-10)" class="input-session form-control" id="numberInput" min="0" max="10"></input>
                                     <span data-toggle="tooltip" data-html="true" 
                                     title=" Marcará cuánta magnitud tiene que tener un movimiento del dispositivo para que se entienda como alto. Cuanto más bajo, más susceptible a movimientos será el sensor
                                     para determinar que hay mucho o poco movimiento"
@@ -276,8 +278,10 @@
             <div class="col">
                 <h2>Selecciona plan de estudio</h2>
             </div>
-            <div class="col text-end align-button-right">
-                <button class="button-closed" onclick="closeTherapyPopup()">X</button>
+            <div class="col-md-1 button-close-container">
+                <button onclick="closeTherapyPopup()" type="button" class="button-close">
+                    <span>&#xf00d;</span>
+                </button>
             </div>
         </div>
         <script>
@@ -324,8 +328,10 @@
             <div class="col">
                 <h2>Selecciona hito y objetivo</h2>
             </div>
-            <div class="col text-end align-button-right">
-                <button class="button-closed" onclick="closeObjectivesPopup()">X</button>
+            <div class="col-md-1 button-close-container">
+                    <button onclick="closeObjectivesPopup()" type="button" class="button-close">
+                        <span>&#xf00d;</span>
+                    </button>
             </div>
         </div>
         <script>
@@ -372,8 +378,10 @@
             <div class="col">
                 <h2>Selecciona HITO del objetivo</h2>
             </div>
-            <div class="col text-end align-button-right">
-                <button class="button-closed" onclick=" closeMileStonePopup()">X</button>
+            <div class="col-md-1 button-close-container">
+                <button onclick="closeMileStonePopup()" type="button" class="button-close">
+                    <span>&#xf00d;</span>
+                </button>
             </div>
         </div>
         <script>

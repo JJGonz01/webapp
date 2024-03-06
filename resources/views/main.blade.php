@@ -17,7 +17,7 @@
 <button type="button" class="btn btn-primary d-md-none fixed-top w-100" style="margin-bottom:10px">Nuevo Botón</button>
     <div class="container-fluid">
         <div class="row">
-            <nav class="sidebar-sticky col-md-2 d-none d-md-block bg-light navbar">
+            <nav class="sidebar-sticky col-md-2 d-none d-md-block navbar">
                 <div>
                     <div>
                         <img id="img-logo" src="{{asset('/images/logorm.png')}}">
@@ -25,19 +25,22 @@
                     </div>
                     <ul class="nav flex-column">
                      
-                        <li class="nav-item">
-                            <a class="nav-link" href="/general">Dashboard</a>
+                        <li class="nav-item nav-superitem">
+                            <span class="span-navbar">&#xf015;</span>
+                            <a class="nav-option" href="/general">Dashboard</a>
                         </li>
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="/patients">Pacientes</a>
+                        <li class="nav-item nav-superitem">
+                            <span class="span-navbar">&#xf007;</span>
+                            <a class="nav-option" href="/patients">Pacientes</a>
                         </li>
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="/therapies">Planes de estudio</a>
+                        <li class="nav-item nav-superitem">
+                            <span class="span-navbar">&#xf02d;</span>
+                            <a class="nav-option" href="/therapies">Planes de estudio</a>
                         </li>
 
-                        <li class="nav-item">
+                        <li class="nav-item nav-superitem">
                         <form id="form_crear_sesion" action="{{route('home', [], false, true)}}" method="GET">
                             <button id="nav_bar_info">
                                 <div>

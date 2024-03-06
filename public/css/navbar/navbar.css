@@ -7,6 +7,7 @@ body{
 .navbar{
     height:100vh;
     position: fixed !important;
+    background-color: var(--color-secondary-brown) !important;
 }
 
 #img-logo{
@@ -24,4 +25,20 @@ body{
 .button-no-border:focus{
     border:0;
     background-color: rgba(0,0,0,0);
+}
+
+.nav-option{
+    color:var(--color-primary-grey) !important;
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+.nav-superitem{
+    margin-bottom:20px;
+}
+
+.span-navbar{
+    font-family: 'Arial', FontAwesome; 
+    padding-left: 20px;
+    color:grey;
 }

@@ -24,10 +24,9 @@
         </div>
     </form>
 
-    <div class="table-responsive text-center">
-        <table class="table">
+    <div class="table-responsive table-patients text-center">
+        <table class="table table-patients">
             <tr class="top-index-container">
-                <th scope="col"><input type="checkbox" value="-1" id="checkbox1"></th>
                 <th scope="col">NOMBRE</th>
                 <th scope="col">TAGS</th>
                 <th scope="col">Próxima sesión</th>
@@ -36,12 +35,11 @@
             <div id="patient-list" class="table-items-options-overflow">
                 @foreach ($patients->take(10) as $patient)
                 <tr>
-                    <td scope="row"><input type="checkbox" value="{{$patient->id}}" id="checkbox1"></td>
                     <td>{{$patient->surname}}, {{$patient->name}}</td>
                     <td>TBD</td>
                     <td>TBD</td>
                     <td>
-                        <select class="form-select" onchange="patientSelect({{$patient->id}},this.value)">
+                        <select class="container-select" onchange="patientSelect({{$patient->id}},this.value)">
                             <option value="" hidden disabled selected>Acciones</option>
                             <option value="e">Acceder</option>
                             <option value="b">Eliminar</option>

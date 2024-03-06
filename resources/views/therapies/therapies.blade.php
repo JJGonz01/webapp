@@ -24,10 +24,9 @@
         </div>
     </form>
 
-    <div class="table-responsive text-center">
+    <div class="table-responsive table-patients text-center">
         <table class="table">
             <tr class="top-index-container">
-                <th scope="col"><input type="checkbox" value="-1" id="checkbox1"></th>
                 <th scope="col">Nombre</th>
                 <th scope="col">Tags</th>
                 <th scope="col">Reglas</th>
@@ -36,12 +35,11 @@
             <div id="patient-list" class="table-items-options-overflow">
                 @foreach ($therapies->take(10) as $therapy)
                 <tr>
-                    <td scope="row"><input type="checkbox" value="{{$therapy->id}}" id="checkbox1"></td>
                     <td>{{$therapy->name}}</td>
                     <td>TBD</td>
                     <td>TBD</td>
                     <td>
-                        <select class="form-select">
+                        <select class="container-select">
                             <option value="" hidden disabled selected>Acciones</option>
                             <option value="e">Acceder</option>
                             <option value="b">Eliminar</option>

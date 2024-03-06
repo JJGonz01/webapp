@@ -28,19 +28,23 @@
 <div class="popup" id="eventCreatepopup" style="display:none;">
     <div class="popup-content">
         <div class="row">
-                <h3 class="col-md-11">Selecciona que añadir</h3>
-                <button onclick="closePopUpEvent()" class="text-end col-md-1">X</button>
+                <h3 class="col-md-11">Selecciona que añadir al calendario</h3>
+                <div class="col-md-1 button-close-container">
+                    <button onclick="closePopUpEvent()" class="button-close">
+                        <span>&#xf00d;</span>
+                    </button>
+                </div>
         </div>
 
-        <div class="form-row">
-                <div class="col-md-6 container-objective-type">
+        <div class="flex-container-options">
+                <div>
                     <button  onclick="sendFormSession('create-session-form')" type="button" class="image-container-objective">
                     <img class="rounded-image-objective" src="{{asset('images/clockpom.jpg')}}"></img>
                     <p>Crear sesión de estudio</p>
                     </button>
                 </div>
-                <div class="col-md-6 container-objective-type">
-                    <button  onclick="sendFormSession('create-objetive-form')" type="button" class="image-container-objective">
+                <div>
+                    <button onclick="sendFormSession('create-objetive-form')" type="button" class="image-container-objective">
                     <img class="rounded-image-objective" src="{{asset('images/goaltarget.jpg')}}"></img>
                     <p>Crear Objetivo de paciente</p>
                     </button>
@@ -50,23 +54,24 @@
 </div>
 <div class="container-fluid">
     <div class="col-md-12 container-patient-slim">
-        <div class="row align-items-center container-fluid">
-            <div class="row">
-                <img class="col-md-3" id="profile-image" src="{{asset('images/perfil.png')}}"></img>
-                <div class="col-md-8">
-                    <h5>{{$patient-> surname}}, {{$patient-> name}}</h5>
-                    <p>{{$patient->description}}</p>
+        <div class="row align-items-center container-padding container-fluid">
+            <div class="row container-padding">
+                <img class="col-md-3 container-patient-slim-image" src="{{asset('images/perfil.png')}}"></img>
+                <div class="col-md-8 container-content-patient">
+                    <h3>{{$patient-> surname}}, {{$patient-> name}}</h3>
+                    <h6>{{$patient->description}}</h6>
                     
                 </div>
             </div>
         </div>
-        <div>
+        <div class="container-padding">
                 <button onclick="changeviewpatient(0)">Calendario</button>
                 <button onclick="changeviewpatient(1)">Objetivos</button>
-                <button onclick="changeviewpatient(2)">Mi Avatar</button>
+                <button onclick="changeviewpatient(2)">Datos del paciente</button>
+                <button onclick="changeviewpatient(3)">Mi Avatar</button>
         </div>
     </div>
-    <div id="calendar-view" style="display:none;">
+    <div id="calendar-view" style="display:block;">
         <div class="row" id="calendar-container">
             <div class="col-md-9">
                 <div class="container-fluid container-patient-slim">
@@ -87,25 +92,6 @@
             </div>
         </div>
 
-        <div class="row" style="display:none;">
-            <div class="col-md-9">
-                <div class="container-fluid container-patient-slim">
-                    <div class="container-padding">
-                        <div class="calendar" id="week-calendar"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="container-sesiones container-patient-slim">
-                    <p class="text-title-two" id="session-title">Sesiones programadas</p>
-                    <div>
-                        <table class="table" id="sessions-table-week">
-                            
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 
     <div id="objectives-view" style="display:none;">
@@ -152,21 +138,14 @@
         </div>
     </div>
 
-    <div id="avatar-view" style="display:block;">
+    <div id="avatar-view" style="display:none;">
         <div class="row" id="calendar-container">
             <div class="col-md-9">
                 <div class="container-fluid container-patient-slim">
                     <div class="container-padding">
-                        <p class="text-title-two">Mi avatar</p>
-                        <div class="row">
-                            <button>Todos</button>
-                            <button>Estudio</button>
-                            <button>Personales</button>
-                            <button>Escolares</button>
-                        </div>
+                        <p class="text-title-two">Datos</p>
+                        
                         <div style="text-align:center; align-content:center">
-                        <img style="margin-top:10px;width:70%; height:auto;" src="{{asset('images/backgroundavatar.jpg')}}"></img>
-
                         </div>
                     </div>
                 </div>
@@ -176,6 +155,7 @@
                     <p class="text-title-two" id="session-title">Tienda</p>
                     <div id="steps-container" class="container-padding">
                         <div class="row">
+                            <button><img></img></button>
                         </div>
                     </div>
                 </div>

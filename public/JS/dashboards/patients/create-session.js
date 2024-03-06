@@ -131,7 +131,7 @@ function selectObjectiveAndMilestone(objid,objname, milestone){
     document.getElementById("objective-input").value = objid;
     document.getElementById("milestone-input").value = milestone;
     document.getElementById("objective-name").value = objname;
-    closeMileStonePopup();
+    closeObjectiveMileStonePopup();
 }
 function closeMileStonePopup(){
     document.getElementById("popup-objectives-milestones").style="display:none;"

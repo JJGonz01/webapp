@@ -1,0 +1,31 @@
+
+body{
+    background-image: url('/images/backgroundavatar.jpg');
+    margin: 0;
+    padding: 0;
+    background-size: cover;
+    background-position: center;
+    height: 100vh; /* Esto hace que el cuerpo ocupe toda la altura de la ventana */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.avatar-container {
+    position: relative;
+    width:100%;
+    display: inline-block;
+    background-color: beige;
+}
+  
+.avatar {
+    position:absolute;
+    bottom:0%;
+    left: 45%;
+}
+
+.buttons-menu-container{
+    position:absolute;
+    bottom:0%;
+    left: 45%;
+}

@@ -24,12 +24,11 @@ span{
 .popup-content {
     position: absolute;
     top: 50%;
-    width:80%;
     height:auto;
     left: 50%;
     border-radius: 20px;
     transform: translate(-50%, -50%);
-    background-color: #fff;
+    background-color: var(--color-primary-white);
     padding: 20px;
 }
 

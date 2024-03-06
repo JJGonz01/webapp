@@ -209,9 +209,6 @@ function saveNewRule(){
         actions:JSON.stringify(acciones)
     };
     
-
-    
-    
     if(!mapaReglas[block]){
         mapaReglas[block] = {};
     }

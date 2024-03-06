@@ -145,6 +145,26 @@ class PatientsController extends Controller
         }
      }
 
+     public function avatar($id){
+        if (Auth::check()) {
+            $usuario = Auth::user();
+            $patient = Patient::where('user_id', $usuario -> id)
+                -> where('id', $id)
+                -> get();
+            if(!$patient)
+                $patients = Patient::where('user_id', $usuario -> id) -> get();
+            else{
+                $sessions = Session::where('patient_id', $patient[0]->id) -> get();
+                $objectives = patientevent::where('patient_id', $patient[0]->id) -> get();
+                return view('patients.avatar.avatar', ['patient' => $patient[0]]);
+            }
+            return view('patients.patients', ['patients' => $patients]);
+        }
+        else{
+            $patients = [];
+            return view('patients.patients', ['patients' => $patients]);
+        }
+     }
      /**
       * SHOW: Muestra un paciente
       */

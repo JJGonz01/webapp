@@ -57,6 +57,8 @@ Route::group( ['middleware' => 'auth' ], function()
     Route::get('/patient/{id}', [PatientsController::class, 'show'])
     ->name('patient_show');
 
+    Route::get('/avatar/{id}', [PatientsController::class, 'avatar'])
+    ->name('avatar_show');
 
     //Formulario de actualizacion de paciente (no hay accion, es el form)
     Route::get('/patientedit/{id}', [PatientsController::class, 'showFormUpdate'])
