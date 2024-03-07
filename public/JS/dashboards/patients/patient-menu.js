@@ -25,9 +25,18 @@ function changeviewpatient(view){
 
 function showMilestones(objetivesid){
     var objetives = JSON.parse(document.getElementById("objectives").content);
-    var steps = JSON.parse(objetives[objetivesid-1]["steps"]);
+    var objetivesidlc = 0;
+    console.log(objetives);
+
+    for(let i = 0; i<objetives.length; i++){
+        if(objetives[i]["id"] == objetivesid){
+            objetivesidlc = i;
+            break;
+        }
+    }
+    var steps = JSON.parse(objetives[objetivesidlc]["steps"]);
     var container = document.getElementById("steps-container");
-    container.innerHTML = `<h3>Objetivo: ${objetives[objetivesid-1]["name"]}</h3>`;
+    container.innerHTML = `<h3>Objetivo: ${objetives[objetivesidlc]["name"]}</h3>`;
     let i = 0;
     steps.forEach(step => {
         let desc = 'Sin descripción';

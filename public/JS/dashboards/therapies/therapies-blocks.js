@@ -55,7 +55,7 @@ function addBlock(){
             var innerDivInput2 = document.createElement("input");
             innerDivInput2.className="col-4 form-control";
             innerDivInput2.id= id+"-t1";
-            innerDivInput2.placeholder="Estudio (Minutos)";
+            innerDivInput2.placeholder="Estudio (Min)";
 
             var spacerDiv = document.createElement("div");
             spacerDiv.className="col-4";

@@ -81,8 +81,14 @@ function setTextPeriod(option){
 function openMileStonesPopUp(objectiveID){
     document.getElementById("popup-objectives-milestones").style="display:fixed;";
     var objectives = JSON.parse(document.getElementById("objectives").content);
-    
-    var stepsObj = JSON.parse(objectives[objectiveID-1]["steps"]);
+    var objetivesidlc = 0;
+    for(let i = 0; i<objectives.length; i++){
+        if(objectives[i]["id"] == objectiveID){
+            objetivesidlc = objectives["id"];
+            break;
+        }
+    }
+    var stepsObj = JSON.parse(objectives[objetivesidlc]["steps"]);
     console.log(stepsObj);
     var table = document.getElementById("table-milestones");
     table.innerHTML ="";
@@ -113,7 +119,7 @@ function openMileStonesPopUp(objectiveID){
             let btn = document.createElement("btn");
             btn.className = "button-objective-next-step";
             btn.onclick = function(){
-                selectObjectiveAndMilestone(objectiveID, objectives[objectiveID-1]["name"], step["name"]);
+                selectObjectiveAndMilestone(objectiveID, objectives[objetivesidlc]["name"], step["name"]);
             }
             btn.innerHTML = "SELECCIONAR";
         td3.appendChild(btn);
