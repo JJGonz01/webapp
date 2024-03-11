@@ -2,6 +2,10 @@
 var currentBlock = 0;
 var rules = [];
 var mapaReglas = {};
+
+function printMapaReglas(){
+    console.log(mapaReglas);
+}
 function setEventListenerCheckbox(divId, checkboxId){
     var checkbox = document.getElementById(checkboxId);
     checkbox.addEventListener('change', function() {
@@ -105,13 +109,13 @@ function selectCheckOptions(checkid){
 
 function saveNewRule(){
 
-    var name = document.getElementById("condition-name").value;
-    var desc = document.getElementById("condition-description").value;
-    var repetition = document.getElementById("repetition-condition").value;
-    var comprobation = document.getElementById("input-moment-period").value;
-
-    var block = currentBlock; 
-    var periodo;
+    let name = document.getElementById("condition-name").value;
+    let desc = document.getElementById("condition-description").value;
+    let repetition = document.getElementById("repetition-condition").value;
+    let comprobation = document.getElementById("input-moment-period").value;
+    let block = currentBlock; 
+    console.log(currentBlock);
+    let periodo;
 
     let estd = document.getElementById("estudio-cond").value;
     let rest = document.getElementById("descanso-cond").value;
@@ -210,16 +214,11 @@ function saveNewRule(){
     };
     
     if(!mapaReglas[block]){
+        console.log("Nuevo bloque de reglas");
         mapaReglas[block] = {};
     }
-    
-    if(!mapaReglas[block][name]){ //fixme
-        mapaReglas[block][name] = ruleObject;
-    }
-    else{
-        mapaReglas[block][name] = ruleObject;
-    }
-    console.log(ruleObject);
+    mapaReglas[block][name] = ruleObject;
+    console.log(mapaReglas);
     showRule(ruleObject);
     document.getElementById("popup").style="display:none;";
 }
@@ -228,6 +227,7 @@ function showRulesInContainer(blockNumber){
     document.getElementById("condition-div").innerHTML = "";
     document.getElementById("conditions-title").innerHTML = "Condiciones del bloque "+blockNumber;
     currentBlock = blockNumber;
+    console.log(currentBlock);
     if(!mapaReglas[blockNumber]) return;
     for(var i = 0; i<Object.keys(mapaReglas[blockNumber]).length; i++){
         showRule(mapaReglas[blockNumber][Object.keys(mapaReglas[blockNumber])[i]]);
@@ -273,9 +273,6 @@ function showRule(rule){
     newDiv.appendChild(span);
     newDiv.appendChild(ruleName);
     newDiv.appendChild(divbuttons);
-
-
-
     mainDiv.appendChild(newDiv);
 }
 
@@ -289,13 +286,13 @@ function deleteRulesOfBlock(blockNumber){
 }
 
 function saveRulesAndSend(){
-    
-    for(var i = 0; i<=numerosPeriodos;i++){
-        let numberi = i;
-        if(mapaReglas[numberi]) {
-            for(var i = 0; i<=Object.keys(mapaReglas[numberi]).length;i++){
-                let key = Object.keys(mapaReglas[numberi]);
-                rules.push(JSON.stringify(mapaReglas[numberi][key]));
+    console.log(numerosPeriodos);
+    for(let i = 0; i<numerosPeriodos; i++){
+        if(mapaReglas[i]){
+            for(let j = 0; j<Object.keys(mapaReglas[i]).length;j++){
+                console.log("jsjsj")
+                let key = Object.keys(mapaReglas[i])[j];
+                rules.push(JSON.stringify(mapaReglas[i][key]));
             }
         }
     }

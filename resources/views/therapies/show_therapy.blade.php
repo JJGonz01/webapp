@@ -17,8 +17,8 @@
     </div>
 </div>
 
-<div class="row">
-    <div class="col-md-4 container-therapy">
+<div class="row  container-therapy">
+    <div class="col-md-4">
         <div class="container-therapy-information">
             <h2>Datos</h2>
             <h4>Nombre: {{$therapy->name}}</h4>
@@ -26,7 +26,7 @@
         </div>
     </div>
 
-    <div class="col-md-4 container-therapy">
+    <div class="col-md-4">
         <div class="container-therapy-information">
             <h2>Uso de la terapia</h2>
             <h4>Pacientes: TBD</h4>
@@ -34,7 +34,7 @@
         </div>
     </div>
 
-    <div class="col-md-4 container-therapy">
+    <div class="col-md-4">
         <div class="container-therapy-information">
             <h2>Resultados</h2>
             <h4>Sesiones completadas: TBD</h4>
@@ -50,7 +50,7 @@
     </div>
 </div>
 
-<div class="row">
+<div class="row  container-therapy">
     
     <div class="col-md-8 container-therapy">
         <div class="container-therapy-information">

@@ -437,7 +437,7 @@
 
                                 <div style="margin-bottom:-10px;" class="row">
                                     <div class="col-md-3">
-                                        <button onclick ="getMessages(true)" class="button-open-selection">Seleccionar mensaje</button>
+                                        <button onclick ="getMessages(true)" class="button-open-selection">Seleccionar</button>
                                     </div>
                                     <input style="display:none;" id="message-primary"></input>
                                     <p class="col-md-8" id="p-message-primary-selected">Sin mensaje seleccionado</p>
@@ -516,7 +516,7 @@
 
                                     <div style="margin-bottom:-10px;" class="row">
                                         <div class="col-md-4">
-                                            <button disabled onclick ="getMessages(false)" class="button-open-selection">Seleccionar mensaje</button>
+                                            <button disabled onclick ="getMessages(false)" class="button-open-selection">Seleccionar</button>
                                         </div>
                                         <input id="input-time-primary" style="display:none;" id="message-secondary"></input>
                                         <p id="p-message-secondary-selected" class="col-md-7">Sin mensaje seleccionado</p>
@@ -700,7 +700,7 @@
             </div>
             <div class="float-end" style="margin-top:3%;">
                 <button type="button" class="button-save" onclick="saveAndSend();">Guardar</button>
-                <button type="button" class="button-cancel" onclick="closePopup()">Cancelar</button>
+                <button type="button" class="button-cancel" onclick="printMapaReglas()">Cancelar</button>
             </div>
         </div>
     </div>

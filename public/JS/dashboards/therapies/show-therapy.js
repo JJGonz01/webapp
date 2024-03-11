@@ -11,9 +11,9 @@ function showDurations(){
     document.getElementById("mb_t1").value = jsonvalues["0"]["duration_t1"];
     document.getElementById("mb_t2").value = jsonvalues["0"]["duration_t2"];
     document.getElementById("mb_rest").value = jsonvalues["0"]["duration_rest"];
-
+    console.log(jsonvalues);
     if(Object.keys(jsonvalues).length > 1){
-        for(var i = 1; i<Object.keys(jsonvalues).length; i++){
+        for(let i = 1; i<Object.keys(jsonvalues).length; i++){
             console.log(jsonvalues[Object.keys(jsonvalues)[i]]);
             createBlockDiv(
                 jsonvalues[Object.keys(jsonvalues)[i]]["duration_t1"],
@@ -70,7 +70,7 @@ function createBlockDiv(t1, rest){
         buttonDiv.className = 'col-md-2 container-align-end';
 
             var buttonEdit = document.createElement("button");
-            buttonEdit.id = "button-edit";
+            buttonEdit.id = "button-select-period";
             buttonEdit.innerHTML = "<span>&#xf304;</span>";
 
             buttonDiv.appendChild(buttonEdit);

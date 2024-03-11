@@ -79,9 +79,11 @@ function addBlock(){
             buttonEdit.onclick = function() {
                 showRulesInContainer(rulesid);
             };
+            buttonEdit.className = "button-select-period";
             var buttonDelete = document.createElement("button");
             buttonDelete.id="button-delete-"+blocknid;
             buttonDelete.type = "button";
+            buttonDelete.className = "button-delete-period";
             buttonDelete.innerHTML="<span>&#xf1f8;</span>";
             buttonDelete.onclick = function() {
                 deleteBlock(id, blocknid);
@@ -131,7 +133,6 @@ function saveMainBlock(){
     var t1 = document.getElementById('mb_t1');
     var t2 = document.getElementById('mb_t2');
     var rest = document.getElementById('mb_rest');
-    mapaReglas[1] = {};
     const period = {
         duration_t1: t1.value,
         duration_t2: t2.value,
@@ -146,15 +147,16 @@ function saveAllPeriods(){
     var mainPeriod = saveMainBlock();
     periods[0] = mainPeriod;
     if(numerosPeriodos > 0){
-        for(var i = 2; i<numerosPeriodos+1; i++){
-            let id = "c"+numerosPeriodos;
+        for(let i = 1; i<numerosPeriodos+1; i++){
+            let id = "c"+i;
+            let locali = i;
             let valt1 = document.getElementById(id+"-t1").value;
             let rest = document.getElementById(id+"-rest").value;
             var period = {
                 duration_t1: valt1,
                 duration_rest: rest
             };
-            periods[i-1] = period;
+            periods[locali] = period;
         }
     }
 }
@@ -164,8 +166,9 @@ function saveAndSend(){
    var period_input = document.getElementById("input_period");
    var rule_input = document.getElementById("rule_period");
    saveAllPeriods();
-   period_input.value = JSON.stringify(periods);
    rule_input.value = JSON.stringify(saveRulesAndSend());
+   period_input.value = JSON.stringify(periods);
+   console.log(rule_input.value);
    console.log(period_input.value);
    form.submit();
 }

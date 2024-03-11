@@ -6,7 +6,7 @@
     --ancho-borde: 2px;
     --familia-fuente-poppins: 'Poppins', sans-serif !important;
 
-    --color-primary-white: rgb(253, 247, 239);
+    --color-primary-white: rgb(253, 247, 239); 
     --color-primary-blue: #74809A;
     --color-primary-grey: #676168;
     --color-primary-black: #494848;
@@ -18,12 +18,14 @@
     
     --color-secondary-white: #FFFAF4;
     --color-secondary-grey: #faf8f0;
+    --color-secondary-black:rgb(98, 98, 96)0;
     --color-secondary-brown: #F4EEE1;
     --color-secondary-hover-brown: #e3ddd0;
 
     --color-button-terciary-blue: #c0cae0;
     --color-button-terciary-light-blue: #e3eaf0;
     --color-button-terciary-grey: rgba(196, 209, 221);
+    --color-button-terciary-black: rgb(189, 192, 194);
 
   }
 

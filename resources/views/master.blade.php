@@ -9,6 +9,7 @@
         <!--CSS-->
         <link rel="stylesheet" href="{{asset('/css/main.css')}}">
         <link rel="stylesheet" href="{{asset('/css/navbar/navbar.css')}}">
+        <link rel="stylesheet" href="{{asset('/css/auth/test.css')}}">
 
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
@@ -23,6 +24,12 @@
    @endif
    <div class="slave-test">
        @yield('login')
+   </div>
+
+   <div class="test-icon-container">
+    <button>    
+        <span style="font-family: Arial, FontAwesome; font-size:larger">&#xf0ae;</span>
+    </button>
    </div>
 
 </body>

@@ -20,8 +20,18 @@ select{
     background-color: var(--color-primary-light-blue) !important;
     border: 0px !important;
     border-radius: 10px !important;
+    color:white !important;
     width:50px !important;
 }
+
+.button-delete-period{
+    background-color: var(--color-primary-red) !important;
+    color:white !important;
+    border: 0px !important;
+    border-radius: 10px !important;
+    width:50px !important;
+}
+
 
 .span-container{
     background-color: var(--color-primary-brown) !important;
@@ -167,7 +177,7 @@ select{
 .popup-on-content {
     position: absolute;
     top: 50%;
-    width:55%;
+    width:75%;
     height:auto;
     left: 50%;
     border-radius: 20px;
@@ -213,6 +223,7 @@ select{
 
 .container-condition{
     margin-left: 1%;
+    background-color: var(--color-secondary-grey);
 }
 
 .container-condition-sensor{
@@ -258,12 +269,12 @@ select{
 }
 
 .button-selected{
-    background-color: rgb(90, 177, 215);
+    background-color: var(--color-primary-light-blue);
 }
 
 .button-disabled{
-    background-color: rgb(236, 236, 236);
-    color:rgb(133, 133, 133);
+    background-color: var(--color-button-terciary-grey);
+    color:var(--color-primary-grey);
 }
 
 
@@ -272,7 +283,7 @@ select{
 }
 
 .title-subsection{
-    margin-top: 12px;
+    margin-top: 22px;
 }
 
 .title-options{
@@ -294,12 +305,12 @@ select{
 }
 
 .container-deselected{
-    background-color: rgba(173, 173, 173, 0.84);
+    background-color: var(--color-button-terciary-black) !important;
 }
 
 
 .button-canceled{
-    background-color: rgba(173, 173, 173, 0.84);
+    background-color: var(--color-button-terciary-grey);
     color:black;
 }
 
@@ -323,7 +334,7 @@ select{
 }
 
 .container-deselected button{  
-    background-color: rgba(173, 173, 173, 0.84);
+    background-color: var(--color-secondary-black);
 }
 
 
@@ -351,7 +362,7 @@ select{
         display: none;
     }
     .title-subsection{
-        margin-top: 0px;
+        margin-top: 10px;
         margin-bottom: 0px;
     }
 }
@@ -362,7 +373,7 @@ select{
     }
 
     .title-subsection{
-        margin-top: 20px;
+        margin-top: 22px;
         margin-bottom: 10px;
     }
     .container-condition-inner{

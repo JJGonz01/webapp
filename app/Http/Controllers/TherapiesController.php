@@ -72,7 +72,6 @@ class TherapiesController extends Controller
 
        $array_per_raw = $request->input('periods'); //array con un elemento (con todos los elementos)
 
-      
        if (!empty($array_per_raw) && !is_null($array_per_raw) && !is_null($array_per_raw[0])) {
            $array_per = json_decode($array_per_raw[0], true);
 
@@ -100,8 +99,8 @@ class TherapiesController extends Controller
            $session_period-> therapy_id = $terapia->id;
            $session_period->save();
         }
+        //dd($rules);
         return redirect()->route('therapy_show', ['id'=> $terapia->id])->with('success','Terapia creada correctamente');
-       //return redirect()->route('therapy_show', ['id'=> $terapia->id])->with('success','Terapia creada correctamente');
     }
 
     public function show(string $id)
@@ -147,8 +146,6 @@ class TherapiesController extends Controller
      {
         $therapy = Therapy::find($id);
         $patients_all = Patient::All();
-        
-     
         $periodo = SessionPeriod::where('therapy_id', $therapy->id)->first();
         $listaSesionesPeriods = [];
         $listaSesionesPeriods[] = $periodo->durations;

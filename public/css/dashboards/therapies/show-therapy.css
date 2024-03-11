@@ -2,7 +2,7 @@
     padding:15px;
 }
 
-
+ 
 .container-therapy-information{
     border:1px solid grey;
     padding:15px;
@@ -17,4 +17,12 @@
 
 .container-block-time{
     
+}
+
+.button-select-period{
+    background-color: var(--color-primary-light-blue) !important;
+    border: 0px !important;
+    border-radius: 10px !important;
+    color:white !important;
+    width:50px !important;
 }

@@ -1,0 +1,21 @@
+.test-icon-container{
+    position: fixed;
+    right: 30;
+    bottom:30;
+    width: 80px;
+    height: 80px;
+}
+
+.test-icon-container button{
+    border-radius: 100%;
+    height: 80px;
+    width: 80px;
+    border:1px solid var(--color-primary-grey);
+    background-color: white;
+    transition: transform 0.3s ease; 
+}
+
+.test-icon-container button:hover{
+    transform: scale(1.2); /* Escalado del 20% al hacer hover */
+    transition: transform 0.3s ease;
+}
