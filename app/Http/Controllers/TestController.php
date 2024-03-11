@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\patient;
 use App\Models\user;
+use App\Models\Therapy;
+use App\Models\SessionPeriod;
 use App\Models\Testdata;
 
 
@@ -16,6 +18,64 @@ class TestController extends Controller
         return Testdata::all();
     }
 
+    public function checkStep(string $id){
+        if(!Auth::check()){
+            return false; 
+        }
+        $user = Auth::user();
+
+        switch($id){
+            case "2": 
+                $patients = Patient::where('user_id', $user->id)->get();
+                if(count($patients) > 0){
+                    return true;
+                }else{
+                    return false;
+                }
+            case "4":
+                $therapies = Therapy::where('user_id', $user->id)->get();
+                if(count($therapies) > 0){
+                    foreach($therapies as $therapy){
+                        $session = SessionPeriod::where('therapy_id', $therapy->id)->get();
+                        $sessionjson = $session[0]->durations;
+                        $json = json_decode($sessionjson);
+                        if(count($json) == 2){
+                            return "2";
+                        }
+                    }
+                    return "1";
+                }else{
+                    return "0";
+                }
+            case "6":
+                $therapies = Therapy::where('user_id', $user->id)
+                ->whereRaw('LOWER(name) = ?', ["plan con reglas"])
+                ->get();
+
+                if(count($therapies) > 0){
+                    foreach($therapies as $therapy){
+                        $session = SessionPeriod::where('therapy_id', $therapy->id)->get();
+                        $sessionjson = $session[0]->durations;
+                        $json = json_decode($sessionjson);
+                        if(count($json) == 1){
+                            if ($json[0]->duration_rest == 2) {
+                                if($therapies->rules){
+                                    
+                                }
+                                return $therapies->rules;
+                            }else{
+                                return "ndkjasgsdakskmda";
+                            }
+                        }
+                    }
+                }
+                else return "0";
+                return $therapies[0];
+
+            default:
+                return false;
+        }
+    }
     public function endTask(){
 
         if(!Auth::check()){
@@ -63,7 +123,6 @@ class TestController extends Controller
     
         $user = Auth::user();
         $userid = $user->id;
-
         $taskid = $request -> input("taskId");
         $type = $request -> input("type");
         $dateTime = $request -> input("dateTime");

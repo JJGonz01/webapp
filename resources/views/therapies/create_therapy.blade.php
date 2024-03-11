@@ -677,7 +677,7 @@
                             <input class="col-4 form-control" id="mb_t2" placeholder="Estudio (min)"></input>
                         </div>
                         <div class="col-md-2 container-align-end">
-                            <button type="button" id="button-edit-0" class="button-select-period" onclick="showRulesInContainer(0)"><span>&#xf304;</span></button>
+                            <button type="button" id="button-edit-0" class="button-select-period" onclick="showRulesInContainer(0)"><span>&#xf044;</span></button>
                         </div>
                     </div>
                 </div>

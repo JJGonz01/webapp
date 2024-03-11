@@ -221,6 +221,7 @@ function saveNewRule(){
     console.log(mapaReglas);
     showRule(ruleObject);
     document.getElementById("popup").style="display:none;";
+    checkStepsIn6();
 }
 
 function showRulesInContainer(blockNumber){

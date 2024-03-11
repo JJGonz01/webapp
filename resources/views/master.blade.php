@@ -25,8 +25,5 @@
    <div class="slave-test">
        @yield('login')
    </div>
-
-
-
 </body>
 </html>

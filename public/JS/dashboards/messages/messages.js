@@ -1,4 +1,4 @@
-const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+///const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 
 function createMessage(name, title, subtitle, button_one, button_two, type, image){
     const request = {

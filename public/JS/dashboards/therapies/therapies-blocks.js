@@ -75,7 +75,7 @@ function addBlock(){
             var buttonEdit = document.createElement("button");
             buttonEdit.id = "button-edit-"+rulesid;
             buttonEdit.type = "button";
-            buttonEdit.innerHTML = "<span>&#xf304;</span>";
+            buttonEdit.innerHTML = "<span>&#xf044;</span>";
             buttonEdit.onclick = function() {
                 showRulesInContainer(rulesid);
             };

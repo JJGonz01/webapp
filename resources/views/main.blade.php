@@ -6,6 +6,7 @@
 <head>
 <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1"> 
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
     <script src="{{asset('/JS/dashboards/tests/test.js')}}"></script>
@@ -16,13 +17,19 @@
 
 <body>
 
-<div class="test-icon-container">
-    <button>    
+<div class="test-icon-container-help" id="">
+    <button onclick="openTestPopUp()">    
+        <span style="font-family: Arial, FontAwesome; font-size:larger">&#x3f;</span>
+    </button>
+</div>
+
+<div class="test-icon-container" id="">
+    <button onclick="openTestPopUp()">    
         <span style="font-family: Arial, FontAwesome; font-size:larger">&#xf0ae;</span>
     </button>
 </div>
 
-<div class="test-container">
+<div class="test-container" id="popup-test-content-container" style="display:none;">
     <div class="test-container-content">
         <div class="row" id="test-content">
             <img class="col-4" src="{{asset('/images/kidtest.png')}}">
@@ -41,7 +48,6 @@
                         Estoy preparado para comenzar
                     </label>
                 </div>
-
                 
                 <div class="text-end"><button id="button-start-test" onclick="setNextStep()" class="text-end button-next-test-disabled" disabled>Siguiente</button></div>
             </div>
