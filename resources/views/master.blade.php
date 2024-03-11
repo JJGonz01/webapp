@@ -26,11 +26,7 @@
        @yield('login')
    </div>
 
-   <div class="test-icon-container">
-    <button>    
-        <span style="font-family: Arial, FontAwesome; font-size:larger">&#xf0ae;</span>
-    </button>
-   </div>
+
 
 </body>
 </html>

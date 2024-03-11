@@ -8,12 +8,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"> 
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="{{asset('/JS/dashboards/tests/test.js')}}"></script>
     <link rel="stylesheet" href="{{asset('/css/dashboards/general.css')}}">
     <!--https://themes.getbootstrap.com/preview/?theme_id=107272--> 
     <!--https://fontawesome.com/search?q=lock&o=r--> 
 </head>
 
 <body>
+
+<div class="test-icon-container">
+    <button>    
+        <span style="font-family: Arial, FontAwesome; font-size:larger">&#xf0ae;</span>
+    </button>
+</div>
+
+<div class="test-container">
+    <div class="test-container-content">
+        <div class="row" id="test-content">
+            <img class="col-4" src="{{asset('/images/kidtest.png')}}">
+            <div class="col-8">
+                <h2>Bienvenido a la aplicación "Pomodoro"</h2>
+                <p>
+                    Durante esta sesión de pruebas, queremos comprobar las distintas funcionalidades
+                    de esta aplicación. Queremos saber tu opinión para conseguir un sistema que permita
+                    facilmente organizar sesiones de estudio con descansos, y en estas poder monitorizar las 
+                    constantes del niño para poder interpretar sus distintas constantes, y mediante la iteración 
+                    y el entendimiento, conseguir que mejore en sus estudios.
+                </p>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="checkboxTestReady">
+                    <label class="form-check-label" for="flexCheckChecked">
+                        Estoy preparado para comenzar
+                    </label>
+                </div>
+
+                
+                <div class="text-end"><button id="button-start-test" onclick="setNextStep()" class="text-end button-next-test-disabled" disabled>Siguiente</button></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 <button type="button" class="btn btn-primary d-md-none fixed-top w-100" style="margin-bottom:10px">Nuevo Botón</button>
     <div class="container-fluid">
         <div class="row">
@@ -84,4 +120,5 @@
             </main>
         </div>
     </div>
+    <script>startTest();</script>
 </body>
