@@ -169,6 +169,5 @@ function saveAndSend(){
    rule_input.value = JSON.stringify(saveRulesAndSend());
    period_input.value = JSON.stringify(periods);
    console.log(rule_input.value);
-   console.log(period_input.value);
    form.submit();
 }

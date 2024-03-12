@@ -31,6 +31,10 @@
     width: 80%;
 }
 
+.popup-width-90{
+    width: 90%;
+}
+
 span{
     font-family: 'Poppins','FontAwesome', sans-serif !important;
 }

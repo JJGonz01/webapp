@@ -5,9 +5,20 @@
 <head>
     <title>PACIENTES</title>
     <link rel="stylesheet" href="{{asset('/css/dashboards/patients.css')}}">
+    <link rel="stylesheet" href="{{asset('/css/dashboards/patients/create-patient.css')}}">
     <script src="{{asset('/JS/dashboards/patients.js')}}"></script>
 </head>
 
+<div class="popup" id="popup-delete" style="display:none;">
+    <div class="popup-content" >
+        <h2>Se va a eliminar a este paciente ¿Está seguro de que quiere continuar?</h2>
+        <div class="row popup-delete-container" >
+            <button class="col-md-2 button-delete" onclick="finaldelete()">Eliminar</button>
+            <div class="col-md-2"></div>
+            <button onclick = "closeDeletePopUp()" class="col-md-2 button-cancel-delete">Cancelar</button>
+        </div> 
+    </div>
+</div>
 <div class="container-general-patients">
     
     <form action="{{route('patients_create', [], false, true)}}" method="GET">
@@ -24,33 +35,33 @@
         </div>
     </form>
 
-    <div class="table-responsive table-patients text-center">
+    <div class="table-responsive table-patients text-center table-items-options-overflow">
         <table class="table table-patients">
-            <tr class="top-index-container">
-                <th scope="col">NOMBRE</th>
-                <th scope="col">TAGS</th>
-                <th scope="col">Próxima sesión</th>
-                <th scope="col">ACCIONES</th>
-            </tr>
-            <div id="patient-list" class="table-items-options-overflow">
-                @foreach ($patients->take(10) as $patient)
+                <tr class="top-index-container">
+                    <th scope="col">NOMBRE</th>
+                    <th scope="col">TAGS</th>
+                    <th scope="col">Próxima sesión</th>
+                    <th scope="col">ACCIONES</th>
+                </tr>
+                @foreach ($patients as $patient)
                 <tr>
                     <td>{{$patient->surname}}, {{$patient->name}}</td>
                     <td>TBD</td>
                     <td>TBD</td>
                     <td>
-                        <select class="container-select" onchange="patientSelect({{$patient->id}},this.value)">
+                        <select class="container-select" onchange="patientSelect({{$patient->id}},this.value, this)">
                             <option value="" hidden disabled selected>Acciones</option>
                             <option value="e">Acceder</option>
                             <option value="b">Eliminar</option>
                         </select>
                         <form id="e{{$patient->id}}" action="{{route('patient_show', [$patient->id], false, true)}}" method="GET"></form>
-                        <form id="b-{{$patient->id}}" action="{{route('sessions_create', ['patient_id' => $patient -> id], false, true)}}" method="GET"></form>
+                        <form id="d{{$patient->id}}" action="{{ route('patient_destroy', ['id' => $patient->id]) }}" method="POST">
+                            @csrf 
+                            @method('DELETE')
+                        </form>                    
                     </td>
-
                 </tr>
                 @endforeach
-            </div>
         </table>
     </div>
 </div>

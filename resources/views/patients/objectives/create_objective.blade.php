@@ -79,7 +79,7 @@
                         </div>
                     </div>
 
-                    <input name="name" class="input-session form-control" placeholder="Nombre del objetivo"></input>
+                    <input name="name" id="name-input" class="input-session form-control" placeholder="Nombre del objetivo"></input>
                     <textarea name="description" class="form-control" rows="3" placeholder="Descripción"></textarea>
 
                     <div class="float-end">
@@ -87,14 +87,14 @@
                         <button type="button" class="button-objective-cancel-step" onclick="closePopup()">Cancelar</button>
                     </div>
                 </div>
-
+ 
                 <div class="col-md-12 container-session-inputs" id="container-objective-two" style="display:none;">
                     <input style="display:none;" id="steps-input" name="steps" value="steps"></input>
                     <button type="button" class="button-objective-next-step" onclick="createMilestone()">Crear Hito</button>
                     <div class="milestones-container-list" id="milestones-list">
                         <div class="row milestone-container">
                             <h1 class="col-md-2">1</h1>
-                            <div  class="col-md-4 milestone-container-div"><input class="input-session form-control" name="stepname" placeholder="Nombre del hito"></input></div>
+                            <div  class="col-md-4 milestone-container-div"><input class="input-session form-control" id = "input-1"; name="stepname" placeholder="Nombre del hito"></input></div>
                             <div  class="col-md-4 milestone-container-div"><input class="input-session form-control" name="stepcoment" placeholder="Comentario del hito"></input></div>
                         </div>
 

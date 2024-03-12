@@ -1,5 +1,5 @@
 
-var currentStep = 6;//0
+var currentStep = 0;//0
 const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 const htmlDicTest = { 
     "0": ` 
@@ -9,9 +9,9 @@ const htmlDicTest = {
                         <p>
                             Durante esta sesión de pruebas, queremos comprobar las distintas funcionalidades
                             de esta aplicación. Queremos saber tu opinión para conseguir un sistema que permita
-                            facilmente organizar sesiones de estudio con descansos, y en estas poder monitorizar las 
-                            constantes del niño para poder interpretar sus distintas constantes, y mediante la iteración 
-                            y el entendimiento, conseguir que mejore en sus estudios.
+                            facilmente organizar sesiones de estudio. En estas sesiones se podrán monitorizar las 
+                            constantes del niño para poder interpretar sus distintos estados de ánimo y
+                            conseguir que mejore en sus estudios.
                         </p>
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" value="" id="checkboxTestReady">
@@ -26,13 +26,14 @@ const htmlDicTest = {
     "1": `
     <img class="col-4" src="http://localhost:8000/images/webdesigner.png">
     <div class="col-8">
-        <h2>Pruebas</h2>
-        <p>
-           Queremos medir como de fácil, entendible y usable es esta aplicación, y por eso 
-           te pedimos que intentes realizar distintas tareas que van a definir el día a día
-           de esta aplicación, y nos comentes mediante una serie de preguntas y comentarios
-           como crees de fácil es usar la aplicación y qué mejorarías.
-        </p>
+        <h2>Vídeo introducción</h2>
+        <p>En este video describo como funciona la aplicación, funcionalidades y un poco de información sobre qué vas
+        a estar realizando en esta sesión de pruebas</p>
+        <video width="640" height="360" controls>
+            <source src="http://localhost:8000/images/video/MuestraTestWeb.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
         <div class="text-end"><button id="button-start-test" onclick="setNextStep()" class="text-end button-next-test">Comenzar la primera prueba</button></div>
     </div>        
     `,
@@ -79,7 +80,7 @@ const htmlDicTest = {
                 <input name = "i1" class="form-control" placeholder="Tu respuesta aqui"></input>
             </div>
             <div class="form-group">
-                <label for="i1">¿Qué información añadirías para hacer el perfil del niño más completo?</label>
+                <label for="i1">¿Qué información mínima y esencial añadirías para hacer el perfil del niño más completo?</label>
                 <input name = "i1" class="form-control" placeholder="Tu respuesta aqui"></input>
             </div>
         </div>
@@ -94,11 +95,11 @@ const htmlDicTest = {
         <div class="col-md-1"><button class="button-close-test" onclick="closeTestPopUp()">x</button></div>
     </div>
         <p>
-          La duración de las sesiones de estudio se define con un "Plan de estudio", estos planes de estudio se componen de distintos bloques.
-          Los bloques consisten en periodos de unos minutos de descanso y otros de estudio (a excepción del primero que tendrá
-            unos minutos de estudio, un descanso, y otros minutos de estudio). Cada bloque posee condiciones: según las constantes
-            del niño durante la sesión, tú puedes configurar mensajes que le envíe al reloj, sumarle puntos en el juego, añadirle 
-            más minutos o menos... 
+          La duración de las sesiones de estudio se define con un "Plan de estudio", el cual puede ser asignado a varios "Pacientes" o
+          a un "Paciente" en diferentes "sesiones de estudio". Estos "Planes de estudio" se componen de distintos "Bloques".
+          Los "Bloques" consisten en "Periodos" de estudio y descanso organizados alternativamente. El primer "Bloque" tiene tres
+          periodos: un "Periodo de estudio", un "Periodo de descanso", y un último "Periodo de estudio". El resto de bloques se compone
+          únicamente de un "Periodo de descanso" seguido de un "Periodo de estudio".
         </p>
 
         <div class="">
@@ -131,18 +132,45 @@ const htmlDicTest = {
         </p>
         <div>
             <div class="form-group">
-                <label for="i1">¿Es fácil gestionar los diferentes periodos de una terapia?¿Que mejorarias?</label>
+                <label for="i1">¿Crees que es útil que los "Planes de estudio" sean reutilizables?</label>
+                <input name = "i1" class="form-control" placeholder="Tu respuesta aqui"></input>
+            </div>
+
+            <div class="form-group">
+                <label for="i1">¿Es fácil de entender la gestión de "Planes de estudio"?¿Hay algún concepto que no se entiende adecuadamente?</label>
+                <input name = "i1" class="form-control" placeholder="Tu respuesta aqui"></input>
+            </div>
+
+            <div class="form-group">
+                <label for="i1">¿Es fácil de manejar la gestión de "Planes de estudio"?</label>
                 <input name = "i1" class="form-control" placeholder="Tu respuesta aqui"></input>
             </div>
             <div class="form-group">
-                <label for="i1">¿Cambiarias algo?¿Lo has visto fácil de entender?</label>
+                <label for="i1">¿Cambiarias algo en la gestión de los planes de estudio?</label>
                 <input name = "i1" class="form-control" placeholder="Tu respuesta aqui"></input>
             </div>
+            
         </div>
         <div class="text-end"><button id="button-start-test-1" onclick="setNextStep()" class="text-end button-next-test">Siguiente prueba</button></div>
     </div>        
     `,
     "6": `
+    <img class="col-4" src="http://localhost:8000/images/timeman.png">
+    <div class="col-8">
+        <h2>Comprobar el estado del niño durante la sesión de estudio</h2>
+        <p>
+        Durante la sesión podrás enviar mensajes al niño, sumar puntos, añadir o restar tiempo al estudio o el descanso 
+        dependiendo de distintas condiciones diseñadas de forma específica para cada "Plan de estudio".
+        Cada "Bloque" podrá tener asociada una o varias "Condiciones" y de este modo activar diferentes "Acciones". 
+        Dentro de las condiciones puedes manejar el nivel de pulsaciones y el movimiento de la mano en la que lleva el reloj.
+        La condición ligada a las pulsaciones puede ser "Alta" (tienen que incrementarse mucho las pulsaciones para activar la señal) o "Baja"
+        (con pequeños incrementos en las pulsaciones se activará la señal). En cuanto al movimiento, podemos seleccionar si para activar la señal
+        tiene que mover mucho o poco la mano que lleva el reloj. Estas condiciones pueden combinarse para crear "Reglas" complejas.
+        </p>
+        <div class="text-end"><button id="button-start-test" onclick="setNextStep()" class="text-end button-next-test">Comenzar la primera prueba</button></div>
+    </div> `,
+
+    "7": `
     <img class="col-4" src="http://localhost:8000/images/clockwatch.png">
     <div class="col-8">
     <div class="row">
@@ -150,10 +178,8 @@ const htmlDicTest = {
         <div class="col-md-1"><button class="button-close-test" onclick="closeTestPopUp()">x</button></div>
     </div>
         <p>
-          Durante la sesión podremos enviar mensajes al niño, sumar puntos, añadir o restar tiempo al estudio o el descanso 
-          dependiendo de distintas condiciones. Desde las condiciones de los bloques, puedes elegir cuando realizar una acción,
-          y que acción realizar. Puedes decidir desde si tanto como su pulsación es alta o baja, se mueve mucho o poco y/o está en
-          un momento específico de la sesión. 
+          Ahora, crea un plan de estudio que tenga una condición. Este plan de estudio lo comprobaremos más adelante con nuestro
+          reloj. Para crear este plan de estudio, sigue los siguientes pasos.
         </p>
 
         <div class="">
@@ -181,7 +207,7 @@ const htmlDicTest = {
             <div class="row span-test">
                 <span class="col-md-1" id="span-test-3" style="font-family: Arial, FontAwesome;color:red; padding-right: 10px; padding-left: 10px;font-size:x-large;">&#xf057;</span>
                 <div class="col-md-11">
-                    <p>Añade una CONDICIÓN al bloque (bloque 0), en el que si la PULSACIÓN es ALTA, envíe un mensaje personalizado</p>
+                    <p>Añade una CONDICIÓN al bloque (bloque 0), en el que si la MOVIMIENTO es ALTO, envíe un mensaje personalizado</p>
                 </div>
             </div>
 
@@ -189,25 +215,340 @@ const htmlDicTest = {
         <div class="text-end"><button id="button-start-test-2" onclick="setNextStep()" class="text-end button-next-test-disabled" disabled>Terminado</button></div>
     </div>        
     `,
+    "8": `
+    <img class="col-4" src="http://localhost:8000/images/kidthink.png">
+    <div class="col-8">
+    <div class="row">
+        <h2 class="col-md-10">Planes de estudio, ¿Qué te parecen?</h2>
+    </div>
+        <p>
+           Cuentanos:
+        </p>
+        <div>
+        
+            <div class="form-group">
+                <label for="i1">¿Crees que la definición de reglas para activar acciones durante el periodo de estudio es útil?
+                </label>
+                <input name = "i1" class="form-control" placeholder="Tu respuesta aqui"></input>
+            </div>
+
+            <div class="form-group">
+                <label for="i1">¿Es fácil entender la gestión de reglas?</label>
+                <input name = "i1" class="form-control" placeholder="Tu respuesta aqui"></input>
+            </div>
+            
+            <div class="form-group">
+                <label for="i1">¿Es fácil de manejar la gestión de "Reglas"?</label>
+                <input name = "i1" class="form-control" placeholder="Tu respuesta aqui"></input>
+            </div>
+
+            <div class="form-group">
+                <label for="i1">¿Crees que las variables (ritmo cardíaco y movimiento) que utilizamos para analizar el estado de ánimo del niño son adecuadas?
+                ¿Añadirías alguna otra?
+                </label>
+                <input name = "i1" class="form-control" placeholder="Tu respuesta aqui"></input>
+            </div>
+
+            <div class="form-group">
+                <label for="i1">
+                    ¿Cambiarias algo en la gestión de reglas?
+                </label>
+                <input name = "i1" class="form-control" placeholder="Tu respuesta aqui"></input>
+            </div>
+
+        </div>
+        <div class="text-end"><button id="button-start-test-1" onclick="setNextStep()" class="text-end button-next-test">Siguiente prueba</button></div>
+    </div>        
+    `, 
+    "9": `
+    <img class="col-4" src="http://localhost:8000/images/webdesigner.png">
+    <div class="col-8">
+        <h2>Sesiones de estudio</h2>
+        <p>
+           Las sesiones de estudio determinan cuándo un plan de estudio se aplicará a un niño. 
+           Se plantea una sesión de estudioc como un juego donde, en base a las reglas definidas en el plan de estudio,
+           se obtendrán unas determinadas estrellas (puntos) según el comportamiento del estudiante. 
+           Estas estrellas se podrán canjear por distintas recompensas que se podrán aplicar en el cuidado de una mascota de la que
+           estará a cargo el estudiante.
+           En las siguientes pruebas mostraremos como crear una sesión de estudio, como ejecutarla en el reloj, 
+           donde ver los resultados obtenidos tras completar la sesión y, finalmente, como acceder y jugar
+           con la mascota.
+        </p>
+        <div class="text-end"><button id="button-start-test" onclick="setNextStep()" class="text-end button-next-test">Ir a las pruebas</button></div>
+    </div>        
+    `, 
+    "10": `
+    <img class="col-4" src="http://localhost:8000/images/clockwatch.png">
+    <div class="col-8">
+    <div class="row">
+        <h2 class="col-md-10">4º-Mi primer objetivo</h2>
+        <div class="col-md-1"><button class="button-close-test" onclick="closeTestPopUp()">x</button></div>
+    </div>
+        <p>
+          Un objetivo, una parte fundamental de por qué el niño trabaja, estudia o quiere aprender algo nuevo. Puedes establecer
+          objetivos con sus respectivos hitos (pasos para conseguirlo) en la pestaña del paciente (niño que acabamos de crear) .
+        </p>
+
+        <div class="">
+            <div class="row span-test">
+                <span id="span-test-1" style="font-family: Arial, FontAwesome;color:red; padding-right: 3px; padding-left: 10px;font-size:x-large;">&#xf057;</span>
+                <div>
+                    <p> Ve a la pestaña de <a href="/patients">Pacientes </a>, accede al paciente creado y crea un nuevo
+                    OBJETIVO tal que:</p>
+                </div>
+            </div>
+
+            <div class="row span-test">
+                <span class="col-md-1" id="span-test-4" style="font-family: Arial, FontAwesome;color:red; padding-right: 10px; padding-left: 10px;font-size:x-large;">&#xf057;</span>
+                <div class="col-md-11">
+                    <p>Selecciona el botón "AÑADIR" y crea un nuevo OBJETIVO</p>
+                </div>
+            </div>
+
+            <div class="row span-test">
+                <span class="col-md-1" id="span-test-2" style="font-family: Arial, FontAwesome;color:red; padding-right: 10px; padding-left: 10px;font-size:x-large;">&#xf057;</span>
+                <div class="col-md-11">
+                    <p>Confirma que sea un objetivo escolar, y llámalo EXÁMEN</p>
+                </div>
+            </div>
+
+            <div class="row span-test">
+                <span class="col-md-1" id="span-test-3" style="font-family: Arial, FontAwesome;color:red; padding-right: 10px; padding-left: 10px;font-size:x-large;">&#xf057;</span>
+                <div class="col-md-11">
+                    <p>Este exámen tendrá como hitos los distintos temas que estudiar, añade hitos para crear el Tema 1, Tema 2 y Tema 3</p>
+                </div>
+            </div>
+
+        </div>
+        <div class="text-end"><button id="button-start-test-2" onclick="setNextStep()" class="text-end button-next-test-disabled" disabled>Terminado</button></div>
+    </div>        
+    `,
+    "11": `
+    <img class="col-4" src="http://localhost:8000/images/childstudyangry.png">
+    <div class="col-8">
+        <h2>Lo tenemos todo... ¿Cuándo se ejecuta?</h2>
+        <p>
+           Una vez hemos hecho nuestro plan de estudios, y (aunque es opcional), hemos definido nuestro objetivo para el niño, podemos proceder a 
+           crear una sesión de estudio. Para resumirlo, asignar una sesión de estudio es fijar una fecha y hora para el plan de estudio, donde ajustaremos
+           también el juego de los puntos, los sensores del reloj inteligente y qué va a aparecer en el reloj durante el estudio.
+        </p>
+        <div class="text-end"><button id="button-start-test" onclick="setNextStep()" class="text-end button-next-test">Siguiente</button></div>
+    </div>        
+    `, 
+    "12": `
+    <img class="col-4" src="http://localhost:8000/images/sensorimage.png">
+    <div class="col-8">
+        <h2>Antes de comenzar: Sensores... ¿Está el niño nervioso? ¿Está estudiando?</h2>
+        <p>
+          Uno de los puntos importantes de esta aplicación es la capacidad de, a través de un reloj inteligente, obtener las pulsaciones y el movimiento que
+          está realizando el niño. 
+        </p>
+        <div class="text-end"><button id="button-start-test" onclick="setNextStep()" class="text-end button-next-test">Siguiente</button></div>
+    </div>        
+    `, 
+    "13": `
+    <img class="col-4" src="http://localhost:8000/images/clockwatch.png">
+    <div class="col-8">
+    <div class="row">
+        <h2 class="col-md-10">5º-Planeando la sesión de estudio</h2>
+        <div class="col-md-1"><button class="button-close-test" onclick="closeTestPopUp()">x</button></div>
+    </div>
+        <p>
+          Para que nuestro plan de estudio se ejecute, es necesario que o asignemos a una sesión, donde declararemos el valor de los sensores,
+          el objetivo que perseguimos con esta sesión, y .
+        </p>
+
+        <div class="">
+            <div class="row span-test">
+                <span id="span-test-1" style="font-family: Arial, FontAwesome;color:red; padding-right: 3px; padding-left: 10px;font-size:x-large;">&#xf057;</span>
+                <div>
+                    <p> Ve a la pestaña de <a href="/patients">Pacientes </a>, accede al paciente creado y crea una sesión nueva:</p>
+                </div>
+            </div>
+
+            <div class="row span-test">
+                <span class="col-md-1" id="span-test-4" style="font-family: Arial, FontAwesome;color:red; padding-right: 10px; padding-left: 10px;font-size:x-large;">&#xf057;</span>
+                <div class="col-md-11">
+                    <p>Que la sesión esté configurada para el día de hoy, dentro de cinco minutos</p>
+                </div>
+            </div>
+
+            <div class="row span-test">
+                <span class="col-md-1" id="span-test-3" style="font-family: Arial, FontAwesome;color:red; padding-right: 10px; padding-left: 10px;font-size:x-large;">&#xf057;</span>
+                <div class="col-md-11">
+                    <p>Selecciona el plan de estudio que acabamos de crear ("Plan de reglas")</p>
+                </div>
+            </div>
+
+            <div class="row span-test">
+                <span class="col-md-1" id="span-test-5" style="font-family: Arial, FontAwesome;color:red; padding-right: 10px; padding-left: 10px;font-size:x-large;">&#xf057;</span>
+                <div class="col-md-11">
+                    <p>Configura los sensores de tal manera que la sensibilidad de pulsaciones sea 20 y el de moviemiento 1</p>
+                </div>
+            </div>
+
+        </div>
+        <div class="text-end"><button id="button-start-test-2" onclick="setNextStep()" class="text-end button-next-test-disabled" disabled>Terminado</button></div>
+    </div>        
+    `, 
+    "14": `
+    <img class="col-4" src="http://localhost:8000/images/webdesigner.png">
+    <div class="col-8">
+        <h2>¡Probemoslo en el reloj!</h2>
+        <p>
+           Has asignado la sesión al estudiante, con sus condiciones y su plan de estudio correspondiente... ¡Toca probar la sesión!
+           Entra en el reloj, e introduce la sesión del paciente que acabas de crear (ID DEL PACIENTE: 1), y espera a que llegue la hora asiganda.
+           Ve paso a paso por la sesión, y cuando finalice, pulsa el siguiente botón:
+        </p>
+        <div class="text-end"><button id="button-start-test" onclick="setNextStep()" class="text-end button-next-test">Ha terminado la sesión en el reloj</button></div>
+    </div>        
+    `,"15": `
+    <img class="col-4" src="http://localhost:8000/images/kidthink.png">
+    <div class="col-8">
+    <div class="row">
+        <h2 class="col-md-10">La visualización de resultados... ¿Qué te parecen?</h2>
+    </div>
+        <p>
+           Cuentanos:
+        </p>
+        <div>
+            <div class="form-group">
+                <label for="i1">¿Crees que la información recogida durante la sesión es útil?
+                </label>
+                <input name = "i1" class="form-control" placeholder="Tu respuesta aqui"></input>
+            </div>
+
+            <div class="form-group">
+                <label for="i1">¿Es fácil entender los resultados obtenidos?</label>
+                <input name = "i1" class="form-control" placeholder="Tu respuesta aqui"></input>
+            </div>
+            
+            <div class="form-group">
+                <label for="i1">¿Es fácil de manejar y moverse a través de los distintos periodos?</label>
+                <input name = "i1" class="form-control" placeholder="Tu respuesta aqui"></input>
+            </div>
+
+            <div class="form-group">
+                <label for="i1">¿Añadirías alguna información a mostrar adicional?
+                ¿Añadirías alguna otra?
+                </label>
+                <input name = "i1" class="form-control" placeholder="Tu respuesta aqui"></input>
+            </div>
+        </div>
+        <div class="text-end"><button id="button-start-test-1" onclick="setNextStep()" class="text-end button-next-test">Siguiente prueba</button></div>
+    </div>        
+    `, 
+    "16": `
+    <img class="col-4" src="http://localhost:8000/images/webdesigner.png">
+    <div class="col-8">
+        <div class="row">
+            <h2 class="col-md-10">Observemos los resultados</h2>
+            <div class="col-md-1"><button class="button-close-test" onclick="closeTestPopUp()">x</button></div>
+        </div>
+        <p>
+           Busca la sesión en la pestaña del paciente que acabas de crear, y observa los resultados.
+        </p>
+        <div class="text-end"><button id="button-start-test" onclick="setNextStep()" class="text-end button-next-test">He observado los resultados</button></div>
+    </div>        
+    `,
+    "17": `
+    <img class="col-4" src="http://localhost:8000/images/kidthink.png">
+    <div class="col-8">
+    <div class="row">
+        <h2 class="col-md-10">La visualización de resultados... ¿Qué te parecen?</h2>
+    </div>
+        <p>
+           Cuentanos:
+        </p>
+        <div>
+        
+            <div class="form-group">
+                <label for="i1">¿Crees que la información recogida durante la sesión es útil?
+                </label>
+                <input name = "i1" class="form-control" placeholder="Tu respuesta aqui"></input>
+            </div>
+
+            <div class="form-group">
+                <label for="i1">¿Es fácil entender los resultados obtenidos?</label>
+                <input name = "i1" class="form-control" placeholder="Tu respuesta aqui"></input>
+            </div>
+            
+            <div class="form-group">
+                <label for="i1">¿Es fácil de manejar y moverse a través de los distintos periodos?</label>
+                <input name = "i1" class="form-control" placeholder="Tu respuesta aqui"></input>
+            </div>
+
+            <div class="form-group">
+                <label for="i1">¿Añadirías alguna información a mostrar adicional?
+                ¿Añadirías alguna otra?
+                </label>
+                <input name = "i1" class="form-control" placeholder="Tu respuesta aqui"></input>
+            </div>
+        </div>
+        <div class="text-end"><button id="button-start-test-1" onclick="setNextStep()" class="text-end button-next-test">Siguiente prueba</button></div>
+    </div>        
+    `, 
+    "18": `
+    <img class="col-4" src="http://localhost:8000/images/questionare.png">
+    <div class="col-8">
+    <div class="row">
+        <h2 class="col-md-10">Cuestionario 'USE': Valora la aplicación</h2>
+    </div>
+        <p>
+           Cuentanos:
+        </p>
+        <div id="use-div-questions" style="overflow-y:auto; height:400px;padding:10px;">
+           
+        </div>
+        <div class="form-check" style="border-top:1 solid grey; margin-top:20px;">
+            <input class="form-check-input" type="checkbox" value="" id="checkboxTestReady">
+            <label class="form-check-label" for="flexCheckChecked">
+                He respondido las preguntas, y he terminado el cuestionario
+            </label>
+        </div>
+    
+        <div class="text-end" ><button id="button-start-test" onclick="setNextStep()" class="text-end button-next-test-disabled" disabled>Terminar test</button></div>
+    </div>        
+    `, 
+    "19": `
+    <img class="col-4" src="http://localhost:8000/images/endimg.png">
+    <div class="col-8">
+    <div class="row">
+        <h2 class="col-md-10">¡Gracias por realizar esta prueba!</h2>
+    </div>
+        <p>
+           ¡Esperamos que le haya satisfecho la aplicación!
+        </p>
+        <div class="text-end" ><button id="button-start-test" onclick="closeTestPopUp()" class="text-end button-next-test">Terminar test</button></div>
+    </div>        
+    `, 
 }
 
 function startTest(){
     console.log(window.location.pathname);
-    openTestPopUp();
     document.getElementById("test-content").innerHTML = htmlDicTest[""+currentStep];
-    //borrar lo de arriba
-   
-    var stepsWithTasks = [2, 4];
-    if(stepsWithTasks.includes(currentStep))
-        checkTest(currentStep);
-    else
-        document.getElementById("test-content").innerHTML = htmlDicTest[""+currentStep];
+    var stepsWithTasks = [2, 4, 7, 10, 13];
+        if(stepsWithTasks.includes(currentStep))
+            checkTest(currentStep);
     
-    if(window.location.pathname.includes("createtherapy")){
-        
+    
+    if(window.location.pathname.includes("createtherapy") && currentStep == 7){
         checkStepsIn6();
     }
-    
+
+    if(window.location.pathname.includes("createobjective") && currentStep == 10){
+        checkStepsIn9();
+    }
+
+    if(window.location.pathname.includes("createsession") && currentStep == 13){
+        th5Listeners();
+        check5thtest();
+    }
+
+    if(currentStep == 18){
+        setUSEquestionare();
+    }
+
     var checkbox = document.getElementById("checkboxTestReady");
     var button = document.getElementById("button-start-test");
     
@@ -224,7 +565,7 @@ function startTest(){
 
 function setNextStep(){
     currentStep += 1;
-    var stepsWithTasks = [2, 4];
+    var stepsWithTasks = [2, 4, 7, 10];
     if(stepsWithTasks.includes(currentStep))
         checkTest(currentStep);
     else
@@ -276,7 +617,7 @@ function checkStep(rsp){
 
     if(currentStep == 4){
 
-        if(rsp == "1")
+        if(rsp == "1"){
             document.getElementById("span-test-1").innerHTML = "&#xf058;";
             document.getElementById("span-test-1").style = "font-family: Arial, FontAwesome;color:green; padding-right: 10px; padding-left: 10px;font-size:x-large;";
         }
@@ -292,6 +633,65 @@ function checkStep(rsp){
             document.getElementById("span-test-2").innerHTML = "&#xf058;";
             document.getElementById("span-test-2").style = "font-family: Arial, FontAwesome;color:green; padding-right: 10px; padding-left: 10px;font-size:x-large;";
         }
+    }
+
+    if(currentStep == 7){
+        if(rsp == "3"){
+            document.getElementById("span-test-1").innerHTML = "&#xf058;";
+            document.getElementById("span-test-1").style = "font-family: Arial, FontAwesome;color:green; padding-right: 10px; padding-left: 10px;font-size:x-large;";
+        
+            document.getElementById("span-test-2").innerHTML = "&#xf058;";
+            document.getElementById("span-test-2").style = "font-family: Arial, FontAwesome;color:green; padding-right: 10px; padding-left: 10px;font-size:x-large;";
+
+            document.getElementById("span-test-3").innerHTML = "&#xf058;";
+            document.getElementById("span-test-3").style = "font-family: Arial, FontAwesome;color:green; padding-right: 10px; padding-left: 10px;font-size:x-large;";
+
+            document.getElementById("span-test-4").innerHTML = "&#xf058;";
+            document.getElementById("span-test-4").style = "font-family: Arial, FontAwesome;color:green; padding-right: 10px; padding-left: 10px;font-size:x-large;";
+
+            document.getElementById("button-start-test-2").disabled = false;
+            document.getElementById("button-start-test-2").className = "button-next-test";
+        }
+    }
+
+    if(currentStep == 10){
+        if(rsp == "3"){
+            document.getElementById("span-test-1").innerHTML = "&#xf058;";
+            document.getElementById("span-test-1").style = "font-family: Arial, FontAwesome;color:green; padding-right: 10px; padding-left: 10px;font-size:x-large;";
+        
+            document.getElementById("span-test-2").innerHTML = "&#xf058;";
+            document.getElementById("span-test-2").style = "font-family: Arial, FontAwesome;color:green; padding-right: 10px; padding-left: 10px;font-size:x-large;";
+
+            document.getElementById("span-test-3").innerHTML = "&#xf058;";
+            document.getElementById("span-test-3").style = "font-family: Arial, FontAwesome;color:green; padding-right: 10px; padding-left: 10px;font-size:x-large;";
+
+            document.getElementById("span-test-4").innerHTML = "&#xf058;";
+            document.getElementById("span-test-4").style = "font-family: Arial, FontAwesome;color:green; padding-right: 10px; padding-left: 10px;font-size:x-large;";
+
+            document.getElementById("button-start-test-2").disabled = false;
+            document.getElementById("button-start-test-2").className = "button-next-test";
+        }
+    }
+
+    if(currentStep == 13){
+        if(rsp == "3"){
+            document.getElementById("span-test-1").innerHTML = "&#xf058;";
+            document.getElementById("span-test-1").style = "font-family: Arial, FontAwesome;color:green; padding-right: 10px; padding-left: 10px;font-size:x-large;";
+        
+            document.getElementById("span-test-3").innerHTML = "&#xf058;";
+            document.getElementById("span-test-3").style = "font-family: Arial, FontAwesome;color:green; padding-right: 10px; padding-left: 10px;font-size:x-large;";
+
+            document.getElementById("span-test-4").innerHTML = "&#xf058;";
+            document.getElementById("span-test-4").style = "font-family: Arial, FontAwesome;color:green; padding-right: 10px; padding-left: 10px;font-size:x-large;";
+
+            
+            document.getElementById("span-test-5").innerHTML = "&#xf058;";
+            document.getElementById("span-test-5").style = "font-family: Arial, FontAwesome;color:green; padding-right: 10px; padding-left: 10px;font-size:x-large;";
+
+            document.getElementById("button-start-test-2").disabled = false;
+            document.getElementById("button-start-test-2").className = "button-next-test";
+        }
+    }
 }
 
 function checkStepsIn6(){
@@ -323,8 +723,6 @@ function checkStepsIn6(){
         }
       });
 
-      console.log("a comprobar las reglas")
-
     for(let i = 0; i<numerosPeriodos+1; i++){
         if(mapaReglas[i]){
             for(let j = 0; j<Object.keys(mapaReglas[i]).length;j++){
@@ -346,7 +744,33 @@ function checkStepsIn6(){
         }
     }
 }
+function checkStepsIn9(){
+    if(window.location.pathname.includes("createobjective") && document.getElementById("popup").style.display != "none"){
+        document.getElementById("span-test-4").innerHTML = "&#xf058;";
+        document.getElementById("span-test-4").style = "font-family: Arial, FontAwesome;color:green; padding-right: 10px; padding-left: 10px;font-size:x-large;";
+    }
 
+    document.getElementById("name-input").addEventListener('input', function(event){
+        if(event.target.value.toLowerCase() == "examen" || event.target.value.toLowerCase() == "exámen"){
+            document.getElementById("span-test-2").innerHTML = "&#xf058;";
+            document.getElementById("span-test-2").style = "font-family: Arial, FontAwesome;color:green; padding-right: 10px; padding-left: 10px;font-size:x-large;";    
+        }
+    });
+
+    if(milestones == 3){
+        let booleano = true;
+        for(let i = 1; i<=3; i++){
+           if(document.getElementById("input-"+i).value.toLowerCase() != "tema "+i){
+            booleano = false;
+           }
+        }
+
+        if(booleano){
+            document.getElementById("span-test-3").innerHTML = "&#xf058;";
+            document.getElementById("span-test-3").style = "font-family: Arial, FontAwesome;color:green; padding-right: 10px; padding-left: 10px;font-size:x-large;";    
+        }
+    }
+}
 function checkValues(){
     var input =  document.getElementById("mb_t1").value;
     var input2 =  document.getElementById("mb_t2").value;
@@ -356,5 +780,139 @@ function checkValues(){
         return true;
     }else{
         return false;
+    }
+}
+
+
+
+function setBackToWrong(){
+    document.getElementById("span-test-4").innerHTML = "&#xf057;";
+    document.getElementById("span-test-4").style = "font-family: Arial, FontAwesome;color:red; padding-right: 10px; padding-left: 10px;font-size:x-large;";
+
+}
+
+var booleanoa = false;
+var booleanob = false;
+
+var booleanod = false;
+var booleanoh = false;
+
+var today = new Date();
+var formattedToday = today.toISOString().slice(0, 10);
+var currentTime = today.getHours() + ":" + today.getMinutes();
+var sixMinutesFromNowBig = new Date(today.getTime() + 6 * 60000);
+var sixMinutesFromNow = sixMinutesFromNowBig.getHours() + ":" + sixMinutesFromNowBig.getMinutes();
+
+function th5Listeners(){
+    document.getElementById("numberInputBPM").addEventListener('input', function(event){
+        if(event.target.value == 20){
+            booleanoa = true;
+            console.log("ashdak");
+        }
+        check5thtest();
+    });
+
+    document.getElementById("numberInputMove").addEventListener('input', function(event){
+        if(event.target.value == 1){
+            booleanob = true;
+            console.log("ashdak");
+        }
+        check5thtest();
+    });
+
+    document.getElementById("fecha").addEventListener('input', function(event){
+        if(event.target.value == formattedToday){
+            booleanod = true;
+        }
+        check5thtest();
+    });
+
+    document.getElementById("hora").addEventListener('input', function(event){
+        console.log(sixMinutesFromNow);
+        if(event.target.value >= currentTime && event.target.value <= sixMinutesFromNow){
+            booleanoh = true;
+        }
+        check5thtest();
+    });
+
+}
+
+function check5thtest(){
+   
+    
+    if(booleanob && booleanoa){
+        document.getElementById("span-test-5").innerHTML = "&#xf058;";
+        document.getElementById("span-test-5").style = "font-family: Arial, FontAwesome;color:green; padding-right: 10px; padding-left: 10px;font-size:x-large;";    
+    }
+
+   if(document.getElementById("therapy-name").value.toLowerCase() == "plan con reglas"){
+            console.log("ashdak");
+            document.getElementById("span-test-3").innerHTML = "&#xf058;";
+            document.getElementById("span-test-3").style = "font-family: Arial, FontAwesome;color:green; padding-right: 10px; padding-left: 10px;font-size:x-large;";    
+    }else{
+        document.getElementById("span-test-3").innerHTML = "&#xf057;";
+        document.getElementById("span-test-3").style = "font-family: Arial, FontAwesome;color:red; padding-right: 10px; padding-left: 10px;font-size:x-large;";
+    }
+
+    if(booleanoh && booleanod){
+        document.getElementById("span-test-4").innerHTML = "&#xf058;";
+        document.getElementById("span-test-4").style = "font-family: Arial, FontAwesome;color:green; padding-right: 10px; padding-left: 10px;font-size:x-large;";    
+    }
+}
+
+function selectButton(div, button, inputid){
+    var buttons = div.getElementsByTagName("button");
+    document.getElementById(inputid).value = button.value;
+
+    for(let i = 0; i<buttons.length; i++){
+        buttons[i].className="rating-button";
+    }
+
+    button.className = "rating-button-selected";
+}
+
+useQuestions = [
+"La herramienta me parece eficaz para conseguir los objetivos definidos",
+"La herramienta haría más productiva la gestión de una sesión de estudio",
+"La herramienta me parece útil para  gestionar una sesión de estudio",
+"La herramienta posee una organización que facilita la gestión del estudio",
+"La herramienta cubriría todas mis necesidades",
+"La herramienta realiza todo lo que me esperaba",
+"La herramienta me ha parecido fácil de usar",
+"La herramienta es amigable",
+"Requiere el menor número de pasos para logar gestionar el estudio",
+"La herramienta es flexible",
+"No requiere esfuerzo utilizarla",
+"La navegación es intuitiva y no requiere de instrucciones escritas",
+"Podría ser usada tanto por personas no expertas como por usuarios ocasionales",
+"Podría aprender a utilizarla rápidamente",
+"Sería fácil recordar como utilizarla",
+"No necesito experiencia previa con la herramienta para entenderla",
+"Me ha satisfecho la herramienta",
+"Recomendaría esta herramienta",
+"Es agradable de utilizar",
+"Funciona tal y como me esperaba",
+"Podría necesitar esta herramienta",
+"Es cómoda de usar"
+]
+
+function setUSEquestionare(){
+    var divquestions = document.getElementById("use-div-questions");
+    let html = ``;
+    for(let i = 0; i<useQuestions.length; i++){
+        html = `
+            <div class="form-group" style="margin-top:30px; font-size:large !important;">
+                <label for="i1">${i} - ${useQuestions[i]}</label>
+                <div class="rating-buttons" >
+                    <input type="hidden" name="q${i}" id="q${i}">
+                    <button onclick="selectButton(this.parentNode, this, 'q${i}')" class="rating-button" value="1">1</button>
+                    <button onclick="selectButton(this.parentNode, this, 'q${i}')" class="rating-button" value="2">2</button>
+                    <button onclick="selectButton(this.parentNode, this, 'q${i}')" class="rating-button" value="3">3</button>
+                    <button onclick="selectButton(this.parentNode, this, 'q${i}')" class="rating-button" value="4">4</button>
+                    <button onclick="selectButton(this.parentNode, this, 'q${i}')" class="rating-button" value="5">5</button>
+                </div>
+            </div>
+        `;
+        divquestions.innerHTML += html;
     }
 }

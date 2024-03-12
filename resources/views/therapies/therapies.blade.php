@@ -5,8 +5,20 @@
 <head>
     <title>Planes de estudio</title>
     <link rel="stylesheet" href="{{asset('/css/dashboards/patients.css')}}">
-    <script src="{{asset('/JS/dashboards/patients.js')}}"></script>
+    <link rel="stylesheet" href="{{asset('/css/dashboards/patients/create-patient.css')}}">
+    <script src="{{asset('/JS/dashboards/therapies.js')}}"></script>
 </head>
+
+<div class="popup" id="popup-delete" style="display:none;">
+    <div class="popup-content" >
+        <h2>Se va a eliminar este plan de estudio ¿Está seguro de que quiere continuar?</h2>
+        <div class="row popup-delete-container" >
+            <button class="col-md-2 button-delete" onclick="finaldelete()">Eliminar</button>
+            <div class="col-md-2"></div>
+            <button onclick = "closeDeletePopUp()" class="col-md-2 button-cancel-delete">Cancelar</button>
+        </div> 
+    </div>
+</div>
 
 <div class="container-general-patients">
     
@@ -24,7 +36,7 @@
         </div>
     </form>
 
-    <div class="table-responsive table-patients text-center">
+    <div class="table-responsive table-patients text-center table-items-options-overflow">
         <table class="table">
             <tr class="top-index-container">
                 <th scope="col">Nombre</th>
@@ -32,23 +44,27 @@
                 <th scope="col">Reglas</th>
                 <th scope="col">Acciones</th>
             </tr>
-            <div id="patient-list" class="table-items-options-overflow">
                 @foreach ($therapies->take(10) as $therapy)
                 <tr>
                     <td>{{$therapy->name}}</td>
                     <td>TBD</td>
                     <td>TBD</td>
+                    <td> 
                     <td>
-                        <select class="container-select">
+                        <select class="container-select" onchange="therapySelect({{$therapy->id}}, this.value ,this)">
                             <option value="" hidden disabled selected>Acciones</option>
                             <option value="e">Acceder</option>
                             <option value="b">Eliminar</option>
                         </select>
+                        <form id="e{{$therapy->id}}" action="{{route('therapy_show', [$therapy->id], false, true)}}" method="GET"></form>
+                        <form id="d{{$therapy->id}}" action="{{ route('therapy_destroy', ['id' => $therapy->id]) }}" method="POST">
+                            @csrf 
+                            @method('DELETE')
+                        </form>   
                     </td>
-
                 </tr>
                 @endforeach
-            </div>
+
         </table>
     </div>
 </div>

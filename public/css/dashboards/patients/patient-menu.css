@@ -144,6 +144,7 @@
     align-content: center;
     width:100% !important;
     height:300px;
+    transition: transform 0.3s ease;
 }
 
 .image-container-objective-w100:hover{
@@ -153,6 +154,19 @@
     text-align: center;
     align-items: center;
     align-content: center;
+    transition: transform 0.3s ease;
+    transform: scale(1.05);
+}
+
+.image-container-objective-w100-selected{
+    border-radius: 30px;
+    border:0;
+    background-color: var(--color-button-terciary-brown);
+    text-align: center;
+    align-items: center;
+    align-content: center;
+    width:100% !important;
+    height:300px;
 }
 
 .image-container-objective:hover{

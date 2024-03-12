@@ -288,7 +288,7 @@ function deleteRulesOfBlock(blockNumber){
 
 function saveRulesAndSend(){
     console.log(numerosPeriodos);
-    for(let i = 0; i<numerosPeriodos; i++){
+    for(let i = 0; i<=numerosPeriodos; i++){
         if(mapaReglas[i]){
             for(let j = 0; j<Object.keys(mapaReglas[i]).length;j++){
                 console.log("jsjsj")
@@ -297,6 +297,7 @@ function saveRulesAndSend(){
             }
         }
     }
-    console.log(rules);
+    console.log(mapaReglas); 
+    console.log(rules); 
     return rules;
 }

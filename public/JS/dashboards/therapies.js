@@ -1,4 +1,4 @@
-function patientSelect(id, dvalor, select){
+function therapySelect(id, dvalor,select){
     let valor = dvalor;
     select.value = "";
     select.innerHtml = "Acciones";
@@ -7,14 +7,14 @@ function patientSelect(id, dvalor, select){
             deleteOpenPopUp(id);
             break;
         case 'e':
+            console.log("e"+id)
             document.getElementById("e"+id).submit();
             break;
     }
 }
-
-var idpatientremove; 
-function deleteOpenPopUp(idpatient){
-    idpatientremove = idpatient;
+var idremove; 
+function deleteOpenPopUp(idther){
+    idremove = idther;
     document.getElementById("popup-delete").style = "display:fixed";
 }
 
@@ -23,5 +23,5 @@ function closeDeletePopUp(){
 }
 
 function finaldelete(){
-    document.getElementById("d"+idpatientremove).submit();
+    document.getElementById("d"+idremove).submit();
 }

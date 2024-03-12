@@ -22,7 +22,7 @@ function changeviewpatient(view){
         document.getElementById("avatar-view").style.display = "block";
     }
 }
-
+ 
 function showMilestones(objetivesid){
     var objetives = JSON.parse(document.getElementById("objectives").content);
     var objetivesidlc = 0;

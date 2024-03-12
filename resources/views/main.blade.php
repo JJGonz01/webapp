@@ -73,7 +73,7 @@
                         </li>
 
                         <li class="nav-item nav-superitem">
-                            <span class="span-navbar">&#xf007;</span>
+                            <span class="span-navbar">&#xf0c0;</span>
                             <a class="nav-option" href="/patients">Pacientes</a>
                         </li>
 
@@ -83,17 +83,8 @@
                         </li>
 
                         <li class="nav-item nav-superitem">
-                            <span class="span-navbar">&#xf02d;</span>
-                            <a class="nav-option" href="/therapies">Mi perfil</a>
-                        </li>
-                        
-                        <li class="nav-item nav-superitem">
-                        <span class="span-navbar">&#xf02d;</span>
-                        <form id="form_crear_sesion" action="{{route('home', [], false, true)}}" method="GET">
-                            <button id="nav_bar_info" class="nav-option">
-                                    <a id="navbar-4">Perfil</a>
-                            </button>
-                        </form>
+                            <span class="span-navbar">&#xf007;</span>
+                            <a class="nav-option" href="/">Mi perfil</a>
                         </li>
 
                     </ul>

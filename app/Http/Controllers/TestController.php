@@ -8,6 +8,8 @@ use App\Models\user;
 use App\Models\Therapy;
 use App\Models\SessionPeriod;
 use App\Models\Testdata;
+use App\Models\Session;
+use App\Models\patientevent;
 
 
 
@@ -23,7 +25,7 @@ class TestController extends Controller
             return false; 
         }
         $user = Auth::user();
-
+        date_default_timezone_set('Europe/Madrid');
         switch($id){
             case "2": 
                 $patients = Patient::where('user_id', $user->id)->get();
@@ -47,7 +49,7 @@ class TestController extends Controller
                 }else{
                     return "0";
                 }
-            case "6":
+            case "7":
                 $therapies = Therapy::where('user_id', $user->id)
                 ->whereRaw('LOWER(name) = ?', ["plan con reglas"])
                 ->get();
@@ -58,19 +60,82 @@ class TestController extends Controller
                         $sessionjson = $session[0]->durations;
                         $json = json_decode($sessionjson);
                         if(count($json) == 1){
-                            if ($json[0]->duration_rest == 2) {
-                                if($therapies->rules){
-                                    
+                            if ($json[0]->duration_rest == 2 && $json[0]->duration_t1 == 2 && $json[0]->duration_t2 == 2) {
+                                if(!empty(json_decode($therapy->rules)) || $therapy->rules == "empty"){ 
+                                    $rules = json_decode($therapy->rules);
+                                    $rulescero = json_decode($rules[0]);
+                                    if(strpos($rulescero->conditions, "sensor_movement") && strpos($rulescero->conditions, "high") &&
+                                        strpos($rulescero->actions, 'message":"{')){
+                                        return "3";
+                                    }
                                 }
-                                return $therapies->rules;
-                            }else{
-                                return "ndkjasgsdakskmda";
                             }
                         }
                     }
+                    return "0";
                 }
                 else return "0";
-                return $therapies[0];
+            
+                return "0";
+            
+            case "10":
+                $objectives = patientevent::where('user_id', $user->id)
+                ->where(function($query) {
+                    $query->whereRaw('LOWER(name) = ?', ["examen"])
+                        ->orWhereRaw('LOWER(name) = ?', ["exámen"]);
+                })
+                ->get();
+                if(count($objectives) > 0){
+                    foreach($objectives as $objective){
+                        if($objective->type == "scholastic"){
+                            $steps = json_decode($objective -> steps);
+                            if(count($steps) == 3){
+                                $hasallsteps = true;
+                                $i = 0;
+                                $str = "";
+                                foreach($steps as $step){
+                                    $i += 1;
+                                    
+                                    if(strtolower($step->name) !=  ("tema".' '.$i)){
+                                        $hasallsteps = false;
+                                        $str = $str." tema".' '.$i;
+                                    }
+                                }
+                                if($hasallsteps){
+                                    return "3";
+                                }
+                            }
+                        }
+                    }
+                    return "0";
+                }
+                else return "0";
+            case "13":
+                $today = date('Y-m-d');
+                $sessions = Session::where('date_start', $today)->get();
+                
+
+                if(count($sessions) > 0){
+                    foreach($sessions as $session){
+                        if($session->movement == 1 && $session->percentage == 20){
+                            $studyplan = Therapy::find($session->therapy_id);
+                            if(strtolower($studyplan -> name) == "plan con reglas"){
+
+                                $currentHour = date('H:i:s');
+                                $sixMinutesFromNow = date('H:i:s', strtotime('+6 minutes'));
+                                $inputTime = $session -> time_start;
+                                $dayselected = $session -> date_start; 
+                                if ($inputTime <= $sixMinutesFromNow) {
+                                    return "3";
+                                }
+                            }
+                        }
+                    }
+                    return "0";
+                }
+                return "0";
+                
+                
 
             default:
                 return false;
@@ -123,12 +188,9 @@ class TestController extends Controller
     
         $user = Auth::user();
         $userid = $user->id;
-        $taskid = $request -> input("taskId");
-        $type = $request -> input("type");
-        $dateTime = $request -> input("dateTime");
-        $differenceTime = $request -> input("differenceTime");
-        $actionId = $request -> input("actionId");
 
+        $responses = $request -> input("responses");
+        $question = $request -> input("question");
         $tests = Testdata::where('user_id', $userid)->get();
 
         if (count($tests) > 0) {
@@ -141,41 +203,19 @@ class TestController extends Controller
         }
         
         $datajson = array(
-            "differenceTime" => $differenceTime,
-            "actionId" => $actionId,
-            "type" => $type
+            "responses" => $responses,
         );
         
-        $jsonactions_enc = $test->actions;
-        $jsonactions_enc_temp = $test->actions_temp;
+        $currentjson = json_decode($test->actions);
 
-        $jsonactions = json_decode($jsonactions_enc, true); 
-        $jsonactions_temp = json_decode($jsonactions_enc_temp, true); 
-
-
-        if (!isset($jsonactions[$taskid])) {
-            $jsonactions[$taskid] = array(); 
-        }
+        $currentjson[$question] = $datajson;
         
-        if (!isset($jsonactions_temp[$taskid])) {
-            $jsonactions_temp[$taskid] = array(); 
-        }
-
-        $newItem = array(
-            $dateTime => $datajson
-        );
-        
-        $jsonactions[$taskid] = array_merge($jsonactions[$taskid], $newItem);
-        $jsonactions_temp[$taskid] = array_merge($jsonactions_temp[$taskid], $newItem);
-        
-        $jsonactions_enc = json_encode($jsonactions);
-        $jsonactions_enc_temp = json_encode($jsonactions_temp);
+        $jsonactions_enc = json_encode($currentjson);
         
         $test->actions = $jsonactions_enc;
-        $test->actions_temp = $jsonactions_enc_temp;
         
         $test->save();
 
-        return $actionId;
+        return $$test->actions;
     }
 }

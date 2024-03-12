@@ -27,7 +27,7 @@
 }
 
 .test-icon-container button:hover{
-    transform: scale(1.2); /* Escalado del 20% al hacer hover */
+    transform: scale(1.2);
     transition: transform 0.3s ease;
 }
 
@@ -59,7 +59,7 @@
 .test-container-content {
     position: absolute;
     top: 50%;
-    width:80%;
+    width:93%;
     height:auto;
     left: 50%;
     border-radius: 20px;
@@ -119,4 +119,35 @@
     border:0;
     color:white !important;
     border-radius: 100%;
+}
+
+.rating-buttons {
+    display: flex;
+    justify-content: space-around;
+}
+
+.rating-button {
+    padding: 5px 10px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 100%;
+    width:50px;
+    height: 50px;
+    background-color: var(--color-primary-brown);
+}
+
+.rating-button-selected {
+    padding: 5px 10px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 100%;
+    width:50px;
+    height: 50px;
+    background-color: var(--color-primary-light-blue);
+}
+
+.rating-button:hover {
+    background-color: #ccc;
 }

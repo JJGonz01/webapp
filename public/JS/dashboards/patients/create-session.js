@@ -7,6 +7,10 @@ window.onload = function(){
 
 function closePopup(){
     document.getElementById("popup").style="display:none;";
+
+    if(window.location.pathname.includes("createobjective")){
+        setBackToWrong();
+    }
 }
 
 function openObjectivesPopup(){
@@ -60,6 +64,7 @@ function selectTherapy(id, tname){
     document.getElementById("therapy-input").value=id;
     document.getElementById("therapy-name").value=tname;
     closeTherapyPopup();
+    check5thtest(); //TEST
 }
 
 function setCircle(option){
@@ -84,10 +89,11 @@ function openMileStonesPopUp(objectiveID){
     var objetivesidlc = 0;
     for(let i = 0; i<objectives.length; i++){
         if(objectives[i]["id"] == objectiveID){
-            objetivesidlc = objectives["id"];
+            objetivesidlc = i;
             break;
         }
     }
+
     var stepsObj = JSON.parse(objectives[objetivesidlc]["steps"]);
     console.log(stepsObj);
     var table = document.getElementById("table-milestones");

@@ -22,7 +22,10 @@ function createMilestone(){
         input1.className = "input-session form-control";
         input1.name = "stepname";
         input1.placeholder = "Nombre del hito";
-        input1.id = "";
+        input1.id = "input-"+ms;
+        input1.addEventListener('input', function(){
+            checkStepsIn9();
+        });
         div1.appendChild(input1);
 
     var div2 = document.createElement("div");
@@ -35,7 +38,7 @@ function createMilestone(){
         input2.name = "stepcoment";
         input2.id = "";
         div2.appendChild(input2);
-    
+
     var div3 = document.createElement("div");
     div3.className  = "col-md-2 milestone-container-div";
     div3.id = "";
@@ -96,9 +99,9 @@ function selectType(inputid, button, divId){
     document.getElementById(inputid).value = button.value;
     var buttons = document.getElementById(divId).getElementsByTagName("button");
     for(let i = 0; i<buttons.length; i++){
-        // buttons[i].className = "";
+        buttons[i].className = "image-container-objective-w100";
     }
-    //button.className = "";
+    button.className = "image-container-objective-w100-selected";
 }
 function saveAndSendObjective(){
     var steps = [];

@@ -81,3 +81,34 @@
     align-items: end;
     justify-content: end;
 }
+
+.table-items-options-overflow{
+    height: 400px;
+    overflow-y: auto;
+}
+
+.popup-delete-container{
+    margin-top: 20px;
+}
+.button-delete{
+    border-radius: 10px;
+    border:0;
+    background-color: var(--color-primary-red);
+    margin-right: 6px;
+    margin-left: 20px;
+    padding: 10px;
+    color:white;
+    transition: transform 0.3s ease;
+}
+
+.button-delete:hover{
+    transform: scale(1.2);
+    transition: transform 0.3s ease;
+}
+
+.button-cancel-delete{
+    padding: 10px;
+    border-radius: 10px;
+    border:0;
+    background-color: var(--color-secondary-blue);
+}
