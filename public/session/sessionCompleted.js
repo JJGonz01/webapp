@@ -10,7 +10,7 @@ var limiteBPM;
 var limiteMove;
 var reglas;
 
-function startShowTables() {
+function startShowTables() { 
 
   /*consigo los elementos para la tabla
   tituloTabla = document.getElementById("titulo_tabla");

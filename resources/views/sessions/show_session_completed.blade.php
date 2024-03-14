@@ -23,15 +23,99 @@
 </head>
  
 <body>
-    <div class="row">
-        <div class="col-md-6 container-patient-slim">
-            <canvas id="tablebpm"></canvas>
+    <div class="container-padding">
+        <button class="button-patient-selected" onclick="changeView('dash'); seleccionarBoton(this)">Resumen</button>
+        <button class="button-patient" onclick="changeView('data'); seleccionarBoton(this)">Datos</button>
+        <button class="button-patient" onclick="changeView('other'); seleccionarBoton(this)">Comparativa</button>
+    </div>
+
+    <div id="dash" name="views" style="display:none;">
+        <div class="row">
+            <div class="col-md-6 container-patient-slim">
+                <h4>Sesión de relajación (bpm)</h4>
+                <canvas id="tablebpm"></canvas>
+            </div>
+            <div class="col-md-1">
+            </div>
+            <div class="col-md-5 container-patient-slim">
+                <h4>Sesión de relajación (bpm)</h4>
+                <div class="row">
+                    <div class="col-md-6 container-information">
+                        <div class="container-information">
+                            <div class="container-information container-info">
+                                <div class="row container-information">
+                                    <span style="font-family: Arial, FontAwesome; font-size:larger">&#xf21e;</span>
+                                    <h7>Pulsacion media</h7> 
+                                </div>
+                                <h3 id="puls-media-rel">60 bpm</h3>
+                            </div>
+                        
+                        </div>
+                    
+                    </div>
+                    <div class="col-md-6 container-information">
+                        <div class="container-information">
+                            <div class="container-information container-info">
+                                <div class="row container-information">
+                                    <span style="font-family: Arial, FontAwesome; font-size:larger">&#xf21e;</span>
+                                    <h7>Mov. medio</h7> 
+                                </div>
+                                <h3 id="puls-media-rel">3.5 u</h3>
+                            </div>
+                        
+                        </div>
+                    
+                    </div>
+                </div>
+                <div class="col-md-12 container-information">
+                        <div class="container-information">
+                            <div class="container-information container-info">
+                                <div class="row container-information">
+                                    <span style="font-family: Arial, FontAwesome; font-size:larger">&#xf21e;</span>
+                                    <h7>Última sesión de relajación</h7> 
+                                </div>
+                                <h3 id="puls-media-rel">(Más alto bpm) 65 bpm</h3>
+                            </div>
+                        
+                        </div>
+                    
+                </div>
+            </div>
+
+            <div>
+                <div>
+                
+                </div>
+            </div>
+        
+        </div>
+    </div>
+
+    <div id="data"  name="views">
+        <div class="container-patient-slim">
+            <button class="button-move-period" onclick="showCurrentPeriod(-1)"><</button>
+            <button  class="button-move-period" onclick="showCurrentPeriod(1)">></button>
+            <canvas id="sessiontable"></canvas>
+        </div>
+    </div>
+
+    <div id="other" class="row" name="views"  style="display:none;">
+        <div class="col-md-5 container-patient-slim">
+            <select>Periodo 1</select>
+            <canvas id="graph-left"></canvas>
+        </div>
+        <div class="col-md-5 container-patient-slim">
+            <select>Periodo 3</select>
+            <canvas id="graph-right"></canvas>
         </div>
     </div>
 </body>
 
 <script>
-    setTableWithOne(bpmdataset,'red',0.4);
+    setTableWithOne(bpmdataset,'red',0.2);
+    setTableWithOne(bpmdataset,'red',0.2,1,"graph-left");
+    setTableWithOne(bpmdataset,'red',0.2,2,"graph-right");
+    setTableWithTwo(bpmdataset, movedataset,'red',0.2)
 </script>
 <!--div class="general-items-container">
 

@@ -26,7 +26,7 @@
     <h6 class="alert alert-danger">{{ implode('', $errors->all(':message')) }}</h6>
 @endif
 
-<div class="popup" id="popup-guide" style="display:fixed;">
+<div class="popup" id="popup-guide" style="display:none;">
     <div class="popup-content">
         <div class="row">
                 <h1 class="col-md-11">Como conectar el reloj</h1>

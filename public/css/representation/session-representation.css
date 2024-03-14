@@ -2,3 +2,31 @@
     width:600px;
     height:400px;
 }
+
+.container-info{
+    padding:10px;
+    border:1px solid black;
+    border-radius: 20px;
+}
+
+.container-information{
+    padding:10px;
+}
+
+.container-information span{
+    margin-left: 20px;
+}
+
+.container-information h7{
+    margin-left: 20px;
+}
+
+.container-information h3{
+    margin-left: 20px;
+}
+
+.button-move-period{
+    border:0;
+    background-color: var(--color-primary-brown);
+    border-radius: 10px;
+}
