@@ -49,7 +49,6 @@
                     <td>{{$therapy->name}}</td>
                     <td>TBD</td>
                     <td>TBD</td>
-                    <td> 
                     <td>
                         <select class="container-select" onchange="therapySelect({{$therapy->id}}, this.value ,this)">
                             <option value="" hidden disabled selected>Acciones</option>

@@ -56,3 +56,135 @@ function showMilestones(objetivesid){
     });
     
 }
+
+
+function seleccionarBoton(botonSeleccionado, div) {
+    var botones = botonSeleccionado.parentNode.querySelectorAll('button');
+    botones.forEach(function(boton) {
+        boton.className = 'button-patient';
+    });
+
+    botonSeleccionado.className = 'button-patient-selected';
+}
+
+function filterObjectiveByType(state){
+    var tabla = document.getElementById('objectives-table');
+    var filas = tabla.getElementsByTagName('tr');
+    
+    for (var i = 0; i < filas.length; i++) {
+      var celdaEstado = filas[i].getElementsByTagName('td')[2];
+      if (celdaEstado) {
+        var textoraw = celdaEstado.textContent || celdaEstado.innerText;
+        var estadoTexto = textoraw.replace(/\s/g, ''); 
+        var statenospace = state.replace(/\s/g, ''); 
+        console.log(statenospace);
+        if (estadoTexto === statenospace) {
+          filas[i].style.display = '';
+        } else {
+          filas[i].style.display = 'none';
+        }
+      }       
+    }
+}
+
+function restoreObjectivesFilter(){
+    var tabla = document.getElementById('objectives-table');
+    var filas = tabla.getElementsByTagName('tr');
+    
+    for (var i = 0; i < filas.length; i++) {
+      filas[i].style.display = '';
+    }
+  }
+function filterbystate(state) {
+    var tabla = document.getElementById('session-table');
+    var filas = tabla.getElementsByTagName('tr');
+    
+    for (var i = 0; i < filas.length; i++) {
+      var celdaEstado = filas[i].getElementsByTagName('td')[3];
+      
+      if (celdaEstado) {
+       
+        var textoraw = celdaEstado.textContent || celdaEstado.innerText;
+        var estadoTexto = textoraw.replace(/\s/g, ''); 
+        var statenospace = state.replace(/\s/g, ''); 
+        console.log(statenospace);
+        if (estadoTexto === statenospace) {
+          filas[i].style.display = '';
+        } else {
+          filas[i].style.display = 'none';
+        }
+      }       
+    }
+  }
+
+  function filterbydateToday(button){
+    var tabla = document.getElementById('session-table');
+    setColorAsSelected(button);
+    var filas = tabla.getElementsByTagName('tr');
+    var hoy = new Date();
+    let state = hoy.getFullYear() +"-"+hoy.getMonth() +"-"+hoy.getDate();
+    for (var i = 0; i < filas.length; i++) {
+      var celdaEstado = filas[i].getElementsByTagName('td')[3];
+      
+      if (celdaEstado) {
+       
+        var textoraw = celdaEstado.textContent || celdaEstado.innerText;
+        var estadoTexto = textoraw.replace(/\s/g, ''); 
+        var statenospace = state.replace(/\s/g, ''); 
+        console.log(statenospace);
+        if (estadoTexto === statenospace) {
+          filas[i].style.display = '';
+        } else {
+          filas[i].style.display = 'none';
+        }
+      }       
+    }
+  }
+
+  function setColorAsSelected(button){
+    let buttons = button.parentNode.getElementsByTagName("button");
+    for(let i = 0; i<buttons.length; i++){
+      buttons[i].className= "button-date-filter";
+    }    
+    button.className = "button-date-filter-selected";
+  }
+
+  function filterbydateMonth(button){
+    setColorAsSelected(button);
+    let date = new Date();
+    mesSeleccionado = date.getMonth();
+    var tabla = document.getElementById('session-table');
+    var filas = tabla.getElementsByTagName('tr');
+    
+    for (var i = 1; i < filas.length; i++) {
+      var celdaFecha = filas[i].getElementsByTagName('td')[0];
+      if (celdaFecha) {
+        console.log(celdaFecha.textContent);
+        var fecha = new Date(celdaFecha.textContent);
+        var mes = fecha.getMonth();
+        console.log(mes);
+        console.log(mesSeleccionado);
+        if (mes === mesSeleccionado) {
+          filas[i].style.display = '';
+        } else {
+          filas[i].style.display = 'none';
+        }
+      }       
+    }
+  }
+  function restoreFilter(){
+    var tabla = document.getElementById('session-table');
+    var filas = tabla.getElementsByTagName('tr');
+    
+    for (var i = 0; i < filas.length; i++) {
+      filas[i].style.display = '';
+    }
+  }
+
+  function closePopUpGuide(){
+    document.getElementById("popup-guide").style = "display:none;";
+  }
+
+  function openPopUpGuide(){
+    document.getElementById("popup-guide").style = "display:fixed;";
+  }

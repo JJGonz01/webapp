@@ -5,7 +5,7 @@
     <title>VER TERAPIA | {{$therapy->name}}</title>
     <link rel="stylesheet" href="{{asset('/css/dashboards/therapies/show-therapy.css')}}">
     <link rel="stylesheet" href="{{asset('/css/dashboards/therapies/therapies-create.css')}}">
-
+    <meta  name="rules" id="rules" content="{{ $therapy->rules }}"></meta>
     <script src="{{asset('JS/dashboards/therapies/show-therapy.js')}}"></script>
 </head>
 
@@ -69,15 +69,15 @@
                         <input class="col-4 form-control" id="mb_t2" placeholder="Estudio (min)" disabled readonly></input>
                     </div>
                     <div class="col-md-2 container-align-end">
-                        <button type="button" id="button-edit"><span>&#xf304;</span></button>
+                        <button type="button" class="button-select-period" onclick="showconditions(0)"><span>&#xf044;</span></button>
                     </div>
                 </div>
             </div>
-        </div>
+        </div> 
     </div>
 
-    <div class="col-md-4 container-therapy">
-        <div class="container-therapy-information">
+    <div class="col-md-4 container-therapy" >
+        <div class="container-therapy-information padding-container" id="conditions-div">
             <h2>Condiciones</h2>
             <h4>{{$therapy->description}}</h4>
         </div>

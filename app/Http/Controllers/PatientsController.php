@@ -204,9 +204,7 @@ class PatientsController extends Controller
         $request -> validate([
             'name' => 'required|min:1', //Al menos una letra para el nombre
             'surname' => 'min:1',
-            'description' => 'max:255',
-            'physiologicals' => 'array',
-            'behaviors' => 'array'
+            'description' => 'max:255'
         ]);
 
         if(!Auth::check()){

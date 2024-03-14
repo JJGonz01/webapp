@@ -96,6 +96,19 @@
     margin-bottom: -0.5px;
 }
 
+.button-session{
+    background-color: var(--color-primary-blue) !important;
+    color:white;
+    border:0;
+    border-radius: 30px;
+    width: max-content;
+}
+
+.button-session:hover{
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+}
+
 .button-add{
     background-color: var(--color-transparente);
     border:1px solid grey;
@@ -213,11 +226,94 @@
     border-radius: 10px;
     border:0;
     padding:8px;
+    color:white;
+    transition: transform 0.3s ease ;
+}
+
+
+.button-objective-next-step:hover{
+    transform: scale(1.2);
+    transition: transform 0.3s ease ;
 }
 
 .button-objective-cancel-step{
     background-color: var(--color-primary-red);
     border-radius: 10px;
     border:0;
+    color:white;
     padding:8px;
+    margin-left: 10px;
+}
+
+.button-objective-cancel-step:hover{
+    transform: scale(1.2);
+    transition: transform 0.3s ease ;
+}
+
+.button-patient {
+    border: none;
+    background-color: transparent;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.button-patient-selected{
+    border:0;
+    border: none;
+    background-color: transparent;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    background-color: transparent;
+    border-bottom: 2px solid var(--color-primary-blue);
+}
+
+.button-session-calendar{
+    width: 100%;
+    border-radius: 4px;
+    color:black;
+    border:0;
+    border-left: 4px solid var(--color-primary-blue);
+    background-color: var(--color-secondary-light-blue);
+    transition: transform 0.3s ease ;
+    margin-top: 10px;
+}
+
+.button-session-calendar:hover{
+    transform: scale(1.1);
+    transition: transform 0.3s ease ;
+}
+
+.button-date-filter{
+    padding:10px;
+    margin-left: 20px;
+    border-radius: 20px;
+    border:0;
+    background-color: var(--color-primary-blue);
+    color:white;
+    font-size: larger;
+}
+
+.button-date-filter-selected{
+    padding:10px;
+    margin-left: 20px;
+    border-radius: 20px;
+    border:0;
+    background-color: var(--color-primary-light-blue);
+    color:white;
+    font-size: larger;
+}
+
+
+.button-patient-edit{
+    border:0;
+    background-color: var(--color-primary-blue);
+    color:white;
+    padding:10px;
+}
+
+.popup-guide-steps{
+    text-align: left;
+    margin-top:20px;
 }

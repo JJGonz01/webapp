@@ -122,7 +122,7 @@ function openMileStonesPopUp(objectiveID){
         let td2 = document.createElement("td");
         td2.innerHTML = "TBD";
         let td3 = document.createElement("td");
-            let btn = document.createElement("btn");
+            let btn = document.createElement("button");
             btn.className = "button-objective-next-step";
             btn.onclick = function(){
                 selectObjectiveAndMilestone(objectiveID, objectives[objetivesidlc]["name"], step["name"]);

@@ -110,6 +110,7 @@
     background-color: var(--color-transparente);
     border:0;
     font-size: larger;
+    font-weight: bolder;
     width: 40px;
     height: 40px;
 }

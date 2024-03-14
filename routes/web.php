@@ -49,7 +49,7 @@ Route::group( ['middleware' => 'auth' ], function()
   * PACIENTES
   */
     Route::get('/HOME', function () {
-        return view('general');
+        return view('general'); 
     })->name('main');
 
 

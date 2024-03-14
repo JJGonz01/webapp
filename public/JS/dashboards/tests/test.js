@@ -1,5 +1,5 @@
 
-var currentStep = 0;//0
+var currentStep = 1;//0
 const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 const htmlDicTest = { 
     "0": ` 

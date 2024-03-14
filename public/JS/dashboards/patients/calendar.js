@@ -159,7 +159,7 @@ function getSessionName(sessions, year, month, day, index, patientId){
         <button onclick="divClick(${year}, ${month}, ${day})" id="${day}" class="button-session">...</button>`
 
     return `
-      <form action="/createsessiondated/${patientId}/${createSessionOnDate(year, month, day)}" method="GET">
+      <form action="/sessionedit/${ sessions[key][index]["id"]}" method="GET">
         <button id="${day}" class="button-session">${ sessions[key][index]["name"]}</button>
       </form>`
 
@@ -204,29 +204,35 @@ function createSessionOnDate(year, month, day){
       table.innerHTML = "No hay sesiones creadas para este día"
       return ``
     }
-    tableHTML += `
-      <tr class ="top-index-container">
-          <th scope="col">Nombre</th> 
-          <th scope="col">Fecha inicio</th> 
-          <th scope="col">Acciones</th>
-          <th scope="col">Acciones</th>
-      </tr>
-      `
+
+    
     sessions[key].forEach(session => {
       if(typeof session  ===  'undefined'){
         
       }else{
+        let completed = "Completada";
+        if(session["completed"] == 0){
+          completed = "Sin completar";
+        }
         tableHTML += `
-          <tr>
-              <td scope="row">${session["name"]}</td>
-              <td>${session["date_start"]} ${session["time_start"]}</td>
-              <td> <form action = "{{route('session_edit', ['id' => 1, false, true)}}" method="GET"> <button class="edit-button" id="session-show-button">Editar</button> </form> </td>
-              <td> <form action = "{{route('session_show', ['id' => 1, false, true)}}" method="GET"> <button class="edit-button" id="session-show-button">Ver</button> </form> </td>
-          </tr> 
+        <form action="/sessionedit/${ session["id"]}" method="GET">
+          <button class="button-session-calendar">
+            <div class="row col-md-12">
+              <div class="col-md-4">
+                ${session["time_start"]}
+              </div>
+              <div class="col-md-4">
+                ${session["name"]}
+              </div>
+              <div class="col-md-4">
+                ${completed}
+              </div>
+            </div>
+          </button>
+        </form>
         `
       }
     });
-
       table.innerHTML = tableHTML;
   }
 

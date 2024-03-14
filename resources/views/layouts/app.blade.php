@@ -60,14 +60,14 @@
                             </div>
                                 
                             <form action="{{ route('main', [], false, true) }}" method="GET">
-                                <button class="btn btn-primary btn-block" style="border-radius:15px;" id="go_to_app">
+                                <button class="btn btn-block btn-login" style="border-radius:15px;" id="go_to_app">
                                     {{ __('Ir a la aplicación') }}
                                 </button>
                             </form>
                         
                             <form id="logout-form" action="{{ route('logout', [], false, true) }}" method="POST">
                                 @csrf
-                                <button id="cerrar-session-button" class="btn btn-primary btn-block" style="border-radius:15px;margin-top:20px;" href="{{ route('main',[],false, true) }}">
+                                <button id="cerrar-session-button" class="btn btn-login btn-block" style="border-radius:15px;margin-top:20px;" href="{{ route('main',[],false, true) }}">
                                     {{ __('Cerrar sesión') }}
                                 </button>
                             </form>

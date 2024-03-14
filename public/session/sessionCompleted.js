@@ -1,4 +1,3 @@
-
 var bpmValores;
 var moveValores;
 var conjuntoPeriodoMostrar;
@@ -7,12 +6,13 @@ var numeroConjuntos;
 var sensorChart;
 var barrasReglasChart;
 var tituloTabla;
-
 var limiteBPM;
 var limiteMove;
 var reglas;
+
 function startShowTables() {
-  //consigo los elementos para la tabla
+
+  /*consigo los elementos para la tabla
   tituloTabla = document.getElementById("titulo_tabla");
   tituloTabla.innerHTML = "Estudio conjunto periodo 1";
 
@@ -34,7 +34,7 @@ function startShowTables() {
   numeroConjuntos = Object.keys(bpmValores).length;
   periodoMostrar = 1; //primero muestro el estudio
   putInfoRelevante();
-  setTabla(periodoMostrar);
+  setTabla(periodoMostrar);*/
   
 }
   

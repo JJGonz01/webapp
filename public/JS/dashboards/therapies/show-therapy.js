@@ -1,8 +1,25 @@
+const rules = document.getElementById("rules").content;
+const rulesorganiced = organizeRulesByBlocks();
+
 window.onload = (event) => {
     console.log("page is fully loaded");
     showDurations();
+    showconditions(0);
 };
 
+function organizeRulesByBlocks(){
+    var rulesjson = JSON.parse(rules);
+    var organizedJson = rulesjson.reduce(function(acc, obj) {
+        var key = JSON.parse(obj)["block"];
+        if (!acc[key]) {
+          acc[key] = [];
+        }
+        acc[key].push(obj);
+        return acc;
+      }, {});
+
+    return organizedJson;
+}
 function showDurations(){
     var arrayJSON = document.getElementById("array-values").value;
     var div = document.getElementById("main-div");
@@ -17,21 +34,20 @@ function showDurations(){
             console.log(jsonvalues[Object.keys(jsonvalues)[i]]);
             createBlockDiv(
                 jsonvalues[Object.keys(jsonvalues)[i]]["duration_t1"],
-                jsonvalues[Object.keys(jsonvalues)[i]]["duration_rest"]);
+                jsonvalues[Object.keys(jsonvalues)[i]]["duration_rest"],
+                i);
         }
     }
 
 }
 
-function createBlockDiv(t1, rest){
+function createBlockDiv(t1, rest, id){
     var mainDiv = document.getElementById("main-div");
-    
-
     var newDiv = document.createElement("div");
     newDiv.className = 'row container-block';
         var icon = document.createElement("div");
         icon.className = "col-md-1";
-        icon.innerHTML = "<span>&#xf2f2;</span>";
+        icon.innerHTML = "<span>&#xf017;</span>";
         
         newDiv.appendChild(icon);
 
@@ -71,11 +87,66 @@ function createBlockDiv(t1, rest){
 
             var buttonEdit = document.createElement("button");
             buttonEdit.id = "button-select-period";
-            buttonEdit.innerHTML = "<span>&#xf304;</span>";
-
+            buttonEdit.className = "button-select-period";
+            buttonEdit.innerHTML = "<span>&#xf044;</span>";
+            buttonEdit.addEventListener('click', function(){
+                showconditions(id);
+            });
             buttonDiv.appendChild(buttonEdit);
 
         newDiv.appendChild(buttonDiv);
 
+    mainDiv.appendChild(newDiv);
+}
+
+function showconditions(idblock){
+   
+    if(rulesorganiced[idblock]){
+        let rulestoshow = rulesorganiced[idblock];
+        console.log(rulesorganiced);
+        console.log(JSON.parse(rulestoshow[0]));
+        document.getElementById("conditions-div").innerHTML = "<h2>Condiciones del bloque "+(idblock+1)+"</h2>";
+        for(let i = 0; i<rulestoshow.length; i++){
+            console.log(JSON.parse(rulestoshow[i]));
+            showRuleInBlock(JSON.parse(rulestoshow[i]));
+        }
+    }else{
+        document.getElementById("conditions-div").innerHTML = "<h2>Condiciones del bloque "+(idblock+1)+"</h2> <h4>Este bloque no tiene condiciones</h4>";
+    }
+}
+
+function showRuleInBlock(rule){
+    var mainDiv = document.getElementById("conditions-div");
+    var newDiv = document.createElement("div");
+    newDiv.className = 'row rule-block';
+    newDiv.id = rule.name+"-div";
+
+    let id = rule.name;
+    newDiv.className = 'row rule-block';
+
+        var span = document.createElement("span");
+        span.innerHTML="&#xf21e;";
+        span.className="col-md-1";
+
+        var ruleName = document.createElement("p");
+        ruleName.innerHTML= rule.name;
+        ruleName.className= "col-md-6";
+
+        var divbuttons = document.createElement("div");
+        divbuttons.className="col-md-4 container-align-end";
+
+        var buttonEdit = document.createElement("button");
+        buttonEdit.type="button";
+        buttonEdit.innerHTML="<span>&#xf304;</span>";
+        buttonEdit.id="button-edit";
+        buttonEdit.onclick = function() {
+            deleteBlock(id);
+        };
+
+        divbuttons.appendChild(buttonEdit);
+            
+    newDiv.appendChild(span);
+    newDiv.appendChild(ruleName);
+    newDiv.appendChild(divbuttons);
     mainDiv.appendChild(newDiv);
 }

@@ -245,7 +245,7 @@
                         <div class="input-group-prepend">
                             <input value="always" id="repetition-condition" style="display:none;"></input>                           
                             <button value="1" class="button-selected" id="variasveces-c" name="always" onclick="selectTimesComprobation(this, 'unavez-c','repetition-condition')">Siempre que se cumpla</button>
-                            <button value="0" id="unavez-c"  name="one" onclick="selectTimesComprobation(this, 'variasveces-c', 'repetition-condition')">Una única vez</button>
+                            <button value="0"  class="button-canceled" id="unavez-c"  name="one" onclick="selectTimesComprobation(this, 'variasveces-c', 'repetition-condition')">Una única vez</button>
                         </div>
                 </div>
 
@@ -283,8 +283,8 @@
                         </div>
                     </div>
                     <div class="float-end" style="margin-top:30%;">
-                        <button class="btn btn-primary" onclick="saveNewRule()">Guardar</button>
-                        <button class="btn btn-danger" onclick="closeRulesPopUp()">Cancelar</button>
+                        <button class="button-save" onclick="saveNewRule()">Guardar</button>
+                        <button class="button-cancel" onclick="closeRulesPopUp()">Cancelar</button>
                     </div>
             </div>
 
@@ -486,11 +486,11 @@
                                 <div class="row">
                                     
                                     <div class="col-md-5 input-group-prepend">
-                                        <input id="input-points-primary" class="form-control form-control-sm"></input>
+                                        <input id="input-points-primary" class="form-control form-control-sm" value = 0></input>
                                     </div>
                                     
                                     <div class="col-md-5 input-group-prepend">
-                                        <input id="input-time-primary" class="form-control form-control-sm"></input>
+                                        <input id="input-time-primary" class="form-control form-control-sm" value = 0></input>
                                     </div>
                                 </div>
                             </div>
@@ -566,11 +566,11 @@
                                     <div class="row">
                                         
                                         <div class="col-md-5 input-group-prepend">
-                                            <input id="input-points-secondary" class="form-control form-control-sm"></input>
+                                            <input id="input-points-secondary" class="form-control form-control-sm" value = 0></input>
                                         </div>
                                         
                                         <div class="col-md-5 input-group-prepend">
-                                            <input id="input-time-secondary" class="form-control form-control-sm"></input>
+                                            <input id="input-time-secondary" class="form-control form-control-sm" value = 0></input>
                                         </div>
                                     </div>
                                 </div>
@@ -615,19 +615,7 @@
             <div class="col-md-6">
                 <div class="input-group mb-4 container-inputs">
                     <span>&#xf004;</span>
-                    <p style="margin-left:10px;">Sesión de relajación:</p> <p class="text-description">Periodo de relajación que ocurrirá al principio de la sesión</p>
-                </div>
-                <div class="input-group mb-4 container-inputs">
-                        
-                        <div class="input-group-prepend">
-                            <div class="input-group-text span-container">
-                                <span>&#xf031;</span>
-                            </div>
-                        </div>
-                        <input maxlength="14" placeholder="Relajación" class="form-control"></input>
-                        <span data-toggle="tooltip" data-html="true" 
-                        title="Texto que aparecerá en la pantalla durante la relajación, puede ser vacío y no aparecerá nada"
-                        style="margin-left:10px; font-size:large" >&#xf059;</span>
+                    <p style="margin-left:10px;">Sesión de relajación:</p> <p class="text-description"></p>
                 </div>
 
                 <div class="input-group mb-4 container-inputs">
@@ -661,7 +649,7 @@
                                 style="margin-left:10px; font-size:large" >&#xf059;</span>
                     </div>
 
-                    <button type="button"  class="button-save" onclick="addBlock()">Añadir</button>
+                    <button type="button"  class="button-add" onclick="addBlock()"><span>&#x2b;</span></button>
                 </div>
 
                 <div class="container-inner-periods" id="main-div">
@@ -692,7 +680,7 @@
                                 style="margin-left:10px; font-size:large" >&#xf059;</span>
                     </div>
 
-                    <button type="button"  class="button-save" onclick="openRulesPopUp()">Añadir</button>
+                    <button type="button"  class="button-add" onclick="openRulesPopUp()"><span>&#x2b;</span></button>
                 </div>
                 <div class="container-inner-periods" id="condition-div">
                     

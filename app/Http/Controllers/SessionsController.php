@@ -125,10 +125,18 @@ class SessionsController extends Controller
         $puntos = $session_results[0]->puntosObtenidos;
         $listaReglasIniciales = $session_results[0]->listaReglasIniciales;
 
-        if($session -> completed == false && $session -> running == false) //si no se ha ejecutado aun
-            return view('sessions.show_session', ['session' => $session]);
+        $patient = patient::find($patient_id);
+        $usuario = Auth::user();
+        $therapiesList = Therapy::where('user_id',$usuario -> id)->get();
+        $sessiones = $patient->session;
+        $objectives = patientevent::where('patient_id', $patient->id) -> get();
+  
+        dd($session->completed);
+
+        if($session -> completed == false)// && $session -> running == false) //si no se ha ejecutado aun
+            return view('sessions.show_session',  ['patient' => $patient, 'therapies' => $therapiesList, 'date_start' => $date_start,'objectives' =>$objectives, 'sessions'=> $sessiones]);
         else if($session -> completed == false && $session -> running == true) //si se esta ejecutando ahora
-            return view('sessions.show_session_running', ['session' => $session]);
+            return view('sessions.show_session_running', ['patient' => $patient, 'therapies' => $therapiesList, 'date_start' => $date_start,'objectives' =>$objectives, 'sessions'=> $sessiones]);
         else if($session -> completed == true) //si ya se acabo
             return view('sessions.show_session_completed', 
             ['session' => $session, 'bpm_valores' => $bpm_valores, 'bpm_medios'=>$bpm_medios,'patientId'=>$patient->id,
@@ -228,8 +236,34 @@ class SessionsController extends Controller
         $patient = patient::find($session->patient_id);
         $usuario = Auth::user();
         $therapiesList = Therapy::where('user_id',$usuario -> id)->get();
-        $sessiones = $patient->session;
-        return view('sessions.edit_session',  ['patient' => $patient, 'therapies' => $therapiesList, 'sessions'=> $sessiones, 'session' => $session]);
+        $therapy = Therapy::find($session->therapy_id);
+        $objectives = patientevent::where('patient_id', $patient->id) -> get();
+        $sessions = $patient -> session;
+        $objective = patientevent::find($session->objective);
+
+        if($session -> completed == 0)
+            return view('sessions.edit_session',  ['patient' => $patient, 'therapies' => $therapiesList,'therapy' => $therapy, 'session' => $session,'objectives' =>$objectives, 'objective' => $objective, 'sessions'=> $sessions]);
+        else{
+            $session_results = SessionResult::where('session_id', $id)->get();
+            //sensor corazon
+            $bpm_valores = $session_results[0]->bpm_valores;
+            $bpm_medios = $session_results[0]->bpm_medios;
+            
+            $move_valores = $session_results[0]->move_valores;
+            $move_medios = $session_results[0]->move_medios;
+            $limite_bpm = $session_results[0]->bpm_limite;
+            $limite_move = $session->movement;
+            $reglas = $session_results[0]->rules;
+
+            $puntos = $session_results[0]->puntosObtenidos;
+            $listaReglasIniciales = $session_results[0]->listaReglasIniciales;
+
+            //dd($session_results);
+            return view('sessions.show_session_completed', 
+            ['session' => $session, 'bpm_valores' => $bpm_valores, 'bpm_medios'=>$bpm_medios,'patientId'=>$patient->id,
+            'move_valores'=>$move_valores, 'move_medios'=>$move_medios, 'limite_bpm'=>$limite_bpm, 'limite_move' => $limite_move,'reglas'=>$reglas,
+             'puntos' => $puntos,'listaReglasIniciales'=> $listaReglasIniciales, 'patient' => $patient]);
+        }    
     }
 
 

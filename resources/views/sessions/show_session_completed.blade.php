@@ -1,19 +1,40 @@
+
+@yield('session')
+
 @extends('main')
-
 @section('patients_section')
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!--para la grafica-->
 
-<script src="{{asset('/session/sessionCompleted.js')}}"></script>  
+<head>
 
-<div class="general-items-container">
-    <input id = "bpm_val" value="{{$bpm_valores}}" style="display:none;"></input>
-    <input id = "move_val" value="{{$move_valores}}" style="display:none;"></input>
-    <input id = "limite_bpm" value="{{$limite_bpm}}" style="display:none;"></input>
-    <input id = "limite_move" value="{{$limite_move}}" style="display:none;"></input>
-    <input id = "reglas" value="{{$reglas}}" style="display:none;"></input>
+    <meta id = "bpm_val" content="{{$bpm_valores}}"></meta>
+    <meta id = "move_val" content="{{$move_valores}}"></meta>
+    <meta id = "limite_bpm" content="{{$limite_bpm}}"></meta>
+    <meta id = "limite_move" content="{{$limite_move}}"></meta>
+    <meta id = "reglas" content="{{$reglas}}"></meta>
+    <meta id = "bpm_medios" content = "{{$bpm_medios}}"></meta>
+    <meta id = "move_medios" content = "{{$move_medios}}"></meta>
 
-    <input style="display:none;" id = "bpm_medios" value = "{{$bpm_medios}}"></input>
-    <input style="display:none;" id = "move_medios" value = "{{$move_medios}}"></input>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!--para la grafica-->
+    <script src="{{asset('/session/sessionCompleted.js')}}"></script>  
+    <script src="{{asset('/JS/representation/session-representation.js')}}"></script>  
+
+    <link rel="stylesheet" href="{{asset('/css/dashboards/patients/patient-menu.css')}}">
+    <link rel="stylesheet" href="{{asset('/css/representation/session-representation.css')}}">
+</head>
+ 
+<body>
+    <div class="row">
+        <div class="col-md-6 container-patient-slim">
+            <canvas id="tablebpm"></canvas>
+        </div>
+    </div>
+</body>
+
+<script>
+    setTableWithOne(bpmdataset,'red',0.4);
+</script>
+<!--div class="general-items-container">
+
     <div id="prueba"></div>
 
     <script src="{{asset('general_page.js')}}"></script>
@@ -28,7 +49,7 @@
             
             <div class="user-welcome-box-container">
                 <div class="home-welcome-box">
-                    <button class="home-welcome-box-btn-selected" onclick = "setArticles(0)" id="btn_pom_info">SENSORES</button>
+                    <button class="home-welcome-box-btn-selected" onclick = "setArticles(0)" id="btn_pom_info">DASHBOARD</button>
                     <button class="home-welcome-box-btn" onclick = "setArticles(1)" id="btn_app_info">INFORMACIÓN RELEVANTE</button>
                     <button class="home-welcome-box-btn" onclick = "setArticles(2)" id="btn_nos_option">JUEGO</button>
                 </div>
@@ -100,6 +121,6 @@
     </div>
 
           <script>startShowTables()</script>
-</div>
+</div-->
 
 @endsection

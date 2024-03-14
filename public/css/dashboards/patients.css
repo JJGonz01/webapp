@@ -82,10 +82,6 @@
     justify-content: end;
 }
 
-.table-items-options-overflow{
-    height: 400px;
-    overflow-y: auto;
-}
 
 .popup-delete-container{
     margin-top: 20px;
