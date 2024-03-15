@@ -117,7 +117,7 @@
                     <div class="container-information container-info margin-container">
                         <div class="row container-information ">
                             <span style="font-family: Arial, FontAwesome; font-size:larger">&#xf21e;</span>
-                            <h7>Media de relajación</h7> 
+                            <h7>Media de pulsaciones</h7> 
                         </div>
                         <h3 id="puls-media-rel">Pulsaciones/minuto: 61.9</h3>
                     </div>
@@ -158,7 +158,7 @@
                     <div class="container-information container-info margin-container">
                         <div class="row container-information">
                             <span style="font-family: Arial, FontAwesome; font-size:larger">&#xf21e;</span>
-                            <h7>Media de relajación</h7> 
+                            <h7>Media de pulsaciones</h7> 
                         </div>
                         <h3 id="puls-media-rel">Pulsaciones/minuto: 63.7</h3>
                     </div>
