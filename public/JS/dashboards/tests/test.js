@@ -1,29 +1,9 @@
 
-var currentStep = 1;//0
+var currentStep = 0;//0
 const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 const htmlDicTest = { 
-    "0": ` 
-                    <img class="col-4" src="http://localhost:8000/images/kidtest.png">
-                    <div class="col-8">
-                        <h2>Bienvenido a la aplicación "Pomodoro"</h2>
-                        <p>
-                            Durante esta sesión de pruebas, queremos comprobar las distintas funcionalidades
-                            de esta aplicación. Queremos saber tu opinión para conseguir un sistema que permita
-                            facilmente organizar sesiones de estudio. En estas sesiones se podrán monitorizar las 
-                            constantes del niño para poder interpretar sus distintos estados de ánimo y
-                            conseguir que mejore en sus estudios.
-                        </p>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="checkboxTestReady">
-                            <label class="form-check-label" for="flexCheckChecked">
-                                Estoy preparado para comenzar
-                            </label>
-                        </div>
-                        
-                        <div class="text-end"><button id="button-start-test" onclick="setNextStep()" class="text-end button-next-test-disabled" disabled>Siguiente</button></div>
-                    </div>
-        `,
-    "1": `
+
+    "0": `
     <img class="col-4" src="http://localhost:8000/images/webdesigner.png">
     <div class="col-8">
         <h2>Vídeo introducción</h2>
@@ -37,7 +17,28 @@ const htmlDicTest = {
         <div class="text-end"><button id="button-start-test" onclick="setNextStep()" class="text-end button-next-test">Comenzar la primera prueba</button></div>
     </div>        
     `,
-
+    "1": `
+    <img class="col-4" src="http://localhost:8000/images/questionare.png">
+    <div class="col-8">
+    <div class="row">
+        <h2 class="col-md-10">Cuestionario 'USE' ¿Qué te parece la herramienta?</h2>
+    </div>
+        <p>
+           Cuentanos:
+        </p>
+        <div id="use-div-questions" style="overflow-y:auto; height:400px;padding:10px;">
+           
+        </div>
+        <div class="form-check" style="border-top:1 solid grey; margin-top:20px;">
+            <input class="form-check-input" type="checkbox" value="" id="checkboxTestReady">
+            <label class="form-check-label" for="flexCheckChecked">
+                He respondido las preguntas, y he terminado el cuestionario
+            </label>
+        </div>
+    
+        <div class="text-end" ><button id="button-start-test" onclick="setNextStep()" class="text-end button-next-test-disabled">Terminar test</button></div>
+    </div>        
+    `, 
     "2": `
     <img class="col-4" src="http://localhost:8000/images/childream.png">
     <div class="col-8">
@@ -489,28 +490,6 @@ const htmlDicTest = {
     </div>        
     `, 
     "18": `
-    <img class="col-4" src="http://localhost:8000/images/questionare.png">
-    <div class="col-8">
-    <div class="row">
-        <h2 class="col-md-10">Cuestionario 'USE': Valora la aplicación</h2>
-    </div>
-        <p>
-           Cuentanos:
-        </p>
-        <div id="use-div-questions" style="overflow-y:auto; height:400px;padding:10px;">
-           
-        </div>
-        <div class="form-check" style="border-top:1 solid grey; margin-top:20px;">
-            <input class="form-check-input" type="checkbox" value="" id="checkboxTestReady">
-            <label class="form-check-label" for="flexCheckChecked">
-                He respondido las preguntas, y he terminado el cuestionario
-            </label>
-        </div>
-    
-        <div class="text-end" ><button id="button-start-test" onclick="setNextStep()" class="text-end button-next-test-disabled" disabled>Terminar test</button></div>
-    </div>        
-    `, 
-    "19": `
     <img class="col-4" src="http://localhost:8000/images/endimg.png">
     <div class="col-8">
     <div class="row">
@@ -545,7 +524,7 @@ function startTest(){
         check5thtest();
     }
 
-    if(currentStep == 18){
+    if(currentStep == 1){
         setUSEquestionare();
     }
 
@@ -566,10 +545,16 @@ function startTest(){
 function setNextStep(){
     currentStep += 1;
     var stepsWithTasks = [2, 4, 7, 10];
+   
+
     if(stepsWithTasks.includes(currentStep))
         checkTest(currentStep);
     else
-        document.getElementById("test-content").innerHTML = htmlDicTest[""+currentStep];
+        document.getElementById("test-content").innerHTML = htmlDicTest[""+currentStep]; 
+    
+    if(currentStep == 1){
+        setUSEquestionare();
+    }
 }
 
 function closeTestPopUp(){

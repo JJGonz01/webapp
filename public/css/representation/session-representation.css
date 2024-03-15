@@ -30,3 +30,14 @@
     background-color: var(--color-primary-brown);
     border-radius: 10px;
 }
+
+.container-select{
+    border:0;
+    border-radius: 15px;
+    background-color: var(--color-secondary-brown);
+    padding:7px;
+}
+
+.margin-container{
+    margin-bottom:30px;
+}

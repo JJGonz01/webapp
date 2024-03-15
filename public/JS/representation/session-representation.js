@@ -144,14 +144,17 @@ function setTableWithOne(dataset, color = "blue", tension = 0, datasetindex = 1,
     var myChart = new Chart(ctx, cfg);
 }
 var myChart2;
-function setTableWithTwo(dataset, dataset2, color = "blue", tension = 0, datasetindex = 1){
+var myChartLeft;
+var myChartRight;
+
+function setTableWithTwo(dataset, dataset2, color = "blue", tension = 0, datasetindex = 1, dataindex2 = 1,  id="sessiontable"){
     const cfg2 = {
         type: 'scatter',
         data: {
             datasets: [
                 {
                     label: 'Movimiento',
-                    data: dataset2[datasetindex],
+                    data: dataset2[dataindex2],
                     yAxisID: 'y-axis-1', // Asigna el eje Y correspondiente
                     showLine: true,
                     pointRadius: 5,
@@ -227,3 +230,174 @@ function setTableWithTwo(dataset, dataset2, color = "blue", tension = 0, dataset
     }
     
 }
+
+
+function setTableWithTwoLeft(dataset, dataset2, color = "blue", tension = 0, datasetindex = 1, dataindex2 = 1,  id="sessiontable"){
+    const cfg3 = {
+        type: 'scatter',
+        data: {
+            datasets: [
+                {
+                    label: 'Movimiento',
+                    data: dataset2[dataindex2],
+                    yAxisID: 'y-axis-1', // Asigna el eje Y correspondiente
+                    showLine: true,
+                    pointRadius: 5,
+                    pointHoverRadius: 5,
+                    pointStyle: "rectRounded",
+                    tension: tension,
+                    borderCapStyle: 'round'
+                },
+                {
+                    label: 'Pulsaciones',
+                    data: dataset[datasetindex],
+                    yAxisID: 'y-axis-2', // Asigna el eje Y correspondiente
+                    showLine: true,
+                    pointRadius: 5,
+                    pointHoverRadius: 5,
+                    pointStyle: "rectRounded",
+                    tension: tension,
+                    borderCapStyle: 'round'
+                }
+            ]
+        },
+        options: {
+            parsing: {
+                xAxisKey: 'timestamp',
+                yAxisKey: 'value'
+            },
+            scales: {
+                x: {
+                    type: 'linear',
+                    position: 'bottom',
+                    grid: {
+                        display: false
+                    },
+                    ticks: {
+                        fontSize: 20
+                    },
+                    gridLines: {
+                        drawBorder: false,
+                    },
+                },
+                yAxes: [{
+                    id: 'y-axis-1',
+                    type: 'linear',
+                    position: 'left',
+                    ticks: {
+                        fontColor: "red",
+                        fontSize: 20
+                    }
+                }, {
+                    id: 'y-axis-2',
+                    type: 'linear',
+                    position: 'right',
+                    ticks: {
+                        fontColor: "blue",
+                        fontSize: 20
+                    }
+                }]
+            },
+            plugins: {
+                legend: {
+                    display: true
+                }
+            }
+        }
+    };
+    
+    var ctx3= document.getElementById(id).getContext('2d');
+    if(!myChartLeft)
+        myChartLeft = new Chart(ctx3, cfg3);
+    else{
+        myChartLeft.data.datasets[0].data = dataset2[datasetindex];
+        myChartLeft.update();
+    }
+    
+}
+
+
+function setTableWithTwoRight(dataset, dataset2, color = "blue", tension = 0, datasetindex = 1, dataindex2 = 1,  id="sessiontable"){
+    const cfg4 = {
+        type: 'scatter',
+        data: {
+            datasets: [
+                {
+                    label: 'Movimiento',
+                    data: dataset2[dataindex2],
+                    yAxisID: 'y-axis-1', // Asigna el eje Y correspondiente
+                    showLine: true,
+                    pointRadius: 5,
+                    pointHoverRadius: 5,
+                    pointStyle: "rectRounded",
+                    tension: tension,
+                    borderCapStyle: 'round'
+                },
+                {
+                    label: 'Pulsaciones',
+                    data: dataset[datasetindex],
+                    yAxisID: 'y-axis-2', // Asigna el eje Y correspondiente
+                    showLine: true,
+                    pointRadius: 5,
+                    pointHoverRadius: 5,
+                    pointStyle: "rectRounded",
+                    tension: tension,
+                    borderCapStyle: 'round'
+                }
+            ]
+        },
+        options: {
+            parsing: {
+                xAxisKey: 'timestamp',
+                yAxisKey: 'value'
+            },
+            scales: {
+                x: {
+                    type: 'linear',
+                    position: 'bottom',
+                    grid: {
+                        display: false
+                    },
+                    ticks: {
+                        fontSize: 20
+                    },
+                    gridLines: {
+                        drawBorder: false,
+                    },
+                },
+                yAxes: [{
+                    id: 'y-axis-1',
+                    type: 'linear',
+                    position: 'left',
+                    ticks: {
+                        fontColor: "red",
+                        fontSize: 20
+                    }
+                }, {
+                    id: 'y-axis-2',
+                    type: 'linear',
+                    position: 'right',
+                    ticks: {
+                        fontColor: "blue",
+                        fontSize: 20
+                    }
+                }]
+            },
+            plugins: {
+                legend: {
+                    display: true
+                }
+            }
+        }
+    };
+    
+    var ctx4 = document.getElementById(id).getContext('2d');
+    if(!myChartRight)
+        myChartRight = new Chart(ctx4, cfg4);
+    else{
+        myChartRight.data.datasets[0].data = dataset2[datasetindex];
+        myChartRight.update();
+    }
+}
+
+
