@@ -13,13 +13,16 @@ function changeviewpatient(view){
     document.getElementById("calendar-view").style.display = "none";
     document.getElementById("objectives-view").style.display = "none";
     document.getElementById("avatar-view").style.display = "none";
+    document.getElementById("game-view").style.display = "none";
 
     if(view == 0){
         document.getElementById("calendar-view").style.display = "block";
     }else if(view == 1){
         document.getElementById("objectives-view").style.display = "block";
-    }else{
+    }else if(view==2){
         document.getElementById("avatar-view").style.display = "block";
+    }else{
+      document.getElementById("game-view").style.display = "block";
     }
 }
  

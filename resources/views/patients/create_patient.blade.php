@@ -4,7 +4,7 @@
 
 
 <head>
-    <title>CREAR PACIENTE</title>
+    <title>CREAR ESTUDIANTE</title>
     <link rel="stylesheet" href="{{asset('/css/dashboards/patients/create-patient.css')}}">
     <link rel="stylesheet" href="{{asset('/css/dashboards/patients.css')}}">
 </head>
@@ -26,7 +26,7 @@
             @error('surname')
                 <h6 class="alert alert-danger"> Falta apellido: {{ $message }}</h6>
             @enderror
-            <h2>Añadir paciente</h2>
+            <h2>Añadir estudiante</h2>
             <p>Imagen</p>
             <img id="profile-image" src="{{asset('images/perfil.png')}}"></img>
 
@@ -34,7 +34,7 @@
                 <span>&#xf21e;</span>
                 <div style="">Nombre</div>
             </div>
-            <input placeholder = "Nombre del paciente" type="text" name = "name" id = "name" class = "form-control">
+            <input placeholder = "Nombre del estudiante" type="text" name = "name" id = "name" class = "form-control">
 
             <div class="input-group mb-2 patient-title">
                 <span>&#xf21e;</span>
@@ -44,10 +44,10 @@
             
             <div class="input-group mb-2 patient-title">
                 <span>&#xf21e;</span>
-                <div>Comentario sobre el paciente</div>
+                <div>Comentario sobre el estudiante</div>
             </div>
             <textarea style="margin-bottom:10px;" type="text" placeholder = "Comentario/Descripción" name = "description" id="commentary" class = "form-control" rown="10"></textarea>
-            <button id="go_to_patient_create" class="button-save-patient" type="submit"> CREAR PACIENTE </button>
+            <button id="go_to_patient_create" class="button-save-patient" type="submit"> CREAR ESTUDIANTE </button>
         </form>
     </div>
 </div>

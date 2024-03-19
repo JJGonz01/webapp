@@ -55,10 +55,10 @@
                         <div id="carouselExample" class="carousel slide">
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
-                                <img src="/images/hijo.png" class="d-block w-100" alt="/images/hijo.png">
+                                <img src="/images/estrella.png" class="d-block w-100" alt="/images/estrella.png">
                                 </div>
-                                <div class="carousel-item">
-                                <img src="/images/hijo.png" class="d-block w-100" alt="/images/hijo.png">
+                                <div class="carousel-item"> 
+                                <img src="/images/estrella.png" class="d-block w-100" alt="/images/estrella.png">
                                 </div>
                                 <div class="carousel-item TEXT-CENTER">
                                     <button>AÑADIR</button>
@@ -217,13 +217,13 @@
 </div>
 <div id="popup" class="popup" style="display:none;">
     <div class="popup-content container-condition">
-        <h2>Crear una condición</h2>
+        <h2>Crear una regla</h2>
         <div class="row container-condition-creator">
             
             <div class="col-md-4">
                 <div class="input-group mb-2">
                     <span>&#xf21e;</span>
-                    <p style="margin-left:10px; font-weight: bolder;">Datos de la condición</p>
+                    <p style="margin-left:10px; font-weight: bolder;">Datos de la regla</p>
                     <span data-toggle="tooltip" data-html="true" 
                     title="Establece los valores que tienen que cumplirse para que se ejecuten las acciones"
                     style="margin-left:10px; font-size:large" >&#xf059;</span>
@@ -291,7 +291,7 @@
             <div class="col-md-4">
                 <div class="input-group mb-2">
                     <span>&#xf21e;</span>
-                    <p style="margin-left:10px; font-weight: bolder;">Condiciones</p>
+                    <p style="margin-left:10px; font-weight: bolder;">Reglas creadas</p>
                     <span data-toggle="tooltip" data-html="true" 
                     title="Establece los valores que tienen que cumplirse para que se ejecuten las acciones"
                     style="margin-left:10px; font-size:large" >&#xf059;</span>
@@ -523,7 +523,7 @@
                                     </div>
 
                                     <div class="title-subsection">
-                                            <i style="margin-left:10px; font-weight: bolder;">Valor del sensor</i>
+                                            <i style="margin-left:10px; font-weight: bolder;">Modificar sesión completa</i>
                                             <span class="col-md-2" data-toggle="tooltip" data-html="true" 
                                                 title="Una condición puede lanzarse todas las veces que se cumpla, o solo una unica vez, cuando se cumplan
                                                 sus condiciones, y luego no volver a comprobarse"
@@ -674,7 +674,7 @@
             <div class="col-md-4 container-conditions">
                 <div class="input-group-prepend d-flex">
                     <div class="row mr-auto container-padding">
-                        <h2 id="conditions-title">Condiciones del bloque 0</h2>
+                        <h2 id="conditions-title">Reglas del bloque 0</h2>
                         <span data-toggle="tooltip" data-html="true" 
                                 title="Aqui se definen las distintas condiciones y acciones que tendrá el bloque"
                                 style="margin-left:10px; font-size:large" >&#xf059;</span>

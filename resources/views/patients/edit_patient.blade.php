@@ -4,7 +4,7 @@
 
 
 <head>
-    <title>EDITAR PACIENTE</title>
+    <title>EDITAR ESTUDIANTE</title>
 </head>
 
 <div>
@@ -27,7 +27,7 @@
     <div class="left-img-container">
     </div>
     <div class="right-img-container">
-        <h3>Crear Paciente</h3>
+        <h3>Crear Estudiantes</h3>
         <p>NOMBRE</p>
         <input type="text" value="{{$patient->name}}" name = "name" id = "name" class = "create-basic-container-inputs">
 
@@ -36,7 +36,7 @@
 
         <p>COMENTARIO</p>
         <textarea type="text" value="{{$patient->description}}" name = "description" id="commentary" class = "form-control" rown="10"></textarea>
-        <button id="go_to_patient_create" type="submit"> CREAR USUARIO </button>
+        <button id="go_to_patient_create" type="submit"> GUARDAR CAMBIOS </button>
     </form> <!--FORM PACIENTE-->
     </div>
     </div>

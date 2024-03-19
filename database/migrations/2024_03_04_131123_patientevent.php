@@ -16,6 +16,8 @@ return new class extends Migration
             $table->timestamps();
             $table->string('name');
             $table->string('type');
+            $table->string('reward_type');
+            $table->string('reward_name');
             $table->string('description')->nullable();
             
             $table->date('date_end');

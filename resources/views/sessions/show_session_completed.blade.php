@@ -28,7 +28,6 @@
         <button class="button-patient" onclick="changeView('data'); seleccionarBoton(this)">Datos</button>
         <button class="button-patient" onclick="changeView('other'); seleccionarBoton(this)">Comparativa</button>
     </div>
-
     <div id="dash" name="views" style="display:block;">
         <div class="row">
             <div class="col-md-6 container-patient-slim">
@@ -102,95 +101,49 @@
     <div id="other" name="views"  style="display:none;">
         <div class="row">
             <div class="col-md-5 container-patient-slim">
-                <select class="container-select">                    
-                    <option>Estudio 1</option>
-                    <option>Descanso 1</option>
-                    <option>Estudio 2</option>
-                    <option>Escoger otra sesión</option>
-                </select>
-                <canvas id="graph-left"></canvas>
-            </div>
-       
-            <div class="col-md-1"></div>
-            <div class="col-md-5 container-patient-slim">
-                <div class="container-information">
-                    <div class="container-information container-info margin-container">
-                        <div class="row container-information ">
-                            <span style="font-family: Arial, FontAwesome; font-size:larger">&#xf21e;</span>
-                            <h7>Media de relajación</h7> 
-                        </div>
-                        <h3 id="puls-media-rel">Pulsaciones/minuto: 61.9</h3>
-                    </div>
-                
-                    <div class="container-information container-info margin-top  margin-container">
-                        <div class="row container-information">
-                            <span style="font-family: Arial, FontAwesome; font-size:larger">&#xf21e;</span>
-                            <h7>Media de movimiento</h7> 
-                        </div>
-                        <h3 id="puls-media-rel">Unidades movim: 1.4</h3>
-                    </div>
-                    <div class="container-information container-info">
-                        <div class="row container-information">
-                            <span style="font-family: Arial, FontAwesome; font-size:larger">&#xf21e;</span>
-                            <h7>Puntos obtenidos:</h7> 
-                        </div>
-                        <h3 id="puls-media-rel">Estrellas: 21</h3>
-                    </div>
-                    
+                <div>
+                    <select class="container-select" id="table-1">                    
+                        <option value=1>Estudio 1</option>
+                        <option value=2>Descanso 1</option>
+                        <option value=3>Estudio 2</option>
+                    </select>
+                    <canvas id="graph-left"></canvas>
+                </div>
+                <div id="left-information"> 
+                    <p>Informacion</p>
+                    <p>Pulsación media: 63 bpm</p>
+                    <p>Movimiento medio 1.4 u<p>
                 </div>
             </div>
-         
-        </div>
-        <div class="row">
-            <div class="col-md-5 container-patient-slim">
-                <select class="container-select">
-                    <option>Estudio 1</option>
-                    <option>Descanso 1</option>
-                    <option>Estudio 2</option>
-                    <option>Escoger otra sesión</option>
-                </select>
-                <canvas id="graph-right"></canvas>
-            </div>
             <div class="col-md-1"></div>
-
             <div class="col-md-5 container-patient-slim">
-                <div class="container-information">
-                    <div class="container-information container-info margin-container">
-                        <div class="row container-information">
-                            <span style="font-family: Arial, FontAwesome; font-size:larger">&#xf21e;</span>
-                            <h7>Media de relajación</h7> 
-                        </div>
-                        <h3 id="puls-media-rel">Pulsaciones/minuto: 63.7</h3>
-                    </div>
-                
-                    <div class="container-information container-info  margin-container">
-                        <div class="row container-information">
-                            <span style="font-family: Arial, FontAwesome; font-size:larger">&#xf21e;</span>
-                            <h7>Media de movimiento</h7> 
-                        </div>
-                        <h3 id="puls-media-rel">Unidades movim: 3.2</h3>
-                    </div>
-
-                    <div class="container-information container-info">
-                        <div class="row container-information">
-                            <span style="font-family: Arial, FontAwesome; font-size:larger">&#xf21e;</span>
-                            <h7>Puntos obtenidos:</h7> 
-                        </div>
-                        <h3 id="puls-media-rel">Estrellas: 13</h3>
-                    </div>
+                <div>
+                    <select class="container-select" id="table-2">
+                        <option value=1>Estudio 1</option>
+                        <option value=2>Descanso 1</option>
+                        <option value=3>Estudio 2</option>
+                    </select>
+                    <canvas id="graph-right"></canvas>
+                </div>
+                <div id="right-information">
+                    <p>Informacion</p>
+                    <p>Pulsación media: 67 bpm</p>
+                    <p>Movimiento medio 3.6 u<p>
                 </div>
             </div>
+            
         </div>
     </div>
 </body>
 
 <script>
-    setTableWithOne(bpmdataset,'red',0.2);
+    selectOptions("table-1", "graph-left",true);
+    selectOptions("table-2", "graph-right",false);
+    setTableWithOne(bpmdataset,'red',0.2,0,"tablebpm");    
     setTableWithTwo(bpmdataset, movedataset,'red',0.2, 3, 3);
-    setTableWithTwoLeft(bpmdataset, movedataset,'red',0.2,1,1,"graph-left");
-    setTableWithTwoRight(bpmdataset,movedataset, 'red',0.2, 2, 2,"graph-right");
 
-    
+    setTableWithTwoLeft(bpmdataset, movedataset,'red',0.2,1,1,"graph-left");
+    setTableWithTwoRight(bpmdataset,movedataset, 'red',0.2, 3, 3,"graph-right");
 </script>
 <!--div class="general-items-container">
 

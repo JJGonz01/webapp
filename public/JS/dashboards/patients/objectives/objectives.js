@@ -85,14 +85,28 @@ function deleteMilestone(milestoneidloc){
     milestones--;
 }
 
-function gotonextstep(){
-    document.getElementById("container-objective-one").style.display="none";
-    document.getElementById("container-objective-two").style.display="block";
+function gotonextstep(page){
+    if(page == 0){
+        document.getElementById("container-objective-one").style.display="none";
+        document.getElementById("container-objective-two").style.display="block";
+    }
+   
+    else if(page == 1){
+        document.getElementById("container-objective-two").style.display="none";
+        document.getElementById("container-objective-three").style.display="block";
+    }
 }
 
-function gotolaststep(){
-    document.getElementById("container-objective-one").style.display="block";
-    document.getElementById("container-objective-two").style.display="none";
+function gotolaststep(page){
+    if(page == 0){
+        document.getElementById("container-objective-one").style.display="block";
+        document.getElementById("container-objective-two").style.display="none";
+    }
+   
+    else if(page == 1){
+        document.getElementById("container-objective-two").style.display="block";
+        document.getElementById("container-objective-three").style.display="none";
+    }
 }
 
 function selectType(inputid, button, divId){
@@ -103,6 +117,16 @@ function selectType(inputid, button, divId){
     }
     button.className = "image-container-objective-w100-selected";
 }
+
+function selectRewardType(inputid, button, divId){
+    document.getElementById(inputid).value = button.value;
+    var buttons = document.getElementById(divId).getElementsByTagName("button");
+    for(let i = 0; i<buttons.length; i++){
+        buttons[i].className = "image-container-objective-w100";
+    }
+    button.className = "image-container-objective-w100-selected";
+}
+
 function saveAndSendObjective(){
     var steps = [];
     var divlist = document.getElementById("milestones-list").getElementsByClassName("row milestone-container");

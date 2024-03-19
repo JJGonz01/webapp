@@ -1,10 +1,9 @@
-
 @yield('session')
 
 @extends('main')
 @section('patients_section')
 <head>
-    <title>EDITAR | {{$patient->name}}</title>
+    <title>Estudiante {{$patient->name}}</title>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -42,7 +41,7 @@
             <h3>2 - Introduce la ID del estudiante </h3>
             <h3>3 - Pulsa aceptar, el reloj ya estará configurado </h3>
             <h3>* - La id del estudiante actual es {{$patient->id}} --</h3>
-            <img src="{{asset('/images/watchstep.png')}}"></img>
+            <img src="{{asset('/images/watchstep.png')}}" style="width:300px;height:250px;"></img>
         </div>
         
     </div>
@@ -83,7 +82,8 @@
                 <div class="col-md-5 container-content-patient">
                     <h3>{{$patient-> surname}}, {{$patient-> name}}</h3>
                     <h6>{{$patient->description}}</h6>
-                    <h6>La ID del paciente es: {{$patient->id}}</h6>
+                    <h6>La ID del estudiante es: {{$patient->id}}</h6>
+                    <h6>El estudiante tiene 120 estrellas</h6>
                 </div>
 
                 <div class="col-md-2 row container-content-patient float-right">
@@ -234,48 +234,10 @@
         </div>
     </div>
 
-    <div id="objectives-view" style="display:none;">
-        <div class="row" id="calendar-container">
-            <div class="col-md-9">
-                <div class="container-fluid container-patient-slim">
-                    <div class="container-padding">
-                        <p class="text-title-two"> AVATAR </p>
-                        <div class="row">
-                            <button class="button-patient-selected" onclick="seleccionarBoton(this);">Todos</button>
-                            <button class="button-patient" onclick="seleccionarBoton(this);">Estudios</button>
-                            <button class="button-patient" onclick="seleccionarBoton(this);">Escolares</button>
-                            <button class="button-patient" onclick="seleccionarBoton(this);">Personales</button>
-                        </div>
-                        <table class="table">
-                            <tr class="top-index-container">
-                                <th scope="col">Nombre</th>
-                                <th scope="col">Fecha objetivo</th>
-                                <th scope="col">Tipo</th>
-                                <th scope="col">Selección</th>
-                            </tr>
-                            <div id="patient-list" class="table-items-options-overflow">
-                                @foreach($objectives->take(5) as $obj)
-                                <tr>
-                                    <td>{{$obj->name}}</td>
-                                    <td>{{$obj->date_end}}</td>
-                                    <td>{{$obj->type}}</td>
-                                    <td scope="row"><button class="button-objective-next-step" type="checkbox" onclick="showMilestones('{{$obj->id}}')">Acceder</td>
-                                </tr>
-                                @endforeach
-                            </div>
-                        </table>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="container-sesiones container-patient-slim">
-                    <p class="text-title-two" id="session-title">Hitos del objetivo</p>
-                    <div id="steps-container" class="container-padding">
-                        <div class="row">
-                            <p>Selecciona un objetivo para ver sus hitos</p>
-                        </div>
-                    </div>
-                </div>
+    <div id="game-view" style="display:none;margin-bottom:100px;">
+        <div class="row">
+            <div class="col-md-10">
+                <img style="width:1200px; height:600px; matgin-bottom:50px;margin-top:20px;" src="{{asset('/images/avatar-preview.png')}}"></img>
             </div>
         </div>
     </div>

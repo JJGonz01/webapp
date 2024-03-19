@@ -74,7 +74,7 @@
 
                         <li class="nav-item nav-superitem">
                             <span class="span-navbar">&#xf0c0;</span>
-                            <a class="nav-option" href="/patients">Pacientes</a>
+                            <a class="nav-option" href="/patients">Estudiantes</a>
                         </li>
 
                         <li class="nav-item nav-superitem">

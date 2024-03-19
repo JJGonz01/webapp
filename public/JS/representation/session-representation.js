@@ -12,11 +12,14 @@ var reglas;
 
 startRepresentation(); 
 var currentPeriod = 1;
-var nPeriods = 3;
+var nPeriods;
+//setTableWithTwo(bpmdataset, movedataset,'red',0.2, 3, 3);
+//setTableWithTwoLeft(bpmdataset, movedataset,'red',0.2,1,1,"graph-left");
+//setTableWithTwoRight(bpmdataset,movedataset, 'red',0.2, 2, 2,"graph-right");
 
-//NEW ..> 
 var bpmdataset;
 var movedataset;
+
 function changeView(divid){
     var divs = document.getElementsByName("views");
     for(let i = 0; i<divs.length; i++){
@@ -44,9 +47,11 @@ function startRepresentation(){
 
 function showCurrentPeriod(dir){
     currentPeriod += dir;
+    let maxnum = bpmdataset.length;
+    console.log(nPeriods);
 
     if(currentPeriod <= 0) currentPeriod = 1;
-    else if (currentPeriod > (nPeriods)) currentPeriod = nPeriods;
+    else if (currentPeriod >= (nPeriods)) currentPeriod = (nPeriods-1);
 
     myChart2.data.datasets[1].data = bpmdataset[currentPeriod];
     myChart2.data.datasets[0].data = movedataset[currentPeriod];
@@ -60,9 +65,12 @@ function showCurrentPeriod(dir){
 function getDataSets(dataraw, start=0){
     let bpmdata = {}
     let json = JSON.parse(dataraw);
+    nPeriods = json.length;
+    console.log(nPeriods);
     for(let i = start; i<json.length; i++){
         bpmdata[i] = JSON.parse(json[i]);
     }
+    console.log(bpmdata[0]);
     return bpmdata;
 }
 
@@ -310,14 +318,15 @@ function setTableWithTwoLeft(dataset, dataset2, color = "blue", tension = 0, dat
     if(!myChartLeft)
         myChartLeft = new Chart(ctx3, cfg3);
     else{
-        myChartLeft.data.datasets[0].data = dataset2[datasetindex];
+        myChartLeft.data.datasets[0].data = dataset2[dataindex2];
+        myChartLeft.data.datasets[1].data = dataset[datasetindex];
         myChartLeft.update();
     }
     
 }
 
 
-function setTableWithTwoRight(dataset, dataset2, color = "blue", tension = 0, datasetindex = 1, dataindex2 = 1,  id="sessiontable"){
+function setTableWithTwoRight(dataset, dataset2, color = "blue", tension = 0, datasetindex, dataindex2,  id="sessiontable"){
     const cfg4 = {
         type: 'scatter',
         data: {
@@ -395,9 +404,22 @@ function setTableWithTwoRight(dataset, dataset2, color = "blue", tension = 0, da
     if(!myChartRight)
         myChartRight = new Chart(ctx4, cfg4);
     else{
-        myChartRight.data.datasets[0].data = dataset2[datasetindex];
+        myChartRight.data.datasets[0].data = dataset2[dataindex2];
+        myChartRight.data.datasets[1].data = dataset[datasetindex];
         myChartRight.update();
     }
+}
+
+function selectOptions(selectid, canvasid, isLeft){
+    var selectElement = document.getElementById(selectid);
+
+    selectElement.addEventListener('change', (event) => {
+        const selectedLanguage = event.target.value;
+        if(isLeft)
+            setTableWithTwoLeft(bpmdataset, movedataset,'red',0.2,event.target.value,event.target.value,canvasid);
+        else
+            setTableWithTwoRight(bpmdataset, movedataset,'red',0.2,event.target.value,event.target.value,canvasid);
+    });
 }
 
 

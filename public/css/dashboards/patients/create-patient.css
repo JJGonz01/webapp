@@ -87,4 +87,11 @@ span{
     border:0;
     padding:15px;
     border-radius: 10px;
+    color:white;
+    transition: transform 0.3s ease;
+}
+
+.button-save-patient:hover{
+    transition: transform 0.3s ease;
+    transform: scale(1.05);
 }

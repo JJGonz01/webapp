@@ -108,6 +108,8 @@ class PatientsController extends Controller
             'type' => 'required',
             'date_end' => 'required',
             'time_end' => 'required',
+            'reward_type' => 'required',
+            'reward_name' => 'required',
             'steps' => [
                 'required'
             ],
@@ -119,6 +121,9 @@ class PatientsController extends Controller
             $objective->name = $request -> name;
             $objective->type = $request -> type;
             $objective->description = $request -> description;
+
+            $objective->reward_type = $request -> reward_type;
+            $objective->reward_name = $request -> reward_name;
 
             $objective->date_end = $request -> date_end;
             $objective->time_end = $request -> time_end;

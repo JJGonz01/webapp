@@ -12,6 +12,7 @@ use App\Models\SessionData;
 use App\Models\patient;
 use App\Models\Regla;
 use App\Models\FuzzyData;
+use App\Models\therapy_session_completed;
 use App\Models\patientevent;
 use Illuminate\Validation\Rule;
 use Carbon\Carbon; //Para cargar las fechas
@@ -41,6 +42,12 @@ class SessionsController extends Controller
 
     public function store(Request $request, string $patient_id)
     {
+        if(!Auth::check()){
+            return view('layouts.app'); 
+        }
+    
+        $usuario = Auth::user();
+
         $today = Carbon::now();
         $today = now();
         $fiveMinutesBefore = $today->subMinutes(5)->format('Y-m-d\TH:i');
@@ -103,6 +110,20 @@ class SessionsController extends Controller
         $session_res = new SessionResult;
         $session_res->session_id = $session->id;
         $session_res->save();
+
+        $therapy_completed = new therapy_session_completed();
+        $therapy = Therapy::find($request ->therapy_id);
+        $durations = SessionPeriod::where('therapy_id', $therapy->id)->first();
+
+        $therapy_completed-> name = $therapy-> name;
+        $therapy_completed->user_id = $usuario->id;
+        $therapy_completed-> author = $usuario-> name;
+        $therapy_completed-> description = $therapy-> description;
+        $therapy_completed-> durations = $durations-> durations;
+        $therapy_completed->rules = $therapy->rules;
+        $therapy_completed->session_id = $session -> id;
+
+        $therapy_completed->save(); 
 
         return redirect()->route('patient_show', ['id'=> $patient_id])->with('success','Sesion creada correctamente');
     }
@@ -476,6 +497,8 @@ class SessionsController extends Controller
             $session->running = false; 
             $session->completed = true; 
             $session->save();
+
+            
             return response()->json([
                 'response' => $session->id
             ]);

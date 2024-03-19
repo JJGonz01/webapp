@@ -29,7 +29,7 @@
     <div class="col-md-4">
         <div class="container-therapy-information">
             <h2>Uso de la terapia</h2>
-            <h4>Pacientes: TBD</h4>
+            <h4>Estudiantes: TBD</h4>
             <h4>Sesiones: TBD</h4>
         </div>
     </div>
@@ -38,7 +38,7 @@
         <div class="container-therapy-information">
             <h2>Resultados</h2>
             <h4>Sesiones completadas: TBD</h4>
-            <h4>Notas de los pacientes: TBD</h4>
+            <h4>Notas de los estudiantes: TBD</h4>
         </div>
     </div>
 </div>

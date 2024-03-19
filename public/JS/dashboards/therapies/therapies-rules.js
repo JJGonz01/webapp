@@ -226,7 +226,7 @@ function saveNewRule(){
 
 function showRulesInContainer(blockNumber){
     document.getElementById("condition-div").innerHTML = "";
-    document.getElementById("conditions-title").innerHTML = "Condiciones del bloque "+blockNumber;
+    document.getElementById("conditions-title").innerHTML = "Reglas del bloque "+blockNumber;
     currentBlock = blockNumber;
     console.log(currentBlock);
     if(!mapaReglas[blockNumber]) return;

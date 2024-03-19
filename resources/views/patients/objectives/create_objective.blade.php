@@ -32,17 +32,17 @@
         @endif
         <div class="popup-content popup-width-50">
             <div class="row">
-                <div class="col">
+                <div class="col-md-9">
                     <h2>Crear Objetivo para {{$patient->name}}</h2>
                 </div>
-                <div class="col text-end align-button-right">
+                <div class="col-md-3 text-end align-button-right">
                     <button type="button" class="button-close" onclick="closePopup()">                        
                       <span>&#xf00d;</span>
                     </button>
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-12 container-session-inputs" id="container-objective-one">
+                <div class="col-md-12 container-session-inputs" id="container-objective-one" style="display:block;">
                     <input style="display:none;" name="type" id="objective-type-input" value="study"></input>
                     <div class="form-row" id="type-selection-container">
                         <div class="col-md-4 container-objective-type">
@@ -83,7 +83,7 @@
                     <textarea name="description" class="form-control" rows="3" placeholder="Descripción"></textarea>
 
                     <div class="float-end">
-                        <button type="button" onclick="gotonextstep()" class="button-objective-next-step">Siguiente</button>
+                        <button type="button" onclick="gotonextstep(0)" class="button-objective-next-step">Siguiente</button>
                         <button type="button" class="button-objective-cancel-step" onclick="closePopup()">Cancelar</button>
                     </div>
                 </div>
@@ -101,8 +101,44 @@
                     </div>
                     
                     <div class="float-end">
+                        <button type="button" onclick="gotonextstep(1)" class="button-objective-next-step">Siguiente</button>
+                        <button type="button" class="button-objective-cancel-step" onclick="gotolaststep(0)">Ir a paso anterior</button>
+                    </div>
+                </div>
+
+                <div class="col-md-12 container-session-inputs" id="container-objective-three" style="display:none;">
+                    <input style="display:none;" name="reward_type" id="reward-type-input" value="travel"></input>
+                    <h3>Establece que recompensa se obtiene al conseguir el objetivo<h3>
+
+                    <div  class="col-md-12 milestone-container-div">
+                        <h4>Nombre de la recompensa</h4>
+                        <input class="input-session form-control" id ="input-recompensa" name="reward_name" placeholder="Nombre de la recompensa">
+                        </input>
+                    </div>
+                    <div class="form-row" id="reward-selection-container">
+                        <div class="col-md-4 container-objective-type">
+                            <button onclick = "selectRewardType('reward-type-input', this, 'reward-selection-container')" type="button" class="image-container-objective-w100" value="travel">
+                            <img class="rounded-image" src="{{asset('images/travel.png')}}"></img>
+                            <p>VIAJE</p>
+                            </button>
+                        </div>
+                        <div class="col-md-4 container-objective-type">
+                            <button onclick = "selectRewardType('reward-type-input', this, 'reward-selection-container')"  type="button" class="image-container-objective-w100" value="present">
+                            <img class="rounded-image" src="{{asset('images/present.jpg')}}"></img>
+                            <p>REGALO</p>
+                            </button>
+                        </div>
+                        <div class="col-md-4 container-objective-type">
+                            <button onclick = "selectRewardType('reward-type-input', this, 'reward-selection-container')"  type="button" class="image-container-objective-w100" value="activity">
+                            <img class="rounded-image" src="{{asset('images/activity.jpg')}}"></img>
+                            <p>ACTIVIDAD</p>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="float-end">
                         <button type="button" onclick = "saveAndSendObjective()" class="button-objective-next-step">Guardar</button>
-                        <button type="button" class="button-objective-cancel-step" onclick="gotolaststep()">Ir a paso anterior</button>
+                        <button type="button" class="button-objective-cancel-step" onclick="gotolaststep(1)">Ir a paso anterior</button>
                     </div>
                 </div>
                 
