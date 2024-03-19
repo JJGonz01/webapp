@@ -101,6 +101,7 @@
     <div id="other" name="views"  style="display:none;">
         <div class="row">
             <div class="col-md-5 container-patient-slim">
+<<<<<<< HEAD
                 <div>
                     <select class="container-select" id="table-1">                    
                         <option value=1>Estudio 1</option>
@@ -113,10 +114,48 @@
                     <p>Informacion</p>
                     <p>Pulsación media: 63 bpm</p>
                     <p>Movimiento medio 1.4 u<p>
+=======
+                <select class="container-select">                    
+                    <option>Estudio 1</option>
+                    <option>Descanso 1</option>
+                    <option>Estudio 2</option>
+                    <option>Escoger otra sesión</option>
+                </select>
+                <canvas id="graph-left"></canvas>
+            </div>
+       
+            <div class="col-md-1"></div>
+            <div class="col-md-5 container-patient-slim">
+                <div class="container-information">
+                    <div class="container-information container-info margin-container">
+                        <div class="row container-information ">
+                            <span style="font-family: Arial, FontAwesome; font-size:larger">&#xf21e;</span>
+                            <h7>Media de pulsaciones</h7> 
+                        </div>
+                        <h3 id="puls-media-rel">Pulsaciones/minuto: 61.9</h3>
+                    </div>
+                
+                    <div class="container-information container-info margin-top  margin-container">
+                        <div class="row container-information">
+                            <span style="font-family: Arial, FontAwesome; font-size:larger">&#xf21e;</span>
+                            <h7>Media de movimiento</h7> 
+                        </div>
+                        <h3 id="puls-media-rel">Unidades movim: 1.4</h3>
+                    </div>
+                    <div class="container-information container-info">
+                        <div class="row container-information">
+                            <span style="font-family: Arial, FontAwesome; font-size:larger">&#xf21e;</span>
+                            <h7>Puntos obtenidos:</h7> 
+                        </div>
+                        <h3 id="puls-media-rel">Estrellas: 21</h3>
+                    </div>
+                    
+>>>>>>> cee615476f6eeb27198272cb65b2211afed22a82
                 </div>
             </div>
             <div class="col-md-1"></div>
             <div class="col-md-5 container-patient-slim">
+<<<<<<< HEAD
                 <div>
                     <select class="container-select" id="table-2">
                         <option value=1>Estudio 1</option>
@@ -129,6 +168,32 @@
                     <p>Informacion</p>
                     <p>Pulsación media: 67 bpm</p>
                     <p>Movimiento medio 3.6 u<p>
+=======
+                <div class="container-information">
+                    <div class="container-information container-info margin-container">
+                        <div class="row container-information">
+                            <span style="font-family: Arial, FontAwesome; font-size:larger">&#xf21e;</span>
+                            <h7>Media de pulsaciones</h7> 
+                        </div>
+                        <h3 id="puls-media-rel">Pulsaciones/minuto: 63.7</h3>
+                    </div>
+                
+                    <div class="container-information container-info  margin-container">
+                        <div class="row container-information">
+                            <span style="font-family: Arial, FontAwesome; font-size:larger">&#xf21e;</span>
+                            <h7>Media de movimiento</h7> 
+                        </div>
+                        <h3 id="puls-media-rel">Unidades movim: 3.2</h3>
+                    </div>
+
+                    <div class="container-information container-info">
+                        <div class="row container-information">
+                            <span style="font-family: Arial, FontAwesome; font-size:larger">&#xf21e;</span>
+                            <h7>Puntos obtenidos:</h7> 
+                        </div>
+                        <h3 id="puls-media-rel">Estrellas: 13</h3>
+                    </div>
+>>>>>>> cee615476f6eeb27198272cb65b2211afed22a82
                 </div>
             </div>
             
