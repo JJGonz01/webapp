@@ -114,7 +114,7 @@
                         <h4>Nombre de la recompensa</h4>
                         <input class="input-session form-control" id ="input-recompensa" name="reward_name" placeholder="Nombre de la recompensa">
                         </input>
-                    </div>
+                    </div> 
                     <div class="form-row" id="reward-selection-container">
                         <div class="col-md-4 container-objective-type">
                             <button onclick = "selectRewardType('reward-type-input', this, 'reward-selection-container')" type="button" class="image-container-objective-w100" value="travel">

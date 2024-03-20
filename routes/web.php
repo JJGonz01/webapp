@@ -216,8 +216,10 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('ho
     Route::get('/aaaa', [TestController::class, 'index'])
     ->name('aaa');
 
-    Route::get('/download', [TestController::class, 'endTask'])
-    ->name('download');
+    Route::get('/getstep', [TestController::class, 'getCurrentStep'])->name('getstep');
+    Route::get('/resettest', [TestController::class, 'resettest'])->name('resettest');
+
+    Route::get('/addstep', [TestController::class, 'addStep'])->name('addstep');
 
     Route::post('/teststep/{times}', [TestController::class, 'store'])
     ->name('testsend');

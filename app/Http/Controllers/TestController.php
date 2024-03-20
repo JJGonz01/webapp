@@ -19,6 +19,66 @@ class TestController extends Controller
     public function index(Request $request){
         return Testdata::all();
     }
+    
+    public function addStep(){
+        if(!Auth::check()){
+            return "false"; 
+        }
+        
+        $user = Auth::user();
+        $userid = $user->id;
+        $tests = Testdata::where('user_id', $userid)->get();
+        if ($tests->isEmpty()) {
+            $test = new Testdata();
+            $test->user_id = $userid;
+        } else {
+            $test = $tests->first();
+        }
+        $test->currentstep = ($test->currentstep)+1;
+        $test->save();
+        return $test -> currentstep;
+    }
+
+    public function resettest(){
+        if(!Auth::check()){
+            return "false"; 
+        }
+        
+        $user = Auth::user();
+        $userid = $user->id;
+        $tests = Testdata::where('user_id', $userid)->get();
+        if ($tests->isEmpty()) {
+            $test = new Testdata();
+            $test->user_id = $userid;
+        } else {
+            $test = $tests->first();
+        }
+        $test->currentstep = 0;
+        $test->save();
+        return $test -> currentstep;
+    }
+
+    public function getCurrentStep(){
+
+        if(!Auth::check()){
+            return false; 
+        }
+        
+        $user = Auth::user();
+        $userid = $user->id;
+        $tests = Testdata::where('user_id', $userid)->get();
+        if ($tests->isEmpty()) {
+            $test = new Testdata();
+            $test->user_id = $userid;
+            return "0";
+        } else {
+            $test = $tests->first();
+        }
+
+        $responses = array();
+        $responses["step"] = $test->currentstep;
+        return $responses;
+    }
 
     public function checkStep(string $id){
         if(!Auth::check()){
@@ -150,9 +210,9 @@ class TestController extends Controller
         $user = Auth::user();
         $userid = $user->id;
         $tests = Testdata::where('user_id', $userid)->get();
-
         if(!$tests){
-            return;
+            $tests = new Testdata();
+            $tests->user_id = $user->id;
         }
 
         $now = now();
@@ -184,41 +244,30 @@ class TestController extends Controller
         if(!Auth::check()){
             return false; 
         }
-
-        $question = $request -> input("question");
         $user = Auth::user();
         $userid = $user->id;
         $responses = array();
-
-        for($i = 0; $i<$times; $i++){
-            $responses["respones"] = $request -> input("q".$i);
-        }
-        
+        $name = $request -> input("name");
+        $requestquestions = json_encode($request->all());
         $tests = Testdata::where('user_id', $userid)->get();
+       
+        for($i = 0; $i<$times; $i++){
+            $responses[$name.$i] = $request -> input("q".$i);
+        }
 
-        if (count($tests) > 0) {
+        if ($tests->isEmpty()) {
+            $test = new Testdata();
+            $test->user_id = $userid;
+        } else {
             $test = $tests->first();
         }
 
-        else{
-            $test = new Testdata;
-            $test->user_id = $userid;
-        }
-
-        $datajson = array(
-            "responses" => $responses,
-        );
-        
-        $currentjson = json_decode($test->actions);
-
-        $currentjson[$question] = $datajson;
-        
+        $currentjson = json_decode($test->actions, true);
+        $currentjson[$name] = $responses;
         $jsonactions_enc = json_encode($currentjson);
-        
         $test->actions = $jsonactions_enc;
         
         $test->save();
-
-        return "&stepnext";
+        return $responses;
     }
 }

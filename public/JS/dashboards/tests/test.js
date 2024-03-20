@@ -24,7 +24,7 @@ const htmlDicTest = {
         <h2 class="col-md-10">Cuestionario 'USE' ¿Qué te parece la herramienta?</h2>
     </div>
         <p>
-           Cuentanos:
+           Cuentanos: 
         </p>
         <form action=""http://localhost:8000/nextstep/22" id="form-use" method="GET">
             <div id="use-div-questions" style="overflow-y:auto; height:400px;padding:10px;">
@@ -78,15 +78,15 @@ const htmlDicTest = {
         </p>
         <div>
             <div class="form-group">
-                <label for="i1">¿Crees que "pacientes" es el mejor nombre para denominar a los niños?</label>
-                <input name = "i1" class="form-control" placeholder="Tu respuesta aqui"></input>
+                <label for="q0">¿Crees que "pacientes" es el mejor nombre para denominar a los niños?</label>
+                <input id = "q0" name = "q0" class="form-control" placeholder="Tu respuesta aqui"></input>
             </div>
             <div class="form-group">
-                <label for="i1">¿Qué información mínima y esencial añadirías para hacer el perfil del niño más completo?</label>
-                <input name = "i1" class="form-control" placeholder="Tu respuesta aqui"></input>
+                <label for="q1">¿Qué información mínima y esencial añadirías para hacer el perfil del niño más completo?</label>
+                <input id = "q1" name = "q1" class="form-control" placeholder="Tu respuesta aqui"></input>
             </div>
         </div>
-        <div class="text-end"><button id="button-start-test-1" onclick="setNextStep()" class="text-end button-next-test">Siguiente prueba</button></div>
+        <div class="text-end"><button id="button-start-test-1" onclick="sendQuestions('pacientes', 2)" class="text-end button-next-test">Siguiente prueba</button></div>
     </div>        
     `,
     "4": `
@@ -134,26 +134,26 @@ const htmlDicTest = {
         </p>
         <div>
             <div class="form-group">
-                <label for="i1">¿Crees que es útil que los "Planes de estudio" sean reutilizables?</label>
-                <input name = "i1" class="form-control" placeholder="Tu respuesta aqui"></input>
+                <label for="q0">¿Crees que es útil que los "Planes de estudio" sean reutilizables?</label>
+                <input id = "q0" name = "q0" class="form-control" placeholder="Tu respuesta aqui"></input>
             </div>
 
             <div class="form-group">
-                <label for="i1">¿Es fácil de entender la gestión de "Planes de estudio"?¿Hay algún concepto que no se entiende adecuadamente?</label>
-                <input name = "i1" class="form-control" placeholder="Tu respuesta aqui"></input>
+                <label for="q1">¿Es fácil de entender la gestión de "Planes de estudio"?¿Hay algún concepto que no se entiende adecuadamente?</label>
+                <input id = "q1" name = "q1" class="form-control" placeholder="Tu respuesta aqui"></input>
             </div>
 
             <div class="form-group">
-                <label for="i1">¿Es fácil de manejar la gestión de "Planes de estudio"?</label>
-                <input name = "i1" class="form-control" placeholder="Tu respuesta aqui"></input>
+                <label for="q2">¿Es fácil de manejar la gestión de "Planes de estudio"?</label>
+                <input id = "q2" name = "q2" class="form-control" placeholder="Tu respuesta aqui"></input>
             </div>
             <div class="form-group">
-                <label for="i1">¿Cambiarias algo en la gestión de los planes de estudio?</label>
-                <input name = "i1" class="form-control" placeholder="Tu respuesta aqui"></input>
+                <label for="q3">¿Cambiarias algo en la gestión de los planes de estudio?</label>
+                <input id = "q3" name = "q3" class="form-control" placeholder="Tu respuesta aqui"></input>
             </div>
             
         </div>
-        <div class="text-end"><button id="button-start-test-1" onclick="setNextStep()" class="text-end button-next-test">Siguiente prueba</button></div>
+        <div class="text-end"><button id="button-start-test-1" onclick="sendQuestions('planes', 4)" class="text-end button-next-test">Siguiente prueba</button></div>
     </div>        
     `,
     "6": `
@@ -229,37 +229,37 @@ const htmlDicTest = {
         <div>
         
             <div class="form-group">
-                <label for="i1">¿Crees que la definición de reglas para activar acciones durante el periodo de estudio es útil?
+                <label for="q0">¿Crees que la definición de reglas para activar acciones durante el periodo de estudio es útil?
                 </label>
-                <input name = "i1" class="form-control" placeholder="Tu respuesta aqui"></input>
+                <input id = "q0"name = "q0" class="form-control" placeholder="Tu respuesta aqui"></input>
             </div>
 
             <div class="form-group">
-                <label for="i1">¿Es fácil entender la gestión de reglas?</label>
-                <input name = "i1" class="form-control" placeholder="Tu respuesta aqui"></input>
+                <label for="q1">¿Es fácil entender la gestión de reglas?</label>
+                <input id = "q1" name = "q1" class="form-control" placeholder="Tu respuesta aqui"></input>
             </div>
             
             <div class="form-group">
-                <label for="i1">¿Es fácil de manejar la gestión de "Reglas"?</label>
-                <input name = "i1" class="form-control" placeholder="Tu respuesta aqui"></input>
+                <label for="q2">¿Es fácil de manejar la gestión de "Reglas"?</label>
+                <input id = "q2" name = "q2" class="form-control" placeholder="Tu respuesta aqui"></input>
             </div>
 
             <div class="form-group">
-                <label for="i1">¿Crees que las variables (ritmo cardíaco y movimiento) que utilizamos para analizar el estado de ánimo del niño son adecuadas?
+                <label for="q3">¿Crees que las variables (ritmo cardíaco y movimiento) que utilizamos para analizar el estado de ánimo del niño son adecuadas?
                 ¿Añadirías alguna otra?
                 </label>
-                <input name = "i1" class="form-control" placeholder="Tu respuesta aqui"></input>
+                <input id = "q3" name = "q3" class="form-control" placeholder="Tu respuesta aqui"></input>
             </div>
 
             <div class="form-group">
-                <label for="i1">
+                <label for="q4">
                     ¿Cambiarias algo en la gestión de reglas?
                 </label>
-                <input name = "i1" class="form-control" placeholder="Tu respuesta aqui"></input>
+                <input id = "q4" name = "q4" class="form-control" placeholder="Tu respuesta aqui"></input>
             </div>
 
         </div>
-        <div class="text-end"><button id="button-start-test-1" onclick="setNextStep()" class="text-end button-next-test">Siguiente prueba</button></div>
+        <div class="text-end"><button id="button-start-test-1" onclick="sendQuestions('reglas', 5)" class="text-end button-next-test">Siguiente prueba</button></div>
     </div>        
     `, 
     "9": `
@@ -415,29 +415,29 @@ const htmlDicTest = {
         </p>
         <div>
             <div class="form-group">
-                <label for="i1">¿Crees que la información recogida durante la sesión es útil?
+                <label for="q0">¿Crees que los mensajes de comenzar y terminar son adecuados?
                 </label>
-                <input name = "i1" class="form-control" placeholder="Tu respuesta aqui"></input>
+                <input id = "q0" name = "q0" class="form-control" placeholder="Tu respuesta aqui"></input>
             </div>
 
             <div class="form-group">
-                <label for="i1">¿Es fácil entender los resultados obtenidos?</label>
-                <input name = "i1" class="form-control" placeholder="Tu respuesta aqui"></input>
+                <label for="q1">¿Crees que un audio de relajación antes de la sesión es necesaria?</label>
+                <input id = "q1" name = "q1" class="form-control" placeholder="Tu respuesta aqui"></input>
             </div>
             
             <div class="form-group">
-                <label for="i1">¿Es fácil de manejar y moverse a través de los distintos periodos?</label>
-                <input name = "i1" class="form-control" placeholder="Tu respuesta aqui"></input>
+                <label for="q2">¿Es fácil de manejar y moverse a través de los distintos periodos?</label>
+                <input id = "q2" name = "q2" class="form-control" placeholder="Tu respuesta aqui"></input>
             </div>
 
             <div class="form-group">
-                <label for="i1">¿Añadirías alguna información a mostrar adicional?
+                <label for="q3">¿Añadirías alguna información a mostrar adicional?
                 ¿Añadirías alguna otra?
                 </label>
-                <input name = "i1" class="form-control" placeholder="Tu respuesta aqui"></input>
+                <input id = "q3" name = "q3" class="form-control" placeholder="Tu respuesta aqui"></input>
             </div>
         </div>
-        <div class="text-end"><button id="button-start-test-1" onclick="setNextStep()" class="text-end button-next-test">Siguiente prueba</button></div>
+        <div class="text-end"><button id="button-start-test-1" onclick="sendQuestions('reloj', 4)" class="text-end button-next-test">Siguiente prueba</button></div>
     </div>        
     `, 
     "16": `
@@ -467,27 +467,27 @@ const htmlDicTest = {
             <div class="form-group">
                 <label for="i1">¿Crees que la información recogida durante la sesión es útil?
                 </label>
-                <input name = "i1" class="form-control" placeholder="Tu respuesta aqui"></input>
+                <input id = "q0" name = "i1" class="form-control" placeholder="Tu respuesta aqui"></input>
             </div>
 
             <div class="form-group">
                 <label for="i1">¿Es fácil entender los resultados obtenidos?</label>
-                <input name = "i1" class="form-control" placeholder="Tu respuesta aqui"></input>
+                <input id = "q1" name = "i1" class="form-control" placeholder="Tu respuesta aqui"></input>
             </div>
             
             <div class="form-group">
                 <label for="i1">¿Es fácil de manejar y moverse a través de los distintos periodos?</label>
-                <input name = "i1" class="form-control" placeholder="Tu respuesta aqui"></input>
+                <input id = "q2" name = "i1" class="form-control" placeholder="Tu respuesta aqui"></input>
             </div>
 
             <div class="form-group">
                 <label for="i1">¿Añadirías alguna información a mostrar adicional?
                 ¿Añadirías alguna otra?
                 </label>
-                <input name = "i1" class="form-control" placeholder="Tu respuesta aqui"></input>
+                <input id = "q3" name = "i1" class="form-control" placeholder="Tu respuesta aqui"></input>
             </div>
         </div>
-        <div class="text-end"><button id="button-start-test-1" onclick="setNextStep()" class="text-end button-next-test">Siguiente prueba</button></div>
+        <div class="text-end"><button id="button-start-test-1" onclick="sendQuestions('resultados', 4)" class="text-end button-next-test">Siguiente prueba</button></div>
     </div>        
     `, 
     "18": `
@@ -504,14 +504,19 @@ const htmlDicTest = {
     `, 
 }
 
-function startTest(){
-    console.log(window.location.pathname);
+function startTest(step){
+    jsonstep = JSON.parse(step);
+    currentStep = (parseInt(jsonstep["step"]));
     document.getElementById("test-content").innerHTML = htmlDicTest[""+currentStep];
     var stepsWithTasks = [2, 4, 7, 10, 13];
-        if(stepsWithTasks.includes(currentStep))
-            checkTest(currentStep);
-    
-    
+    var stepsClosable = [2,3,4,5,7,10,13,16,18];
+
+    if(stepsWithTasks.includes(currentStep))
+        checkTest(currentStep);
+
+    if(stepsClosable.includes(currentStep))
+        closeTestPopUp();
+
     if(window.location.pathname.includes("createtherapy") && currentStep == 7){
         checkStepsIn6();
     }
@@ -546,7 +551,6 @@ function startTest(){
 function setNextStep(){
     currentStep += 1;
     var stepsWithTasks = [2, 4, 7, 10];
-   
 
     if(stepsWithTasks.includes(currentStep))
         checkTest(currentStep);
@@ -556,6 +560,21 @@ function setNextStep(){
     if(currentStep == 1){
         setUSEquestionare();
     }
+
+    addStep();
+
+    var checkbox = document.getElementById("checkboxTestReady");
+    var button = document.getElementById("button-start-test");
+    
+    checkbox.addEventListener('change', function(){
+        if(this.checked){
+            button.disabled = false;
+            button.className = "button-next-test";
+        }else{
+            button.disabled = true;
+            button.className = "button-next-test-disabled";
+        }
+    });
 }
 
 function closeTestPopUp(){
@@ -563,7 +582,6 @@ function closeTestPopUp(){
 }
 
 function openTestPopUp(){
-    console.log("eing");
     document.getElementById("popup-test-content-container").style = "display:fixed;";
 }
 
@@ -713,15 +731,8 @@ function checkStepsIn6(){
         if(mapaReglas[i]){
             for(let j = 0; j<Object.keys(mapaReglas[i]).length;j++){
                 let key = Object.keys(mapaReglas[i])[j];
-                console.log(mapaReglas[i]);
-                console.log(key);
-                console.log(mapaReglas[i][key]);
-                console.log(mapaReglas[i][key]["conditions"]);
-                console.log(mapaReglas[i][key]["actions"]);
-                console.log(mapaReglas[i][key]["conditions"].includes("sensor_movement"));
                 if(mapaReglas[i][key]["conditions"].includes("sensor_movement") && mapaReglas[i][key]["conditions"].includes("high")
                 && mapaReglas[i][key]["actions"].includes("message\":\"{")){
-                    console.log("shakldhjads");
                     document.getElementById("span-test-3").innerHTML = "&#xf058;";
                     document.getElementById("span-test-3").style = "font-family: Arial, FontAwesome;color:green; padding-right: 10px; padding-left: 10px;font-size:x-large;";
              
@@ -793,7 +804,6 @@ function th5Listeners(){
     document.getElementById("numberInputBPM").addEventListener('input', function(event){
         if(event.target.value == 20){
             booleanoa = true;
-            console.log("ashdak");
         }
         check5thtest();
     });
@@ -801,7 +811,6 @@ function th5Listeners(){
     document.getElementById("numberInputMove").addEventListener('input', function(event){
         if(event.target.value == 1){
             booleanob = true;
-            console.log("ashdak");
         }
         check5thtest();
     });
@@ -814,7 +823,6 @@ function th5Listeners(){
     });
 
     document.getElementById("hora").addEventListener('input', function(event){
-        console.log(sixMinutesFromNow);
         if(event.target.value >= currentTime && event.target.value <= sixMinutesFromNow){
             booleanoh = true;
         }
@@ -832,7 +840,6 @@ function check5thtest(){
     }
 
    if(document.getElementById("therapy-name").value.toLowerCase() == "plan con reglas"){
-            console.log("ashdak");
             document.getElementById("span-test-3").innerHTML = "&#xf058;";
             document.getElementById("span-test-3").style = "font-family: Arial, FontAwesome;color:green; padding-right: 10px; padding-left: 10px;font-size:x-large;";    
     }else{
@@ -904,6 +911,113 @@ function setUSEquestionare(){
 }
 
 function sendUSE(){
-    document.getElementById("form-use").submit();
-    setNextStep();
+    var lrequest = {};
+    lrequest["name"] = "USE"
+    for (let i = 0; i < 22; i++) {
+        lrequest["q" + i] = document.getElementById("q" + i).value;
+    }
+    
+    const request = JSON.stringify(lrequest); // Convertir a JSON
+    
+    fetch('/teststep/22', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': csrfToken
+        },
+        body: request
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        setNextStep();
+    })
+    .then(response => {
+        console.log('Response from server:', response);
+    })
+    .catch(error => {
+        console.error('There was an error with the request:', error);
+    });
+    
+    
+    
+}
+
+
+function sendQuestions(namequestions, numberquestions){
+    var lrequest = {};
+    lrequest["name"] = namequestions
+    for (let i = 0; i < numberquestions; i++) {
+        lrequest["q" + i] = document.getElementById("q" + i).value;
+    }
+    
+    const request = JSON.stringify(lrequest); // Convertir a JSON
+    
+    fetch('/teststep/'+numberquestions, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': csrfToken
+        },
+        body: request
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        setNextStep();
+    })
+    .then(response => {
+        console.log('Response from server:', response);
+    })
+    .catch(error => {
+        console.error('There was an error with the request:', error);
+    });
+    
+}
+
+function getStep(){
+        fetch('/getstep', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': csrfToken
+            }
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.text();
+        })
+        .then(data => {
+            console.log('Response from server:', data);
+            startTest(data);
+            return data.json();
+        })
+        .catch(error => {
+            console.error('There was an error with the request:', error);
+        });
+}
+
+function addStep(){
+    fetch('/addstep', {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': csrfToken
+        }
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+    })
+    .then(response => {
+        console.log('Response from server:', response);
+    })
+    .catch(error => {
+        console.error('There was an error with the request:', error);
+    });  
 }

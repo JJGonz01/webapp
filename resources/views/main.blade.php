@@ -29,7 +29,7 @@
     </button>
 </div>
 
-<div class="test-container" id="popup-test-content-container" style="display:none;">
+<div class="test-container" id="popup-test-content-container" style="display:fixed;">
     <div class="test-container-content">
         <div class="row" id="test-content">
             <img class="col-4" src="{{asset('/images/kidtest.png')}}">
@@ -87,6 +87,11 @@
                             <a class="nav-option" href="/">Mi perfil</a>
                         </li>
 
+                        <li class="nav-item nav-superitem">
+                            <span class="span-navbar">&#xf06e;</span>
+                            <a class="nav-option" href="/admin">Administrador</a>
+                        </li>
+
                     </ul>
                 </div>
             </nav>
@@ -117,5 +122,5 @@
             </main>
         </div>
     </div>
-    <script>startTest();</script>
+    <script>getStep();</script>
 </body>

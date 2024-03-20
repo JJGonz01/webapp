@@ -144,7 +144,7 @@
                                 <th scope="col">Selección</th>
                             </tr>
                             <div id="patient-list" class="table-items-options-overflow">
-                                @foreach($objectives->take(5) as $obj)
+                                @foreach($objectives as $obj)
                                 <tr>
                                     <td>{{$obj->name}}</td>
                                     <td>{{$obj->date_end}}</td>

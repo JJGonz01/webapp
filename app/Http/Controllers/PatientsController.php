@@ -110,7 +110,7 @@ class PatientsController extends Controller
             'time_end' => 'required',
             'reward_type' => 'required',
             'reward_name' => 'required',
-            'steps' => [
+            'steps' => [ 
                 'required'
             ],
         ]);   
