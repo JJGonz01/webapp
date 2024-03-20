@@ -237,7 +237,7 @@
     <div id="game-view" style="display:none;margin-bottom:100px;">
         <div class="row">
             <div class="col-md-10">
-                <img style="width:1200px; height:600px; matgin-bottom:50px;margin-top:20px;" src="{{asset('/images/avatar-preview.png')}}"></img>
+                <img style="width:1200px; height:600px; margin-bottom:10px;margin-top:20px;" src="{{asset('/images/avatar-preview.png')}}"></img>
             </div>
         </div>
     </div>

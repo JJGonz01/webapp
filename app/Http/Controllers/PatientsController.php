@@ -200,7 +200,8 @@ class PatientsController extends Controller
      */
      public function showFormUpdate($id)
      {
-        return;
+        $patient = Patient::find($id);
+        return view('patients.edit_patient', ['patient' => $patient]);
      }
 
      public function update(Request $request, $id)

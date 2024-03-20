@@ -179,18 +179,21 @@ class TestController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request, $times)
     { 
-
         if(!Auth::check()){
             return false; 
         }
-    
+
+        $question = $request -> input("question");
         $user = Auth::user();
         $userid = $user->id;
+        $responses = array();
 
-        $responses = $request -> input("responses");
-        $question = $request -> input("question");
+        for($i = 0; $i<$times; $i++){
+            $responses["respones"] = $request -> input("q".$i);
+        }
+        
         $tests = Testdata::where('user_id', $userid)->get();
 
         if (count($tests) > 0) {
@@ -201,7 +204,7 @@ class TestController extends Controller
             $test = new Testdata;
             $test->user_id = $userid;
         }
-        
+
         $datajson = array(
             "responses" => $responses,
         );
@@ -216,6 +219,6 @@ class TestController extends Controller
         
         $test->save();
 
-        return $$test->actions;
+        return "&stepnext";
     }
 }

@@ -101,7 +101,6 @@
     <div id="other" name="views"  style="display:none;">
         <div class="row">
             <div class="col-md-5 container-patient-slim">
-<<<<<<< HEAD
                 <div>
                     <select class="container-select" id="table-1">                    
                         <option value=1>Estudio 1</option>
@@ -114,7 +113,7 @@
                     <p>Informacion</p>
                     <p>Pulsación media: 63 bpm</p>
                     <p>Movimiento medio 1.4 u<p>
-=======
+
                 <select class="container-select">                    
                     <option>Estudio 1</option>
                     <option>Descanso 1</option>
@@ -150,12 +149,10 @@
                         <h3 id="puls-media-rel">Estrellas: 21</h3>
                     </div>
                     
->>>>>>> cee615476f6eeb27198272cb65b2211afed22a82
                 </div>
             </div>
             <div class="col-md-1"></div>
             <div class="col-md-5 container-patient-slim">
-<<<<<<< HEAD
                 <div>
                     <select class="container-select" id="table-2">
                         <option value=1>Estudio 1</option>
@@ -168,7 +165,6 @@
                     <p>Informacion</p>
                     <p>Pulsación media: 67 bpm</p>
                     <p>Movimiento medio 3.6 u<p>
-=======
                 <div class="container-information">
                     <div class="container-information container-info margin-container">
                         <div class="row container-information">
@@ -193,7 +189,6 @@
                         </div>
                         <h3 id="puls-media-rel">Estrellas: 13</h3>
                     </div>
->>>>>>> cee615476f6eeb27198272cb65b2211afed22a82
                 </div>
             </div>
             

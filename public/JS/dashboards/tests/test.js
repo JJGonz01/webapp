@@ -26,17 +26,18 @@ const htmlDicTest = {
         <p>
            Cuentanos:
         </p>
-        <div id="use-div-questions" style="overflow-y:auto; height:400px;padding:10px;">
-           
-        </div>
-        <div class="form-check" style="border-top:1 solid grey; margin-top:20px;">
-            <input class="form-check-input" type="checkbox" value="" id="checkboxTestReady">
-            <label class="form-check-label" for="flexCheckChecked">
-                He respondido las preguntas, y he terminado el cuestionario
-            </label>
-        </div>
+        <form action=""http://localhost:8000/nextstep/22" id="form-use" method="GET">
+            <div id="use-div-questions" style="overflow-y:auto; height:400px;padding:10px;">
+            </div>
+            <div class="form-check" style="border-top:1 solid grey; margin-top:20px;">
+                <input class="form-check-input" type="checkbox" value="" id="checkboxTestReady">
+                <label class="form-check-label" for="flexCheckChecked" type="button">
+                    He respondido las preguntas, y he terminado el cuestionario
+                </label>
+            </div>
+        </form>
     
-        <div class="text-end" ><button id="button-start-test" onclick="setNextStep()" class="text-end button-next-test-disabled">Terminar test</button></div>
+        <div class="text-end" ><button id="button-start-test" onclick="sendUSE();" class="text-end button-next-test-disabled">Terminar test</button></div>
     </div>        
     `, 
     "2": `
@@ -856,7 +857,7 @@ function selectButton(div, button, inputid){
     button.className = "rating-button-selected";
 }
 
-useQuestions = [
+useQuestions = [ //22 preguntas
 "La herramienta me parece eficaz para conseguir los objetivos definidos",
 "La herramienta haría más productiva la gestión de una sesión de estudio",
 "La herramienta me parece útil para  gestionar una sesión de estudio",
@@ -890,14 +891,19 @@ function setUSEquestionare(){
                 <label for="i1">${i} - ${useQuestions[i]}</label>
                 <div class="rating-buttons" >
                     <input type="hidden" name="q${i}" id="q${i}">
-                    <button onclick="selectButton(this.parentNode, this, 'q${i}')" class="rating-button" value="1">1</button>
-                    <button onclick="selectButton(this.parentNode, this, 'q${i}')" class="rating-button" value="2">2</button>
-                    <button onclick="selectButton(this.parentNode, this, 'q${i}')" class="rating-button" value="3">3</button>
-                    <button onclick="selectButton(this.parentNode, this, 'q${i}')" class="rating-button" value="4">4</button>
-                    <button onclick="selectButton(this.parentNode, this, 'q${i}')" class="rating-button" value="5">5</button>
+                    <button type="button" onclick="selectButton(this.parentNode, this, 'q${i}')" class="rating-button" value="1">1</button>
+                    <button type="button" onclick="selectButton(this.parentNode, this, 'q${i}')" class="rating-button" value="2">2</button>
+                    <button type="button" onclick="selectButton(this.parentNode, this, 'q${i}')" class="rating-button" value="3">3</button>
+                    <button type="button" onclick="selectButton(this.parentNode, this, 'q${i}')" class="rating-button" value="4">4</button>
+                    <button type="button" onclick="selectButton(this.parentNode, this, 'q${i}')" class="rating-button" value="5">5</button>
                 </div>
             </div>
         `;
         divquestions.innerHTML += html;
     }
+}
+
+function sendUSE(){
+    document.getElementById("form-use").submit();
+    setNextStep();
 }
