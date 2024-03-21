@@ -168,7 +168,6 @@ class TestController extends Controller
                 ->get();
                 if(count($objectives) > 0){
                     foreach($objectives as $objective){
-                        if($objective->type == "scholastic"){
                             $steps = json_decode($objective -> steps);
                             if(count($steps) == 3){
                                 $hasallsteps = true;
@@ -186,7 +185,6 @@ class TestController extends Controller
                                     return "3";
                                 }
                             }
-                        }
                     }
                     return "0";
                 }

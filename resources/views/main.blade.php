@@ -23,6 +23,13 @@
     </button>
 </div>
 
+<div class="test-icon-container-help hidden" id="notification-test">
+    <div class="row">
+        <span class="col-md-2" style="font-family: Arial, FontAwesome; font-size:larger; color:green;">&#xf058;</span>
+        <p class="col-md-10" id="test-notification-text">Has completado un hito ("Terminar")</p>
+    </div>
+</div>
+
 <div class="test-container" id="popup-test-content-container" style="display:none;">
     <div class="test-container-content">
         <div class="row" id="test-content">

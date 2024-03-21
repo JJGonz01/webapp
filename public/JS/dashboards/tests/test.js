@@ -124,6 +124,13 @@ const htmlDicTest = {
             </div>
 
             <div class="row span-test">
+                <span class="col-md-1" id="span-test-4" style="font-family: Arial, FontAwesome;color:red; padding-right: 10px; padding-left: 10px;font-size:x-large;">&#xf057;</span>
+                <div class="col-md-11">
+                    <p>Pon el nombres que prefieras a tu plan de estudios</p>
+                </div>
+            </div>
+
+            <div class="row span-test">
                 <span class="col-md-1" id="span-test-2" style="font-family: Arial, FontAwesome;color:red; padding-right: 10px; padding-left: 10px;font-size:x-large;">&#xf057;</span>
                 <div class="col-md-11">
                     <p>Asegurate de que ese plan de estudio tenga DOS BLOQUES, sin condiciones, y que cada estudio dure 5 minutos, y cada descanso 3 minutos</p>
@@ -634,6 +641,7 @@ function checkStep(rsp){
         document.getElementById("button-start-test-1").className = "button-next-test";
         document.getElementById("span-test-1").innerHTML = "&#xf058;";
         document.getElementById("span-test-1").style = "font-family: Arial, FontAwesome;color:green; padding-right: 10px; padding-left: 10px;font-size:x-large;";
+        notificationTest("Has terminado las tareas de esta prueba (ABRE TEST PARA CONTINUAR)");
     }
 
     if(currentStep == 4){
@@ -653,6 +661,7 @@ function checkStep(rsp){
 
             document.getElementById("span-test-2").innerHTML = "&#xf058;";
             document.getElementById("span-test-2").style = "font-family: Arial, FontAwesome;color:green; padding-right: 10px; padding-left: 10px;font-size:x-large;";
+            notificationTest("Has terminado las tareas de esta prueba (ABRE TEST PARA CONTINUAR)");
         }
     }
 
@@ -672,10 +681,12 @@ function checkStep(rsp){
 
             document.getElementById("button-start-test-2").disabled = false;
             document.getElementById("button-start-test-2").className = "button-next-test";
+            notificationTest("Has terminado las tareas de esta prueba (ABRE TEST PARA CONTINUAR)");
         }
     }
 
     if(currentStep == 10){
+        console.log("respuesta es"+rsp);
         if(rsp == "3"){
             document.getElementById("span-test-1").innerHTML = "&#xf058;";
             document.getElementById("span-test-1").style = "font-family: Arial, FontAwesome;color:green; padding-right: 10px; padding-left: 10px;font-size:x-large;";
@@ -691,6 +702,7 @@ function checkStep(rsp){
 
             document.getElementById("button-start-test-2").disabled = false;
             document.getElementById("button-start-test-2").className = "button-next-test";
+            notificationTest("Has terminado las tareas de esta prueba (ABRE TEST PARA CONTINUAR)");
         }
     }
 
@@ -711,6 +723,7 @@ function checkStep(rsp){
 
             document.getElementById("button-start-test-2").disabled = false;
             document.getElementById("button-start-test-2").className = "button-next-test";
+            notificationTest("Has terminado las tareas de esta prueba (ABRE TEST PARA CONTINUAR)");
         }
     }
 }
@@ -720,6 +733,7 @@ function listenerStep4(){
         if(event.target.value.trim() != ''){
             document.getElementById("span-test-4").innerHTML = "&#xf058;";
             document.getElementById("span-test-4").style = "font-family: Arial, FontAwesome;color:green; padding-right: 10px; padding-left: 10px;font-size:x-large;";
+            notificationTest("Has completado un paso (poner nombre)");
         }
       });
 
@@ -727,19 +741,21 @@ function listenerStep4(){
         if(checkValuesIn4()){
             document.getElementById("span-test-2").innerHTML = "&#xf058;";
             document.getElementById("span-test-2").style = "font-family: Arial, FontAwesome;color:green; padding-right: 10px; padding-left: 10px;font-size:x-large;";
+            notificationTest("Has terminado un paso (DOS BLOQUES Y SUS DURACIONES)");
         }
       });
     document.getElementById("mb_t2").addEventListener('input',function(event){
         if(checkValuesIn4()){
             document.getElementById("span-test-2").innerHTML = "&#xf058;";
             document.getElementById("span-test-2").style = "font-family: Arial, FontAwesome;color:green; padding-right: 10px; padding-left: 10px;font-size:x-large;";
-     
+            notificationTest("Has terminado un paso (DOS BLOQUES Y SUS DURACIONES)");
         }
       });
     document.getElementById("mb_rest").addEventListener('input',function(event){
         if(checkValuesIn4()){
             document.getElementById("span-test-2").innerHTML = "&#xf058;";
             document.getElementById("span-test-2").style = "font-family: Arial, FontAwesome;color:green; padding-right: 10px; padding-left: 10px;font-size:x-large;";
+            notificationTest("Has terminado un paso (DOS BLOQUES Y SUS DURACIONES)");
         }
       });
     
@@ -750,6 +766,7 @@ function checkStepsIn6(){
         if(event.target.value.toLowerCase() == "plan con reglas"){
             document.getElementById("span-test-4").innerHTML = "&#xf058;";
             document.getElementById("span-test-4").style = "font-family: Arial, FontAwesome;color:green; padding-right: 10px; padding-left: 10px;font-size:x-large;";
+            notificationTest("Has terminado un paso (NOMBRE 'plan con reglas')");
         }
       });
 
@@ -757,20 +774,24 @@ function checkStepsIn6(){
         if(checkValues()){
             document.getElementById("span-test-2").innerHTML = "&#xf058;";
             document.getElementById("span-test-2").style = "font-family: Arial, FontAwesome;color:green; padding-right: 10px; padding-left: 10px;font-size:x-large;";
-     
+            notificationTest("Has terminado un paso (UN BLOQUE Y SUS DURACIONES)");
+
         }
       });
     document.getElementById("mb_t2").addEventListener('input',function(event){
         if(checkValues()){
             document.getElementById("span-test-2").innerHTML = "&#xf058;";
             document.getElementById("span-test-2").style = "font-family: Arial, FontAwesome;color:green; padding-right: 10px; padding-left: 10px;font-size:x-large;";
-     
+            notificationTest("Has terminado un paso (UN BLOQUE Y SUS DURACIONES)");
+
         }
       });
     document.getElementById("mb_rest").addEventListener('input',function(event){
         if(checkValues()){
             document.getElementById("span-test-2").innerHTML = "&#xf058;";
             document.getElementById("span-test-2").style = "font-family: Arial, FontAwesome;color:green; padding-right: 10px; padding-left: 10px;font-size:x-large;";
+            notificationTest("Has terminado un paso (UN BLOQUE Y SUS DURACIONES)");
+
         }
       });
 
@@ -782,7 +803,7 @@ function checkStepsIn6(){
                 && mapaReglas[i][key]["actions"].includes("message\":\"{")){
                     document.getElementById("span-test-3").innerHTML = "&#xf058;";
                     document.getElementById("span-test-3").style = "font-family: Arial, FontAwesome;color:green; padding-right: 10px; padding-left: 10px;font-size:x-large;";
-             
+                    notificationTest("Has terminado un paso (REGLA DE MOVIMIENTO CORRECTA)");
                 }
             }
         }
@@ -792,12 +813,14 @@ function checkStepsIn9(){
     if(window.location.pathname.includes("createobjective") && document.getElementById("popup").style.display != "none"){
         document.getElementById("span-test-4").innerHTML = "&#xf058;";
         document.getElementById("span-test-4").style = "font-family: Arial, FontAwesome;color:green; padding-right: 10px; padding-left: 10px;font-size:x-large;";
+        notificationTest("Has terminado un paso (entrar en pestaña objetivos)"); 
     }
 
     document.getElementById("name-input").addEventListener('input', function(event){
         if(event.target.value.toLowerCase() == "examen" || event.target.value.toLowerCase() == "exámen"){
             document.getElementById("span-test-2").innerHTML = "&#xf058;";
-            document.getElementById("span-test-2").style = "font-family: Arial, FontAwesome;color:green; padding-right: 10px; padding-left: 10px;font-size:x-large;";    
+            document.getElementById("span-test-2").style = "font-family: Arial, FontAwesome;color:green; padding-right: 10px; padding-left: 10px;font-size:x-large;";   
+            notificationTest("Has terminado un paso (NOMBRE 'exámen')"); 
         }
     });
 
@@ -811,7 +834,8 @@ function checkStepsIn9(){
 
         if(booleano){
             document.getElementById("span-test-3").innerHTML = "&#xf058;";
-            document.getElementById("span-test-3").style = "font-family: Arial, FontAwesome;color:green; padding-right: 10px; padding-left: 10px;font-size:x-large;";    
+            document.getElementById("span-test-3").style = "font-family: Arial, FontAwesome;color:green; padding-right: 10px; padding-left: 10px;font-size:x-large;"; 
+            notificationTest("Has terminado un paso (3 HITOS Y SUS NOMBRES)");   
         }
     }
 }
@@ -834,7 +858,7 @@ function testlistenersin4(){
         if(checkValuesIn4()){
             document.getElementById("span-test-2").innerHTML = "&#xf058;";
             document.getElementById("span-test-2").style = "font-family: Arial, FontAwesome;color:green; padding-right: 10px; padding-left: 10px;font-size:x-large;";
-        
+            notificationTest("Has terminado un paso (DURACIONES Y BLOQUES CORRECTOS)"); 
         }
         });
 
@@ -842,12 +866,11 @@ function testlistenersin4(){
         if(checkValuesIn4()){
             document.getElementById("span-test-2").innerHTML = "&#xf058;";
             document.getElementById("span-test-2").style = "font-family: Arial, FontAwesome;color:green; padding-right: 10px; padding-left: 10px;font-size:x-large;";
-        
+            notificationTest("Has terminado un paso (DURACIONES Y BLOQUES CORRECTOS)"); 
         }
     });
 }
 function checkValuesIn4(){
-    console.log("hola");
     var input =  document.getElementById("mb_t1").value;
     var input2 =  document.getElementById("mb_t2").value;
     var input3 =  document.getElementById("mb_rest").value;
@@ -920,23 +943,27 @@ function th5Listeners(){
 
 function check5thtest(){
    
-    
     if(booleanob && booleanoa){
         document.getElementById("span-test-5").innerHTML = "&#xf058;";
-        document.getElementById("span-test-5").style = "font-family: Arial, FontAwesome;color:green; padding-right: 10px; padding-left: 10px;font-size:x-large;";    
+        document.getElementById("span-test-5").style = "font-family: Arial, FontAwesome;color:green; padding-right: 10px; padding-left: 10px;font-size:x-large;";   
+        notificationTest("Has terminado un paso (VALOR DE SENSORES CORRECTO)");  
     }
 
    if(document.getElementById("therapy-name").value.toLowerCase() == "plan con reglas"){
             document.getElementById("span-test-3").innerHTML = "&#xf058;";
-            document.getElementById("span-test-3").style = "font-family: Arial, FontAwesome;color:green; padding-right: 10px; padding-left: 10px;font-size:x-large;";    
+            document.getElementById("span-test-3").style = "font-family: Arial, FontAwesome;color:green; padding-right: 10px; padding-left: 10px;font-size:x-large;"; 
+            notificationTest("Has terminado un paso (NOMBRE CORRECTO)"); 
+   
     }else{
         document.getElementById("span-test-3").innerHTML = "&#xf057;";
         document.getElementById("span-test-3").style = "font-family: Arial, FontAwesome;color:red; padding-right: 10px; padding-left: 10px;font-size:x-large;";
+        
     }
 
     if(booleanoh && booleanod){
         document.getElementById("span-test-4").innerHTML = "&#xf058;";
         document.getElementById("span-test-4").style = "font-family: Arial, FontAwesome;color:green; padding-right: 10px; padding-left: 10px;font-size:x-large;";    
+        notificationTest("Has terminado un paso (FECHA Y HORA CORRECTA)"); 
     }
 }
 
@@ -1107,4 +1134,13 @@ function addStep(){
     .catch(error => {
         console.error('There was an error with the request:', error);
     });  
+}
+
+function notificationTest(textnotification){
+    var container = document.getElementById('notification-test');
+    container.classList.remove('hidden');
+    document.getElementById("test-notification-text").innerHTML = textnotification;
+    setTimeout(function() {
+      container.classList.add('hidden');
+    }, 5 * 1000);
 }

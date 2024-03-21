@@ -27,43 +27,7 @@
 
 
     <div class= "create-basic-container-home" id="pom_info">
-    <div class="title-div-home">
-            <h1> Prueba para rendimiento de la web </h1>
-           
-        </div>
-        <div class="text-div-home"> <h4> ¿Qué se va a realizar en estas pruebas? </h4>
-            <p>
-                Durante estas pruebas, el usuario deberá realizar distintas tareas relacionadas con las principales funcionalidades de la página web. Esta plataforma, que
-                comunicará con el reloj, debe ser probada para verificar que estamos siguiendo los pasos correctos y comprobamos la información adecuada. Para ello,
-                queremos acercar distintas funcionalidades de monitorización y soporte al estudio a alumnos con trastorno por déficit de atención e hiperactividad.
-            </p>
-            <p>
-                Cuando <strong>acabe las tareas</strong>, rellene el siguiente <a href="https://forms.gle/naPYFrPVsJ8V2quQ8">formulario</a>.
-            </p>
-            <h4> ¿En que consisten las tareas? </h4>
-            <p>
-                Las tareas a realizar consisten en seguir los pasos mostrados y cumplir el objetivo establecido, no hay limite de tiempo. El botón que encontrará abajo a la izquierda de su monitor le permitirá ir alternando entre
-                el menú en el que se detalla la tarea y la aplicación web. Una vez acabado el test, deberá darle al botón "HE TERMINADO LA TAREA". Cuando complete todas las tareas, automáticamente se le descargará un archivo. Una vez lo
-                descargue guardelo, y al acabar las tres tareas, envíelo al correo josejesus.gonzalez@uclm.es
-            </p>
-
-            <p>
-                Cualquier duda o problema para iniciar las tareas contacta con josejesus.gonzalez@uclm.es . Recuerde descargar el archivo JSON cuando finalice todas las tareas.
-            </p>
-            
-            <p></p><h4> Consejos </h4>
-            <p>
-                Las distintas pestañas y funcionalidades de la aplicación pueden ir viendose desde la barra de tareas arriba de la ventana. Aqui podrá navegar entre la pestaña general, los pacientes,
-                las terapias y un pequeño foro donde podrá descargar terapias ya creadas por otros usuarios.
-            </p>
-            <p>
-                Crea terapias en la pestaña terapias, en la barra de tareas "Terapias". Cada terapia tiene bloques de estudio, donde podrá editar un periodo de estudio y de descanso. Recuerde siempre guardar
-                cuando cree o edite un bloque.
-            </p>
-            <p></p>
-        </div>
-
-        
+    
     </div>
 
     <div class= "create-basic-container-home" id="app_info" style="display:none;">

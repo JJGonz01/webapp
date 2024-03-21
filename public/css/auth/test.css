@@ -8,14 +8,22 @@
 }
 
 .test-icon-container-help{
+    border:1px solid var(--color-primary-grey);
+    border-left:5px solid green;
+    background-color: var(--color-secondary-grey);
+    border-radius: 10px;
+    padding:10px;
     position: fixed;
-    right: 30;
-    bottom:120;
-    width: 80px;
+    right: 150;
+    bottom:30;
+    width: 450px;
     height: 80px;
     z-index: 1000;
 }
 
+.hidden {
+    display: none;
+  }  
 
 .test-icon-container button{
     border-radius: 100%;
