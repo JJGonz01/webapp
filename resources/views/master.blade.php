@@ -18,8 +18,6 @@
 
 </head>
 <body>
-    <!--script src="{{asset('tests/tests.js')}}">
-    </script-->
     @if(null != (auth()->user()))
    @endif
    <div class="slave-test">
