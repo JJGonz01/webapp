@@ -31,6 +31,7 @@ class TestController extends Controller
         if ($tests->isEmpty()) {
             $test = new Testdata();
             $test->user_id = $userid;
+            $test->currentstep = 0;
         } else {
             $test = $tests->first();
         }
@@ -70,7 +71,7 @@ class TestController extends Controller
         if ($tests->isEmpty()) {
             $test = new Testdata();
             $test->user_id = $userid;
-            return "0";
+            $test->currentstep = 0;
         } else {
             $test = $tests->first();
         }
@@ -80,6 +81,25 @@ class TestController extends Controller
         return $responses;
     }
 
+    public function getResults(){
+        
+        if(!Auth::check()){
+            return false; 
+        }
+        
+        $user = Auth::user();
+        $userid = $user->id;
+        $tests = Testdata::where('user_id', $userid)->get();
+
+        if ($tests->isEmpty()) {
+            $test = new Testdata();
+            $test->user_id = $userid;
+        } else {
+            $test = $tests->first();
+        }
+        
+        return $test;
+    }
     public function checkStep(string $id){
         if(!Auth::check()){
             return false; 

@@ -505,8 +505,13 @@ const htmlDicTest = {
 }
 
 function startTest(step){
-    jsonstep = JSON.parse(step);
-    currentStep = (parseInt(jsonstep["step"]));
+    if(step.includes("{")){
+        jsonstep = JSON.parse(step);
+        currentStep = (parseInt(jsonstep["step"]));
+    }else{
+        jsonstep = parseInt(step);
+    }
+    console.log(step);
     document.getElementById("test-content").innerHTML = htmlDicTest[""+currentStep];
     var stepsWithTasks = [2, 4, 7, 10, 13];
     var stepsClosable = [2,3,4,5,7,10,13,16,18];
