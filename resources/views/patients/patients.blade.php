@@ -4,9 +4,9 @@
 
 <head>
     <title>PACIENTES</title>
-    <link rel="stylesheet" href="{{asset('/css/dashboards/patients.css')}}">
-    <link rel="stylesheet" href="{{asset('/css/dashboards/patients/create-patient.css')}}">
-    <script src="{{asset('/JS/dashboards/patients.js')}}"></script>
+    <link rel="stylesheet" href="https://pomodoro.ovh/css/dashboards/patients.css">
+    <link rel="stylesheet" href="https://pomodoro.ovh/css/dashboards/patients/create-patient.css">
+    <script src="https://pomodoro.ovh/JS/dashboards/patients.js"></script>
 </head>
 
 <div class="popup" id="popup-delete" style="display:none;">

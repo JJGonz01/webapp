@@ -7,14 +7,14 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="{{asset('/JS/dashboards/patients/calendar.js')}}"></script>
-    <script src="{{asset('/JS/dashboards/patients/patient-menu.js')}}"></script>
+    <script src="https://pomodoro.ovh/JS/dashboards/patients/calendar.js"></script>
+    <script src="https://pomodoro.ovh/JS/dashboards/patients/patient-menu.js"></script>
     <meta  name="sessions" id="sessions-value" content="{{ $sessions }}"></meta>
     <meta  name="patients" id="patient-value" content="{{ $patient -> id }}"></meta>
     <meta  name="patients" id="objectives" content="{{ $objectives }}"></meta>
-    <link rel="stylesheet" href="{{asset('/css/dashboards/patients/patient-menu.css')}}">
-    <link rel="stylesheet" href="{{asset('/css/dashboards/patients/create-patient.css')}}">
-    <link rel="stylesheet" href="{{asset('/css/dashboards/patients/calendar.css')}}">
+    <link rel="stylesheet" href="https://pomodoro.ovh/css/dashboards/patients/patient-menu.css">
+    <link rel="stylesheet" href="https://pomodoro.ovh/css/dashboards/patients/create-patient.css">
+    <link rel="stylesheet" href="https://pomodoro.ovh/css/dashboards/patients/calendar.css">
 </head>
 <form id="create-session-form" action="{{route('sessions_create', ['patient_id' => $patient -> id], false, true)}}" method="GET"></form>
 <form id="create-objetive-form" action="{{route('objetives_create', ['patient_id' => $patient -> id], false, true)}}" method="GET"></form>
@@ -41,7 +41,7 @@
             <h3>2 - Introduce la ID del estudiante </h3>
             <h3>3 - Pulsa aceptar, el reloj ya estará configurado </h3>
             <h3>* - La id del estudiante actual es {{$patient->id}} --</h3>
-            <img src="{{asset('/images/watchstep.png')}}" style="width:300px;height:250px;"></img>
+            <img src="https://pomodoro.ovh/images/watchstep.png" style="width:300px;height:250px;"></img>
         </div>
         
     </div>
@@ -87,13 +87,13 @@
         <div class="flex-container-options">
             <div>
                 <button  onclick="sendFormSession('create-session-form')" type="button" class="image-container-objective">
-                <img class="rounded-image-objective" src="{{asset('images/clockpom.jpg')}}"></img>
+                <img class="rounded-image-objective" src="https://pomodoro.ovh/images/clockpom.jpg"></img>
                 <p>Crear sesión de estudio</p>
                 </button>
             </div>
             <div>
                 <button onclick="sendFormSession('create-objetive-form')" type="button" class="image-container-objective">
-                <img class="rounded-image-objective" src="{{asset('images/goaltarget.jpg')}}"></img>
+                <img class="rounded-image-objective" src="https://pomodoro.ovh/images/goaltarget.jpg"></img>
                 <p>Crear Objetivo de paciente</p>
                 </button>
             </div>
@@ -104,7 +104,7 @@
     <div class="col-md-12 container-patient-slim">
         <div class="row align-items-center container-padding container-fluid">
             <div class="row container-padding">
-                <img class="col-md-3 container-patient-slim-image" src="{{asset('images/perfil.png')}}"></img>
+                <img class="col-md-3 container-patient-slim-image" src="https://pomodoro.ovh/images/perfil.png"></img>
                 <div class="col-md-5 container-content-patient">
                     <h3>{{$patient-> surname}}, {{$patient-> name}}</h3>
                     <h6>{{$patient->description}}</h6>
@@ -263,7 +263,7 @@
     <div id="game-view" style="display:none;margin-bottom:100px;">
         <div class="row">
             <div class="col-md-10">
-                <img style="width:1200px; height:600px; margin-bottom:10px;margin-top:20px;" src="{{asset('/images/avatar-preview.png')}}"></img>
+                <img style="width:1200px; height:600px; margin-bottom:10px;margin-top:20px;" src="https://pomodoro.ovh/images/avatar-preview.png"></img>
             </div>
         </div>
     </div>

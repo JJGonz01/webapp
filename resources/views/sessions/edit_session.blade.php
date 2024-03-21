@@ -10,13 +10,13 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="{{asset('/JS/dashboards/patients/create-session.js')}}"></script>
+    <script src="https://pomodoro.ovh/JS/dashboards/patients/create-session.js"></script>
 
     <meta  name="date" id="date-start" content="{{ $session->date_start }}"></meta>
     <meta  name="date" id="objectives" content="{{ $objectives }}"></meta>
-    <link rel="stylesheet" href="{{asset('/css/dashboards/patients/create-session.css')}}">
-    <link rel="stylesheet" href="{{asset('/css/dashboards/patients.css')}}">
-    <link rel="stylesheet" href="{{asset('/css/draws/clock.css')}}">
+    <link rel="stylesheet" href="https://pomodoro.ovh/css/dashboards/patients/create-session.css">
+    <link rel="stylesheet" href="https://pomodoro.ovh/css/dashboards/patients.css">
+    <link rel="stylesheet" href="https://pomodoro.ovh/css/draws/clock.css">
 </head>
 
 </div> 

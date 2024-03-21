@@ -5,8 +5,8 @@
 
 <head>
     <title>EDITAR ESTUDIANTE</title>
-    <link rel="stylesheet" href="{{asset('/css/dashboards/patients/create-patient.css')}}">
-    <link rel="stylesheet" href="{{asset('/css/dashboards/patients.css')}}">
+    <link rel="stylesheet" href="https://pomodoro.ovh/css/dashboards/patients/create-patient.css">
+    <link rel="stylesheet" href="https://pomodoro.ovh/css/dashboards/patients.css">
 </head>
 
 <div id="popup" class="popup">
@@ -26,7 +26,7 @@
             @enderror
             <h2>Añadir estudiante</h2>
             <p>Imagen</p>
-            <img id="profile-image" src="{{asset('images/perfil.png')}}"></img>
+            <img id="profile-image" src="https://pomodoro.ovh/images/perfil.png"></img>
 
             <div class="input-group mb-2 patient-title">
                 <span>&#xf21e;</span>

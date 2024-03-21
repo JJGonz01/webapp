@@ -3,10 +3,10 @@
 
 <head>
     <title>VER TERAPIA | {{$therapy->name}}</title>
-    <link rel="stylesheet" href="{{asset('/css/dashboards/therapies/show-therapy.css')}}">
-    <link rel="stylesheet" href="{{asset('/css/dashboards/therapies/therapies-create.css')}}">
+    <link rel="stylesheet" href="https://pomodoro.ovh/css/dashboards/therapies/show-therapy.css">
+    <link rel="stylesheet" href="https://pomodoro.ovh/css/dashboards/therapies/therapies-create.css">
     <meta  name="rules" id="rules" content="{{ $therapy->rules }}"></meta>
-    <script src="{{asset('JS/dashboards/therapies/show-therapy.js')}}"></script>
+    <script src="https://pomodoro.ovh/JS/dashboards/therapies/show-therapy.js"></script>
 </head>
 
 <input id="array-values" style="display:none;" value = "{{$period->durations}}" disabled></input>

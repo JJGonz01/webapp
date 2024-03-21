@@ -9,8 +9,8 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
-    <script src="{{asset('/JS/dashboards/tests/test.js')}}"></script>
-    <link rel="stylesheet" href="{{asset('/css/dashboards/general.css')}}">
+    <script src="https://pomodoro.ovh/JS/dashboards/tests/test.js"></script>
+    <link rel="stylesheet" href="https://pomodoro.ovh/css/dashboards/general.css">
     <!--https://themes.getbootstrap.com/preview/?theme_id=107272--> 
     <!--https://fontawesome.com/search?q=lock&o=r--> 
 </head>
@@ -33,7 +33,7 @@
 <div class="test-container" id="popup-test-content-container" style="display:none;">
     <div class="test-container-content">
         <div class="row" id="test-content">
-            <img class="col-4" src="{{asset('/images/kidtest.png')}}">
+            <img class="col-4" src="https://pomodoro.ovh/images/kidtest.png">
             <div class="col-8">
                 <h2>Bienvenido a la aplicación "Pomodoro"</h2>
                 <p>
@@ -63,7 +63,7 @@
             <nav class="sidebar-sticky col-md-2 d-none d-md-block navbar">
                 <div>
                     <div>
-                        <img id="img-logo" src="{{asset('/images/logorm.png')}}">
+                        <img id="img-logo" src="https://pomodoro.ovh/images/logorm.png">
                         <button class="button-no-border" style="font-family: Arial, FontAwesome;">&#xf013;</button>
                     </div>
                     <ul class="nav flex-column">

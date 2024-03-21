@@ -15,11 +15,11 @@
     <meta id = "move_medios" content = "{{$move_medios}}"></meta>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!--para la grafica-->
-    <script src="{{asset('/session/sessionCompleted.js')}}"></script>  
-    <script src="{{asset('/JS/representation/session-representation.js')}}"></script>  
+    <script src="https://pomodoro.ovh/session/sessionCompleted.js"></script>  
+    <script src="https://pomodoro.ovh/JS/representation/session-representation.js"></script>  
 
-    <link rel="stylesheet" href="{{asset('/css/dashboards/patients/patient-menu.css')}}">
-    <link rel="stylesheet" href="{{asset('/css/representation/session-representation.css')}}">
+    <link rel="stylesheet" href="https://pomodoro.ovh/css/dashboards/patients/patient-menu.css">
+    <link rel="stylesheet" href="https://pomodoro.ovh/css/representation/session-representation.css">
 </head>
  
 <body>
@@ -209,7 +209,6 @@
 
     <div id="prueba"></div>
 
-    <script src="{{asset('general_page.js')}}"></script>
   
         <div class="user-welcome-box">
             

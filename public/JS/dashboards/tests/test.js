@@ -4,13 +4,13 @@ const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute
 const htmlDicTest = { 
 
     "0": `
-    <img class="col-4" src="http://localhost:8000/images/webdesigner.png">
+    <img class="col-4" src="https://pomodoro.ovh/images/webdesigner.png">
     <div class="col-8">
         <h2>Vídeo introducción</h2>
         <p>En este video describo como funciona la aplicación, funcionalidades y un poco de información sobre qué vas
         a estar realizando en esta sesión de pruebas</p>
         <video width="640" height="360" controls>
-            <source src="http://localhost:8000/images/video/MuestraTestWeb.mp4" type="video/mp4">
+            <source src="https://pomodoro.ovh/images/video/MuestraTestWeb.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
 
@@ -18,7 +18,7 @@ const htmlDicTest = {
     </div>        
     `,
     "1": `
-    <img class="col-4" src="http://localhost:8000/images/questionare.png">
+    <img class="col-4" src="https://pomodoro.ovh/images/questionare.png">
     <div class="col-8">
     <div class="row">
         <h2 class="col-md-10">Cuestionario 'USE' ¿Qué te parece la herramienta?</h2>
@@ -26,7 +26,7 @@ const htmlDicTest = {
         <p>
            Cuentanos: 
         </p>
-        <form action=""http://localhost:8000/nextstep/22" id="form-use" method="GET">
+        <form action=""https://pomodoro.ovh/nextstep/22" id="form-use" method="GET">
             <div id="use-div-questions" style="overflow-y:auto; height:400px;padding:10px;">
             </div>
             <div class="form-check" style="border-top:1 solid grey; margin-top:20px;">
@@ -41,7 +41,7 @@ const htmlDicTest = {
     </div>        
     `, 
     "2": `
-    <img class="col-4" src="http://localhost:8000/images/childream.png">
+    <img class="col-4" src="https://pomodoro.ovh/images/childream.png">
     <div class="col-8">
     <div class="row">
         <h2 class="col-md-10">1º-¿Para quien van las sesiones de estudio?</h2>
@@ -61,9 +61,9 @@ const htmlDicTest = {
         </p>
         <div class="row" style="margin-bottom:10px;">
             <div class="col-1"></div>
-            <img class="col-3" style="border:1px solid grey; width:100px;height:200px;"src = "http://localhost:8000/images/helptest2.png"></img>
+            <img class="col-3" style="border:1px solid grey; width:100px;height:200px;"src = "https://pomodoro.ovh/images/helptest2.png"></img>
             <div class="col-2"></div>
-            <img class="col-3" style="border:1px solid grey; width:100px;height:200px;" src = "http://localhost:8000/images/helptest.png"></img>
+            <img class="col-3" style="border:1px solid grey; width:100px;height:200px;" src = "https://pomodoro.ovh/images/helptest.png"></img>
         </div>
         <p>TAREAS: </p>
         <div class="">
@@ -79,7 +79,7 @@ const htmlDicTest = {
     `,
 
     "3": `
-    <img class="col-4" src="http://localhost:8000/images/kidthink.png">
+    <img class="col-4" src="https://pomodoro.ovh/images/kidthink.png">
     <div class="col-8">
     <div class="row">
         <h2 class="col-md-10">Ahora... tu opinión sobre los estudiantes</h2>
@@ -101,7 +101,7 @@ const htmlDicTest = {
     </div>        
     `,
     "4": `
-    <img class="col-4" src="http://localhost:8000/images/tomato.png">
+    <img class="col-4" src="https://pomodoro.ovh/images/tomato.png">
     <div class="col-8">
     <div class="row">
         <h2 class="col-md-10">2º-¿Cómo organizamos el tiempo de la sesión?</h2>
@@ -141,7 +141,7 @@ const htmlDicTest = {
     </div>        
     `,
     "5": `
-    <img class="col-4" src="http://localhost:8000/images/kidthink.png">
+    <img class="col-4" src="https://pomodoro.ovh/images/kidthink.png">
     <div class="col-8">
     <div class="row">
         <h2 class="col-md-10">Primera impresión de los planes de estudio</h2>
@@ -174,7 +174,7 @@ const htmlDicTest = {
     </div>        
     `,
     "6": `
-    <img class="col-4" src="http://localhost:8000/images/timeman.png">
+    <img class="col-4" src="https://pomodoro.ovh/images/timeman.png">
     <div class="col-8">
         <h2>Comprobar el estado del niño durante la sesión de estudio</h2>
         <p>
@@ -190,7 +190,7 @@ const htmlDicTest = {
     </div> `,
 
     "7": `
-    <img class="col-4" src="http://localhost:8000/images/clockwatch.png">
+    <img class="col-4" src="https://pomodoro.ovh/images/clockwatch.png">
     <div class="col-8">
     <div class="row">
         <h2 class="col-md-10">3º-Un plan de estudio con condiciones</h2>
@@ -235,7 +235,7 @@ const htmlDicTest = {
     </div>        
     `,
     "8": `
-    <img class="col-4" src="http://localhost:8000/images/kidthink.png">
+    <img class="col-4" src="https://pomodoro.ovh/images/kidthink.png">
     <div class="col-8">
     <div class="row">
         <h2 class="col-md-10">Planes de estudio, ¿Qué te parecen?</h2>
@@ -280,7 +280,7 @@ const htmlDicTest = {
     </div>        
     `, 
     "9": `
-    <img class="col-4" src="http://localhost:8000/images/webdesigner.png">
+    <img class="col-4" src="https://pomodoro.ovh/images/webdesigner.png">
     <div class="col-8">
         <h2>Sesiones de estudio</h2>
         <p>
@@ -297,7 +297,7 @@ const htmlDicTest = {
     </div>        
     `, 
     "10": `
-    <img class="col-4" src="http://localhost:8000/images/clockwatch.png">
+    <img class="col-4" src="https://pomodoro.ovh/images/clockwatch.png">
     <div class="col-8">
     <div class="row">
         <h2 class="col-md-10">4º-Mi primer objetivo</h2>
@@ -342,7 +342,7 @@ const htmlDicTest = {
     </div>        
     `,
     "11": `
-    <img class="col-4" src="http://localhost:8000/images/childstudyangry.png">
+    <img class="col-4" src="https://pomodoro.ovh/images/childstudyangry.png">
     <div class="col-8">
         <h2>Lo tenemos todo... ¿Cuándo se ejecuta?</h2>
         <p>
@@ -354,7 +354,7 @@ const htmlDicTest = {
     </div>        
     `, 
     "12": `
-    <img class="col-4" src="http://localhost:8000/images/sensorimage.png">
+    <img class="col-4" src="https://pomodoro.ovh/images/sensorimage.png">
     <div class="col-8">
         <h2>Antes de comenzar: Sensores... ¿Está el niño nervioso? ¿Está estudiando?</h2>
         <p>
@@ -365,7 +365,7 @@ const htmlDicTest = {
     </div>        
     `, 
     "13": `
-    <img class="col-4" src="http://localhost:8000/images/clockwatch.png">
+    <img class="col-4" src="https://pomodoro.ovh/images/clockwatch.png">
     <div class="col-8">
     <div class="row">
         <h2 class="col-md-10">5º-Planeando la sesión de estudio</h2>
@@ -410,7 +410,7 @@ const htmlDicTest = {
     </div>        
     `, 
     "14": `
-    <img class="col-4" src="http://localhost:8000/images/webdesigner.png">
+    <img class="col-4" src="https://pomodoro.ovh/images/webdesigner.png">
     <div class="col-8">
         <h2>¡Probemoslo en el reloj!</h2>
         <p>
@@ -421,7 +421,7 @@ const htmlDicTest = {
         <div class="text-end"><button id="button-start-test" onclick="setNextStep()" class="text-end button-next-test">Ha terminado la sesión en el reloj</button></div>
     </div>        
     `,"15": `
-    <img class="col-4" src="http://localhost:8000/images/kidthink.png">
+    <img class="col-4" src="https://pomodoro.ovh/images/kidthink.png">
     <div class="col-8">
     <div class="row">
         <h2 class="col-md-10">La visualización de resultados... ¿Qué te parecen?</h2>
@@ -455,7 +455,7 @@ const htmlDicTest = {
     </div>        
     `, 
     "16": `
-    <img class="col-4" src="http://localhost:8000/images/webdesigner.png">
+    <img class="col-4" src="https://pomodoro.ovh/images/webdesigner.png">
     <div class="col-8">
         <div class="row">
             <h2 class="col-md-10">Observemos los resultados</h2>
@@ -468,7 +468,7 @@ const htmlDicTest = {
     </div>        
     `,
     "17": `
-    <img class="col-4" src="http://localhost:8000/images/kidthink.png">
+    <img class="col-4" src="https://pomodoro.ovh/images/kidthink.png">
     <div class="col-8">
     <div class="row">
         <h2 class="col-md-10">La visualización de resultados... ¿Qué te parecen?</h2>
@@ -503,7 +503,7 @@ const htmlDicTest = {
     </div>        
     `, 
     "18": `
-    <img class="col-4" src="http://localhost:8000/images/endimg.png">
+    <img class="col-4" src="https://pomodoro.ovh/images/endimg.png">
     <div class="col-8">
     <div class="row">
         <h2 class="col-md-10">¡Gracias por realizar esta prueba!</h2>

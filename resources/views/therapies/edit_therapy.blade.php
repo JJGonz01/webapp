@@ -13,14 +13,14 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 
     
-    <script src="{{asset('JS/dashboards/therapies/therapies-blocks.js')}}"></script>
-    <script src="{{asset('JS/dashboards/therapies/therapies-rules.js')}}"></script>
-    <script src="{{asset('JS/dashboards/therapies/therapies-create-rules.js')}}"></script>
-    <script src="{{asset('JS/dashboards/messages/messages.js')}}"></script>
+    <script src="https://pomodoro.ovh/JS/dashboards/therapies/therapies-blocks.js"></script>
+    <script src="https://pomodoro.ovh/JS/dashboards/therapies/therapies-rules.js"></script>
+    <script src="https://pomodoro.ovh/JS/dashboards/therapies/therapies-create-rules.js"></script>
+    <script src="https://pomodoro.ovh/'JS/dashboards/messages/messages.js"></script>
 
-    <link rel="stylesheet" href="{{asset('/css/dashboards/therapies/therapies-create.css')}}">
-    <link rel="stylesheet" href="{{asset('/css/dashboards/patients.css')}}">
-    <link rel="stylesheet" href="{{asset('/css/draws/clock.css')}}">
+    <link rel="stylesheet" href="https://pomodoro.ovh/css/dashboards/therapies/therapies-create.css">
+    <link rel="stylesheet" href="https://pomodoro.ovh/css/dashboards/patients.css">
+    <link rel="stylesheet" href="https://pomodoro.ovh/css/draws/clock.css">
 </head> 
 @if (session('success'))
     <h6 class="alert alert-success"> {{ session('success') }}</h6>

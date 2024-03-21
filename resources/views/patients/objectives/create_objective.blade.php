@@ -10,13 +10,13 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="{{asset('/JS/dashboards/patients/create-session.js')}}"></script>
-    <script src="{{asset('/JS/dashboards/patients/objectives/objectives.js')}}"></script>
+    <script src="https://pomodoro.ovh/JS/dashboards/patients/create-session.js"></script>
+    <script src="https://pomodoro.ovh/JS/dashboards/patients/objectives/objectives.js"></script>
 
     <meta  name="date" id="date-start" content="{{ $date_start }}"></meta>
-    <link rel="stylesheet" href="{{asset('/css/dashboards/patients/create-session.css')}}">
-    <link rel="stylesheet" href="{{asset('/css/dashboards/patients.css')}}">
-    <link rel="stylesheet" href="{{asset('/css/draws/clock.css')}}">
+    <link rel="stylesheet" href="https://pomodoro.ovh/css/dashboards/patients/create-session.css">
+    <link rel="stylesheet" href="https://pomodoro.ovh/css/dashboards/patients.css">
+    <link rel="stylesheet" href="https://pomodoro.ovh/css/draws/clock.css">
 </head>
 
 </div>
@@ -47,19 +47,19 @@
                     <div class="form-row" id="type-selection-container">
                         <div class="col-md-4 container-objective-type">
                             <button onclick = "selectType('objective-type-input', this, 'type-selection-container')" type="button" class="image-container-objective-w100" value="study">
-                            <img class="rounded-image" src="{{asset('images/bookmedal.jpg')}}"></img>
+                            <img class="rounded-image" src="https://pomodoro.ovh/images/bookmedal.jpg"></img>
                             <p>Objetivo de estudio</p>
                             </button>
                         </div>
                         <div class="col-md-4 container-objective-type">
                             <button onclick = "selectType('objective-type-input', this, 'type-selection-container')"  type="button" class="image-container-objective-w100" value="personal">
-                            <img class="rounded-image" src="{{asset('images/personalmedal.jpg')}}"></img>
+                            <img class="rounded-image" src="https://pomodoro.ovh/images/personalmedal.jpg"></img>
                             <p>Objetivo personal</p>
                             </button>
                         </div>
                         <div class="col-md-4 container-objective-type">
                             <button onclick = "selectType('objective-type-input', this, 'type-selection-container')"  type="button" class="image-container-objective-w100" value="scholastic">
-                            <img class="rounded-image" src="{{asset('images/schoolmedal.jpg')}}"></img>
+                            <img class="rounded-image" src="https://pomodoro.ovh/images/schoolmedal.jpg"></img>
                             <p>Objetivo escolar</p>
                             </button>
                         </div>
@@ -118,19 +118,19 @@
                     <div class="form-row" id="reward-selection-container">
                         <div class="col-md-4 container-objective-type">
                             <button onclick = "selectRewardType('reward-type-input', this, 'reward-selection-container')" type="button" class="image-container-objective-w100" value="travel">
-                            <img class="rounded-image" src="{{asset('images/travel.png')}}"></img>
+                            <img class="rounded-image" src="https://pomodoro.ovh/images/travel.png"></img>
                             <p>VIAJE</p>
                             </button>
                         </div>
                         <div class="col-md-4 container-objective-type">
                             <button onclick = "selectRewardType('reward-type-input', this, 'reward-selection-container')"  type="button" class="image-container-objective-w100" value="present">
-                            <img class="rounded-image" src="{{asset('images/present.jpg')}}"></img>
+                            <img class="rounded-image" src="https://pomodoro.ovh/images/present.jpg"></img>
                             <p>REGALO</p>
                             </button>
                         </div>
                         <div class="col-md-4 container-objective-type">
                             <button onclick = "selectRewardType('reward-type-input', this, 'reward-selection-container')"  type="button" class="image-container-objective-w100" value="activity">
-                            <img class="rounded-image" src="{{asset('images/activity.jpg')}}"></img>
+                            <img class="rounded-image" src="https://pomodoro.ovh/images/activity.jpg"></img>
                             <p>ACTIVIDAD</p>
                             </button>
                         </div>

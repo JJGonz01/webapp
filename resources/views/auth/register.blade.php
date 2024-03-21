@@ -3,7 +3,7 @@
 @section('content')
 <div class="container-centered-height">
   <div class="container-logo">
-  <img id="img-logo" src="{{asset('/images/logorm.png')}}">
+  <img id="img-logo" src="https://pomodoro.ovh/images/logorm.png">
   </div>
     <div class=" container-login">
         

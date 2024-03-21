@@ -1,7 +1,7 @@
 
 <head>
     <title>AVATAR</title>
-    <link rel="stylesheet" href="{{asset('/css/dashboards/patients/avatar/avatar.css')}}">
+    <link rel="stylesheet" href="https://pomodoro.ovh/css/dashboards/patients/avatar/avatar.css">
 
 </head>
 
@@ -21,6 +21,6 @@
             </div>
         </div>
 
-    <img class="avatar" src="{{asset('images/brng.png')}}"></img>
+    <img class="avatar" src="https://pomodoro.ovhimages/brng.png"></img>
 
 </body>
