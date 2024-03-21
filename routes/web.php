@@ -226,5 +226,8 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('ho
     Route::get('/checkstep/{id}', [TestController::class, 'checkStep'])
     ->name('testcheck');
 
+    
+    Route::get('/admin', [TestController::class, 'testadmin'])->name('testadmin');
+
 
 

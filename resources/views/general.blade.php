@@ -3,119 +3,136 @@
 @section('patients_section') 
 
 <head>
-    <title>HOME</title>
-    <script src="https://pomodoro.ovh/general_page.js"></script>
+    <title>DASHBOARD</title>
+    <link rel="stylesheet" href="https://pomodoro.ovh/css/dashboards/patients.css">
+    <link rel="stylesheet" href="https://pomodoro.ovh/css/dashboards/patients/create-patient.css">
 </head>
 
-<div class="general-items-container">
-  
-        <div class="user-welcome-box">
-            @if(auth()->user() !== null)
-            
-            <h4>General</h4>
-            <div class="user-welcome-box-container">
-                <div class="home-welcome-box">
-                    <button class="home-welcome-box-btn-selected" onclick = "setArticles(0)" id="btn_pom_info">PRUEBAS</button>
-                    <button class="home-welcome-box-btn" onclick = "setArticles(1)" id="btn_app_info">POMODORO</button>
-                    <button class="home-welcome-box-btn" onclick = "setArticles(2)" id="btn_nos_option">APLICACIÓN</button>
-                </div>
-            </div>
-            @else
-            <p> INICIA SESION PARA CONTINUAR </p>
-            @endif
-        </div>
-
-
-    <div class= "create-basic-container-home" id="pom_info">
-    
-    </div>
-
-    <div class= "create-basic-container-home" id="app_info" style="display:none;">
-        <div class="title-div-home">
-            <h1> La técnica pomodoro </h1>
-            <h4> Productividad al hacer tareas</h4>
-        </div>
-        <div class="text-div-home">
+<body>
+<div style="overflow-y:auto; padding:20px;">
+    <h1>¿Qué hemos construido? Descubre nuestra aplicación</h1>
+    <div class="row container-general-patients" style="margin-bottom:30px;">
+        <img class="col-3" src="https://pomodoro.ovh/images/eventcalendar.jpg"></img>
+        <div class="col-md-9">
+            <h3 style="margin-bottom:30px;">¿Qué es la técnica pomodoro?</h3>
             <p>
-                La técnica POMODORO es una metodología de estudio creada por Franchesco Cirillo en 1980, un experto
-                en consultoría y coach de negocios, que cuando cursaba la universidad se repartía los tiempos de 
-                estudios siguiendo este método a través de un temporizador con forma de tomate.
-
-                La metodología consiste en repartir el estudio en intervalos de tiempo, denominados pomodoros, de entre
-                15 y 30 minutos, en los que se busca que el estudiante se enfoque al completo en la tarea (sin interrupciones ni distracciones), intercalados con
-                intervalos de descanso donde se relaje la mente y pueda volver a seguir trabajando evitando "burnouts" y 
-                desgaste mental.
+                La técnica Pomodoro es un método de gestión del tiempo que se centra en mejorar la productividad y la concentración al dividir el trabajo en intervalos de tiempo cortos, 
+                llamados "pomodoros", seguidos de breves pausas. Esta técnica fue desarrollada por Francesco Cirillo a finales de la década de 1980 y toma su nombre de un temporizador de 
+                cocina en forma de tomate (pomodoro en italiano) Esta técnica consiste en:
             </p>
-
-            <p>
-                Esta técnica posee distintas cualidades que permiten al estudiante, o persona que tenga que realizar una o varias tareas, disponer de positivos
-                a la hora tanto de organizarse como de concentrarse. El objetivo principal de esta metodología es eliminar tanto la proclastinación como las distracciones que
-                pueden surgir de la larga exposición a tareas poco interesantes para el estudiante. Para ello cabe destacar:
-            </p>
-
             <ul>
-                <li> <strong>Mejora de productividad</strong>: Al aprovechar más el tiempo empleado en las distintas tareas.</li>
-                <li> <strong>Realizar más tareas en menos tiempo</strong>: Aumenta el tiempo efectivo al estar estudiando o realizando distintas tareas.</li>
-                <li> <strong>Fijar rutinas</strong>: Permite a quien lo utilice poder organizarse de una manera más efectiva.</li>
-                <li> <strong>Más implicación en las tareas</strong>: Al saber que hay descansos incentiva al usuario seguir trabajando hacia un objetivo a corto plazo.</li>
-                <li> <strong>Mejora con el tiempo</strong>: Cuanto más se practica, más fácil es para el usuario realizar las distintas tareas y adaptarse al tiempo de estudio.</li>
+                    <li>
+                        <strong>Elegir una tarea a realizar:</strong> Selecciona una tarea específica que deseas completar.
+                    </li>
+                    <li>
+                        <strong>Establecer el temporizador:</strong> Establecer la duración de los estudios, y de los descansos que se harán.
+                    </li>
+                    <li>
+                        <strong>Trabajar en la tarea:</strong> Comenzar tarea, con el periodo de trabajo, se ha de concentrar en trabajar en la tarea seleccionada hasta que suene el temporizador.
+                    </li>
+                    <li>
+                        <strong>Tomar un descanso corto:</strong> Una vez completado el periodo de trabajo,tomar ese descanso corto.
+                    </li>
+                    <li>
+                        <strong>Repetir el proceso:</strong> Una vez completado el periodo de descanso,tomar ese descanso corto.
+                    </li>
+                    <li>
+                        <strong>Repetir:</strong> La idea es repetir este proceso, tal vez con descansos más largos, hasta que se acabe la tarea o se haya estudiado mucho.
+                    </li>
             </ul>
-
             <p>
-                En esta aplicación se busca implementar esta metododología en la vida diaria de alumnos de primaria que padecen Trastorno por Déficit de Atención e Hiperactividad (TDAH),
-                quienes tienen problemas para concentrarse y conseguir finalizar tareas en la escuela. Para ello dispondrán de un dispositivo smartwatch que además de controlar sus tiempos, 
-                medirá su estado anímico para poder así disponer de más información sobre estos jovenes y este trastorno de una manera poco invasiva.
+                La técnica Pomodoro se basa en varios principios psicológicos y de gestión del tiempo, incluyendo la idea de que trabajar en intervalos cortos de tiempo puede ayudar a mantener
+                 la concentración y a evitar la fatiga mental. También se enfoca en la importancia de tomar descansos regulares para mantener la energía y la motivación.
+                Además de mejorar la productividad y la concentración, la técnica Pomodoro también puede ayudar a reducir la procrastinación y el estrés al dividir las tareas en segmentos más 
+                manejables y al proporcionar un marco de tiempo claro para el trabajo y el descanso.
             </p>
-
-            <p></p>
+            <p>
+                En resumen, la técnica Pomodoro es una herramienta simple pero efectiva para mejorar la gestión del tiempo, aumentar la productividad y reducir el estrés, al dividir el trabajo
+                en intervalos de tiempo definidos y tomar descansos regulares.
+            </p>
         </div>
-        
     </div>
 
-    <div class= "create-basic-container-home" id="app_option" style="display:none;">
-    <div class="title-div-home">
-            <h1> Aplicación TDAH </h1>
-            <h4> Organización y monitorización</h4>
+    <div class="row container-general-patients" style="margin-bottom:40px;" >
+        <div class="col-md-9">
+            <h3 style="margin-bottom:30px;">¿Y por qué esta técnica? ¿En que puede beneficiar a niños con problemas de concentración, hiperactividad u otras?</h3>
+            <p>La tecnica pomodoro, aunque simple, ayuda al estudiante a centrarse más en la tarea, gestionar mejor en tiempo y descansar la cabeza para evitar "burnouts.
+                Algunas de las características que posee para ayudar a estudiantes que sufran de problemas de concentración, TDAH u otras son:
+            </p>        
+            <li>
+                        <strong>Estructura y organización:</strong>  La técnica Pomodoro proporciona una estructura clara y 
+                         organizada para el trabajo, lo que puede ayudar a los niños con TDAH a mantenerse enfocados y orientados
+                         hacia una tarea específica durante un período de tiempo definido.
+                    </li>
+                    <li>
+                        <strong>Gestión del tiempo:</strong>  La división del trabajo en intervalos de tiempo cortos facilita 
+                         la gestión del tiempo y evita la sensación abrumadora que puede experimentar un niño con TDAH al enfrentarse a una tarea extensa.
+                         Saber que solo tienen que trabajar durante un período corto de tiempo antes de tomar un descanso puede hacer que la tarea parezca más manejable.
+                    </li>
+                    <li>
+                        <strong>Descansos regulares:</strong>  Los descansos cortos entre cada pomodoro permiten a los niños con TDAH recargar energías y 
+                        mantener su nivel de concentración. Estos descansos proporcionan oportunidades para moverse, estirarse y tomar aire fresco, 
+                        lo que puede ayudar a reducir la impulsividad y la inquietud asociadas con el TDAH.
+                    </li>
+                    <li>
+                        <strong>Sensación de logro:</strong>  Completar cada pomodoro y marcar el progreso realizado puede proporcionar una 
+                        sensación de logro y motivación adicional para los niños con TDAH, lo que les ayuda a mantenerse comprometidos con la tarea a largo plazo.
+                    </li>
+                </ul>
+                <p>
+                    Y por eso, la técnica Pomodoro puede ser beneficiosa para niños con TDAH ya que proporciona una estructura clara, 
+                    gestionar el tiempo de manera efectiva, permite descansos regulares y fomenta una sensación de logro gradual a medida que completan cada intervalo de trabajo.
+                </p>
         </div>
-        <div class="text-div-home">
-            <p>
-                Esta aplicación web, junto al dispositivo <strong>smartwatch</strong>, busca facilitar tanto a terapeutas como profesores a poder mejorar el aprendizaje
-                y organización temporal de alumnos que padecen Trastorno por Déficit de Atención e Hiperactividad (TDAH). Mediante esta plataforma el terapeuta podrá organizar los
-                niños a su cargo, mediante un sistema de creación y control de "pacientes" de fácil manejo y uso. Para cada paciente podrá organizarles sesiones de estudio para la hora y fecha
-                que mejor les convenga, y que automáticamente será enviado a su correspondiente dispositivo digital. Cuando llegue la hora de su sesión, sin necesidad de interacción, será
-                el dispositivo quién avise y vaya organizando dicha sesión automáticamente.
-            </p>
+        <img class="col-3" src="https://pomodoro.ovh/images/timeman.png"></img>
+    </div>
 
-            <p>
-                Para organizar estas sesiones de estudio el terapeuta podrá crear "terapias", donde se podrán configurar los intervalos de tiempo que tendrán las distintas sesiones asignadas al "paciente".
-                En estas terapias se configurarán <strong>bloques</strong>, estos bloques representarán un intervalo de estudio y descanso, a excepción del primero que tendrá un periodo de estudio, otro de 
-                descanso, y de nuevo otro de estudio, y a partir de este un descanso, seguido por un estudio y así iterativamente hasta que el terapueta crea conveniente.
-            </p>
+    <div class="row container-general-patients" style="margin-bottom:40px;" >
+        <img class="col-3" src="https://pomodoro.ovh/images/childream.png"></img>
+        <div class="col-md-9">
+            <h3 style="margin-bottom:30px;">¿Y cómo damos ese extra de motivación?</h3>
 
-            
-            <img src="https://pomodoro.ovh/images/graph_bloques.png" class="imageHome" alt="Grafico funcionamiento aplicacion" height="600">
-            <span class="imageHomep">Figura 1: Esquema bloques de estudio</span></img>
-            <p>
-                En cada bloque el terapeuta podrá ajustar distintas condiciones, a partir de el estado anímico de del joven, para que según como se encuentre pueda realizar distintas acciones, como mensajes de ánimo,
-                mensajes de tranquilidad, añadir o quitar tiempo de cada periodo del bloque, entre otros. Además se podrán ajustar para momentos especificos de cada bloque e incluso que no sea necesario que se cumplan ciertas
-                condiciones. Estas reglas se configurarán por cada bloque, y serán personalizables para cada "paciente".
-            </p>
+                <p>
+                    Mediante un sistema de puntos (llamados estrellas), canjeables en un avatar virtual al que tendrá que cuidar el estudiante.
+                    Cuidar de un avatar virtual que se alimenta con los puntos que ganas mientras estudias puede ser beneficioso por varias razones, 
+                    especialmente para niños con TDAH u otros desafíos de atención
+                </p>
+                <p>¿Y en que puede beneficiar a estudiantes con problemas de concentración, hiperactividad u otras?</p>
+                <ul>
+                    <li>
+                        <strong>Motivación adicional:</strong>  Tener un avatar virtual que necesita 
+                        ser alimentado proporciona una motivación adicional para estudiar y completar tareas.
+                        Los niños pueden sentirse más comprometidos con su trabajo sabiendo que también están cuidando de su avatar.
+                    </li>
+                    <li>
+                        <strong>Responsabilidad y rutina:</strong>  
+                        Cuidar de un avatar virtual puede ayudar a los niños a desarrollar un sentido de responsabilidad al mantener una rutina diaria para estudiar 
+                        y alimentar al avatar.
+                        Esto puede ser especialmente útil para establecer hábitos de estudio consistentes.
+                    </li>
+                    <li>
+                        <strong>Refuerzo positivo:</strong>  Al alimentar al avatar virtual como una recompensa por estudiar, 
+                        se establece un refuerzo positivo para el comportamiento académico deseado. 
+                        Esto puede ayudar a mejorar la autoestima y la autoeficacia de los niños, ya que experimentan el éxito al completar tareas y cuidar de su avatar.
+                    </li>
+                    <li>
+                        <strong>Sensación de logro:</strong>  Ver el avatar virtual crecer y prosperar a medida que se alimenta puede proporcionar 
+                        una forma visual y tangible de seguir el progreso en el estudio. Esto puede ayudar a los niños a mantenerse enfocados en sus metas académicas a largo plazo.
+                     </li>
 
-            <p>
-                En las reglas, como se ha comentado anteriormente, se podrán configurar condiciones. Se pueden definir tantas condiciones como condiguraciones pueda detectar el sensor, e incluso no añadir ninguna condición, 
-                y se ejecutará en el momento en el que la regla se haya configurado para poder lanzarse. Se podrá elegir en que bloque se ejecutará, dentro de ese bloque, en que periodos (estudio y descanso), y dentro de esos periodos
-                en que momento en el tiempo. Cuando se cumplan todas estas condiciones, se ejecutarán las acciones definidas por el terapeuta. Podrá configurar un mensaje que aparezca en el reloj y/o una acción de sesión, donde se puede
-                añadir tiempo extra, concluir el periodo o concluir el bloque entero.
-            </p>
-
-            <img src="https://pomodoro.ovh/images/graph_reglas.png" class="imageHome" alt="Grafico funcionamiento aplicacion" height="600">
-            <span class="imageHomep">Figura 2: Esquema reglas de la sesión</span></img>
-            <p></p>
+                     <li>
+                        <strong>Reducción del estrés y ansiedad:</strong>  Cuidar de un avatar virtual puede ser una actividad relajante y divertida para los niños,
+                         lo que puede ayudar a reducir el estrés y la ansiedad relacionados con el estudio.
+                         Proporciona una pausa mental entre sesiones de estudio intensivas y puede ayudar a mantener un equilibrio saludable entre el trabajo y el juego.
+                     </li>
+                </ul>
+                <p>
+                    Y por eso, la técnica Pomodoro puede ser beneficiosa para niños con TDAH ya que proporciona una estructura clara, gestionar el tiempo de manera efectiva, permite descansos regulares y fomenta una sensación de logro gradual a medida que completan cada intervalo de trabajo.
+                </p>
         </div>
-
-            
-        
+       
     </div>
 </div>
+</body>
 
 @endsection

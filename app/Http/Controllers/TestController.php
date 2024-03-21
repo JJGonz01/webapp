@@ -213,8 +213,6 @@ class TestController extends Controller
                 }
                 return "0";
                 
-                
-
             default:
                 return false;
         }
@@ -288,4 +286,10 @@ class TestController extends Controller
         $test->save();
         return $responses;
     }
+
+    public function testadmin(){
+        $testdatas = Testdata::all();
+        return view('admin',  ['results' => $testdatas]);
+    }
+
 }

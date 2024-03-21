@@ -8,13 +8,20 @@ const htmlDicTest = {
     <div class="col-8">
         <h2>Vídeo introducción</h2>
         <p>En este video describo como funciona la aplicación, funcionalidades y un poco de información sobre qué vas
-        a estar realizando en esta sesión de pruebas</p>
+        a estar realizando en esta sesión de pruebas (El vídeo tarda en cargar, si no puede verse, o da error la carga del vídeo, entre en este enlace: <a href="https://youtu.be/RKhDy1YFD00">VÍDEO</a>)</p>
         <video width="640" height="360" controls>
             <source src="https://pomodoro.ovh/images/video/MuestraTestWeb.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
+        <div class="form-check" style="border-top:1 solid grey; margin-top:20px;">
+            <input class="form-check-input" type="checkbox" value="" id="checkboxTestReady">
+            <label class="form-check-label" for="flexCheckChecked" type="button">
+                He visto el vídeo.
+            </label>
+        </div>
 
-        <div class="text-end"><button id="button-start-test" onclick="setNextStep()" class="text-end button-next-test">Comenzar la primera prueba</button></div>
+
+        <div class="text-end" ><button id="button-start-test" onclick="setNextStep();" class="text-end button-next-test-disabled">Comenzar test</button></div>
     </div>        
     `,
     "1": `
@@ -32,12 +39,12 @@ const htmlDicTest = {
             <div class="form-check" style="border-top:1 solid grey; margin-top:20px;">
                 <input class="form-check-input" type="checkbox" value="" id="checkboxTestReady">
                 <label class="form-check-label" for="flexCheckChecked" type="button">
-                    He respondido las preguntas, y he terminado el cuestionario
+                    He respondido las preguntas, y he terminado el cuestionario.
                 </label>
             </div>
         </form>
     
-        <div class="text-end" ><button id="button-start-test" onclick="sendUSE();" class="text-end button-next-test-disabled">Terminar test</button></div>
+        <div class="text-end" ><button id="button-start-test" onclick="sendUSE();" class="text-end button-next-test-disabled">Enviar cuestionario</button></div>
     </div>        
     `, 
     "2": `
@@ -124,9 +131,9 @@ const htmlDicTest = {
             </div>
 
             <div class="row span-test">
-                <span class="col-md-1" id="span-test-4" style="font-family: Arial, FontAwesome;color:red; padding-right: 10px; padding-left: 10px;font-size:x-large;">&#xf057;</span>
+                <span class="col-md-1" id="span-test-3" style="font-family: Arial, FontAwesome;color:red; padding-right: 10px; padding-left: 10px;font-size:x-large;">&#xf057;</span>
                 <div class="col-md-11">
-                    <p>Pon el nombres que prefieras a tu plan de estudios</p>
+                    <p>Pon el nombre que prefieras a tu plan de estudios</p>
                 </div>
             </div>
 
@@ -636,6 +643,7 @@ function checkTest(idtest){
 
 function checkStep(rsp){
     document.getElementById("test-content").innerHTML = htmlDicTest[""+currentStep];
+    
     if(currentStep == 2 && rsp == "1"){ //primera prueba
         document.getElementById("button-start-test-1").disabled = false;
         document.getElementById("button-start-test-1").className = "button-next-test";
@@ -652,9 +660,11 @@ function checkStep(rsp){
         }
 
         if(rsp == "2"){
-
             document.getElementById("span-test-1").innerHTML = "&#xf058;";
             document.getElementById("span-test-1").style = "font-family: Arial, FontAwesome;color:green; padding-right: 10px; padding-left: 10px;font-size:x-large;";
+            
+            document.getElementById("span-test-3").innerHTML = "&#xf058;";
+            document.getElementById("span-test-3").style = "font-family: Arial, FontAwesome;color:green; padding-right: 10px; padding-left: 10px;font-size:x-large;";
             
             document.getElementById("button-start-test-2").disabled = false;
             document.getElementById("button-start-test-2").className = "button-next-test";
@@ -893,9 +903,9 @@ function checkValuesIn4(){
 }
 
 function setBackToWrong(){
+    console.log("sadads");
     document.getElementById("span-test-4").innerHTML = "&#xf057;";
     document.getElementById("span-test-4").style = "font-family: Arial, FontAwesome;color:red; padding-right: 10px; padding-left: 10px;font-size:x-large;";
-
 }
 
 var booleanoa = false;
@@ -979,29 +989,29 @@ function selectButton(div, button, inputid){
 }
 
 useQuestions = [ //22 preguntas
-"La herramienta me parece eficaz para conseguir los objetivos definidos",
-"La herramienta haría más productiva la gestión de una sesión de estudio",
-"La herramienta me parece útil para  gestionar una sesión de estudio",
-"La herramienta posee una organización que facilita la gestión del estudio",
-"La herramienta cubriría todas mis necesidades",
-"La herramienta realiza todo lo que me esperaba",
-"La herramienta me ha parecido fácil de usar",
-"La herramienta es amigable",
-"Requiere el menor número de pasos para logar gestionar el estudio",
-"La herramienta es flexible",
-"No requiere esfuerzo utilizarla",
-"La navegación es intuitiva y no requiere de instrucciones escritas",
-"Podría ser usada tanto por personas no expertas como por usuarios ocasionales",
-"Podría aprender a utilizarla rápidamente",
-"Sería fácil recordar como utilizarla",
-"No necesito experiencia previa con la herramienta para entenderla",
-"Me ha satisfecho la herramienta",
-"Recomendaría esta herramienta",
-"Es agradable de utilizar",
-"Funciona tal y como me esperaba",
-"Podría necesitar esta herramienta",
-"Es cómoda de usar"
-]
+    "La herramienta me parece eficaz para conseguir los objetivos definidos",
+    "La herramienta haría más productiva la gestión de una sesión de estudio",
+    "La herramienta me parece útil para  gestionar una sesión de estudio",
+    "La herramienta posee una organización que facilita la gestión del estudio",
+    "La herramienta cubriría todas mis necesidades",
+    "La herramienta realiza todo lo que me esperaba",
+    "La herramienta me ha parecido fácil de usar",
+    "La herramienta es amigable",
+    "Requiere el menor número de pasos para logar gestionar el estudio",
+    "La herramienta es flexible",
+    "No requiere esfuerzo utilizarla",
+    "La navegación es intuitiva y no requiere de instrucciones escritas",
+    "Podría ser usada tanto por personas no expertas como por usuarios ocasionales",
+    "Podría aprender a utilizarla rápidamente",
+    "Sería fácil recordar como utilizarla",
+    "No necesito experiencia previa con la herramienta para entenderla",
+    "Me ha satisfecho la herramienta",
+    "Recomendaría esta herramienta",
+    "Es agradable de utilizar",
+    "Funciona tal y como me esperaba",
+    "Podría necesitar esta herramienta",
+    "Es cómoda de usar"
+];
 
 function setUSEquestionare(){
     var divquestions = document.getElementById("use-div-questions");
@@ -1139,6 +1149,10 @@ function addStep(){
 function notificationTest(textnotification){
     var container = document.getElementById('notification-test');
     container.classList.remove('hidden');
+
+    //var audio = new Audio('path_to_your_sound_file.mp3');
+    //audio.play();
+
     document.getElementById("test-notification-text").innerHTML = textnotification;
     setTimeout(function() {
       container.classList.add('hidden');
