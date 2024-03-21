@@ -28,16 +28,17 @@ class TestController extends Controller
         $user = Auth::user();
         $userid = $user->id;
         $tests = Testdata::where('user_id', $userid)->get();
-        if ($tests->isEmpty()) {
+        if ($tests->isEmpty() || !$tests) {
             $test = new Testdata();
             $test->user_id = $userid;
             $test->currentstep = 0;
+            
         } else {
             $test = $tests->first();
         }
         $test->currentstep = ($test->currentstep)+1;
         $test->save();
-        return $test -> currentstep;
+        return $test;
     }
 
     public function resettest(){
@@ -193,7 +194,6 @@ class TestController extends Controller
             case "13":
                 $today = date('Y-m-d');
                 $sessions = Session::where('date_start', $today)->get();
-                
 
                 if(count($sessions) > 0){
                     foreach($sessions as $session){

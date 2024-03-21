@@ -236,6 +236,24 @@
     transition: transform 0.3s ease ;
 }
 
+
+.button-objective-completed-step{
+    background-color: var(--color-primary-green);
+    border-radius: 10px;
+    border:0;
+    padding:8px;
+    color:white;
+    transition: transform 0.3s ease ;
+}
+
+
+.button-objective-completed-step:hover{
+    transform: scale(1.2);
+    transition: transform 0.3s ease ;
+}
+
+
+
 .button-objective-cancel-step{
     background-color: var(--color-primary-red);
     border-radius: 10px;

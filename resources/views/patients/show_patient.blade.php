@@ -47,6 +47,32 @@
     </div>
 </div>
 
+<div class="popup" id="popup-objective" style="display:none;">
+    <div class="popup-content popup-width-50">
+        <div class="row">
+            <div class="row">
+                    <h1 class="col-md-11">OBJETIVO</h1>
+                    <div class="col-md-1 button-close-container">
+                        <button onclick="closeObjectivePopUp()" class="button-close">
+                            <span>&#xf00d;</span>
+                        </button>
+                    </div>
+            </div>
+
+            <div class="popup-guide-steps">
+                <h3 id="objective-name">Nombre objetivo</h3>
+                <h5 id="objective-date">Fecha Objetivo: 24-03-24 19:40</h5>
+
+                <h3 style="margin-top:15px;">Hitos:</h3>
+                <div id="milestones-container-popup">
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
 
 <div class="popup" id="eventCreatepopup" style="display:none;">
     <div class="popup-content">
@@ -139,15 +165,14 @@
                         <table class="table" id="objectives-table">
                             <tr class="top-index-container">
                                 <th scope="col">Nombre</th>
-                                <th scope="col">Fecha objetivo</th>
                                 <th scope="col">Tipo</th>
-                                <th scope="col">Selección</th>
+                                <th scope="col">Recompensa</th>
+                                <th scope="col">Ver Hitos</th>
                             </tr>
                             <div id="patient-list" class="table-items-options-overflow">
                                 @foreach($objectives as $obj)
                                 <tr>
                                     <td>{{$obj->name}}</td>
-                                    <td>{{$obj->date_end}}</td>
                                     <td>
                                         @if($obj->type == 'scholastic')
                                             Escolar
@@ -157,7 +182,8 @@
                                             Estudios
                                         @endif
                                     </td>
-                                    <td scope="row"><button class="button-objective-next-step" type="checkbox" onclick="showMilestones('{{$obj->id}}')">Acceder</td>
+                                    <td>{{$obj->reward_name}}</td>
+                                    <td scope="row"><button class="button-objective-next-step" type="checkbox" onclick="objectiveMenu('{{$obj->id}}')">Hitos</td>
                                 </tr>
                                 @endforeach
                             </div>
@@ -188,7 +214,7 @@
                                 <p class="text-title-two">Sesiones</p>
                             </div>
 
-                            <div class="col-md-6">
+                            <div class="col-md-6" style="display:none;">
                                 <div class="row text-end flex-row-reverse">
                                     <button class="button-date-filter" onclick="filterbydateToday(this)">Hoy</button>
                                     <button class="button-date-filter" onclick="filterbydateMonth(this)">Mes</button>

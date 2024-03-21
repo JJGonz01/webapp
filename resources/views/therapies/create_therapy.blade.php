@@ -28,6 +28,9 @@
     @if($errors->any())
     <h6 class="alert alert-danger">{{ implode('', $errors->all(':message')) }}</h6>
     @endif
+
+
+
 <div id="popup-on-on" class="popup-on-on" style="display:none;">
     <div class="popup-on-content-on container-condition">
         <h2>Crear mensaje</h2>
@@ -217,7 +220,10 @@
 </div>
 <div id="popup" class="popup" style="display:none;">
     <div class="popup-content container-condition">
-        <h2>Crear una regla</h2>
+        <div class="row">
+            <h2 class="col-md-2">Crear una regla</h2>
+            <h6 class="col-md-8 alert alert-danger" id="rule-errors" style="display:block;">ERROR</h6>
+        </div>
         <div class="row container-condition-creator">
             
             <div class="col-md-4">
@@ -257,7 +263,7 @@
                             title="Establece los valores que tienen que cumplirse para que se ejecuten las acciones"
                             style="margin-left:10px; font-size:large" >&#xf059;</span>
                         </div>
-                        <div class="input-group-prepend">
+                        <div class="input-group-prepend" id="period-comprobation-container">
                             <button class="button-selected" id="estudio-cond" onclick="selectPeriodComprobation(this)" value=1>Estudio</button>
                             <button class="button-selected" id="descanso-cond" onclick="selectPeriodComprobation(this)" value=1>Descanso</button>
                         </div>
@@ -486,7 +492,7 @@
                                 <div class="row">
                                     
                                     <div class="col-md-5 input-group-prepend">
-                                        <input id="input-points-primary" class="form-control form-control-sm" value = 0></input>
+                                        <input id="input-points-primary" type="numeric" class="form-control form-control-sm" value = 0></input>
                                     </div>
                                     
                                     <div class="col-md-5 input-group-prepend">
@@ -518,7 +524,7 @@
                                         <div class="col-md-4">
                                             <button disabled onclick ="getMessages(false)" class="button-open-selection">Seleccionar</button>
                                         </div>
-                                        <input id="input-time-primary" style="display:none;" id="message-secondary"></input>
+                                        <input style="display:none;" id="message-secondary"></input>
                                         <p id="p-message-secondary-selected" class="col-md-7">Sin mensaje seleccionado</p>
                                     </div>
 
@@ -582,11 +588,12 @@
     </div>
 </div> 
 
+<h6 class="alert alert-danger" id="therapy-errors" style="display:none;">ERROR</h6>
 <form id="form_crear_therapy" action="{{route('therapies_create')}}" method="POST">
     @csrf
     <input name="periods[]" id="input_period" style="display: none;"/>
     <input name="rules" id="rule_period" style="display: none;"/>
-    <div class="container-main">
+    <div class="container-main" id="container-main">
         <div class="row container-therapy">
             <div class="col-md-5">
                 <div class="input-group mb-4 container-inputs">
@@ -674,7 +681,7 @@
             <div class="col-md-4 container-conditions">
                 <div class="input-group-prepend d-flex">
                     <div class="row mr-auto container-padding">
-                        <h2 id="conditions-title">Reglas del bloque 0</h2>
+                        <h2 id="conditions-title">Reglas del bloque principal</h2>
                         <span data-toggle="tooltip" data-html="true" 
                                 title="Aqui se definen las distintas condiciones y acciones que tendrá el bloque"
                                 style="margin-left:10px; font-size:large" >&#xf059;</span>

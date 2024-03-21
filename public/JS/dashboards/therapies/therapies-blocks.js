@@ -24,8 +24,6 @@ function addBlock(){
     numerosPeriodos += 1;
     idContainers += 1;
     var mainDiv = document.getElementById("main-div");
-    
-
     var newDiv = document.createElement("div");
     newDiv.className = 'row container-block';
     newDiv.id = "c"+numerosPeriodos;
@@ -33,10 +31,11 @@ function addBlock(){
     let blocknid = numerosPeriodos;
     let rulesid = numerosPeriodos; 
 
-        var buttonMove = document.createElement("button");
+        var buttonMove = document.createElement("h3");
         buttonMove.className = "col-md-1";
         buttonMove.id = "button-move";
-        buttonMove.innerHTML = "<span>&#xf0b2;</span>";
+        //buttonMove.innerHTML = "<span>&#xf0b2;</span>";
+        buttonMove.innerHTML = "#"+numerosPeriodos;
         
         newDiv.appendChild(buttonMove);
 
@@ -96,6 +95,8 @@ function addBlock(){
 
     mainDiv.appendChild(newDiv);
     containersDiv[blocknid] = mainDiv;
+
+    testlistenersin4();
 }
 
 function deleteBlock(idDiv, blockid){
@@ -162,6 +163,7 @@ function saveAllPeriods(){
 }
 
 function saveAndSend(){
+   if(checkIfInputsCompleted()){
    var form = document.getElementById("form_crear_therapy");
    var period_input = document.getElementById("input_period");
    var rule_input = document.getElementById("rule_period");
@@ -170,4 +172,82 @@ function saveAndSend(){
    period_input.value = JSON.stringify(periods);
    console.log(rule_input.value);
    form.submit();
+   }
+}
+
+function checkIfInputsCompleted(){
+    var containererror = document.getElementById("therapy-errors");
+    let namevalue = document.getElementById("therapy-name").value;
+    if(namevalue.trim() == ''){
+        document.getElementById("therapy-name").style="border:1px solid var(--color-primary-red) !important;";
+        document.getElementById("title-web").scrollIntoView({ behavior: 'smooth', block: 'start' });
+        containererror.innerHTML = "ERROR: No has puesto un nombre al plan de estudio";
+        containererror.style="display:block;"
+        return false;
+    }else{
+        document.getElementById("therapy-name").style="border:1px solid grey !important;";
+    }
+
+    let t1 = document.getElementById("mb_t1");
+    let t2 = document.getElementById("mb_t2");
+    let rest = document.getElementById("mb_rest");
+
+    if(t1.value.trim() == ''){
+        t1.style="border:1px solid var(--color-primary-red) !important;";
+        document.getElementById("title-web").scrollIntoView({ behavior: 'smooth', block: 'start' });
+        containererror.innerHTML = "ERROR: Bloque principal, ESTUDIO no se ha configurado";
+        containererror.style="display:block;"
+        return false;  
+    }else{
+        t1.style="border:1px solid grey !important;";
+    }
+
+
+    if(rest.value.trim() == ''){
+        rest.style="border:1px solid var(--color-primary-red) !important;";
+        document.getElementById("title-web").scrollIntoView({ behavior: 'smooth', block: 'start' });
+        containererror.innerHTML = "ERROR: Bloque principal, ESTUDIO no se ha configurado";
+        containererror.style="display:block;"
+        return false;  
+    }else{
+        rest.style="border:1px solid grey !important;";
+    }
+
+    if(t2.value.trim() == ''){
+        t2.style="border:1px solid var(--color-primary-red) !important;";
+        document.getElementById("title-web").scrollIntoView({ behavior: 'smooth', block: 'start' });
+        containererror.innerHTML = "ERROR: Bloque principal, ESTUDIO no se ha configurado";
+        containererror.style="display:block;"
+        return false;  
+    }else{
+        t2.style="border:1px solid grey !important;";
+    }
+
+    var mt1, mrest;
+    for(let i = 1; i<=numerosPeriodos;i++){
+        mt1 = document.getElementById("c"+i+"-t1");
+        mrest = document.getElementById("c"+i+"-rest");
+
+        if(mrest.value.trim() == ''){
+            mrest.style="border:1px solid var(--color-primary-red) !important;";
+            document.getElementById("title-web").scrollIntoView({ behavior: 'smooth', block: 'start' });
+            containererror.innerHTML = "ERROR: Bloque "+i+", DESCANSO no se ha configurado";
+            containererror.style="display:block;"
+            return false;  
+        }else{
+            mrest.style="border:1px solid grey !important;";
+        }
+
+        if(mt1.value.trim() == ''){
+            mt1.style="border:1px solid var(--color-primary-red) !important;";
+            document.getElementById("title-web").scrollIntoView({ behavior: 'smooth', block: 'start' });
+            containererror.innerHTML = "ERROR: Bloque "+i+", ESTUDIO no se ha configurado";
+            containererror.style="display:block;"
+            return false;  
+        }else{
+            mt1.style="border:1px solid grey !important;";
+        }
+    
+    }
+    return true;
 }

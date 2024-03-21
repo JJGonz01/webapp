@@ -108,8 +108,17 @@ function selectCheckOptions(checkid){
 }
 
 function saveNewRule(){
-
+    var errorstext = document.getElementById("rule-errors");
     let name = document.getElementById("condition-name").value;
+
+    if(name.trim() == ''){
+        errorstext.innerHTML = "ERROR: La regla debe tener un nombre";
+        document.getElementById("condition-name").style="border: 1px solid var(--color-primary-red) !important";
+        return false;
+    }else{
+        document.getElementById("condition-name").style="border: 1px solid grey !important";
+    }
+
     let desc = document.getElementById("condition-description").value;
     let repetition = document.getElementById("repetition-condition").value;
     let comprobation = document.getElementById("input-moment-period").value;
@@ -134,9 +143,12 @@ function saveNewRule(){
     }
     else{
         periodo = "all";
-        console.log("ERROR NO HAY NINGUNO SELECCIONADO");
-        //return; TODO
+        errorstext.innerHTML = "ERROR: La regla debe tener un periodo de comprobación";
+        document.getElementById("period-comprobation-container").style="border: 5px solid var(--color-primary-red) !important";
+        return false;
     }
+    document.getElementById("period-comprobation-container").style="border: 1px solid grey !important";
+
 
     var momentoPeriodo = document.getElementById("input-moment-period").value;
     var condiciones = [];
@@ -180,25 +192,58 @@ function saveNewRule(){
     accionPrincipal.message = document.getElementById("message-primary").value;
     accionPrincipal.session = document.getElementById("accion-sesion-primary").value;
     accionPrincipal.extra_points = document.getElementById("input-points-primary").value;
+
+    if(accionPrincipal.extra_points.trim() == '' || !(/^\d+$/.test(accionPrincipal.extra_points))){
+        console.log( typeof accionPrincipal.extra_points);
+        errorstext.innerHTML = "ERROR: La acción primaria debe sumar o restar puntos (aunque sea 0)";
+        document.getElementById("input-points-primary").style="border: 5px solid var(--color-primary-red) !important";
+        return false;
+    }else{
+        document.getElementById("input-points-primary").style="border: 1px solid grey !important";
+    }
+
     accionPrincipal.extra_time = document.getElementById("input-time-primary").value;
+
+    if(accionPrincipal.extra_time.trim() == '' || !(/^\d+$/.test(accionPrincipal.extra_time))){
+        errorstext.innerHTML = "ERROR: La acción primaria debe sumar o restar minutos (aunque sea 0)";
+        document.getElementById("input-time-primary").style="border: 5px solid var(--color-primary-red) !important";
+        return false;
+    }else{
+        document.getElementById("input-time-primary").style="border: 1px solid grey !important";
+    }
+
     acciones.push(accionPrincipal);
 
-    if(document.getElementById("input-time-primary").checked){
+
+    if(document.getElementById("checkbox-accion-secundaria").checked){
         accionSecundaria = {};
-        accionSecundaria.message = document.getElementById("message-secondary").value;
+        
         accionSecundaria.session = document.getElementById("accion-sesion-secondary").value;
+        accionSecundaria.message = document.getElementById("message-secondary").value;
         let valsecpunt = document.getElementById("input-points-secondary").value;
+
+        if(valsecpunt.trim() == '' || !(/^\d+$/.test(valsecpunt))){
+            errorstext.innerHTML = "ERROR: La acción secundaria debe sumar o restar puntos (aunque sea 0)";
+            document.getElementById("input-points-secondary").style="border: 5px solid var(--color-primary-red) !important";
+            return false;
+        }else{
+            document.getElementById("input-points-secondary").style="border: 1px solid grey !important";
+        }
+
+        
         let valsectime =  document.getElementById("input-time-secondary").value; 
-        if(typeof valsecpunt != "number"){
+
+        if(valsectime.trim() == '' || !(/^\d+$/.test(valsectime))){
             accionSecundaria.extra_points = 0;
+            errorstext.innerHTML = "ERROR: La acción secundaria debe sumar o restar minutos (aunque sea 0)";
+            document.getElementById("input-time-secondary").style="border: 5px solid var(--color-primary-red) !important";
+            return false;
         }else{
-            accionSecundaria.extra_points = valsecpunt;
+            document.getElementById("input-time-secondary").style="border: 1px solid grey !important";
         }
-        if(typeof valsectime != "number"){
-            accionSecundaria.extra_time = 0;
-        }else{
-            accionSecundaria.extra_time = valsectime;
-        }
+
+        accionSecundaria.extra_points = valsecpunt;
+        accionSecundaria.extra_time = valsectime;
         acciones.push(accionSecundaria);
     }
 
@@ -226,7 +271,11 @@ function saveNewRule(){
 
 function showRulesInContainer(blockNumber){
     document.getElementById("condition-div").innerHTML = "";
-    document.getElementById("conditions-title").innerHTML = "Reglas del bloque "+blockNumber;
+    if(blockNumber == 0)
+        document.getElementById("conditions-title").innerHTML = "Reglas del bloque principal";
+    else
+        document.getElementById("conditions-title").innerHTML = "Reglas del bloque "+blockNumber;
+
     currentBlock = blockNumber;
     console.log(currentBlock);
     if(!mapaReglas[blockNumber]) return;

@@ -50,15 +50,27 @@ const htmlDicTest = {
         <p>
            Vamos a definir al niño que va a estar estudiando con la técnica pomodoro. Este niño es a quien vamos
            a medir las constantes, va a llevar el reloj, y va a tener las sesiones de estudio asignadas. 
-           Crea un nuevo "Paciente", con el nombre y apellidos que quieras, para posteriormente poder asignarle
+           Crea un nuevo "Estudiante", con el nombre y apellidos que quieras, para posteriormente poder asignarle
            terapias y sesiones.
         </p>
 
+        <p>
+           ¡RECUERDA!: Puedes cerrar esta pestaña en la x que aparece arriba a la derecha (imagen 1), y podrás abrir de nuevo esta pestaña de pruebas cuando lo necesites y cuando COMPLETES LAS TAREAS
+           pulsando el botón de abajo a la derecha con el símbolo de una lista (imagen 2). Sigue los pasos indicados abajo hasta que salgan en verde, o el botón se active a 
+           un azul más potente.
+        </p>
+        <div class="row" style="margin-bottom:10px;">
+            <div class="col-1"></div>
+            <img class="col-3" style="border:1px solid grey; width:100px;height:200px;"src = "http://localhost:8000/images/helptest2.png"></img>
+            <div class="col-2"></div>
+            <img class="col-3" style="border:1px solid grey; width:100px;height:200px;" src = "http://localhost:8000/images/helptest.png"></img>
+        </div>
+        <p>TAREAS: </p>
         <div class="">
             <div class="row span-test">
             <span id="span-test-1" style="font-family: Arial, FontAwesome;color:red; padding-right: 10px; padding-left: 10px;font-size:x-large;">&#xf057;</span>
                 <div class="text-center">
-                    <p> Ve a la pestaña de <a href="/patients">Pacientes</a> y crea un nuevo paciente</p>
+                    <p> Ve a la pestaña de <a href="/patients">Estudiante</a> y crea un nuevo estudiante (Ponle en nombre y apellidos que quieras) (GUÁRDALO)</p>
                 </div>
             </div>
         </div>
@@ -70,15 +82,14 @@ const htmlDicTest = {
     <img class="col-4" src="http://localhost:8000/images/kidthink.png">
     <div class="col-8">
     <div class="row">
-        <h2 class="col-md-10">Ahora... tu opinión sobre los pacientes</h2>
-        <div class="col-md-1"><button class="button-close-test" onclick="closeTestPopUp()">x</button></div>
+        <h2 class="col-md-10">Ahora... tu opinión sobre los estudiantes</h2>
     </div>
         <p>
            Cuentanos:
         </p>
         <div>
             <div class="form-group">
-                <label for="q0">¿Crees que "pacientes" es el mejor nombre para denominar a los niños?</label>
+                <label for="q0">¿Crees que "estudiantes" es el mejor nombre para denominar a los niños?</label>
                 <input id = "q0" name = "q0" class="form-control" placeholder="Tu respuesta aqui"></input>
             </div>
             <div class="form-group">
@@ -97,8 +108,8 @@ const htmlDicTest = {
         <div class="col-md-1"><button class="button-close-test" onclick="closeTestPopUp()">x</button></div>
     </div>
         <p>
-          La duración de las sesiones de estudio se define con un "Plan de estudio", el cual puede ser asignado a varios "Pacientes" o
-          a un "Paciente" en diferentes "sesiones de estudio". Estos "Planes de estudio" se componen de distintos "Bloques".
+          La duración de las sesiones de estudio se define con un "Plan de estudio", el cual puede ser asignado a varios "Estudiantes" o
+          a un "Estudiante" en diferentes "sesiones de estudio". Estos "Planes de estudio" se componen de distintos "Bloques".
           Los "Bloques" consisten en "Periodos" de estudio y descanso organizados alternativamente. El primer "Bloque" tiene tres
           periodos: un "Periodo de estudio", un "Periodo de descanso", y un último "Periodo de estudio". El resto de bloques se compone
           únicamente de un "Periodo de descanso" seguido de un "Periodo de estudio".
@@ -108,7 +119,7 @@ const htmlDicTest = {
             <div class="row span-test">
                 <span id="span-test-1" style="font-family: Arial, FontAwesome;color:red; padding-right: 10px; padding-left: 10px;font-size:x-large;">&#xf057;</span>
                 <div class="text-center">
-                    <p> Ve a la pestaña de <a href="/therapies">Planes de estudio </a> y crea un nuevo plan de estudio</p>
+                    <p> Ve a la pestaña de <a href="/therapies">Planes de estudio </a> y crea un nuevo plan de estudio. GUÁRDALO CUMPLIENDO LAS SIGUIENTES CONDICIONES:</p>
                 </div>
             </div>
 
@@ -127,7 +138,6 @@ const htmlDicTest = {
     <div class="col-8">
     <div class="row">
         <h2 class="col-md-10">Primera impresión de los planes de estudio</h2>
-        <div class="col-md-1"><button class="button-close-test" onclick="closeTestPopUp()">x</button></div>
     </div>
         <p>
            Cuentanos:
@@ -288,15 +298,14 @@ const htmlDicTest = {
     </div>
         <p>
           Un objetivo, una parte fundamental de por qué el niño trabaja, estudia o quiere aprender algo nuevo. Puedes establecer
-          objetivos con sus respectivos hitos (pasos para conseguirlo) en la pestaña del paciente (niño que acabamos de crear) .
+          objetivos con sus respectivos hitos (pasos para conseguirlo) en la pestaña del estudiante (niño que acabamos de crear) .
         </p>
 
         <div class="">
             <div class="row span-test">
                 <span id="span-test-1" style="font-family: Arial, FontAwesome;color:red; padding-right: 3px; padding-left: 10px;font-size:x-large;">&#xf057;</span>
                 <div>
-                    <p> Ve a la pestaña de <a href="/patients">Pacientes </a>, accede al paciente creado y crea un nuevo
-                    OBJETIVO tal que:</p>
+                    <p> Ve a la pestaña de <a href="/patients">Estudiantes </a>, accede al estudiante creado y crea un nuevo OBJETIVO tal que:</p>
                 </div>
             </div>
 
@@ -310,14 +319,14 @@ const htmlDicTest = {
             <div class="row span-test">
                 <span class="col-md-1" id="span-test-2" style="font-family: Arial, FontAwesome;color:red; padding-right: 10px; padding-left: 10px;font-size:x-large;">&#xf057;</span>
                 <div class="col-md-11">
-                    <p>Confirma que sea un objetivo escolar, y llámalo EXÁMEN</p>
+                    <p>Confirma que sea un objetivo ESCOLAR, y llámalo "EXÁMEN"</p>
                 </div>
             </div>
 
             <div class="row span-test">
                 <span class="col-md-1" id="span-test-3" style="font-family: Arial, FontAwesome;color:red; padding-right: 10px; padding-left: 10px;font-size:x-large;">&#xf057;</span>
                 <div class="col-md-11">
-                    <p>Este exámen tendrá como hitos los distintos temas que estudiar, añade hitos para crear el Tema 1, Tema 2 y Tema 3</p>
+                    <p>Este exámen tendrá como hitos los distintos temas que estudiar, añade hitos con los nombres "Tema 1", "Tema 2" y "Tema 3"</p>
                 </div>
             </div>
 
@@ -364,7 +373,7 @@ const htmlDicTest = {
             <div class="row span-test">
                 <span id="span-test-1" style="font-family: Arial, FontAwesome;color:red; padding-right: 3px; padding-left: 10px;font-size:x-large;">&#xf057;</span>
                 <div>
-                    <p> Ve a la pestaña de <a href="/patients">Pacientes </a>, accede al paciente creado y crea una sesión nueva:</p>
+                    <p> Ve a la pestaña de <a href="/patients">Estudiantes </a>, accede al estudiante creado y crea una sesión nueva:</p>
                 </div>
             </div>
 
@@ -399,7 +408,7 @@ const htmlDicTest = {
         <h2>¡Probemoslo en el reloj!</h2>
         <p>
            Has asignado la sesión al estudiante, con sus condiciones y su plan de estudio correspondiente... ¡Toca probar la sesión!
-           Entra en el reloj, e introduce la sesión del paciente que acabas de crear (ID DEL PACIENTE: 1), y espera a que llegue la hora asiganda.
+           Entra en el reloj, e introduce la sesión del estudiante que acabas de crear (ID DEL ESTUDIANTE APARECE ARRIBA DE LA PESTAÑA DE TU ESTUDIANTE), y espera a que llegue la hora asiganda.
            Ve paso a paso por la sesión, y cuando finalice, pulsa el siguiente botón:
         </p>
         <div class="text-end"><button id="button-start-test" onclick="setNextStep()" class="text-end button-next-test">Ha terminado la sesión en el reloj</button></div>
@@ -415,25 +424,23 @@ const htmlDicTest = {
         </p>
         <div>
             <div class="form-group">
-                <label for="q0">¿Crees que los mensajes de comenzar y terminar son adecuados?
+                <label for="q0">¿Crees que los mensajes de comenzar y terminar cada periodo son adecuados?
                 </label>
                 <input id = "q0" name = "q0" class="form-control" placeholder="Tu respuesta aqui"></input>
             </div>
 
             <div class="form-group">
-                <label for="q1">¿Crees que un audio de relajación antes de la sesión es necesaria?</label>
+                <label for="q1">¿Crees que el de relajación antes de la sesión beneficiaría al estudiante para estar más tranquilo durante el estudio?</label>
                 <input id = "q1" name = "q1" class="form-control" placeholder="Tu respuesta aqui"></input>
             </div>
             
             <div class="form-group">
-                <label for="q2">¿Es fácil de manejar y moverse a través de los distintos periodos?</label>
+                <label for="q2">¿Crees que el estudiante podría beneficiarse de tener una sesión de estudio con tiempos marcados y con descansos intercalados?</label>
                 <input id = "q2" name = "q2" class="form-control" placeholder="Tu respuesta aqui"></input>
             </div>
 
             <div class="form-group">
-                <label for="q3">¿Añadirías alguna información a mostrar adicional?
-                ¿Añadirías alguna otra?
-                </label>
+                <label for="q3">¿Opinas que los mensajes que envía el reloj al estudiante podrían motivarlo, ayudarle y/o apoyarlo durante el estudio?</label>
                 <input id = "q3" name = "q3" class="form-control" placeholder="Tu respuesta aqui"></input>
             </div>
         </div>
@@ -448,7 +455,7 @@ const htmlDicTest = {
             <div class="col-md-1"><button class="button-close-test" onclick="closeTestPopUp()">x</button></div>
         </div>
         <p>
-           Busca la sesión en la pestaña del paciente que acabas de crear, y observa los resultados.
+           Busca la sesión en la pestaña del estudiante que acabas de crear, y observa los resultados.
         </p>
         <div class="text-end"><button id="button-start-test" onclick="setNextStep()" class="text-end button-next-test">He observado los resultados</button></div>
     </div>        
@@ -481,9 +488,7 @@ const htmlDicTest = {
             </div>
 
             <div class="form-group">
-                <label for="i1">¿Añadirías alguna información a mostrar adicional?
-                ¿Añadirías alguna otra?
-                </label>
+                <label for="i1">¿Añadirías alguna información a mostrar adicional?</label>
                 <input id = "q3" name = "i1" class="form-control" placeholder="Tu respuesta aqui"></input>
             </div>
         </div>
@@ -514,13 +519,20 @@ function startTest(step){
     console.log(step);
     document.getElementById("test-content").innerHTML = htmlDicTest[""+currentStep];
     var stepsWithTasks = [2, 4, 7, 10, 13];
-    var stepsClosable = [2,3,4,5,7,10,13,16,18];
+    var stepsClosable = [2,4,7,10,13,16,18];
 
     if(stepsWithTasks.includes(currentStep))
         checkTest(currentStep);
 
     if(stepsClosable.includes(currentStep))
         closeTestPopUp();
+    else
+        openTestPopUp();
+
+
+    if(window.location.pathname.includes("createtherapy") && currentStep == 4){
+        listenerStep4();
+    }
 
     if(window.location.pathname.includes("createtherapy") && currentStep == 7){
         checkStepsIn6();
@@ -703,6 +715,36 @@ function checkStep(rsp){
     }
 }
 
+function listenerStep4(){
+    document.getElementById("therapy-name").addEventListener('input',function(event){
+        if(event.target.value.trim() != ''){
+            document.getElementById("span-test-4").innerHTML = "&#xf058;";
+            document.getElementById("span-test-4").style = "font-family: Arial, FontAwesome;color:green; padding-right: 10px; padding-left: 10px;font-size:x-large;";
+        }
+      });
+
+    document.getElementById("mb_t1").addEventListener('input',function(event){
+        if(checkValuesIn4()){
+            document.getElementById("span-test-2").innerHTML = "&#xf058;";
+            document.getElementById("span-test-2").style = "font-family: Arial, FontAwesome;color:green; padding-right: 10px; padding-left: 10px;font-size:x-large;";
+        }
+      });
+    document.getElementById("mb_t2").addEventListener('input',function(event){
+        if(checkValuesIn4()){
+            document.getElementById("span-test-2").innerHTML = "&#xf058;";
+            document.getElementById("span-test-2").style = "font-family: Arial, FontAwesome;color:green; padding-right: 10px; padding-left: 10px;font-size:x-large;";
+     
+        }
+      });
+    document.getElementById("mb_rest").addEventListener('input',function(event){
+        if(checkValuesIn4()){
+            document.getElementById("span-test-2").innerHTML = "&#xf058;";
+            document.getElementById("span-test-2").style = "font-family: Arial, FontAwesome;color:green; padding-right: 10px; padding-left: 10px;font-size:x-large;";
+        }
+      });
+    
+    }
+
 function checkStepsIn6(){
     document.getElementById("therapy-name").addEventListener('input',function(event){
         if(event.target.value.toLowerCase() == "plan con reglas"){
@@ -784,8 +826,48 @@ function checkValues(){
         return false;
     }
 }
+function testlistenersin4(){
+    if(currentStep != 4)
+        return;
 
+    document.getElementById("c1-t1").addEventListener('input',function(event){
+        if(checkValuesIn4()){
+            document.getElementById("span-test-2").innerHTML = "&#xf058;";
+            document.getElementById("span-test-2").style = "font-family: Arial, FontAwesome;color:green; padding-right: 10px; padding-left: 10px;font-size:x-large;";
+        
+        }
+        });
 
+    document.getElementById("c1-rest").addEventListener('input',function(event){
+        if(checkValuesIn4()){
+            document.getElementById("span-test-2").innerHTML = "&#xf058;";
+            document.getElementById("span-test-2").style = "font-family: Arial, FontAwesome;color:green; padding-right: 10px; padding-left: 10px;font-size:x-large;";
+        
+        }
+    });
+}
+function checkValuesIn4(){
+    console.log("hola");
+    var input =  document.getElementById("mb_t1").value;
+    var input2 =  document.getElementById("mb_t2").value;
+    var input3 =  document.getElementById("mb_rest").value;
+
+    if(input != "5" || input3 != "3" || input2 != "5"){
+        return false;
+    }
+    console.log("hola2");
+
+    var input4 =  document.getElementById("c1-t1");
+    var input5 =  document.getElementById("c1-rest");
+    
+    if(input4 != null && input5 != null){
+        console.log("hsda");
+        if(input4.value == "5" && input5.value == "3"){
+            return true;
+        }
+    }
+    return false;
+}
 
 function setBackToWrong(){
     document.getElementById("span-test-4").innerHTML = "&#xf057;";

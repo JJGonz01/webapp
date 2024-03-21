@@ -191,3 +191,84 @@ function filterbystate(state) {
   function openPopUpGuide(){
     document.getElementById("popup-guide").style = "display:fixed;";
   }
+
+  function openObjectivePopUp(){
+    document.getElementById("popup-objective").style = "display:fixed;";
+
+  }
+  function closeObjectivePopUp(){
+    document.getElementById("popup-objective").style = "display:none;";
+  }
+
+  function objectiveMenu(objetivesid){
+    openObjectivePopUp();
+    var objetives = JSON.parse(document.getElementById("objectives").content);
+    var objetivesidlc = 0;
+    console.log(objetives);
+
+    for(let i = 0; i<objetives.length; i++){
+        if(objetives[i]["id"] == objetivesid){
+            objetivesidlc = i;
+            break;
+        }
+    }
+    document.getElementById("objective-name").innerHTML = objetives[objetivesidlc]["name"];
+    document.getElementById("objective-date").innerHTML = "Fecha objetivo: " +objetives[objetivesidlc]["date_end"];
+    var steps = JSON.parse(objetives[objetivesidlc]["steps"]);
+    var container = document.getElementById("milestones-container-popup");
+
+    container.innerHTML = `<h3>Recompensa: ${objetives[objetivesidlc]["reward_name"]}</h3>`;
+    let i = 0;
+    steps.forEach(step => {
+        let desc = 'Sin descripción';
+        i++;
+        console.log(step)
+        if(typeof step["comentary"] !== "undefined"){
+            desc = `${step["comentary"]}`;
+        }
+        let html = `
+        <div class="row" style="margin-top:20px;">
+            <p class="col-md-2">#${i}</p>
+            <p class="col-md-2">${step["name"]}</p>
+            <p class="col-md-2">${desc}</p>
+            <button onclick = "changesState(this)" class="button-objective-next-step">Completar</button>
+        </div>
+        `
+        container.innerHTML += html;
+    });
+
+    container.innerHTML += `
+      <button class="button-objective-next-step" onclick="closeObjectivePopUp()">Guardar</button>
+      <button class="button-objective-cancel-step" onclick="closeObjectivePopUp()">Cancelar</button>
+    `
+  }
+
+
+  function changesState(button) {
+    if (button.className == "button-objective-next-step") {
+        button.className = "button-objective-completed-step";
+        button.innerHTML = "Completado";
+        button.addEventListener('mouseenter', mouseEnterHandler);
+        button.addEventListener('mouseleave', mouseLeaveHandler);
+    } else {
+        button.removeEventListener('mouseenter', mouseEnterHandler);
+        button.removeEventListener('mouseleave', mouseLeaveHandler);
+
+        button.style.background = "var(--color-primary-light-blue)";
+        button.className = "button-objective-next-step";
+        button.innerHTML = "Completar";
+    }
+}
+
+function mouseEnterHandler() {
+    changeButtonInnerHTML(this, "CANCELAR", "var(--color-primary-red)");
+}
+
+function mouseLeaveHandler() {
+    changeButtonInnerHTML(this, "Completado", "var(--color-primary-green)");
+}
+
+function changeButtonInnerHTML(button, text, color) {
+    button.innerHTML = text;
+    button.style.background = color;
+}

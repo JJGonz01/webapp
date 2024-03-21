@@ -17,19 +17,13 @@
 
 <body>
 
-<div class="test-icon-container-help" id="">
-    <button onclick="openTestPopUp()">    
-        <span style="font-family: Arial, FontAwesome; font-size:larger">&#x3f;</span>
-    </button>
-</div>
-
 <div class="test-icon-container" id="">
     <button onclick="openTestPopUp()">    
-        <span style="font-family: Arial, FontAwesome; font-size:larger">&#xf0ae;</span>
+        <span style="font-family: Arial, FontAwesome; font-size:larger">&#xf03a;</span>
     </button>
 </div>
 
-<div class="test-container" id="popup-test-content-container" style="display:fixed;">
+<div class="test-container" id="popup-test-content-container" style="display:none;">
     <div class="test-container-content">
         <div class="row" id="test-content">
             <img class="col-4" src="{{asset('/images/kidtest.png')}}">
@@ -100,7 +94,7 @@
                 <div class="containter container-title">
                     <div class="row">
                         <div class="col-md-6">
-                            <div class="title">
+                            <div class="title" id="title-web">
                                 <h1>Dashboard</h1>
                                 <p>General</p>
                             </div>  

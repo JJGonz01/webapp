@@ -1,5 +1,31 @@
 function openRulesPopUp(){
     document.getElementById("popup").style="display:fixed;";
+    document.getElementById("container-condition-heart").className = "row rule-block container-deselected";
+    document.getElementById("div-container-movement").className = "row rule-block container-deselected";
+    document.getElementById("div-secondary-action").className = "row rule-block container-deselected";
+
+    document.getElementById("checkbox-condition-heart").checked = false;
+
+    document.getElementById("checkbox-condition-movement").checked = false;
+
+    document.getElementById("checkbox-accion-secundaria").checked = false;
+
+    document.getElementById("ch-heart-value").checked = false;
+    document.getElementById("ch-heart-value").disabled = true;
+
+    document.getElementById("ch-heart-tendency").checked = false;
+    document.getElementById("ch-heart-tendency").disabled = true;
+
+    document.getElementById("ch-move-value").checked = false;
+    document.getElementById("ch-move-value").disabled = true;
+
+    document.getElementById("ch-move-tendency").checked = false;
+    document.getElementById("ch-move-tendency").disabled = true;
+
+    deselectCondition("container-condition-heart");
+    deselectCondition("div-container-movement");
+    deselectCondition("div-secondary-action");
+
 }
 
 function closeRulesPopUp(){
