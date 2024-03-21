@@ -14,10 +14,10 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Sofia">
     <!-- CSS -->
-    <link rel="stylesheet" href="https://www.pomodoro.ovh/css/auth/auth.css">
-    <link rel="stylesheet" href="https://www.pomodoro.ovh/css/auth/test.css">
+    <link rel="stylesheet" type="text/css" href="https://www.pomodoro.ovh/css/auth/auth.css">
+    <link rel="stylesheet" type="text/css" href="https://www.pomodoro.ovh/css/auth/test.css">
 
 </head>
 <body>
