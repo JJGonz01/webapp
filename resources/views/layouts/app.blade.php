@@ -16,8 +16,8 @@
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
     <!-- CSS -->
-    <link rel="stylesheet" href="https://pomodoro.ovh/css/auth/auth.css">
-    <link rel="stylesheet" href="https://pomodoro.ovh/css/auth/test.css">
+    <link rel="stylesheet" href="https://www.pomodoro.ovh/css/auth/auth.css">
+    <link rel="stylesheet" href="https://www.pomodoro.ovh/css/auth/test.css">
 
 </head>
 <body>
@@ -39,7 +39,7 @@
                            
                         @else
                         <div class="container-logo">
-                            <img id="img-logo" src="https://pomodoro.ovh/images/logorm.png">
+                            <img id="img-logo" src="https://www.pomodoro.ovh/images/logorm.png">
                         </div>
                         <div class="container-login">
                             <div class="container-change-login">
