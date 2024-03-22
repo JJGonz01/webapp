@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\patient;
-use App\Models\user;
+use App\Models\User;
 use App\Models\Therapy;
 use App\Models\SessionPeriod;
 use App\Models\Testdata;
@@ -289,7 +289,7 @@ class TestController extends Controller
 
     public function testadmin(){
         $testdatas = Testdata::all();
-        $users = user::all();
+        $users = User::all();
         return view('admin',  ['results' => $testdatas, 'users' => $users]);
     }
 
