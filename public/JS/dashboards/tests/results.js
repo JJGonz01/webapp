@@ -93,4 +93,69 @@ function showUSE(){
     }
 
     container.innerHTML = htmluse;
+
+    showQuestions(questionsdicPacientes, 2, "pacientes");
+    showQuestions(questionsPlanes, 4, "planes");
+    showQuestions(questionsReglas, 5, "reglas");
+    showQuestions(questionsReloj, 4, "reloj");
+    showQuestions(questionsResultados, 2, "resultados");
 }
+
+function showQuestions(questions, numberofquestions, indextext){
+    var container = document.getElementById("results-container");
+    var use = JSON.parse(json[currentUser]["actions"])[indextext];
+    console.log(use);
+    let htmluse = `
+        <h3>${indextext}</h3>
+    `;
+
+    for(let i = 0; i<numberofquestions;i++){
+        let response = use[indextext+i];
+        if(response == null){
+            response = "Sin responder";
+        }
+        htmluse += `
+        <h6>${i}) ${questions[i]}</h6>
+        `;
+
+        htmluse += `
+        <p style="margin-left:30px;">RESPUESTA: ${response}</p>
+        `;
+    }
+
+    container.innerHTML += htmluse;
+}
+
+questionsdicPacientes = [ //pacientes
+    '¿Crees que "estudiantes" es el mejor nombre para denominar a los niños?',
+    '¿Qué información mínima y esencial añadirías para hacer el perfil del niño más completo?'
+];
+
+questionsPlanes = [ //planes
+    '¿Crees que es útil que los "Planes de estudio" sean reutilizables?',
+    '¿Es fácil de entender la gestión de "Planes de estudio"?¿Hay algún concepto que no se entiende adecuadamente?',
+    '¿Es fácil de manejar la gestión de "Planes de estudio"?',
+    '¿Cambiarias algo en la gestión de los planes de estudio?'
+];
+
+questionsReglas = [ //reglas
+    '¿Crees que la definición de reglas para activar acciones durante el periodo de estudio es útil?',
+    '¿Es fácil entender la gestión de reglas?',
+    '¿Es fácil de manejar la gestión de "Reglas"?',
+    '¿Crees que las variables (ritmo cardíaco y movimiento) que utilizamos para analizar el estado de ánimo del niño son adecuadas?¿Añadirías alguna otra?',
+    '¿Cambiarias algo en la gestión de reglas?'
+];
+
+questionsReloj = [ //reloj
+    '¿Crees que los mensajes de comenzar y terminar cada periodo son adecuados?',
+    '¿Crees que el de relajación antes de la sesión beneficiaría al estudiante para estar más tranquilo durante el estudio?',
+    '¿Crees que el estudiante podría beneficiarse de tener una sesión de estudio con tiempos marcados y con descansos intercalados?',
+    '¿Opinas que los mensajes que envía el reloj al estudiante podrían motivarlo, ayudarle y/o apoyarlo durante el estudio?'
+];
+
+questionsResultados = [ //resultados
+    '¿Crees que la información recogida durante la sesión es útil?',
+    '¿Es fácil entender los resultados obtenidos?',
+    '¿Es fácil de manejar y moverse a través de los distintos periodos?',
+    '¿Añadirías alguna información a mostrar adicional?'
+];

@@ -6,13 +6,11 @@
     <title>PACIENTES</title>
     <link rel="stylesheet" href="https://pomodoro.ovh/css/dashboards/patients.css">
     <link rel="stylesheet" href="https://pomodoro.ovh/css/dashboards/patients/create-patient.css">
-    <script src="{{asset('JS/dashboards/tests/results.js')}}"></script>
+    <script src="https://pomodoro.ovh/JS/dashboards/tests/results.js"></script>
     <meta  name="results" id="results" content="{{ $results }}"></meta>
 </head>
 
-
 <body>
-
     <h1>Resultados tests</h1>
     <div class="mb-3 mt-10">
         <label for="admin" class="form-label">Introduce contraseña de administrador</label>
