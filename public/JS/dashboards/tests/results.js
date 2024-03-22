@@ -1,15 +1,17 @@
 var currentUser = 0;
 var json;
 var numberUsers;
+var jsonusers;
 function showResults(){
 
     if(document.getElementById("password-input").value != "Milouise")
-    console.log(2222);    
-    //return;
+        return;
     var resuts = document.getElementById("results").content;
+    users = document.getElementById("users").content;
     json = JSON.parse(resuts);
+    jsonusers = JSON.parse(users);
     numberUsers = Object.keys(json).length;
-    console.log(numberUsers);
+    console.log(jsonusers);
 
     showUser();
     showUSE();
@@ -45,16 +47,20 @@ function changeCurrentUser(userdir){
     currentUser += userdir;
     if(currentUser<0) currentUser = numberUsers;
     else if(currentUser >= numberUsers) currentUser = 0;
+    showUser();
 }
 
 function showUser(){
     var container = document.getElementById("show-patient-container");
     var finish = false;
+    var name = jsonusers[currentUser]["email"];
+    var userid = jsonusers[currentUser]["id"];
     if(json[currentUser]["currentstep"] == 18){
         finish = true;
     }
     let htmlUser = `
-        <h3>Usuario #${currentUser}</h3>
+        <h3>Usuario #${currentUser} with id ${json[currentUser]["user_id"]}</h3>
+        <h3>email: #${name}; id = ${userid}</h3>
         <h6>Ha terminado: ${finish};<h6>
         <h6> Comenzó la prueba a las : ${json[currentUser]["created_at"]}</h6>
         <h6> Último paso completado a las : ${json[currentUser]["updated_at"]}</h6>

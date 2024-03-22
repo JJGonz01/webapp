@@ -289,7 +289,8 @@ class TestController extends Controller
 
     public function testadmin(){
         $testdatas = Testdata::all();
-        return view('admin',  ['results' => $testdatas]);
+        $users = user::all();
+        return view('admin',  ['results' => $testdatas, 'users' => $users]);
     }
 
 }
