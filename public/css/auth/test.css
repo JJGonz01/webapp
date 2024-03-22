@@ -160,3 +160,13 @@
 .rating-button:hover {
     background-color: #ccc;
 }
+
+@media (max-height:800px) {
+    .popup-test-content img{
+        height: auto;
+    }
+
+    .test-container-content p{
+        font-size: medium !important;
+    }
+}
