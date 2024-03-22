@@ -31,20 +31,11 @@ const htmlDicTest = {
         <h2 class="col-md-10">Cuestionario 'USE' ¿Qué te parece la herramienta?</h2>
     </div>
         <p>
-           Cuentanos: 
+           Cuentanos: (Responde a las 22 preguntas, puede subir y bajar con la barra de la derecha de estas preguntas)
         </p>
-        <form action=""https://pomodoro.ovh/nextstep/22" id="form-use" method="GET">
-            <div id="use-div-questions" style="overflow-y:auto; height:400px;padding:10px;">
-            </div>
-            <div class="form-check" style="border-top:1 solid grey; margin-top:20px;">
-                <input class="form-check-input" type="checkbox" value="" id="checkboxTestReady">
-                <label class="form-check-label" for="flexCheckChecked" type="button">
-                    He respondido las preguntas, y he terminado el cuestionario.
-                </label>
-            </div>
-        </form>
-    
-        <div class="text-end" ><button id="button-start-test" onclick="sendUSE();" class="text-end button-next-test-disabled">Enviar cuestionario</button></div>
+        <div id="use-div-questions" style="overflow-y:auto; height:400px;padding:10px;">
+        </div>
+        
     </div>        
     `, 
     "2": `
@@ -60,18 +51,11 @@ const htmlDicTest = {
            Crea un nuevo "Estudiante", con el nombre y apellidos que quieras, para posteriormente poder asignarle
            terapias y sesiones.
         </p>
-
         <p>
-           ¡RECUERDA!: Puedes cerrar esta pestaña en la x que aparece arriba a la derecha (imagen 1), y podrás abrir de nuevo esta pestaña de pruebas cuando lo necesites y cuando COMPLETES LAS TAREAS
-           pulsando el botón de abajo a la derecha con el símbolo de una lista (imagen 2). Sigue los pasos indicados abajo hasta que salgan en verde, o el botón se active a 
+           ¡RECUERDA!: Puedes cerrar esta pestaña en la x que aparece arriba a la derecha, y podrás abrir de nuevo esta pestaña de pruebas cuando lo necesites y cuando COMPLETES LAS TAREAS
+           pulsando el botón de abajo a la derecha con el símbolo de una lista. Sigue los pasos indicados abajo hasta que salgan en verde, o el botón se active a 
            un azul más potente.
         </p>
-        <div class="row" style="margin-bottom:10px;">
-            <div class="col-1"></div>
-            <img class="col-3" style="border:1px solid grey; width:100px;height:200px;"src = "https://pomodoro.ovh/images/helptest2.png"></img>
-            <div class="col-2"></div>
-            <img class="col-3" style="border:1px solid grey; width:100px;height:200px;" src = "https://pomodoro.ovh/images/helptest.png"></img>
-        </div>
         <p>TAREAS: </p>
         <div class="">
             <div class="row span-test">
@@ -1030,8 +1014,20 @@ function setUSEquestionare(){
                 </div>
             </div>
         `;
+
         divquestions.innerHTML += html;
+        
     }
+    divquestions.innerHTML += `
+            <div class="form-check" style="border-top:1 solid grey; margin-top:20px;">
+                <input class="form-check-input" type="checkbox" value="" id="checkboxTestReady">
+                <label class="form-check-label" for="flexCheckChecked" type="button">
+                    He respondido las preguntas, y he terminado el cuestionario.
+                </label>
+            </div>
+        
+            <div class="text-end" ><button id="button-start-test" onclick="sendUSE();" class="text-end button-next-test-disabled">Enviar cuestionario</button></div>
+        `
 }
 
 function sendUSE(){
